@@ -1,0 +1,81 @@
+<html ><head><title>ZenoFon - My account - Log-in</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+<form class=clear action=%my_url% method=post target=_top>
+<div style="padding:0px;">
+	<h3>Request your lost PIN</h3>  	
+	<div class=clear style="width:350px; ">
+		You can request your PIN in case you dont remember. 
+		Your PIN is your key to control your Zenofon account, save in a safe place.
+		<br><br>
+
+		<fieldset style="padding:20px;">
+		<div >
+			<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+				<tr>
+					<td valign=top>
+					<img src=/design/img/service.pbx.icon.lock.png vspace=5 hspace=5 border=0 align=left  /><br>
+					</td>
+					<td valign=top style=padding-left:30px;>
+						<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter your phone number (Number you call from) and security code to start PIN request.<br></span>
+						<br>
+						<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+							<tr>
+							<td>Phone&nbsp;number:&nbsp;</td>
+							<td width=100%><input type="text" name="query" id=query  style="width:100%;"></td>
+							</tr>
+							<tr>
+							<td valign=top>Security&nbsp;code</td>
+							<td width=100%>
+							    <div class=clear style="width:100%;">
+							    <div class=clear style="width:100%; border:1px solid #c0c0c0; background-color:#ffffff;">
+								<img src="%my_url%?action=imagecheck&id=%img_uid%" hspace=3 align=right vspace=5 border=0>
+								<input type=text value="" name="img_key" autocomplete="off" style="width:50px; float:left; border:0px; height:42px;">
+								<br clear=both>
+							    </div>
+							    </div>
+							    <input type="hidden" name="img_uid" value="%img_uid%" >
+							</td>
+							</tr>
+						</table>
+						<br>
+						<a href="%my_url%?action=login" style="font-size:11px; color:#A4B7BE; line-height:110%;">Cancel</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		</fieldset>
+		<br>
+
+
+	    <TMPL_IF NAME="error">
+			<div class=error_box style="width:250px; float:right;"><div class=error_box_inside>
+	    	Incorrect phone number, email, PIN or security code.
+	    	</div></div>
+			<br clear=both><br>
+	    </TMPL_IF>
+
+		<button class=eyecandy-button style="width:250px;float:right;" type=submit>Request your PIN &#187;</button>
+		<input type=hidden name=action value=login_restore >
+		<br clear=both><br>
+
+	    <br>
+	    <h1>You can also...</h1>
+		<a href="%my_url%?action=login" >&#187; Cancel PIN request</a><br>
+	    <a href=%my_url%?action=service_add>&#187; Create your ZenoFon account</a><br>
+	    <a href=/>&#187; Learn about zenofon services</a><br>
+		<br>
+		
+
+	</div>
+</div>
+</form>
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

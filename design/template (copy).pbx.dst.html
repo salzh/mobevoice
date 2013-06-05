@@ -1,0 +1,241 @@
+<html ><head><title>ZenoFon - My account - Edit contact</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<a href=./?action=logout		title="Log-out" 							class="st-item" style="float:right; padding-top:5px; color:#AFBEC9;"><img src=/design/img/st-exit.png hspace=0 vspace=0 border=0><br>Log-out</a>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+
+
+<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+<td valign=top width=40%>
+
+
+		<!-- how to dial -->
+		<h2>How to contact <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>this contact</TMPL_IF></h2>
+		Just dial <b>
+		<!-- Quick callback list -->
+		<TMPL_IF NAME="index_1_is_active">(646)434-4612</TMPL_IF>
+		<TMPL_IF NAME="index_2_is_active">(646)434-4613</TMPL_IF>
+		<TMPL_IF NAME="index_3_is_active">(646)434-4614</TMPL_IF>
+		<TMPL_IF NAME="index_4_is_active">(646)434-4615</TMPL_IF>
+		<TMPL_IF NAME="index_5_is_active">(646)434-4616</TMPL_IF>
+		<TMPL_IF NAME="index_6_is_active">(646)434-4617</TMPL_IF>
+		<TMPL_IF NAME="index_7_is_active">(646)434-4618</TMPL_IF>
+		<TMPL_IF NAME="index_8_is_active">(646)434-4619</TMPL_IF>
+		<TMPL_IF NAME="index_9_is_active">(646)434-4620</TMPL_IF>
+		<TMPL_IF NAME="index_10_is_active">(646)434-4621</TMPL_IF>
+		<TMPL_IF NAME="index_11_is_active">(646)434-4622</TMPL_IF>
+		<TMPL_IF NAME="index_12_is_active">(646)434-4623</TMPL_IF>
+		<TMPL_IF NAME="index_13_is_active">(646)434-4624</TMPL_IF>
+		<TMPL_IF NAME="index_14_is_active">(646)434-4625</TMPL_IF>
+		<TMPL_IF NAME="index_15_is_active">(646)434-4626</TMPL_IF>
+		<TMPL_IF NAME="index_16_is_active">(646)434-4627</TMPL_IF>
+		<TMPL_IF NAME="index_17_is_active">(646)434-4628</TMPL_IF>
+		<TMPL_IF NAME="index_18_is_active">(646)434-4629</TMPL_IF>
+		<TMPL_IF NAME="index_19_is_active">(646)434-4630</TMPL_IF>
+		<TMPL_IF NAME="index_20_is_active">(646)434-4631</TMPL_IF>
+		<TMPL_IF NAME="index_21_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_22_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_23_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_24_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_25_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_26_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_27_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_28_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_29_is_active">(not available)</TMPL_IF>
+		<TMPL_IF NAME="index_30_is_active">(not available)</TMPL_IF>
+		</b>.  
+You will hear a bip bip and then a message “Zenofon is now connecting the call”, 
+If you stay on the line after the bip bip, ZenoFon will connect you to <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>your contact.</TMPL_IF>.<br>
+<br>
+If you want to ZenoFon to call you back, hang up as soon as you hear the first bip bip. 
+In 12 seconds ZenoFon will call you back (with any caller ID you choose) and  connect you to <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>your contact.</TMPL_IF>.<br>
+		<br>
+		
+
+
+
+		<!-- Price -->
+		<h2>How much?</h2>
+		<TMPL_IF NAME="billing_number_ok">
+			Should you call <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>this contact</TMPL_IF> at %billing_number%,  
+			this number is located in '%billing_country_name% (%billing_country_code%)'
+			<TMPL_IF NAME="billing_rate_found">
+				. Zenofon bills it as '%billing_rate_name%' 
+				and our rate is <b>$%billing_rate_per_minute% per minute.</b> 
+				You can speak for %billing_duration_per_1_dollar% for each $1,00 
+				and the cost to speak for one hour is  $%billing_value_per_hour% 
+				(Prices subject to change without notice)
+			<TMPL_ELSE>
+				 <b>but call will be rejected because we have no rate to this location</b>.
+			</TMPL_IF>
+		<TMPL_ELSE>
+			Either you didn't enter a number yet or you entered a number incorrectly.
+			Enter a correct number and check again.
+		</TMPL_IF>
+		
+
+</td>
+<td><img src=/design/img/spc.gif width=10 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=60% >
+
+		
+		
+		<a name=advanced_close></a>
+		<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:100%; background-image:url('/design/img/box-bg.gif');background-repeat:repeat;">
+			<tr>
+			<td valign=top class=clear><img src=/design/img/box-edge-1.gif align=left width=8 height=8 hspace=0 vspace=0 border=0></td>
+			<td valign=top width=100% class=clear >
+			<div class=clear style="padding:10px; padding-bottom:20px; padding-top:20px; ">
+		
+				<!-- edit form -->
+				<h2>Edit this contact</h2><br>
+				<form action=%my_url% method=post class=clear >
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<td width=50% valign=top >
+						<h1>Contact's name</h1>
+						Enter this contact's name. This field is for your eyes only and does not affect how the call gets dialed.<br>
+						<input width=100% style='width:100%' name=name	value='%name%'>
+					</td>
+					<td><img src=/design/img/spc.gif width=15 height=1 hspace=0 vspace=0 border=0></td>
+					<td width=50% valign=top>
+						<h1>Contact's phone number</h1>
+						Please enter 1+10 digits for USA numbers  or 011 + country code for international numbers.<br>
+						<input width=100% style='width:100%' name=number	value='%number%'><br>
+					</td>
+					</table>
+					<br>
+						
+						
+					<script>
+					function advanced_open() {MyDisplay('advanced_div_close',0);MyDisplay('advanced_div_open',1)}
+					function advanced_close(){MyDisplay('advanced_div_close',1);MyDisplay('advanced_div_open',0)}
+					</script>
+					<div class=clear id=advanced_div_close>
+					<b><a href="javascript:advanced_open();"><img src=/design/icons/bullet_arrow_right.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Advanced</a></b><br>
+					<br>
+					</div>
+					<div class=clear id=advanced_div_open style="display:none">
+					<b><a href="javascript:advanced_close();"><img src=/design/icons/bullet_arrow_down.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Close advanced</a></b><br>
+					<div class=clear style="width:220px; ">
+					<div class=clear style="margin-left:5px; border-left:5px solid #c0c0c0;">
+					<div class=clear style="padding-left:6px; padding-top:5px;padding-bottom:5px;">
+						<h1>Carrier</h1>
+						This field is for internal use only and does not affect how the call gets dialed.<br>
+						<select width=100% style='width:100%' name=carrier>
+						<option value=''>:: carrier ::</option>
+						<option value=''> </option>
+						<option <TMPL_IF NAME="carriers_list_UNKNOWN_is_selected">selected</TMPL_IF>		value='UNKNOWN'>Unknown</option>
+						<option <TMPL_IF NAME="carriers_list_LANDLINE_is_selected">selected</TMPL_IF>		value='LANDLINE'>Landline</option>
+						<option <TMPL_IF NAME="carriers_list_NOTLISTED_is_selected">selected</TMPL_IF>		value='NOTLISTED'>Not listed</option>
+						<option value=''> </option>
+						<option <TMPL_IF NAME="carriers_list_USAATT_is_selected">selected</TMPL_IF>			value='USAATT'			>At&t</option>
+						<option <TMPL_IF NAME="carriers_list_USAALLTEL_is_selected">selected</TMPL_IF>		value='USAALLTEL'		>Alltel</option>
+						<option <TMPL_IF NAME="carriers_list_USABOOST_is_selected">selected</TMPL_IF>		value='USABOOST'		>Boost mobile</option>
+						<option <TMPL_IF NAME="carriers_list_USAONE_is_selected">selected</TMPL_IF>			value='USAONE'			>Cellular One</option>
+						<option <TMPL_IF NAME="carriers_list_USACRICKET_is_selected">selected</TMPL_IF>		value='USACRICKET'		>Cricket</option>
+						<option <TMPL_IF NAME="carriers_list_USACINGULAR_is_selected">selected</TMPL_IF>	value='USACINGULAR'		>Go/Cingular (prepaid)</option>
+						<option <TMPL_IF NAME="carriers_list_USAMETROPCS_is_selected">selected</TMPL_IF>	value='USAMETROPCS'		>Metro PCS</option>
+						<option <TMPL_IF NAME="carriers_list_USASPRINT_is_selected">selected</TMPL_IF>		value='USASPRINT'		>Sprint/Nextel</option>
+						<option <TMPL_IF NAME="carriers_list_USATMOBILE_is_selected">selected</TMPL_IF>		value='USATMOBILE'		>T-mobile</option>
+						<option <TMPL_IF NAME="carriers_list_USATMOBILETOGO_is_selected">selected</TMPL_IF>	value='USATMOBILETOGO'	>T-mobile ToGo</option>
+						<option <TMPL_IF NAME="carriers_list_USATRACKFONE_is_selected">selected</TMPL_IF>	value='USATRACKFONE'	>Tracfone</option>
+						<option <TMPL_IF NAME="carriers_list_USAUS_is_selected">selected</TMPL_IF>			value='USAUS'			>U.S. Cellular</option>
+						<option <TMPL_IF NAME="carriers_list_USAVERIZON_is_selected">selected</TMPL_IF>		value='USAVERIZON'		>Verizon Wireless</option>
+						<option <TMPL_IF NAME="carriers_list_USAVERIZONPAYG_is_selected">selected</TMPL_IF>	value='USAVERIZONPAYG'	>Verizon Wireless Pay as you go</option>
+						<option <TMPL_IF NAME="carriers_list_USAVIRGIN_is_selected">selected</TMPL_IF>		value='USAVIRGIN'		>Virgin Mobile</option>
+						</select>
+						<br>
+						<h1>Extension</h1>
+						After you dial a local access number, press <b>'%index%'</b> at the prompt. 
+						<br><select width=100% style='width:100%' name=index_new>
+						<option value=''>Speed number is %index%</option>
+						<option value=''> </option>
+						<TMPL_IF NAME="index_1_is_free"><option value='1'>Change to 1</option></TMPL_IF>
+						<TMPL_IF NAME="index_2_is_free"><option value='2'>Change to 2</option></TMPL_IF>
+						<TMPL_IF NAME="index_3_is_free"><option value='3'>Change to 3</option></TMPL_IF>
+						<TMPL_IF NAME="index_4_is_free"><option value='4'>Change to 4</option></TMPL_IF>
+						<TMPL_IF NAME="index_5_is_free"><option value='5'>Change to 5</option></TMPL_IF>
+						<TMPL_IF NAME="index_6_is_free"><option value='6'>Change to 6</option></TMPL_IF>
+						<TMPL_IF NAME="index_7_is_free"><option value='7'>Change to 7</option></TMPL_IF>
+						<TMPL_IF NAME="index_8_is_free"><option value='8'>Change to 8</option></TMPL_IF>
+						<TMPL_IF NAME="index_9_is_free"><option value='9'>Change to 9</option></TMPL_IF>
+						<TMPL_IF NAME="index_10_is_free"><option value='10'>Change to 10</option></TMPL_IF>
+						<TMPL_IF NAME="index_11_is_free"><option value='11'>Change to 11</option></TMPL_IF>
+						<TMPL_IF NAME="index_12_is_free"><option value='12'>Change to 12</option></TMPL_IF>
+						<TMPL_IF NAME="index_13_is_free"><option value='13'>Change to 13</option></TMPL_IF>
+						<TMPL_IF NAME="index_14_is_free"><option value='14'>Change to 14</option></TMPL_IF>
+						<TMPL_IF NAME="index_15_is_free"><option value='15'>Change to 15</option></TMPL_IF>
+						<TMPL_IF NAME="index_16_is_free"><option value='16'>Change to 16</option></TMPL_IF>
+						<TMPL_IF NAME="index_17_is_free"><option value='17'>Change to 17</option></TMPL_IF>
+						<TMPL_IF NAME="index_18_is_free"><option value='18'>Change to 18</option></TMPL_IF>
+						<TMPL_IF NAME="index_19_is_free"><option value='19'>Change to 19</option></TMPL_IF>
+						<TMPL_IF NAME="index_20_is_free"><option value='20'>Change to 20</option></TMPL_IF>
+						</select>
+						<br>
+						<h1>Caller-ID</h1>
+						Change the caller-ID your contact will see to whatever you want. (leave this blank for automatic)<br>
+						<input width=100% style='width:100%' name=callid	value='%callid%'>
+					</div>	
+					</div>	
+					</div>	
+					<br>
+					</div>
+			
+					<TMPL_IF NAME="error">
+						<div class=alert_box>
+						<div class=alert_box_inside>
+						<b>Error:</b><br>
+						<TMPL_IF NAME="error_wrong_number">Wrong contact phone number<br></TMPL_IF>
+						<TMPL_IF NAME="error_usa_no_areacode">USA numbers need areacode<br></TMPL_IF>
+						<TMPL_IF NAME="error_not_e164">This is not a <a target=_blank href=http://en.wikipedia.org/wiki/E.164>E164</a> phone number<br></TMPL_IF>
+						<TMPL_IF NAME="error_unknown_country">Unknown country code in this phone number<br></TMPL_IF>
+						<TMPL_IF NAME="error_no_rate">No rate/destination for this phone number<br></TMPL_IF>
+						</div>	
+						</div>
+						<br>
+					</TMPL_IF>
+
+
+					<button style="padding:3px;" type=button onclick="window.location='%my_url%';"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button style="padding:3px;" type=button onclick="if (confirm('Delete?')) {window.location='%my_url%?action=dst&delete=1&index=%index%'};"><img style="margin-right:5px;" src=/design/icons/cross.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Delete this contact</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=save 	value='1'>
+					<input type=hidden name=index	value='%index%'>
+					<input type=hidden name=action	value='dst'>
+				</form>
+		
+			</div>
+			</td>
+			<td valign=top class=clear><img src=/design/img/box-edge-2.gif align=right width=8 height=8 hspace=0 vspace=0 border=0></td>
+			</tr>
+			<tr>
+			<td colspan=3 valign=top class=clear>
+			<img src=/design/img/box-edge-4.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-3.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td>
+			</tr>
+		</table>
+		
+
+</td>
+</tr>
+</table>
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

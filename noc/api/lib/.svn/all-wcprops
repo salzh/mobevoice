@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/zenoradioversion2/!svn/ver/164/trunk/website/www/noc/api/lib
+END
+var.pl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zenoradioversion2/!svn/ver/164/trunk/website/www/noc/api/lib/var.pl
+END
+Request.pm
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/zenoradioversion2/!svn/ver/164/trunk/website/www/noc/api/lib/Request.pm
+END
+SQL.pm
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/zenoradioversion2/!svn/ver/164/trunk/website/www/noc/api/lib/SQL.pm
+END

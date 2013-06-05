@@ -1,0 +1,77 @@
+<!-- ==================================================== -->
+<!-- PAGE START -->
+<!-- ==================================================== -->
+<html >
+    <head>
+	<title>ZenoFon - Services - Welcome</title>
+	<script	src="/design/template.js"	type="text/javascript" ></script>
+	<link 	href="/design/template.css"	type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    <div class=page>
+    <div class=page-box>
+	<div class=menu-box-1>
+	<a href=/><img src=/design/img/spc.gif hspace=0 vspace=0 border=0 width=250 height=80 align=left></a>
+	<div class=menu-box-2>
+	    <a href=/help/ 	class="menu-item-off menu-item-help">Help</a>
+	    <a href=/myaccount/	class="menu-item-off menu-item-myaccount">My account</a>
+	    <a href=/news/ 		class="menu-item-off menu-item-about">News</a>
+	    <a href=/services/ 	class="menu-item-on  menu-item-service">Services</a>
+	</div>
+	</div>
+	<div class=title-box-1>	    
+	<div class=title-box-2>
+		<a href=/myaccount/><img src=/design/img/icon-services-accept.png hspace=0 vspace=0 border=0 align=left style="margin-right:10px;"></a>
+		<h3><a href=/myaccount/>Congratulations!</a></h3>
+		You successfully created an account on ZenoFon.<br>
+	</div>
+	</div>
+	<div class=content>
+	<!-- ==================================================== -->
+	<!-- CONTENT START-->
+	<!-- ==================================================== -->
+	
+
+
+	<div class=clear style="padding:0px;">
+
+		<TMPL_IF NAME="free_credit">
+		<h2>You win a $%free_credit% free credit to test.</h2><br>
+		</TMPL_IF>
+
+		Your contact name is: <b>%service_name%</b><br>
+		Your contact email is: <b>%service_email%</b><br>
+		Your Personal Identification Number is: <b>%service_pin%</b><br>
+		You were invited by: <b>%invite_name%</b><br>
+		<br>
+		We already sent the above information to your email.<br>
+		Click continue to setup your account<br>
+		<br>
+		<form action="/myaccount/" method=post>
+		<input type=submit value="Continue...">
+		</form>
+
+	</div>
+
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- PAGE END-->
+	<!-- ==================================================== -->
+	<div class=foot>
+	    Copyright 2013. ZenoFon©    <a href=/about/>•About</a>    <a href=/about/termsofservice.html>•Terms of service</a>    <a href=/about/privacypolicy.html>•Privacy policy</a>    <a href=/help/>•Help</a>    <a href=/contact/>•contact Us</a> 
+	</div>
+    </div>
+    </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-5798623-1");
+    pageTracker._trackPageview();
+    </script>
+    </body>
+</html>

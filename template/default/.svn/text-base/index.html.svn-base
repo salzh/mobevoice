@@ -1,0 +1,36 @@
+<TMPL_INCLUDE NAME="_template.up.html">
+
+
+
+
+
+<TMPL_IF NAME="search_enabled">
+	<h2>We found %stations_loop_size% stations in your search</h2>
+<TMPL_ELSE>
+	<h2>we have %stations_loop_size% stations</h2>
+</TMPL_IF>
+		 
+<form action=index.cgi>
+<input name=search_string value="%search_string%"><input type=submit value="search">
+</form>
+
+
+<ol>
+<TMPL_LOOP NAME="stations_loop">
+	<li><a href=station.cgi?id=%id%>%title%</li>
+</TMPL_LOOP>
+<TMPL_IF NAME="stations_loop_has_no_itens">
+	<li><font color=red>No stations found... </font><br><a href=index.cgi>List all stations</a></li>
+</TMPL_IF>
+</ol>
+
+
+<!--
+Template_id=(%template_id%)
+Template_url=(%template_url%)
+Template_folder=(%template_folder%)
+-->
+
+
+<TMPL_INCLUDE NAME="_template.down.html">
+

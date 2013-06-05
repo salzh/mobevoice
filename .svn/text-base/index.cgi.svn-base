@@ -1,0 +1,70 @@
+#!/usr/bin/perl
+require "include.cgi";
+
+# -----------------------------
+# start template
+# -----------------------------
+%t = ();
+$t{name} = "neyfrota";
+#
+# -----------------------------
+# start search form
+# -----------------------------
+$search_string = clean_str(substr($form{search_string},0,256),"\@.-_()<>+=~ ");
+$t{search_string}	= $search_string;
+$t{search_enabled}	= ($search_string eq "") ? 0 : 1;
+#
+# -----------------------------
+# get data
+# -----------------------------
+if ($t{search_enabled} eq 1) {
+	#
+	# by search 
+	%data = ();
+	foreach $word ( split(/ +/,$search_string) ) {
+		if (length($word)>=2) {
+			$sql = qq[select id,id,title from radio_data_station where title like "\%$word\%" order by date_last_change desc limit 0,1000 ]; 
+			%hash = &database_select_as_hash($sql,"id,title");
+			foreach $id (keys %hash) {
+				$data{$id}{id} 		= $hash{$id}{id};
+				$data{$id}{title}	= $hash{$id}{title};
+				$data{$id}{order}	+= 10;
+			}
+		}
+	}
+} else {
+	#
+	# by list all stations
+	$sql = "select id,id,title from radio_data_station "; 
+	%data = &database_select_as_hash($sql,"id,title");
+	# populate order 
+	$i = 10000;
+	foreach $id (sort{$data{$a}{title} cmp $data{$b}{title}} keys %data) {
+		$i--;
+		$data{$id}{order} = $i;
+	}
+}
+#
+# -----------------------------
+# get extra data
+# -----------------------------
+# TODO: realtime statistics about stations
+#
+# -----------------------------
+# populate at template
+# -----------------------------
+$index = 0;
+foreach $id (sort{$data{$b}{order} <=> $data{$a}{order}} keys %data) {
+	$index++;	
+	$t{stations_loop}{$index}{"id"} 	= $id;
+	$t{stations_loop}{$index}{"title"}	= $data{$id}{title};
+	$t{stations_loop}{$index}{"order"}	= $data{$id}{order};
+}
+$t{stations_loop_size} = $index;
+$t{stations_loop_has_itens} = ($index>0) ? 1 : 0;
+$t{stations_loop_has_no_itens} = ($index>0) ? 0 : 1;
+#
+# -----------------------------
+# print page
+# -----------------------------
+&website_template_print("index.html",%t);

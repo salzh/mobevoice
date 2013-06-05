@@ -1,0 +1,54 @@
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+
+<script src="/design/jquery.min.js"></script>
+<script src="/noc/thread.cgi?action=include_js"></script>
+
+
+
+
+<div class=clear style="width:800px;">
+
+
+	<TMPL_LOOP NAME="active_projects">
+		<fieldset style="padding:15px; margin-bottom:10px;">
+
+			<div class=clear style="float:right; margin-left:20px; ">
+				<div style="width:150px;height:20px;background:none repeat scroll 0 0 #AAAAAA;border-color:#777777 #CCCCCC #CCCCCC #777777;border-style:solid;border-width:0.09em;float:right;margin-top:0.09em;position:relative;">
+					<div style="width:%tasks_percentage_done%%; background-color:#496FC7; height:20px;"></div>
+					<div style="color:#FFFFFF;height:20px;line-height:20px;position:absolute;text-align:center;top:0;width:100%;font-family:Tahoma,Arial,sans-serif;font-size:12px;">%tasks_percentage_done%%</div>
+				</div>			
+			</div>			
+						
+
+			<H1 style="background-image:url(/design/icons/04-20.png); background-repeat:no-repeat; background-position:0 2; padding-left:19px;margin-bottom:5px; " ><a href=%my_url%?action=project_overview&project_id=%project_id%>%project_title%</a></H1>
+
+			<div class=clear style="width:350px; float:left;">
+				%project_text%<br>
+				<a href=%my_url%?action=project_edit&project_id=%project_id% onClick="modal_open('Edit project','%my_url%?action=project_edit&project_id=%project_id%',400,380); return false;">
+				&#187; Edit</a>
+			</div>
+			
+			<div class=clear style="margin-top:20px; width:100px; padding-left:5px; border-left:1px solid #c0c0c0; padding-top:10px;padding-bottom:10px;float:right; text-align:center"><h3><b>%tasks_count_done%</b></h3>Task done</div>
+			<div class=clear style="margin-top:20px; width:100px; padding-left:5px; border-left:1px solid #c0c0c0; padding-top:10px;padding-bottom:10px;float:right; text-align:center"><h3><b>%tasks_count_work%</b></h3>Working tasks</div>
+			<div class=clear style="margin-top:20px; width:100px; padding-left:5px; border-left:0px solid #c0c0c0; padding-top:10px;padding-bottom:10px;float:right; text-align:center"><h3><b>%tasks_count_notdone%</b></h3>Wait tasks</div>
+
+
+		</fieldset>
+	</TMPL_LOOP>
+	
+
+	<TMPL_IF NAME="last_closed_projects">
+		<h1>Last closed projects</h1>
+		<TMPL_LOOP NAME="last_closed_projects">
+			<a href=%my_url%?action=project_edit&project_id=%project_id% onClick="modal_open('Edit project','%my_url%?action=project_edit&project_id=%project_id%',400,380); return false;">
+			&#187; %project_title% closed in %project_date_last_change_in_gap%<br>
+			</a>
+		</TMPL_LOOP>
+	</TMPL_IF>
+	
+
+</div>
+
+
+<TMPL_INCLUDE NAME="template.base.bot.html">

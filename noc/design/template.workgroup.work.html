@@ -1,0 +1,85 @@
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+<div class=clear style="width:1000px;"> 
+
+
+	<div style="width:250px; float:left;"> 
+	<fieldset> <legend>Tasks and status</legend>
+	<TMPL_LOOP NAME="work_status">
+		<h1><img src=/design/icons/%icon% width=16 height=16 hspace=0 vspace=0 align=left style="padding-right:2px; padding-top:2px;" /><TMPL_IF NAME="selected"><b>%title%</b><TMPL_ELSE>%title%</TMPL_IF></h1>
+		<div id="works_%id%" class=clear style="margin-left:20px;margin-bottom:20px;">
+		<TMPL_LOOP NAME="work_list">
+			<TMPL_IF NAME="selected">
+				<a href=%my_url%?work_id=%id%><b>&#187; %title%</b></a><br>
+			<TMPL_ELSE>
+				<a href=%my_url%?work_id=%id%>&#187; %title%</a><br>
+			</TMPL_IF>
+		</TMPL_LOOP>
+		</div>
+		<TMPL_IF NAME="id_1"><hr></TMPL_IF>
+		<TMPL_IF NAME="id_4"><hr></TMPL_IF>
+	</TMPL_LOOP>
+	<hr><br>
+	<button typr=button onclick="window.location='%my_url%?action=work_add&work_id=%work_id%'">Create a new task</button>
+	</fieldset>
+	</div>
+
+	<div class=clear style="margin-left:270px; "> 
+		<TMPL_IF NAME="work_found">
+	
+			<div style="width:150px;float:right; padding:10px; margin:0px margin-left:20px; border:1px solid #c0c0c0;">
+				<h1>Actions:</h1>
+				<button style="width:100%;" type=button onclick="window.location='%my_url%?action=work_edit&work_id=%work_id%'">Edit title/text</button><br>
+				<button style="width:100%;" type=button onclick="window.location='%my_url%?action=work_edit_status&work_id=%work_id%'">Change status</button><br>
+				<button style="width:100%;" type=button onclick="window.location='%my_url%?action=work_edit_order&work_id=%work_id%'">Change position</button><br>
+				<button style="width:100%;" type=button onclick="window.location='%my_url%?action=work_log_message&work_id=%work_id%'">Add a note</button><br>
+			</div>
+	
+			<div > 
+				<h3>%work_title%</h3>
+				%work_text%<br>
+
+
+				<TMPL_LOOP NAME="work_log">
+					<div class=clear style="margin-bottom:0px;">
+						<div class=clear style="width:40px; float:left;">
+							<TMPL_IF NAME="user_gravatar_url"><img src=%user_gravatar_url% hspace=0 vspace=0 border=0 align=left width=40 height=40 style="margin-right:7px; margin-bottom:5px;" /></TMPL_IF>
+						</div>
+						<div class=clear style="margin-left:45px;">
+							<b>%user_name%</b> <span style="font-size:8px; color:#c0c0c0;">(%date_gap%)</span><br>
+							<TMPL_IF NAME="type_ORDER"><b>Change position of this task</b></TMPL_IF>
+							<TMPL_IF NAME="type_ADD"><b>Create this task</b></TMPL_IF>
+							<TMPL_IF NAME="type_EDIT"><b>Edit this task</b></TMPL_IF>
+							<TMPL_IF NAME="type_STATUS"><b>Move this task to '%status_title%'</b></TMPL_IF>
+							<TMPL_IF NAME="text">%text%</TMPL_IF>
+							<br>
+						</div>
+					</div>
+					<br>
+				</TMPL_LOOP>
+
+			</div>		
+	
+		<TMPL_ELSE>
+			<h3>Explain tasks work flow</h3>
+			Again we still looking for some workflow tools to keep focus in what we need, priority what we need first and do not lost great ideas we had. :) 
+			This is my new try, read the rules in this list and lets try that tool.
+			
+			<ol style="width:450px;">
+			<li style="margin-bottom:10px;">New tasks start in "new tasks" status. This is not a working list. Tasks here are in braisntorm mode, not approved yet. Think like a ideas list. We need talk, document, solidify idea before approve and become a working task.
+			</li><li style="margin-bottom:10px;">When task is approved, we move to "Ready to work". This list hold all tasks we need to zenofon and have to work. Leave next most need tasks at top of list.
+			</li><li style="margin-bottom:10px;">"Working this week" its a small (keep always small please) list with task we are working (and NEED finish) this week. Think like a focus tool. Better fill this list at weekend and work in the week time.
+			</li><li style="margin-bottom:10px;">"Urgent" hold tasks that do not follow normal workflow. Emergency things, and big nasty bugs comes here. This list NEED be always empty. Only fill this list with tasks that NEED interrupt work in "Working this week" list.
+			</li><li style="margin-bottom:10px;">After finish one task successfully, we move to "complete" status.
+			</li><li style="margin-bottom:10px;">All canceled task (from any status) stay in "Canceled" status for history.  
+			</li></ol>
+			As you notice, we log all changes in any task. You have to login with your id to perfect log. Go Your account (top right) and check about gravatar, we use this as avatar image.
+			
+		</TMPL_IF>
+	</div>
+
+</div>
+
+
+
+<TMPL_INCLUDE NAME="template.base.bot.html">

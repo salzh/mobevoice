@@ -1,0 +1,67 @@
+<html>
+    <head>
+	<title>%TITLE%</title>
+	<link rel=stylesheet type=text/css media=all href=/noc/design/template.css title=win2k-1>
+	<script type="text/javascript" src="/noc/design/template.js"></script>
+    </head>
+    <body>
+	<div class=page_title>Edit your account</div>
+	Change your name in user for staff and client communication.<br>
+	Change your contact email to receive system messages.<br>
+	Chenge you password if necessary<br>
+	<br>
+
+		<form action=index.cgi method=post style="padding-left:20px;">
+			Your contact name:<br>
+			<input name=name value="%name%"><br>
+			<br>
+		
+			Your contact email:<br>
+			<input name=email value="%email%"><br>
+			<br>
+		
+			Your password:<br>
+			<select name=password_action onchange="if (this.selectedIndex == 0) {MyDisplay('password_fields',0)} else {MyDisplay('password_fields',1)} ">
+			<option value=0 <TMPL_IF NAME="password_action"><TMPL_ELSE>selected</TMPL_IF> >Do not change</option>
+			<option value=1 <TMPL_IF NAME="password_action">selected<TMPL_ELSE></TMPL_IF> >Change password</option>
+			</select><br>
+			<br>
+
+			<div class=clear id=password_fields <TMPL_IF NAME="password_action"><TMPL_ELSE>style="display:none"</TMPL_IF>>
+				Your active password:<br>
+				<input name=password_active value=""><br>
+				<br>
+				Your new password:<br>
+				<input name=password_new value=""><br>
+				<br>
+				Re-type your new password:<br>
+				<input name=password_retype value=""><br>
+				<br>
+			</div>
+		
+			<input type=submit value="Save"><br>
+			<input type=hidden name=save value=1>
+			<input type=hidden name=action value=profile>
+			<br>
+
+			
+			<font color=red><b>
+			<TMPL_IF NAME="msg_error_name">Incorrect name. <br></TMPL_IF>
+			<TMPL_IF NAME="msg_error_email">Incorrect email. <br></TMPL_IF>
+			<TMPL_IF NAME="msg_error_new_password">Incorrect new password. <br></TMPL_IF>
+			<TMPL_IF NAME="msg_error_password">Incorrect active password.<br></TMPL_IF>
+			</b></font>
+
+			<font color=green><b>
+			<TMPL_IF NAME="msg_ok">Saved.<script>parent.update_page();</script></TMPL_IF>
+			</b></font>
+
+
+		</form>
+
+
+    </body>
+</html>
+
+
+

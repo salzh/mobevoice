@@ -1,0 +1,15 @@
+Subject:Failed to Authenticate Credit Card Number
+Content-Type: Text/HTML; charset=US-ASCII
+
+
+<body>
+
+The following customer failed to authenticate his/her identity for more than thrice to change their PIN.<br>
+Last four digits of Credit Card Number is wrong<br><br>
+
+
+<font><b>Service id </b></font> : #SERVICE_ID#<br><br>
+<font><b>Name</b></font>: #NAME# <br><br>
+<font><b>Phone</b></font>: #PHONE# <br><br>
+<font><b>Email</b></font>: #USER_MAIL# <br><br>
+</body>

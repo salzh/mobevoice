@@ -1,0 +1,13 @@
+Subject:ZenoFon: #COMMISSION_TITLE#
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>#COMMISSION_TITLE#</font><br>
+	<br>
+	You just received a one time manually generated   $#COMMISSION_VALUE# commission #FROM#
+	<br>
+	<br>
+	To stop these alerts, go to your ZenoFon account page (<a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>) and change your 'Notifications'
+    </body>
+</html>

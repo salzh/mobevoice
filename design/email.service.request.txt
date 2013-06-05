@@ -1,0 +1,9 @@
+Subject:Your ZenoFon confirmation number
+
+
+Your ZenoFon confirmation number.
+In order to finish your registration you must enter the following confirmation code:
+	
+Confirmation code: #CONFIRMATION_CODE#
+
+Type in this code at <a href=http://www.zenofon.com/myaccount/?action=service_add>ZenoFon to finish your registration.

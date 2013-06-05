@@ -1,0 +1,236 @@
+<html ><head><title>ZenoFon - Radio Stations</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.0.html">
+
+
+<style>
+.rate_table thead td {
+	font-size:10px;
+	line-height: 13px;
+	border-bottom:1px solid #c0c0c0;
+} 
+.rate_table tbody td {
+	font-size:10px;
+	line-height: 13px;
+	padding-bottom: 4px;
+} 
+.rate_table tbody tr:hover {background-color: #f0f0ff;}
+.button-tour {
+	background: #ff5c00 url(/design/img/alert-overlay.png) repeat-x;
+	display: inline-block;
+	padding: 6px 15px 6px 12px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	text-align:left;
+}
+.search_input {
+	height:25px;
+	border-color: #5d788c; 
+	background-image:url(/design/icons/magnifier-medium.png); 
+	background-repeat:no-repeat; 
+	background-position:2 4; 
+	padding-left:20px;
+	border-right:0px;
+	float:left;
+	margin:0px;
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-radius: 5px 0px 0px 5px;
+}
+.search_submit {
+	background-color: #5d788c;
+	border-color: #5d788c;
+	border-left:0px;
+	height:25px; 
+	float:left;
+	margin:0px;
+	color:#ffffff;
+	font:normal normal 12px Trebuchet, Trebuchet MS, Arial, sans-serif; 
+	line-height:100%;
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+	-moz-border-radius: 0px 5px 5px 0px;
+	-webkit-border-radius: 0px 5px 5px 0px;
+}
+
+.bottom-bar {
+background-color:#FFFFFF;
+bottom:-75px;
+height:61px;
+left:0;
+position:fixed;
+visibility:visible;
+width:100%;
+z-index:10000;
+}
+.bottom-bar-inner {
+
+width:200px;
+margin:0 auto;
+}
+</style>
+
+
+
+<h3 style="font-size:48px;">Zenofon Radios</h3>
+<br class=clear>
+<div style="margin-bottom:20px">
+ 	<fieldset>
+<h3>People are listening</h3>
+<ul>
+ 
+  <TMPL_LOOP NAME="playing_list">
+		<li style="float:left;padding-right:30px;"><a title="extension:%exten%">%description%</a></li>	 
+ </TMPL_LOOP>
+ 
+
+</ul>
+
+ </field>
+
+
+<br class=clear>
+</div>
+
+
+<div class=clear style="width:500px; float:right; margin-left:20px;">
+
+	<fieldset>
+		<h2 style="margin-bottom:5px;">Search</h2>
+		please input zenofon radio station name(can be part),tag  or extension  
+		<br>
+	 	<form action=radio.cgi>
+		<input name=query value="%query%" class=search_input /><input type=submit value=search class=search_submit /> 
+		</form>
+		 
+	</fieldset>
+	<br>
+	<b>Listen to radio free, please Dial 7124322380 x extension</b></br>
+	
+	
+	<TMPL_IF NAME="search_ok">
+	
+			<fieldset>
+			<form action="radio.cgi">
+				<table class=rate_table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<thead>
+					<tr>
+					<td >Radio Station</td>
+					<td align=right >Extension</td>
+					<td align=right >Podcast<br>/Radio</td>
+					<td align=right >Listeners</td>
+					</tr>
+					</thead>
+					<tbody>
+					<TMPL_LOOP NAME="radiolist">
+						<tr>
+						<td align=left><a href="radio.cgi?action=radio_play&playid=%name%">%description%</a> </td>
+						<td align=right>%exten%</td>
+						<td align=right>%ispodcast%</td>	
+						<td align=right>%play_count%</td>						 
+						</tr>
+						<tr>
+						<td colspan="3">
+						<ul>
+						<TMPL_LOOP NAME="taglist">
+						 <li style="float:left;padding-right:10px;">
+					 		<a href="radio.cgi?tag=%tag%">%tag%</a>
+						 </li>
+						</TMPL_LOOP>
+						</ul>
+						</td>
+						<td>
+ 					  
+ 						</td>
+						</tr>
+					</TMPL_LOOP>
+					 
+					</tbody>
+					<tfoot>
+							<tr><td colspan=4 >
+							<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<td ><button type=submit name=previous value=1><img src=/design/icons/bullet_arrow_left.png hspace=0 vspace=0 border=0 width=16 height=16></button></td>
+								<td ><select name=page onchange="this.form.submit()">%html_pg_list%</select></td>
+								<td ><select name=page_size onchange="document.forms[1].submit()">%html_pgsize_list%</select></td>
+								<td ><button type=submit name=next value=1><img src=/design/icons/bullet_arrow_right.png hspace=0 vspace=0 border=0 width=16 height=16></button></td>
+							</table>
+							</td></tr>
+						</tfoor>
+				</table>
+				</form>
+			</fieldset>
+			
+	<br>
+			
+	<TMPL_ELSE>
+		<fieldset>
+			 <p>No Radio Stations Found</p>
+			 <a href="radio.cgi">See all available radio stations</a>
+		 </fieldset>
+	</TMPL_IF>
+
+</div>
+ 
+ 
+ <div>
+  
+
+ <p><a href="radio.cgi"> Radio Genres &gt;&gt;</a></p>
+ <ul>
+  <TMPL_LOOP NAME="genrelist">
+		<li><a href="radio.cgi?genreid=%id%">%genre%</a></li>	 
+					 
+</TMPL_LOOP>
+ 
+ 
+ 
+ 
+ </ul>
+ 
+ 
+ </div>
+ 
+ 
+<br clear=both>
+
+
+<script>document.forms[0].elements[0].focus();</script>
+ 
+  
+<TMPL_IF NAME="play_station">
+ 
+	<div class="bottom-bar fonstyle" id="bottom-bar" style="visibility: visible; bottom: 0px;">
+	 <div class="bottom-bar-inner">
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="minish" height="60" width="180">
+	<param name="movie" value="/design/img/mod_miniradio.swf" />
+	<param name="flashvars" value="skin=/design/img/Stijl.swf&amp;title=Live Stream&amp;type=sound&amp;file=%station_radiourl%&amp;autostart=true&amp;duration=999999&amp;id=yu" />
+	<param name="allowScriptAccess" value="always" />
+	<param name="bgcolor" value="#ffffff" />
+	<param name="wmode" value="window" />
+	<!--[if !IE]>-->
+	<object type="application/x-shockwave-flash" data="/design/img/mod_miniradio.swf" height="60" width="180">
+	<param name="flashvars" value="skin=/design/img/Stijl.swf&amp;title=Live Stream&amp;type=sound&amp;file=%station_radiourl%&amp;autostart=true&amp;duration=999999&amp;id=yu" />
+	<param name="allowScriptAccess" value="always" />
+	<param name="bgcolor" value="#ffffff" />
+	<param name="wmode" value="window" />
+	<!--<![endif]-->
+	<!--[if !IE]>-->
+	</object>
+	<!--<![endif]-->
+	</object>
+	</div>
+	</div>
+</TMPL_IF>
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Zeno Report Tool, By Parth</title>
+    <link href="querybuilder.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="yui/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="css.css">
+    <script src="yui/yui/yui-min.js"></script>
+
+    <script type="text/javascript" src="querybuilder.js"></script>
+
+    <style type="text/css">
+        #loading {
+            width: 100%;
+            height: 100%;
+            background: grey;
+            opacity: 1.5;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            z-index: 99;
+            display: none;
+        }
+    </style>
+</head>
+<body onLoad="m.o();">
+
+<!--<div id="chart">Panel Body</div>-->
+<div id="loading"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="ajax-loader.gif"/>Loading
+</div>
+</body>
+<script type="text/javascript">
+    function showLoading() {
+        YUI().use('node', function (Y) {
+            Y.one("#loading").setStyle("display", "block");
+        });
+
+    }
+    function hideLoading() {
+        YUI().use('node', function (Y) {
+            Y.one("#loading").setStyle("display", "none");
+        });
+    }
+</script>
+</html>

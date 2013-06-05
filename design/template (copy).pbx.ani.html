@@ -1,0 +1,316 @@
+<html ><head><title>ZenoFon - My account - Your number</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<a href=./?action=logout		title="Log-out" 							class="st-item" style="float:right; padding-top:5px; color:#AFBEC9;"><img src=/design/img/st-exit.png hspace=0 vspace=0 border=0><br>Log-out</a>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+
+
+<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+<td valign=top width=35%>
+
+
+		<h2>Your number!</h2>
+		Calls that come from this number can dial your speed-dial extensions without having to enter a PIN.
+		Add or edit a number that you call from and would like added to this account.
+		Don't add public numbers, like a shared office number or a hotel number.
+		When you dial from those numbers use your PIN for identification instead.
+		<br>
+		<br>
+		<h2>Cost to call?</h2>
+		<TMPL_IF NAME="billing_number_ok">
+			There is no extra charge for calls into the Zenofon system, but if you use callback to
+			<TMPL_IF NAME="name">"%name%"<TMPL_ELSE>this phone</TMPL_IF>
+			at 
+			%billing_number%, 
+			this number is located in '%billing_country_name% (%billing_country_code%)'
+			<TMPL_IF NAME="billing_rate_found">
+				. Zenofon bills it as '%billing_rate_name%' 
+				and our extra callback rate is <b>$%billing_rate_per_minute% per minute.</b> 
+				(Prices subject to change without notice)
+			<TMPL_ELSE>
+				 <b>but call back will fail because we have no callback rate to this location</b>.
+			</TMPL_IF>
+		<TMPL_ELSE>
+			Either you didn't enter a number or you entered a wrong number.
+			Enter a correct number and come back here to check the rate.
+		</TMPL_IF>
+
+		
+
+</td>
+<td><img src=/design/img/spc.gif width=10 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=65% >
+
+		
+		<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:100%; background-image:url('/design/img/box-bg.gif');background-repeat:repeat;">
+			<tr>
+			<td valign=top class=clear><img src=/design/img/box-edge-1.gif align=left width=8 height=8 hspace=0 vspace=0 border=0></td>
+			<td valign=top width=100% class=clear >
+			<div class=clear style="padding:10px; padding-bottom:20px; padding-top:20px; ">
+				<!-- edit form -->
+				<h2>Edit your number</h2><br>
+					
+					<TMPL_IF NAME="ani_lock_for_confirmation">
+						<!-- LOCK ANI and ask confirmation code -->
+						<form action=%my_url% method=post class=clear >
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<td width=50% valign=top >
+							<h1>Phone name</h1>
+							This is for your eyes only and does not affect how the call gets dialed or detected.<br>
+							<input width=100% style='width:100%' name=name_disabled readonly disabled	value='%name%'>
+							<input type=hidden name=name value='%name%'>
+						</td>
+						<td><img src=/design/img/spc.gif width=15 height=1 hspace=0 vspace=0 border=0></td>
+						<td width=50% valign=top>
+							<h1>Phone number</h1>
+							Your phone number. You can use 10 digits USA number or 011 international number.<br>
+							<input width=100% style='width:100%' name=number_disabled readonly disabled	value='%number%'><br>
+						</td>
+						</table>
+						<br>
+
+
+						<script>
+						function advanced_open() {MyDisplay('advanced_div_close',0);MyDisplay('advanced_div_open',1)}
+						function advanced_close(){MyDisplay('advanced_div_close',1);MyDisplay('advanced_div_open',0)}
+						</script>
+						<div class=clear id=advanced_div_close>
+						<b><a href="javascript:advanced_open();"><img src=/design/icons/bullet_arrow_right.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Advanced</a></b><br>
+						<br>
+						</div>
+						<div class=clear id=advanced_div_open style="display:none">
+						<b><a href="javascript:advanced_close();"><img src=/design/icons/bullet_arrow_down.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Close advanced</a></b><br>
+						<div class=clear style="width:220px; ">
+						<div class=clear style="margin-left:5px; border-left:5px solid #c0c0c0;">
+						<div class=clear style="padding-left:6px; padding-top:5px;padding-bottom:5px;">
+							<h1>Carrier</h1>
+							This field is for internal use only and does not affect how the call gets dialed or detected.<br>
+							<input type=hidden name=number value='%number%'>
+							<input type=hidden name=carrier value='%carrier%'>
+							<select width=100% style='width:100%' name=carrier_disabled readonly disabled>
+							<option value=''>:: carrier ::</option>
+							<option value=''> </option>
+							<option <TMPL_IF NAME="carriers_list_UNKNOWN_is_selected">selected</TMPL_IF>		value='UNKNOWN'>Unknown</option>
+							<option <TMPL_IF NAME="carriers_list_LANDLINE_is_selected">selected</TMPL_IF>		value='LANDLINE'>Landline</option>
+							<option <TMPL_IF NAME="carriers_list_NOTLISTED_is_selected">selected</TMPL_IF>		value='NOTLISTED'>Not listed</option>
+							<option value=''> </option>
+							<option <TMPL_IF NAME="carriers_list_USAATT_is_selected">selected</TMPL_IF>			value='USAATT'			>At&t</option>
+							<option <TMPL_IF NAME="carriers_list_USAALLTEL_is_selected">selected</TMPL_IF>		value='USAALLTEL'		>Alltel</option>
+							<option <TMPL_IF NAME="carriers_list_USABOOST_is_selected">selected</TMPL_IF>		value='USABOOST'		>Boost mobile</option>
+							<option <TMPL_IF NAME="carriers_list_USAONE_is_selected">selected</TMPL_IF>			value='USAONE'			>Cellular One</option>
+							<option <TMPL_IF NAME="carriers_list_USACRICKET_is_selected">selected</TMPL_IF>		value='USACRICKET'		>Cricket</option>
+							<option <TMPL_IF NAME="carriers_list_USACINGULAR_is_selected">selected</TMPL_IF>	value='USACINGULAR'		>Go/Cingular (prepaid)</option>
+							<option <TMPL_IF NAME="carriers_list_USAMETROPCS_is_selected">selected</TMPL_IF>	value='USAMETROPCS'		>Metro PCS</option>
+							<option <TMPL_IF NAME="carriers_list_USASPRINT_is_selected">selected</TMPL_IF>		value='USASPRINT'		>Sprint/Nextel</option>
+							<option <TMPL_IF NAME="carriers_list_USATMOBILE_is_selected">selected</TMPL_IF>		value='USATMOBILE'		>T-mobile</option>
+							<option <TMPL_IF NAME="carriers_list_USATMOBILETOGO_is_selected">selected</TMPL_IF>	value='USATMOBILETOGO'	>T-mobile ToGo</option>
+							<option <TMPL_IF NAME="carriers_list_USATRACKFONE_is_selected">selected</TMPL_IF>	value='USATRACKFONE'	>Tracfone</option>
+							<option <TMPL_IF NAME="carriers_list_USAUS_is_selected">selected</TMPL_IF>			value='USAUS'			>U.S. Cellular</option>
+							<option <TMPL_IF NAME="carriers_list_USAVERIZON_is_selected">selected</TMPL_IF>		value='USAVERIZON'		>Verizon Wireless</option>
+							<option <TMPL_IF NAME="carriers_list_USAVERIZONPAYG_is_selected">selected</TMPL_IF>	value='USAVERIZONPAYG'	>Verizon Wireless Pay as you go</option>
+							<option <TMPL_IF NAME="carriers_list_USAVIRGIN_is_selected">selected</TMPL_IF>		value='USAVIRGIN'		>Virgin Mobile</option>
+							</select>
+							<br>
+							<h1>CallBack Call-ID</h1>
+							Change the Call-ID you see when we call you back. (Leave blank for automatic)<br>
+							<input width=100% style='width:100%' name=callid_disabled readonly disabled	value='%callid%'>
+							<input type=hidden name=callid value='%callid%'>
+						</div>	
+						</div>	
+						</div>	
+						<br>
+						</div>
+
+						<div class=alert_box>
+						<div class=clear style=padding:5px;>
+						<div class=alert_box_inside>
+						<h2>Is this your number?</h2>
+						We need check if this number is your.
+						This is a simple proccess in 2 steps.
+						Follow the instructions bellow to validate this number.<br>
+						<br>
+							<h1>1 - Allow zenofon dial to you</h1>
+							<div class=clear style=padding-left:20px;>
+								Click the button so we will dial to your <br>number and tell you the validate code.<br>
+								<button type=submit><img style="margin-right:5px;" src=/design/icons/phone_sound.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Allow zenofon dial to you</button><br>
+								<TMPL_IF NAME="ani_confirmation_dialing">
+									<br>
+									<font color=green><b><img src=/design/img/loading.gif align=left> We are dialing your number right now...</b></font>
+									<br>
+								</TMPL_IF>
+							</div>
+							<input type=hidden value=1 name=dial_ani_confirmation>
+							<input type=hidden name=save 	value='1'>
+							<input type=hidden name=index	value='%index%'>
+							<input type=hidden name=action	value='ani'>
+							</form>
+							<br>
+						
+							<form action=%my_url% method=post class=clear >
+							<h1>2 - Enter the validate code</h1>
+							<div class=clear style=padding-left:20px;>
+								Enter validate code here and click<br>
+								save to finish.<br>
+								<input name=ani_confirmation><br>
+							</div>
+							<input type=hidden name=number 	value='%number%'>
+							<input type=hidden name=carrier value='%carrier%'>
+							<input type=hidden name=name 	value='%name%'>
+							<input type=hidden name=callid 	value='%callid%'>
+							<input type=hidden name=save_ani_confirmation value=1>
+						</div>
+						</div>
+						</div>
+						<br>
+						<font color=red>
+						<TMPL_IF NAME="error_wrong_number">Wrong phone number<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_usa_no_areacode">USA phone numbers need areacode<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_not_e164">This is not a <a target=_blank href=http://en.wikipedia.org/wiki/E.164>E164</a> phone number<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_unknown_country">Unknown country code in phone number<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_no_rate">No rate/destination for this phone number<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_ani_in_use">You cannot use this number. This number is in use from another client.<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_ani_blocked_for_pin_locked_service">You cannot use this number. This number exceed the limit of free calls. Please add credit to change your <a href=/myaccount/?action=profile>account status</a> or use another number<br><br></TMPL_IF>
+						<TMPL_IF NAME="error_bad_ani_confirmation">Code entered wrong.  Wanna try dialing again?<br><br></TMPL_IF>
+						</font>
+						<button style="padding:3px;" type=button onclick="window.location='%my_url%';"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+						<button style="padding:3px;" type=button onclick="if (confirm('Delete?')) {window.location='%my_url%?action=ani&delete=1&index=%index%'};"><img style="margin-right:5px;" src=/design/icons/cross.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Delete this number</button>
+						<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+						<input type=hidden name=save 	value='1'>
+						<input type=hidden name=index	value='%index%'>
+						<input type=hidden name=action	value='ani'>
+						</form>
+
+							
+					<TMPL_ELSE>
+						
+						<!-- regular ANI form-->
+						<form action=%my_url% method=post class=clear >
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<td width=50% valign=top>
+							<h1>Phone name</h1>
+							This is for your eyes only and does not affect how the call gets dialed or detected.<br>
+							<input width=100% style='width:100%' name=name	value='%name%'>
+						</td>
+						<td><img src=/design/img/spc.gif width=15 height=1 hspace=0 vspace=0 border=0></td>
+						<td width=50% valign=top >
+							<h1>Phone number</h1>
+							Your phone number. You can use 10 digits USA number or 011 international number.<br>
+							<input width=100% style='width:100%' name=number	value='%number%'><br>
+						</td>
+						</td>
+						</table>
+						<br>
+
+
+						<script>
+						function advanced_open() {MyDisplay('advanced_div_close',0);MyDisplay('advanced_div_open',1)}
+						function advanced_close(){MyDisplay('advanced_div_close',1);MyDisplay('advanced_div_open',0)}
+						</script>
+						<div class=clear id=advanced_div_close>
+						<b><a href="javascript:advanced_open();"><img src=/design/icons/bullet_arrow_right.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Advanced</a></b><br>
+						<br>
+						</div>
+						<div class=clear id=advanced_div_open style="display:none">
+						<b><a href="javascript:advanced_close();"><img src=/design/icons/bullet_arrow_down.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Close advanced</a></b><br>
+						<div class=clear style="width:220px; ">
+						<div class=clear style="margin-left:5px; border-left:5px solid #c0c0c0;">
+						<div class=clear style="padding-left:6px; padding-top:5px;padding-bottom:5px;">
+							<h1>Carrier</h1>
+							This field is for internal use only and does not affect how the call gets dialed or detected.<br>
+							<select width=100% style='width:100%' name=carrier>
+							<option value=''>:: carrier ::</option>
+							<option value=''> </option>
+							<option <TMPL_IF NAME="carriers_list_UNKNOWN_is_selected">selected</TMPL_IF>		value='UNKNOWN'>Unknown</option>
+							<option <TMPL_IF NAME="carriers_list_LANDLINE_is_selected">selected</TMPL_IF>		value='LANDLINE'>Landline</option>
+							<option <TMPL_IF NAME="carriers_list_NOTLISTED_is_selected">selected</TMPL_IF>		value='NOTLISTED'>Not listed</option>
+							<option value=''> </option>
+							<option <TMPL_IF NAME="carriers_list_USAATT_is_selected">selected</TMPL_IF>			value='USAATT'			>At&t</option>
+							<option <TMPL_IF NAME="carriers_list_USAALLTEL_is_selected">selected</TMPL_IF>		value='USAALLTEL'		>Alltel</option>
+							<option <TMPL_IF NAME="carriers_list_USABOOST_is_selected">selected</TMPL_IF>		value='USABOOST'		>Boost mobile</option>
+							<option <TMPL_IF NAME="carriers_list_USAONE_is_selected">selected</TMPL_IF>			value='USAONE'			>Cellular One</option>
+							<option <TMPL_IF NAME="carriers_list_USACRICKET_is_selected">selected</TMPL_IF>		value='USACRICKET'		>Cricket</option>
+							<option <TMPL_IF NAME="carriers_list_USACINGULAR_is_selected">selected</TMPL_IF>	value='USACINGULAR'		>Go/Cingular (prepaid)</option>
+							<option <TMPL_IF NAME="carriers_list_USAMETROPCS_is_selected">selected</TMPL_IF>	value='USAMETROPCS'		>Metro PCS</option>
+							<option <TMPL_IF NAME="carriers_list_USASPRINT_is_selected">selected</TMPL_IF>		value='USASPRINT'		>Sprint/Nextel</option>
+							<option <TMPL_IF NAME="carriers_list_USATMOBILE_is_selected">selected</TMPL_IF>		value='USATMOBILE'		>T-mobile</option>
+							<option <TMPL_IF NAME="carriers_list_USATMOBILETOGO_is_selected">selected</TMPL_IF>	value='USATMOBILETOGO'	>T-mobile ToGo</option>
+							<option <TMPL_IF NAME="carriers_list_USATRACKFONE_is_selected">selected</TMPL_IF>	value='USATRACKFONE'	>Tracfone</option>
+							<option <TMPL_IF NAME="carriers_list_USAUS_is_selected">selected</TMPL_IF>			value='USAUS'			>U.S. Cellular</option>
+							<option <TMPL_IF NAME="carriers_list_USAVERIZON_is_selected">selected</TMPL_IF>		value='USAVERIZON'		>Verizon Wireless</option>
+							<option <TMPL_IF NAME="carriers_list_USAVERIZONPAYG_is_selected">selected</TMPL_IF>	value='USAVERIZONPAYG'	>Verizon Wireless Pay as you go</option>
+							<option <TMPL_IF NAME="carriers_list_USAVIRGIN_is_selected">selected</TMPL_IF>		value='USAVIRGIN'		>Virgin Mobile</option>
+							</select>
+							<br>
+							<h1>CallBack Call-ID</h1>
+							Change the Call-ID you see when we call you back. (Leave blank for automatic)<br>
+							<input width=100% style='width:100%' name=callid	value='%callid%'>
+						</div>	
+						</div>	
+						</div>	
+						<br>
+						</div>
+
+						<TMPL_IF NAME="error">
+							<div class=alert_box>
+							<div class=alert_box_inside>
+							<b>Error:</b><br>
+							<TMPL_IF NAME="error_wrong_number">Wrong phone number<br></TMPL_IF>
+							<TMPL_IF NAME="error_usa_no_areacode">USA phone numbers need areacode<br></TMPL_IF>
+							<TMPL_IF NAME="error_not_e164">This is not a <a target=_blank href=http://en.wikipedia.org/wiki/E.164>E164</a> phone number<br></TMPL_IF>
+							<TMPL_IF NAME="error_unknown_country">Unknown country code in phone number<br></TMPL_IF>
+							<TMPL_IF NAME="error_no_rate">No rate/destination for this phone number<br></TMPL_IF>
+							<TMPL_IF NAME="error_ani_in_use">You cannot use this number. This number is in use from another client.<br></TMPL_IF>
+							<TMPL_IF NAME="error_ani_blocked_for_pin_locked_service">You cannot use this number. This number exceed the limit of free calls. Please add credit to change your <a href=/myaccount/?action=profile>account status</a> or use another number<br></TMPL_IF>
+							<TMPL_IF NAME="error_bad_ani_confirmation">Your confirmation its not correct. Did you hear correct? Ask to dial again.<br></TMPL_IF>
+							</div>	
+							</div>
+							<br>
+						</TMPL_IF>
+
+						<button style="padding:3px;" type=button onclick="window.location='%my_url%';"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+						<button style="padding:3px;" type=button onclick="if (confirm('Delete?')) {window.location='%my_url%?action=ani&delete=1&index=%index%'};"><img style="margin-right:5px;" src=/design/icons/cross.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Delete this number</button>
+						<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+						<input type=hidden name=save 	value='1'>
+						<input type=hidden name=index	value='%index%'>
+						<input type=hidden name=action	value='ani'>
+						</form>
+
+					</TMPL_IF>
+					
+					
+			</div>
+			</td>
+			<td valign=top class=clear><img src=/design/img/box-edge-2.gif align=right width=8 height=8 hspace=0 vspace=0 border=0></td>
+			</tr>
+			<tr>
+			<td colspan=3 valign=top class=clear>
+			<img src=/design/img/box-edge-4.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-3.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td>
+			</tr>
+		</table>
+
+
+</td>
+</tr>
+</table>
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

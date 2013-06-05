@@ -1,0 +1,676 @@
+<html ><head><title>ZenoFon - My account - Friends</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+<!--link type="text/css" href="css/ui-lightness/jquery-ui-1.8.11.custom.css" rel="stylesheet" /-->	
+		<!--script type="text/javascript" src="js/jquery-1.5.1.min.js"></script-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<!--script type="text/javascript" src="js/jquery-ui-1.8.11.custom.min.js"></script-->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/design/jquery.jeditable.js"></script>
+		
+		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />	
+ 
+		<script type="text/javascript">
+
+ function submitEdit(value, settings)
+ {
+	var edits = new Object();
+	var origvalue = this.revert;
+	
+	var textbox = this;
+	var result = value;
+	edits[settings.name] =[value];
+
+	var returned = $.ajax({
+		url:"ajax_afflink.cgi",
+		type: "get",
+		cache:false,
+		async:false,
+		data : 'value='+value,
+		dataType :"json",
+		complete : function(xhr, textStatus)
+		{
+		 
+			var sValue = JSON.parse(xhr.responseText);
+			//now you can access sValue.value
+			
+			if (sValue.error =="0"){
+				$("#ajaxstatus")
+				.addClass("success")
+				.html("Data saved successfully")
+				.fadeIn('fast')
+				.delay(3000)
+			    .fadeOut('slow');
+				
+			}
+			else {
+			$('#span_afflink').html(origvalue) ;
+				$("#ajaxstatus")
+				.addClass("error")
+				.html("Data failed")
+				.fadeIn('fast')
+				.delay(3000)
+			    .fadeOut('slow');
+			
+		}
+		} 
+		
+ });
+ 
+ return(result);
+ };
+ </script>
+ 
+ <script type="text/javascript" charset="ut-8">
+ 
+ $(function() { 
+				$(".editable_textarea2").editable(submitEdit, {
+					indicator : "Saving...",
+					tooltip   :"Click to edit...",
+					type :"text",
+					submit :"OK",
+					cancel:"Cancel",
+				});
+
+				// Dialog			
+				$('#dialog').dialog({
+					autoOpen: false,
+					width: 500,
+					buttons: {
+						"Close": function() { 
+							$(this).dialog("close"); 
+						}, 
+					 
+					}
+				});
+				
+				// Dialog Link
+				$('#dialog_link').click(function(){
+					$('#dialog').dialog('open');
+					return false;
+				});
+
+	 
+				
+				//hover states on the static widgets
+				$('#dialog_link  ul#icons li').hover(
+					function() { $(this).addClass('ui-state-hover'); }, 
+					function() { $(this).removeClass('ui-state-hover'); }
+				);
+				
+			});
+		</script>
+		<style type="text/css">
+			/*demo page css*/
+			#dialog { font:  "Trebuchet MS", sans-serif;  color: #5D788C;z-index:100;   }
+		 
+			#dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+			#dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+			ul#icons {margin: 0; padding: 0;}
+			ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+			ul#icons span.ui-icon {float: left; margin: 0 4px;}
+			#sidebar {
+				width: Opx;
+			}
+			
+			 #content {
+				width:  770px;
+			 }
+			 
+			 .editable_textarea2 input[type=submit] {
+				color: #Foo;
+				font-weight: bole;
+			 }
+			 
+			 #ajaxstatus{
+				display:none;
+				margin-bottom:15px;
+				padding:5px  10px;
+				border-radius:5px
+			 }
+			 
+			 .success{
+				background: #b6d96c;
+			 }
+			 .error {
+				background:#ffc5cf;
+			 }
+		</style>
+		
+	 
+			
+<style>			
+			
+.clsStandardButton {
+   
+ 
+	margin-right:5px;
+	padding-left:15px;
+	width:70px;
+	margin-left:15px;
+
+}
+.clsStandardButton  a { text-decoration: none;  }
+.fl {float:left;}
+ 
+
+.facebook {	background-image:url("/design/img/facebookbutton.png"); background-repeat:no-repeat;   }
+.email {	background-image:url("/design/img/emailbutton.png"); background-repeat:no-repeat;   }
+.twitter {	background-image:url("/design/img/twitterbutton.png"); background-repeat:no-repeat;   }
+
+
+.clear {clear:both;} 
+.editable_textarea2 input {width:150px;}
+
+ 
+ 
+#dialog  a{
+	 color:#5D788C ;
+}
+ #dialog h3 {
+   font-size:14px;
+  font-weight:bold;
+  padding:10px 0 ;
+ }
+  .invitebox  h3{
+   font-size:14px;
+  font-weight:bold;
+  padding:5px 0 ;
+ }
+ .invitebox {
+	margin-bottom:10px;
+	font-size:12px;
+	 color: rgb(0,24,140);
+ }
+ .invitebox h3 {
+	color:rgb(255,92,0) ;
+ }
+		</style>	
+ 
+ 
+ 
+  
+
+        <!-- ==================================================== -->
+        <!-- MENU TAB (start)-->
+        <!-- ==================================================== -->
+        <div class="st-box" >
+        <a href=./?action=setup            title="Setup your phone service"             class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+        <a href=./?action=calls         title="Check your calls"                     class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+        <a href=./?action=profile        title="Set your name and email"             class="st-item st-item-2-off">Your profile <br>settings</a>
+        <a href=./?action=friends         title="Invite and check your friends"         class="st-item st-item-3-on">Referrals and <br>royalties</a>
+        <a href=./?action=credits         title="Your balance is $%service_credit%"    class="st-item st-item-6-off">Balance and <br>recharges</a>
+        <div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+        <br clear=both>
+        </div>
+        <!-- ==================================================== -->
+        <!-- MENU TAB (stop)-->
+        <!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="DISABLED_service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+
+
+
+
+
+
+
+<!-- ==================================================== -->
+<!-- CONTENT (start)-->
+<!-- ==================================================== -->
+<!-- ------------------------------------------------- -->
+<!-- css and js for tree -->
+<!-- ------------------------------------------------- -->
+<style>
+.tree_line{margin:0px;padding:0px;border:0px;padding-left:20px;padding-bottom:2px;background-image:url(/design/img/tree-line.gif);background-repeat:repeat-y;display:block;}
+.tree_line_end{margin:0px;padding:0px;border:0px;padding-left:20px;padding-bottom:2px;background-image:url(/design/img/tree-line-end.gif);background-repeat:no-repeat;display:block;}
+.tree_plus{margin:0px;padding:0px;border:0px;padding-left:20px;padding-bottom:2px;background-image:url(/design/img/tree-plus.gif);background-repeat:repeat-y;display:block;}
+.tree_plus_end{margin:0px;padding:0px;border:0px;padding-left:20px;padding-bottom:2px;background-image:url(/design/img/tree-plus-end.gif);background-repeat:no-repeat;display:block;}
+.tree_minus{margin:0px;padding:0px;border:0px;padding-left:20px;background-image:url(/design/img/tree-minus.gif);background-repeat:repeat-y;display:block;}
+.tree_minus_end{margin:0px;padding:0px;border:0px;padding-left:20px;padding-bottom:2px;background-image:url(/design/img/tree-minus-end.gif);background-repeat:no-repeat;display:block;}
+.tree_box{margin:px;padding:0px;border:0px;display:block;}
+.tree_iframe{margin:px;padding:0px;border:0px;display:none;}
+</style>
+<script>
+function ClickItem(div_clicked_id){
+div_clicked_id = ""+div_clicked_id;
+var div_clicked = document.getElementById(div_clicked_id);
+if (div_clicked.childNodes.length>1) {
+    if ( (div_clicked.lastChild.style.display == "") || (div_clicked.lastChild.style.display == "block") ) {
+    if (div_clicked.className == "tree_minus") {div_clicked.className="tree_plus"}
+    if (div_clicked.className == "tree_minus_end") {div_clicked.className="tree_plus_end"}
+    div_clicked.lastChild.style.display = "none"
+    } else {
+    if (div_clicked.className == "tree_plus") {div_clicked.className="tree_minus"}
+    if (div_clicked.className == "tree_plus_end") {div_clicked.className="tree_minus_end"}
+    div_clicked.lastChild.style.display = "block"
+    }
+} else {
+    if (div_clicked.className == "tree_plus") {div_clicked.className="tree_minus"}
+    if (div_clicked.className == "tree_plus_end") {div_clicked.className="tree_minus_end"}
+    var new_div_iframe = document.createElement('div');
+    new_div_iframe.setAttribute('class',"tree_iframe");
+    new_div_iframe.className = "tree_iframe";
+    new_div_iframe.innerHTML = "<iframe style='display:none' src='/myaccount/index.cgi?action=friends_js&id="+div_clicked_id+"'>";
+    var new_div_box = document.createElement('div');
+    new_div_box.setAttribute('id',div_clicked_id+"_box");
+    new_div_box.setAttribute('class',"tree_box");
+    new_div_box.className = "tree_box";
+    new_div_box.innerHTML = "<div style='padding-top:5px; padding-bottom:10px;'><img src=/design/img/loading.gif align=left>Loading...</div>";
+    div_clicked.appendChild(new_div_iframe);
+    div_clicked.appendChild(new_div_box);
+}
+}
+function ContainerClean(container_div_id){
+container_div_id = ""+container_div_id;
+var div_obj = document.getElementById(container_div_id);
+div_obj.innerHTML = "";
+}
+function ContainerAppend(container_div_id,new_div_id,new_div_html,new_div_class){
+container_div_id = ""+container_div_id;
+new_div_id = ""+new_div_id;
+var container_div_obj = document.getElementById(container_div_id);
+new_div_item = document.createElement('div');
+new_div_item.setAttribute('id',new_div_id);
+new_div_item.setAttribute('class',new_div_class);
+new_div_item.className = new_div_class;
+new_div_item.innerHTML = new_div_html;
+container_div_obj.appendChild(new_div_item);
+}
+</script>
+<script>
+function copyToClipboard(s) {
+    if( window.clipboardData && clipboardData.setData )
+    {
+        clipboardData.setData("Text", s);
+    }
+    else
+    {
+        // You have to sign the code to enable this or allow the action in about:config by changing
+        user_pref("signed.applets.codebase_principal_support", true);
+        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+        var clip = Components.classes["@mozilla.org/widget/clipboard;[[[[1]]]]"].createInstance(Components.interfaces.nsIClipboard);
+        if (!clip) {alert ("I cannot copy. You have to do manualy"); return;}
+        // create a transferable
+        var trans = Components.classes['@mozilla.org/widget/transferable;[[[[1]]]]'].createInstance(Components.interfaces.nsITransferable);
+        if (!trans) return;
+        // specify the data we wish to handle. Plaintext in this case.
+        trans.addDataFlavor('text/unicode');
+        // To get the data from the transferable we need two new objects
+        var str = new Object();
+        var len = new Object();
+        var str = Components.classes["@mozilla.org/supports-string;[[[[1]]]]"].createInstance(Components.interfaces.nsISupportsString);
+        var copytext=meintext;
+        str.data=copytext;
+        trans.setTransferData("text/unicode",str,copytext.length*[[[[2]]]]);
+        var clipid=Components.interfaces.nsIClipboard;
+        if (!clip) return false;
+        clip.setData(trans,null,clipid.kGlobalClipboard);      
+    }
+}
+function select_page(page_name){
+    MyDisplay('page_invite',0);
+    MyDisplay('page_summary',0);
+    MyDisplay('page_last',0);
+    MyDisplay('page_tree',0);
+    if (page_name == 'invite') {MyDisplay('page_invite',1);}
+    if (page_name == 'summary') {MyDisplay('page_summary',1);}
+    if (page_name == 'last') {MyDisplay('page_last',1);}
+    if (page_name == 'tree') {MyDisplay('page_tree',1);}
+}
+</script>
+<script>
+function sendemail_form_disable(){
+    for (i=0;i<=2;i++){
+        document.forms[1].elements[i].readOnly = true;
+        document.forms[1].elements[i].style.backgroundColor="#e0e0e0";
+        document.forms[1].elements[i].style.Color="#d0d0d0";
+    }
+    MyDisplay('sendemail_but_1',0);
+    MyDisplay('sendemail_but_2',1);
+}
+function sendemail_form_enable(){
+    for (i=0;i<=2;i++){
+        document.forms[1].elements[i].readOnly = false;
+        document.forms[1].elements[i].style.backgroundColor="#ffffff";
+        document.forms[1].elements[i].style.Color="#000000";
+    }
+    MyDisplay('sendemail_but_1',1);
+    MyDisplay('sendemail_but_2',0);
+}
+function sendemail_form_check(){
+    if (document.forms[1].elements[0].value == "") {alert("I need you friend email");    document.forms[1].elements[0].focus(); return false}
+    if (document.forms[1].elements[1].value == "") {alert("I need one subject");         document.forms[1].elements[1].focus(); return false}
+    if (document.forms[1].elements[2].value == "") {alert("I need your message");         document.forms[1].elements[2].focus(); return false}
+    sendemail_form_disable();
+    return true;
+}
+function sendemail_answer(message,opt){
+    if (message == "ERROR_SRC_EMAIL")                { message = "Error! You did not add a contact email." }
+    if (message == "ERROR_DST_EMAIL")                { message = "Error! not a correct email." }
+    if (message == "ERROR_DST_EMAIL_DUPLICATED")    { message = "Error! You already sent an invite to that email. Try another email." }
+    if (message == "ERROR_SUBJECT")                    { message = "Error! Bad subject." }
+    if (message == "ERROR_MESSAGE")                    { message = "Error! Bad message." }
+    if (message == "ERROR_MESSAGE_NO_INVITE")        { message = "Error! You need to include an invite link in the message." }
+    if (message == "OK")                            { message = "Your invite was sent successfully!" }
+    if (message == "CLEAR")                            { message = "Thats ok! I forgot I sent the email already." }
+    alert(message);
+    sendemail_form_enable();
+    if (opt == "clear") {document.forms[1].elements[0].value=""; document.forms[1].elements[0].focus(); }
+}
+</script>
+
+
+
+
+
+
+<!-- ------------------------------------------------- -->
+<!-- referral -->
+<!-- ------------------------------------------------- -->                   
+<div class=clear style="width:450px; float:right">   
+<div class=clear style="margin-left:30px;">   
+    <fieldset style="padding:0px; padding:20px; ">
+    <div class=clear style="height:230px; overflow:auto;">
+        <TMPL_IF NAME="referral_found">
+            <div class=clear style="display:none" id=referral_summary>   
+                <h1>Referral summary by distance</h1>
+                <div style="margin-left:20px;margin-top:5px;">
+                    <TMPL_LOOP NAME="referral_summary">
+                        <TMPL_IF NAME="deep_1">
+                        %quantity% friends invited by you<br>
+                        <TMPL_ELSE>
+                            <TMPL_IF NAME="deep_2">
+                            %quantity% referral invited by your friends<br>
+                            <TMPL_ELSE>
+                            %quantity% referral from %deep% people away<br>
+                            </TMPL_if>       
+                        </TMPL_if>       
+                    </TMPL_LOOP>
+                </div>
+            </div>
+            <div class=clear id=referral_tree>   
+                <div class=tree_box><div id=%service_id%><a href=# onclick=ClickItem('%service_id%')><img src=/design/icons/phone.png hspace=0 vspace=0 border=0 style='margin-right:5px;' align=left><h1>Your referral Tree</h1></a></div></div>
+                <script>ClickItem('%service_id%')</script>
+            </div>
+        <TMPL_ELSE>
+            no referral...
+        </TMPL_IF>
+    </div>
+    </fieldset>
+</div>
+</div>
+<h3>
+    <TMPL_IF NAME="referral_found">
+    You have %referral_quantity% Zenofon friends
+    <TMPL_ELSE>
+    Sorry, but you have no Zenofon friends yet.  
+    </TMPL_IF>
+</h3>
+Invite a friend to try Zenofon.  They get $5.00 free credit to try Zenofon. You get a $2.00 commission when they make a test call. You also get a 12% commission on the total amount that they recharge to their account! <br>
+<br>When they invite friends, and their friends invite friends, you can see it on the tree to the right.  <br> <a href="http://www.youtube.com/watch?v=9zHiSWDNwAw"target="_blank">What Your Successful Referral Tree Will Look Like</a>
+<br>
+<br/>
+<br/>
+<a href=# onClick="MyDisplay('referral_tree',0);MyDisplay('referral_summary',1);">&#187; See your referral summary by distance</a><br>
+<a href=# onClick="MyDisplay('referral_tree',1);MyDisplay('referral_summary',0);">&#187; See your referral one by one</a><br>
+<br clear=both>
+<br>
+<br>
+	<div class="invitebox">
+
+	<h3>Here is your referral link</h3>
+   
+	<p >http://www.zenofon.com/<span class="editable_textarea2" id="span_afflink">%INVITE_CODE%</span> </p> 
+	
+	<h3>Here is your banner code</h3>
+   
+   <div style="width: 300px; border-style:solid; border-width: 2px; border-color:#000;padding: 2px; ">
+	  <a href="http://www.zenofon.com/%INVITE_CODE%">
+<img src="https://www.zenofon.com/myaccount/zenofon_banner.png" alt="Zenofon Banner"/></a>
+   </div>
+   <p> &lt;textarea rows="3" cols="70" style="margin: 1px; width: 590px; height: 51px; "><a href="http://www.zenofon.com/%INVITE_CODE%">
+<img src="https://www.zenofon.com/myaccount/zenofon_banner.png" alt="Zenofon Banner"/></a>&lt;/textarea>
+      
+	<div id="ajaxstatus"></div>
+   <p>Simply copy this link, paste it to an email, and send that email to anyone you want to refer to Zenofon!</p>
+	<p>Share your link by clicking any one of these buttons</p>
+   <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="I endorse Zenofon for calling internationally"  addthis:url="%INVITE_LINK%" 
+addthis:description="My friend, I was able to hook you up with $0.50 free coupon to try Zenofon, just because I told them you are a buddy of mine.  You don't need to give your credit card.  You will never get a bill for those calls.  It's FREE, with no obligations whatsoever! 
+Even better, if you sign up with this link http://www.zenofon.com/%INVITE_CODE%, I also get one dollar of free calling credit, just for endorsing the product to my friends.  That's the way Zenofon operates.  It grows only through word of mouth referrals.">
+
+ 
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_linkedin"></a>
+<a class="addthis_button_email"></a>
+<a class="addthis_button_compact"></a>
+
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fac6c9068f732f2"></script>
+<!-- AddThis Button END -->
+ 
+	
+	</div>		  
+<!--button class="eyecandybutton" style="width:200px;" type=button onclick="MyDisplay('invite_friends')">&amp;amp;amp;amp;amp;amp;amp;amp;amp;#187; Invite a friend</button><br-->
+
+<!--input class="eyecandybutton" id="dialog_link" style="width:200px;" type=button  value="&#187; Invite a friend" /><br-->
+
+<br>
+
+
+
+
+
+<!-- ------------------------------------------------- -->
+<!-- Invite friends -->
+<!-- ------------------------------------------------- -->
+<a name=invite_friends ></a>
+<div class=clear style="display:none;" id=invite_friends>
+    <div class=clear style="width:470px; float:right">   
+    <div class=clear style="margin-left:30px;">   
+        <fieldset style="padding:0px; padding:20px; ">
+        <div class=clear style="height:400px; overflow:auto;">
+                <h2>Send an email to your friends</h2>
+                Just add your friend's email.  If you choose, customize the subject and message to anything you prefer.  Make sure to include your link in the email.
+                <br>
+                <br>
+                <form class=clear target=sendemail_iframe  method=post action=%my_url% onSubmit="return sendemail_form_check();">
+                <table width=400 border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:400px; background-image:url('/design/img/invite.email.top.png');background-repeat:no-repeat;">
+                    <tr>
+                    <td valign=top width=100% class=clear style="padding:15px;padding-top:35px; padding-bottom:0px;">
+                        <table width=100% border=0 colspan=0 cellpadding=3 cellspacing=0 class=clear>
+                            <tr>
+                            <td valign=top class=ar>Email_to:</td>
+                            <td valign=top class=al width=100%><input type=text name=email value="" style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                            <td valign=top class=ar>Subject:</td>
+                            <td valign=top class=al width=100%><input type=text name=subject value="I endorse ZenoFon to make international calls." style="width:100%;"></td>
+                            </tr>
+                            <tr>
+                            <td valign=top colspan=2>&lt;textarea name=message style="width:100%; height:150px;">My friend, I want to invite you to ZenoFon. They will give you $5.00 to try out their international phone service. It's a totally awesome service - it's super cheap, really easy to use, and you can even make money from commissions! 
+Sign up with this link http://www.zenofon.com/%INVITE_CODE%. I will get a one dollar credit commission, just for referring you. You can do the same thing and make commissions too! You can even convert those credit commissions to cash and get paid. Like I said, AWESOME.
+
+Heres what else they offer. You can save up to 150 contacts. Each contact is assigned a local number. When you dial that number, it forwards to the assigned international contact. It's so easy.
+Additionally, Zenofon has 9 different routes to choose from. Each route has its own rate. Some routes are as low as .5 cents a minute!
+
+Try it. You will love it. And you will soon start earning royalties from friends you refer. 
+&lt;/textarea></td>
+                            </tr>
+                            <tr>
+                            <td valign=top colspan=2 class=ar>
+                                <div class=clear id=sendemail_but_1><button type=submit><img src=/design/icons/email_go.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Send email</button></div>
+                                <div class=clear id=sendemail_but_2 style="display:none;"><button type=button disabled readonly><img src=/design/img/loading.gif hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Please wait...</button></div>
+                            </td>
+                            </tr>
+                        </table>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td valign=top class=clear><img src=/design/img/invite.email.bot.png width=400 height=10 hspace=0 vspace=0 border=0></td>
+                    </tr>
+                </table>
+                <input type=hidden name=action value=sendemail>
+                </form>
+                <iframe style=display:none; name=sendemail_iframe id=sendmail_iframe src=/design/img/spc.gif></iframe>
+        </div>
+        </fieldset>
+    </div>
+    </div>
+
+
+    <h3>Refer new members</h3>
+        Zenofon accepts new members by referral only.
+        Copy and paste the link below. This is your referral link. Post this on your blog, twitter, Facebook, e-mail, sms or IM to refer your friends.
+        Contact us if you want your own custom link.  Your friends get $5.00 free to try Zenofon so it's ok to be a little pushy.  You get $1 commission when they place their first call.
+        <br>
+        <br>
+        <div class=clear style="margin-left:0px; height:62; width:283px;background-image:url(/design/img/url-bar.gif); background-repeat:no-repeat;">
+        <div class=clear style="padding:32px;padding-left:40px;">
+        <form class=clear >
+        <input  class=clear style="width:240px;" value="http://www.zenofon.com/%INVITE_CODE%" id=url_text name=url_text>
+        </form>
+        </div>
+        </div>
+        <a href=# onclick='copyToClipboard(document.getElementById("url_text").value);'>Copy address</a> |
+        <a href=http://www.zenofon.com/%INVITE_CODE% target=_blank>Open in new window</a>
+        <br>
+    <br clear=both>
+    <br>
+    <br>
+</div>
+
+ <div id="dialog" title="Get free calling time or earn money by referring friends to Zenofon" style="display:none">
+	<div>
+                <div><p>Invite a friend to try Zenofon. They get $5.00 free credit to try ZenoFon. You make a commission when they sign up, when they make a free test call, and when they recharge. If they invite friends, and their friends invite friends, you can see it grow on your Zenofon tree.  Some of our users have earned hundreds of dollars this way!</p></div>
+
+				<h3>1.You can share your link on Facebook, via Twitter or email:</h3>
+				<div style="fl">
+				
+				<div class="clsStandardButton email fl"  ><a href="mailto:Input Email?subject=ZenoFon is the best way to call internationally
+&body=Try out ZenoFon.  It's super easy and very cheap. ZenoFon will give you $5.00 to try out their service. With rates as low as .5 cents a minute, your talk time can be a long time. Sign up with this link http://www.zenofon.com/%INVITE_CODE%">E-mail...</a></div>
+			 
+			 
+			   <div class="clsStandardButton  twitter fl "  ><a href="http://twitter.com/?status=ZenoFon will give a new users $5.00 to try our service! No Strings Attached. http://www.zenofon.com/%INVITE_CODE%">Twitter...</a></div>
+		 
+			   <div class="clsStandardButton facebook  fl "  ><a href="http://www.facebook.com/connect/prompt_feed.php?message=Try ZenoFon and get a $5.00 free calling coupon. So easy! http://www.zenofon.com/%INVITE_CODE%">Facebook...</a></div>
+			   
+			   
+				</div>
+               <br class="clear" />
+			   <h3>2. Share the link below any way you want:  via email, via the phone, on Facebook, via text.  That link is specific to you.  If you want a custom link, email support@zenofon.com.</h3>
+          
+			  <input type="text"  readonly="readonly"  id="disabletext"  value="http://www.zenofon.com/%INVITE_CODE%">   
+               
+ 
+	</div>
+
+
+</div>
+
+
+
+
+<!-- ------------------------------------------------- -->
+<!-- Commissions by engine -->
+<!-- ------------------------------------------------- -->
+<h3>You have earned $%commissions_available_value% available in royalty payouts</h3>
+You can earn royalties from people you refer to ZenoFon.<br>
+Look below to see what you've earned so far: <br>
+<br>
+<style>
+.commission_box {width:265px; float:left; }
+.commission_box fieldset {height:115px; ; margin-right:10px; margin-bottom:10px; font-size:11px; line-height:130%; }
+</style>
+<div class=commission_box><fieldset >
+    <h2>Referral sign-in</h2>
+    <TMPL_IF NAME="commissions_by_engine_REFERRAL_SIGNIN_found">
+    <h1 style="color:#ff5c00;">$%commissions_by_engine_REFERRAL_SIGNIN_value% available</h1>
+    <TMPL_ELSE>
+    <h1 style="color:#c0c0c0;">(no income available)</h1>
+    </TMPL_if>       
+   If someone joins Zenofon, even before they call, we reward you. 
+    <br><a href=index.cgi?action=commissions&filter=7&engine=REFERRAL_SIGNIN >&#187; Show all referral bonuses</a>
+</fieldset></div>
+<div class=commission_box><fieldset >
+    <h2>Referral first call</h2>
+    <TMPL_IF NAME="commissions_by_engine_REFERRAL_FIRST_CALL_found">
+    <h1 style="color:#ff5c00;">$%commissions_by_engine_REFERRAL_FIRST_CALL_value% available</h1>
+    <TMPL_ELSE>
+    <h1 style="color:#c0c0c0;">(no income available)</h1>
+    </TMPL_if>       
+    Zenofon gives you $2.00 when someone you refer makes a free test call.  
+    <br><a href=index.cgi?action=commissions&filter=7&engine=REFERRAL_FIRST_CALL >&#187; Show all first call bonuses</a>
+</fieldset></div> 
+<div class=commission_box><fieldset >
+    <h2>Referral recharge</h2>
+    <TMPL_IF NAME="commissions_by_engine_REFERRAL_RECHARGE_found">
+    <h1 style="color:#ff5c00;">$%commissions_by_engine_REFERRAL_RECHARGE_value% available</h1>
+    <TMPL_ELSE>
+    <h1 style="color:#c0c0c0;">(no income available)</h1>
+    </TMPL_if>       
+   When your referrals recharge, you make a 12% commission on their specific amount.
+  <br><a href=index.cgi?action=commissions&filter=7&engine=REFERRAL_RECHARGE >&#187; Show all recharge bonuses</a>
+
+</fieldset></div>
+<br clear=both>
+<a href=?action=commissions&filter=7 >&#187; See all my available income streams</a><br>
+<br>
+<br>
+
+
+
+<!-- ------------------------------------------------- -->
+<!-- Use your commissions -->
+<!-- ------------------------------------------------- -->
+<div class=clear style="width:400px; float:right">   
+<div class=clear style="margin-left:30px;">   
+    <fieldset style="padding:0px; padding:20px; ">
+    <h2>Summary</h2>
+    You have a total of $%commissions_available_value% in royalties and bonuses available in your account. <br>
+    <div class=clear style=margin-left:15px;margin-top:10px;>
+    $%commissions_available_slice_1_value% Transferable for phone credit only.<br>
+    $%commissions_available_slice_2_value% Can be exchanged for cash or phone credit.<br>
+    $%commissions_available_slice_0_value% still new and not usable yet.<br>
+    </div>
+    </fieldset>
+</div>
+</div>
+<h3>$%commissions_available_slice_1_value% are ready to use</h3>
+All income streams can be converted to phone credit after 7 days or to cash after 90 days.
+<br>
+<br>
+<form class=clear action=/myaccount/
+<button class="eyecandybutton" style="width:250px;" type=submit onClick="">&#187; Convert to phone credits</button><br>
+<input type=hidden name=action value=credits_buy_commission></input>
+</form>
+<br>
+<a href=?action=commissions_request_check >&#187; Withdraw royalties and bonuses</a><br>
+<a href=?action=commissions&filter=6 >&#187; See all my past used income</a><br>
+<br clear=both><br>
+
+
+
+
+
+
+
+
+
+<!--
+<br><br>
+<h1>debug</h1>
+%debug%
+<br><br><br><br><br><br><hr>
+ -->
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

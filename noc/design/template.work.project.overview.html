@@ -1,0 +1,329 @@
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+
+<style>
+.task_box {
+	margin:0px;
+	padding:0px;
+	border:1px solid #f8d322;
+	background-color:#FFF1aa; #fff18e;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	xxfloat:left; 
+	width:100%; 
+	height:18px; 
+	margin-bottom:5px; 
+	margin-right:5px; 
+	font-size:10px; 
+	line-height:120%;
+	overflow:hidden;
+}
+.task_box_inside{
+	margin:0px;
+	border:0px;
+	padding:2px;
+	background-image:url(/design/icons/control_pause.png); 
+	background-repeat:no-repeat; 
+	background-position:2 1; 
+	padding-left:19px; 
+}
+.task_box_alert{
+	color:red;
+	font-weight:bold;
+	border:1px solid red;
+}
+.task_box_alert a {
+	color:red;
+	font-weight:bold;
+}
+.task_icon {
+	background-image:url(/design/icons/control_pause.png); 
+	background-repeat:no-repeat; 
+	background-position:0 0; 
+	padding-left:19px; 
+}
+.task_icon_0 { background-image:url(/design/icons/control_pause.png);		}
+.task_icon_1 { background-image:url(/design/icons/control_play.png);		}
+.task_icon_2 { background-image:url(/design/icons/control_repeat_blue.png);	}
+.task_icon_3 { background-image:url(/design/icons/01-50.png);				}
+.task_icon_4 { background-image:url(/design/icons/tick-circle.png);			}
+.task_icon_5 { background-image:url(/design/icons/minus-circle.png);		}
+
+.task_bullet {
+	background-image:url(/design/icons/bullet_white.png); 
+	background-repeat:no-repeat; 
+	background-position:0 0; 
+	padding-left:19px; 
+}
+.task_bullet_0 { background-image:url(/design/icons/bullet_white.png);	}
+.task_bullet_1 { background-image:url(/design/icons/bullet_yellow.png);	}
+.task_bullet_2 { background-image:url(/design/icons/bullet_yellow.png);	}
+.task_bullet_3 { background-image:url(/design/icons/bullet_error.png);	}
+.task_bullet_4 { background-image:url(/design/icons/bullet_green.png);	}
+.task_bullet_5 { background-image:url(/design/icons/bullet_red.png);	}
+
+.work_icon {
+	background-image:url(/design/icons/inbox-document.png); 
+	background-repeat:no-repeat; 
+	background-position:0 3; 
+	padding-left:19px; 
+}
+.work_icon_0 { background-image:url(/design/icons/inbox-document.png);	}
+.work_icon_1 { background-image:url(/design/icons/inbox-document.png);	}
+.work_icon_2 { background-image:url(/design/icons/inbox.png);	}
+</style>
+
+
+<script src="/design/jquery.min.js"				type="text/javascript" ></script>
+<script src="/noc/thread.cgi?action=include_js"	type="text/javascript" ></script>
+
+
+
+<div class=clear style="width:800px;">
+
+<!--  
+	<div style="float:right; width:400px; ">
+	<fieldset style="padding:10px;margin-left:20px;">
+		<h1 style="background-image:url(/design/icons/comments.png); background-repeat:no-repeat; background-position:0 4; padding-left:18px; ">Comments</h1>
+		A small idea box to this project. Check each task to specific thread.<br>
+		<div id=messages_container_%project_id% style="margin-top:10px;" ></div>
+		<script>$(document).ready(function() {thread_create('messages_container_%project_id%','PROJ-%project_id%'); });</script>
+	</fieldset>
+	</div>
+-->
+
+	%project_text% 	<a href=%my_url%?action=project_edit&project_id=%project_id% onClick="modal_open('Edit work-order','%my_url%?action=project_edit&project_id=%project_id%',400,380); return false;">(edit...)</a><br>
+	<br>
+	
+
+
+	<!-- ===============================  -->
+	<!-- START - active works loop  -->
+	<!-- ===============================  -->
+	<TMPL_LOOP NAME="works">
+		<TMPL_IF NAME="work_flag_work">
+			<fieldset style="padding:15px; margin-bottom:30px;">
+	
+				<div class=clear style="float:right; margin-left:20px; margin-right:5px;">
+					<div style="width:150px;height:20px;background:none repeat scroll 0 0 #AAAAAA;border-color:#777777 #CCCCCC #CCCCCC #777777;border-style:solid;border-width:0.09em;float:right;margin-top:0.09em;position:relative;">
+						<div style="width:%tasks_percentage_done%%; background-color:#496FC7; height:20px;"></div>
+						<div style="color:#FFFFFF;height:20px;line-height:20px;position:absolute;text-align:center;top:0;width:100%;font-family:Tahoma,Arial,sans-serif;font-size:12px;">%tasks_percentage_done%%</div>
+					</div>			
+				</div>			
+
+				<h1 class="work_icon work_icon_%work_status_id%"><a name='work_%work_id%' />
+					<a href=%my_url%?action=work_edit&work_id=%work_id% onClick="modal_open('Edit work-order','%my_url%?action=work_edit&work_id=%work_id%',400,380); return false;">%work_title%</a>
+				</h1>
+				<div class=clear style="font-size:11px; line-height:130%; width:350px; ">
+					%work_text%
+					<br>
+					<br>
+				</div>
+				<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100% ><tr>
+	
+					<td width=33% valign=top>
+						<div class=clear style="float:right; font-size:10px; padding-top:10px; color:#c0c0c0; line-height:100%;">%tasks_count_notdone% tasks. (%tasks_percentage_notdone%%)</div>
+						<b>Not done</b>
+						<hr size=1 noshade>
+						<TMPL_LOOP NAME="work-tasks">
+							<TMPL_IF NAME="task_work_selected">
+							<TMPL_IF NAME="task_flag_notdone">
+							<div class=task_box><div class="task_box_inside task_icon_%task_status_id%" >
+								<a title="%task_text%" href=%my_url%?action=task_view&task_id=%task_id% onClick="modal_open('Task to do','%my_url%?action=task_view&task_id=%task_id%',700,450); return false;">
+								#%task_id% - %task_title%
+								</a>
+							</div></div>
+							</TMPL_IF>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</td>
+					<td>&nbsp;&nbsp;&nbsp;</td><td style="border-left:1px solid #c0c0c0;">&nbsp;&nbsp;&nbsp;</td>
+	
+					<td width=33% valign=top>
+						<div class=clear style="float:right; font-size:10px; padding-top:10px; color:#c0c0c0; line-height:100%;">%tasks_count_work% tasks. (%tasks_percentage_work%%)</div>
+						<b>In-progress</b>
+						<hr size=1 noshade>
+						<TMPL_LOOP NAME="work-tasks">
+							<TMPL_IF NAME="task_work_selected">
+							<TMPL_IF NAME="task_flag_work">
+							<div class="task_box <TMPL_IF NAME='task_flag_alert'>task_box_alert</TMPL_IF>"><div class="task_box_inside task_icon_%task_status_id%" >
+								<a title="%task_text%"  href=%my_url%?action=task_view&task_id=%task_id% onClick="modal_open('Task to do','%my_url%?action=task_view&task_id=%task_id%',700,450); return false;" >
+								%task_title%
+								</a>
+							</div></div>
+							</TMPL_IF>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</td>
+					<td>&nbsp;&nbsp;&nbsp;</td><td style="border-left:1px solid #c0c0c0;">&nbsp;&nbsp;&nbsp;</td>
+	
+	
+					<td width=33% valign=top>
+						<div class=clear style="float:right; font-size:10px; padding-top:10px; color:#c0c0c0; line-height:100%;">%tasks_count_done% tasks. (%tasks_percentage_done%%)</div>
+						<b>Finish</b>
+						<hr size=1 noshade>
+						<TMPL_LOOP NAME="work-tasks">
+							<TMPL_IF NAME="task_work_selected">
+							<TMPL_IF NAME="task_flag_done">
+							<div class=task_box><div class="task_box_inside task_icon_%task_status_id%" >
+								<a title="%task_text%" href="%my_url%?action=task_view&task_id=%task_id%" onClick="modal_open('Task to do','%my_url%?action=task_view&task_id=%task_id%',700,450); return false;">
+								%task_title%
+								</a>
+							</div></div>
+							</TMPL_IF>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</td>
+	
+				</tr></table>
+			</fieldset>
+		</TMPL_IF>
+	</TMPL_LOOP>
+	<!-- ===============================  -->
+	<!-- STOP - active works loop  -->
+	<!-- ===============================  -->
+
+
+
+	<!-- ==================================== -->
+	<!-- Workgroups  -->
+	<!-- ==================================== -->
+	<h2 
+		style="
+		background-image:url(/design/icons/inbox-document.png); 
+		background-repeat:no-repeat; 
+		background-position:0 6; 
+		padding-left:20px;
+		">Sprints
+		<a 
+			style="font-size:11px; line-height:120%; font-family:Verdana,Arial,Helvetica,sans-serif;" 
+			href=%my_url%?action=work_add&project_id=%project_id% 
+			onClick="modal_open('Create new work-order','%my_url%?action=work_add&project_id=%project_id%',400,350);return false;"  
+			>(Create new sprint)</a>
+		</h2>
+
+
+	<h2 style="background-image:url(/design/icons/inbox-document.png); background-repeat:no-repeat; background-position:0 6; padding-left:20px; "></h2>
+	To make work more goal focused, we group tasks in sprints. 
+	Usually people create one sprint per week (or month for big projects) and focus all work only on tasks in this sprint.<br>
+	<br>
+	<TMPL_LOOP NAME="works">
+		<div class=clear style="float:left; width:400px;">
+		<div class=clear style="margin-bottom:10px;margin-right:5px;">
+		<fieldset style="
+					padding:10px; 
+					padding-right:0px; 
+					padding-bottom:5px; 
+					<TMPL_IF NAME='work_flag_work'>border:1px solid #f8d322; background:#FFF1aa;</TMPL_IF> 
+					<TMPL_IF NAME='work_flag_done'>background:transparent;</TMPL_IF> 
+					">
+			<div class=clear style="height:180px; overflow:auto; padding-right:10px; margin-bottom:5px; ">
+				<div class=clear style="float:right; margin-left:3px; line-heigh:80%; font-size:11px; color:#c0c0c0">%tasks_count_total% tasks</div>
+				<a  href=%my_url%?action=work_edit&work_id=%work_id% onClick="modal_open('Edit work-order','%my_url%?action=work_edit&work_id=%work_id%',400,380); return false;">
+				<h1 class="work_icon work_icon_%work_status_id%" >%work_title%</h1>
+				</a>
+				<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100% ><tr>
+					<td  valign=top width=40% style="font-size:11px; line-height:120%;">
+						%work_text%
+					</td>
+					<td>&nbsp;&nbsp;</td>
+					<td  valign=top width=60% style="font-size:11px; line-height:120%;">
+						<TMPL_LOOP NAME="work-tasks">
+							<TMPL_IF NAME="task_work_selected">
+								<a class="task_bullet task_bullet_%task_status_id%" title="%task_text%" href="%my_url%?action=task_view&task_id=%task_id%" onClick="modal_open('Task to do','%my_url%?action=task_view&task_id=%task_id%',700,450); return false;">
+								%task_title%
+								</a>
+								<br clear=both>
+							</TMPL_IF>
+						</TMPL_LOOP>
+					</td>
+				</tr></table>
+			</div>
+			<a href=%my_url%?work_id=%work_id%&action=task_add&project_id=%project_id% onClick="modal_open('Add new task','%my_url%?work_id=%work_id%&action=task_add&project_id=%project_id%',400,380);return false;" >(Create new task in this sprint)</a>
+		</fieldset>
+		</div>
+		</div>
+	</TMPL_LOOP>
+	<br clear=left>
+	<br><br>
+	<!-- ==================================== -->
+
+
+
+	<!-- ==================================== -->
+	<!-- tasks not in order -->
+	<!-- ==================================== -->
+	<h2 
+		style="
+		background-image:url(/design/icons/inbox--exclamation.png); 
+		background-repeat:no-repeat; 
+		background-position:0 6; 
+		padding-left:20px;
+		">Un-planed tasks
+		<a 
+			style="font-size:11px; line-height:120%; font-family:Verdana,Arial,Helvetica,sans-serif;" 
+			href=%my_url%?action=task_add&project_id=%project_id% 
+			onClick="modal_open('Add new task','%my_url%?action=task_add&project_id=%project_id%',400,380);return false;"
+			>(Create new task)</a>
+		</h2>
+	Here we enter all tasks out of our working plan. Good place for Bugs, emergency tasks and some brainstorms. Top tasks need work first.  <br>
+	<div style="margin:10px;">
+	<TMPL_LOOP NAME="tasks">
+		<TMPL_IF NAME="task_work_assigned">
+		<TMPL_ELSE>
+			<a 
+				title="%task_text%" 
+				href="%my_url%?action=task_view&task_id=%task_id%" 
+				onClick="modal_open('Task to do','%my_url%?action=task_view&task_id=%task_id%',700,450); return false;"
+				class="task_icon task_icon_%task_status_id%" 
+			>
+			%task_title%
+			</a><br>
+		</TMPL_IF>
+	</TMPL_LOOP>
+	</div>
+	<!-- ==================================== -->
+
+
+
+<br><br><br><br><br><hr>
+
+	<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100% ><tr>
+	<td  valign=top width=100%>
+
+
+		<!-- ==================================== -->
+		<!-- Texto  -->
+		<!-- ==================================== -->
+		<h2 style="background-image:url(/design/icons/04-20.png); background-repeat:no-repeat; background-position:0 6; padding-left:20px; ">%project_title%</h2>
+		%project_text%<br>
+		<a href=%my_url%?action=project_edit&project_id=%project_id% onClick="modal_open('Edit work-order','%my_url%?action=project_edit&project_id=%project_id%',400,380); return false;">&#187; Edit project settings</a><br>
+		<br>
+		<!-- ==================================== -->
+
+
+
+	</td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="border-left:1px solid #c0c0c0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td  valign=top><div class=clear style="width:550">
+
+
+
+
+
+
+	</div></td></tr></table>
+
+
+
+<br clear=both>
+</div>
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.base.bot.html">

@@ -1,0 +1,28 @@
+Subject: Your PIN number
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+<body>
+    <font size=4>Your Zenofon PIN!</font><br>
+    <br>
+    You told us you needed to have your PIN resent to you.  Your information is below:<br>
+    <br>
+    <br>
+	[Your account]<br>
+	Email: #EMAIL#<br>
+	PIN: #PIN#<br>
+	Name: #NAME#<br>
+	Credits: $#CREDITS#<br>
+    <br>
+You can also login with just the last 4 digits of your PIN.
+    <br>
+    To visit your account go to: <b><a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a></b><br>
+    <br>
+    For help, FAQ or customer service go to: <b><a href=http://www.zenofon.com/help/>http://www.zenofon.com/help</a></b><br>
+
+Thanks,
+Sarabelle Annanberg
+VP Marketing
+Zenofon LLC
+</body>
+</html>

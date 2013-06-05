@@ -1,0 +1,273 @@
+<html ><head><title>ZenoFon - My account - Setup</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<a href=./?action=logout		title="Log-out" 							class="st-item" style="float:right; padding-top:5px; color:#AFBEC9;"><img src=/design/img/st-exit.png hspace=0 vspace=0 border=0><br>Log-out</a>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+
+
+
+
+<table width=100% xheight=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+	
+	<!-- ======================================================== -->
+	<!-- left tab  -->
+	<!-- ======================================================== -->
+	<td valign=top height=100% width=40%>
+		<h2>The numbers you call from</h2>
+		These numbers are tied to your account and how we recognize you.
+		<br>
+		<br>
+		When you call your Zenofon access numbers from these numbers we know its you.
+		Then based on what number you call in on we can forward it to the correct number overseas.
+		Don't enter public numbers here. Just private numbers such as your mobile or home land line. 
+		<br>
+		<br>
+		<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:100%; background-image:url('/design/img/box-bg.gif');background-repeat:repeat;">
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-1.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-2.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td><tr>
+			<tr><td valign=top width=100% class=clear ><div class=clear style="padding:18px;padding-bottom:10px;padding-top:10px;">
+
+				<img src=/design/img/pbx-0.png width=204 height=54 hspace=0 vspace=0 border=0>
+				<h2 style="margin-top:20px; margin-bottom:20px;">Your originating numbers!</h2>
+				<div class=clear style=padding-left:20px;>
+				<TMPL_IF NAME="ani_empty">
+					<!-- ===  NO ANI MESSAGE === -->
+					<div class=clear style="margin-top:30px;margin-bottom:30px;">
+
+					<div class=alert_box>
+
+					<div class=alert_box_inside style="background-image:url(/design/img/1.png);padding-left:36px;padding-top:10px;">
+
+					<h1>Start here...</h1>
+					<br>
+					Enter here numbers with full access to your ZenoFon account.
+					<br> 
+					</div></div></div>
+				</TMPL_IF>
+				<TMPL_IF NAME="ani_1_number"><a href=%my_url%?action=ani&index=1 class=<TMPL_IF NAME="ani_1_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF> >%ani_1_number% <TMPL_IF NAME="ani_1_name"> - %ani_1_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_2_number"><a href=%my_url%?action=ani&index=2 class=<TMPL_IF NAME="ani_2_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_2_number% <TMPL_IF NAME="ani_2_name"> - %ani_2_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_3_number"><a href=%my_url%?action=ani&index=3 class=<TMPL_IF NAME="ani_3_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_3_number% <TMPL_IF NAME="ani_3_name"> - %ani_3_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_4_number"><a href=%my_url%?action=ani&index=4 class=<TMPL_IF NAME="ani_4_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_4_number% <TMPL_IF NAME="ani_4_name"> - %ani_4_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_5_number"><a href=%my_url%?action=ani&index=5 class=<TMPL_IF NAME="ani_5_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_5_number% <TMPL_IF NAME="ani_5_name"> - %ani_5_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_6_number"><a href=%my_url%?action=ani&index=6 class=<TMPL_IF NAME="ani_6_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_6_number% <TMPL_IF NAME="ani_6_name"> - %ani_6_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_7_number"><a href=%my_url%?action=ani&index=7 class=<TMPL_IF NAME="ani_7_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_7_number% <TMPL_IF NAME="ani_7_name"> - %ani_7_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_8_number"><a href=%my_url%?action=ani&index=8 class=<TMPL_IF NAME="ani_8_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_8_number% <TMPL_IF NAME="ani_8_name"> - %ani_8_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_9_number"><a href=%my_url%?action=ani&index=9 class=<TMPL_IF NAME="ani_9_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_9_number% <TMPL_IF NAME="ani_9_name"> - %ani_9_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_10_number"><a href=%my_url%?action=ani&index=10 class=<TMPL_IF NAME="ani_10_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_10_number% <TMPL_IF NAME="ani_10_name"> - %ani_10_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_11_number"><a href=%my_url%?action=ani&index=11 class=<TMPL_IF NAME="ani_11_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_11_number% <TMPL_IF NAME="ani_11_name"> - %ani_11_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_12_number"><a href=%my_url%?action=ani&index=12 class=<TMPL_IF NAME="ani_12_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_12_number% <TMPL_IF NAME="ani_12_name"> - %ani_12_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_13_number"><a href=%my_url%?action=ani&index=13 class=<TMPL_IF NAME="ani_13_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_13_number% <TMPL_IF NAME="ani_13_name"> - %ani_13_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_14_number"><a href=%my_url%?action=ani&index=14 class=<TMPL_IF NAME="ani_14_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_14_number% <TMPL_IF NAME="ani_14_name"> - %ani_14_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_15_number"><a href=%my_url%?action=ani&index=15 class=<TMPL_IF NAME="ani_15_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_15_number% <TMPL_IF NAME="ani_15_name"> - %ani_15_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_16_number"><a href=%my_url%?action=ani&index=16 class=<TMPL_IF NAME="ani_16_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_16_number% <TMPL_IF NAME="ani_16_name"> - %ani_16_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_17_number"><a href=%my_url%?action=ani&index=17 class=<TMPL_IF NAME="ani_17_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_17_number% <TMPL_IF NAME="ani_17_name"> - %ani_17_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_18_number"><a href=%my_url%?action=ani&index=18 class=<TMPL_IF NAME="ani_18_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_18_number% <TMPL_IF NAME="ani_18_name"> - %ani_18_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_19_number"><a href=%my_url%?action=ani&index=19 class=<TMPL_IF NAME="ani_19_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_19_number% <TMPL_IF NAME="ani_19_name"> - %ani_19_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_20_number"><a href=%my_url%?action=ani&index=20 class=<TMPL_IF NAME="ani_20_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_20_number% <TMPL_IF NAME="ani_20_name"> - %ani_20_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_21_number"><a href=%my_url%?action=ani&index=21 class=<TMPL_IF NAME="ani_21_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_21_number% <TMPL_IF NAME="ani_21_name"> - %ani_21_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_22_number"><a href=%my_url%?action=ani&index=22 class=<TMPL_IF NAME="ani_22_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_22_number% <TMPL_IF NAME="ani_22_name"> - %ani_22_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_23_number"><a href=%my_url%?action=ani&index=23 class=<TMPL_IF NAME="ani_23_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_23_number% <TMPL_IF NAME="ani_23_name"> - %ani_23_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_24_number"><a href=%my_url%?action=ani&index=24 class=<TMPL_IF NAME="ani_24_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_24_number% <TMPL_IF NAME="ani_24_name"> - %ani_24_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_25_number"><a href=%my_url%?action=ani&index=25 class=<TMPL_IF NAME="ani_25_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_25_number% <TMPL_IF NAME="ani_25_name"> - %ani_25_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_26_number"><a href=%my_url%?action=ani&index=26 class=<TMPL_IF NAME="ani_26_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_26_number% <TMPL_IF NAME="ani_26_name"> - %ani_26_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_27_number"><a href=%my_url%?action=ani&index=27 class=<TMPL_IF NAME="ani_27_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_27_number% <TMPL_IF NAME="ani_27_name"> - %ani_27_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_28_number"><a href=%my_url%?action=ani&index=28 class=<TMPL_IF NAME="ani_28_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_28_number% <TMPL_IF NAME="ani_28_name"> - %ani_28_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_29_number"><a href=%my_url%?action=ani&index=29 class=<TMPL_IF NAME="ani_29_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_29_number% <TMPL_IF NAME="ani_29_name"> - %ani_29_name%</TMPL_IF></a></TMPL_IF>
+				<TMPL_IF NAME="ani_30_number"><a href=%my_url%?action=ani&index=30 class=<TMPL_IF NAME="ani_30_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_30_number% <TMPL_IF NAME="ani_30_name"> - %ani_30_name%</TMPL_IF></a></TMPL_IF>
+				<button onclick="window.location='%my_url%?action=ani&new=1';" style="margin-top:10px;"><img src=/design/icons/phone_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new number</button>
+				</div>
+			</div></td></tr>
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-4.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-3.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td></tr>
+		</table>
+		<br>
+		<br>
+		<h2>Can I Dial From Any Number?</h2>
+		<TMPL_IF NAME="service_is_pin_locked">
+		<!-- ==== PIN LOCKED MESSAGE FOR ANI NUMBERS ====-->
+		Nope, your account is restricted. You can only dial from numbers you confirm as yours.<br> 
+		After you go ahead and charge some money on your Zenofon account , you can use Zenofon as a "calling card", from even unverified numbers<br> 
+		In the meantime try Zenofon by calling from a number you config above.
+		<TMPL_ELSE>  
+		<!-- ==== FULL ACTIVE MESSAGE FOR ANI NUMBERS ====-->
+		Yes! Your account is verified and you can use Zenofon from unrestricted numbers.
+		When calling from a number that we don't recognize,  we request a PIN (we already sent it to you by email), so we know who is calling.
+		</TMPL_IF>
+	</td>
+
+	<!-- split line -->
+	<td width=50  valign=top><img src=/design/img/spc.gif width=50 height=1 hspace=0 vspace=0 border=0</td>
+
+	<!-- ======================================================== -->
+	<!-- right tab  -->
+	<!-- ======================================================== -->
+	<td valign=top height=100% width=60%>
+		<h2>Conveniently Dial Your Contacts!</h2>
+		Never dial a PIN again!
+		Add your contacts below and each one will get a USA number that will forward overseas.
+		Store this number in your phone, and when you want to call overseas, just dial this new number!
+		<br>
+		<br>
+		<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:100%; background-image:url('/design/img/box-bg.gif');background-repeat:repeat;">
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-1.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-2.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td><tr>
+			<tr><td valign=top width=100% class=clear ><div class=clear style="padding:18px;padding-bottom:10px;padding-top:10px;">
+				<img src=/design/img/pbx-1.png width=204 height=54 hspace=0 vspace=0 border=0>
+				<h2 style="margin-top:20px; margin-bottom:20px;">Your ZenoFon phone book!</h2>
+				<div class=clear style=padding-left:20px;>
+				<TMPL_IF NAME="dst_empty">
+					<!-- ===  NO ANI MESSAGE === -->
+					<div class=clear style="margin-top:30px;margin-bottom:30px;">
+
+					<div class=alert_box>
+
+					<div class=alert_box_inside style="background-image:url(/design/img/2.png);padding-left:36px;padding-top:10px;">
+
+					<h1>...then finish here!</h1>
+					<br>
+					Enter your contacts here to see the destination calling rate and additional instructions.
+					<br> 
+					</div></div></div>
+				</TMPL_IF>
+				<TMPL_IF NAME="dst_1_number"><a href=%my_url%?action=dst&index=1 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1_name">%dst_1_name%<TMPL_ELSE>%dst_1_number%</TMPL_IF>", dial (646)434-4612</a></TMPL_IF>
+				<TMPL_IF NAME="dst_2_number"><a href=%my_url%?action=dst&index=2 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2_name">%dst_2_name%<TMPL_ELSE>%dst_2_number%</TMPL_IF>", dial (646)434-4613</a></TMPL_IF>
+				<TMPL_IF NAME="dst_3_number"><a href=%my_url%?action=dst&index=3 class=DSTLink>To talk with "<TMPL_IF NAME="dst_3_name">%dst_3_name%<TMPL_ELSE>%dst_3_number%</TMPL_IF>", dial (646)434-4614</a></TMPL_IF>
+				<TMPL_IF NAME="dst_4_number"><a href=%my_url%?action=dst&index=4 class=DSTLink>To talk with "<TMPL_IF NAME="dst_4_name">%dst_4_name%<TMPL_ELSE>%dst_4_number%</TMPL_IF>", dial (646)434-4615</a></TMPL_IF>
+				<TMPL_IF NAME="dst_5_number"><a href=%my_url%?action=dst&index=5 class=DSTLink>To talk with "<TMPL_IF NAME="dst_5_name">%dst_5_name%<TMPL_ELSE>%dst_5_number%</TMPL_IF>", dial (646)434-4616</a></TMPL_IF>
+				<TMPL_IF NAME="dst_6_number"><a href=%my_url%?action=dst&index=6 class=DSTLink>To talk with "<TMPL_IF NAME="dst_6_name">%dst_6_name%<TMPL_ELSE>%dst_6_number%</TMPL_IF>", dial (646)434-4617</a></TMPL_IF>
+				<TMPL_IF NAME="dst_7_number"><a href=%my_url%?action=dst&index=7 class=DSTLink>To talk with "<TMPL_IF NAME="dst_7_name">%dst_7_name%<TMPL_ELSE>%dst_7_number%</TMPL_IF>", dial (646)434-4618</a></TMPL_IF>
+				<TMPL_IF NAME="dst_8_number"><a href=%my_url%?action=dst&index=8 class=DSTLink>To talk with "<TMPL_IF NAME="dst_8_name">%dst_8_name%<TMPL_ELSE>%dst_8_number%</TMPL_IF>", dial (646)434-4619</a></TMPL_IF>
+				<TMPL_IF NAME="dst_9_number"><a href=%my_url%?action=dst&index=9 class=DSTLink>To talk with "<TMPL_IF NAME="dst_9_name">%dst_9_name%<TMPL_ELSE>%dst_9_number%</TMPL_IF>", dial (646)434-4620</a></TMPL_IF>
+				<TMPL_IF NAME="dst_10_number"><a href=%my_url%?action=dst&index=10 class=DSTLink>To talk with "<TMPL_IF NAME="dst_10_name">%dst_10_name%<TMPL_ELSE>%dst_10_number%</TMPL_IF>", dial (646)434-4621</a></TMPL_IF>
+				<TMPL_IF NAME="dst_11_number"><a href=%my_url%?action=dst&index=11 class=DSTLink>To talk with "<TMPL_IF NAME="dst_11_name">%dst_11_name%<TMPL_ELSE>%dst_11_number%</TMPL_IF>", dial (646)434-4622</a></TMPL_IF>
+				<TMPL_IF NAME="dst_12_number"><a href=%my_url%?action=dst&index=12 class=DSTLink>To talk with "<TMPL_IF NAME="dst_12_name">%dst_12_name%<TMPL_ELSE>%dst_12_number%</TMPL_IF>", dial (646)434-4623</a></TMPL_IF>
+				<TMPL_IF NAME="dst_13_number"><a href=%my_url%?action=dst&index=13 class=DSTLink>To talk with "<TMPL_IF NAME="dst_13_name">%dst_13_name%<TMPL_ELSE>%dst_13_number%</TMPL_IF>", dial (646)434-4624</a></TMPL_IF>
+				<TMPL_IF NAME="dst_14_number"><a href=%my_url%?action=dst&index=14 class=DSTLink>To talk with "<TMPL_IF NAME="dst_14_name">%dst_14_name%<TMPL_ELSE>%dst_14_number%</TMPL_IF>", dial (646)434-4625</a></TMPL_IF>
+				<TMPL_IF NAME="dst_15_number"><a href=%my_url%?action=dst&index=15 class=DSTLink>To talk with "<TMPL_IF NAME="dst_15_name">%dst_15_name%<TMPL_ELSE>%dst_15_number%</TMPL_IF>", dial (646)434-4626</a></TMPL_IF>
+				<TMPL_IF NAME="dst_16_number"><a href=%my_url%?action=dst&index=16 class=DSTLink>To talk with "<TMPL_IF NAME="dst_16_name">%dst_16_name%<TMPL_ELSE>%dst_16_number%</TMPL_IF>", dial (646)434-4627</a></TMPL_IF>
+				<TMPL_IF NAME="dst_17_number"><a href=%my_url%?action=dst&index=17 class=DSTLink>To talk with "<TMPL_IF NAME="dst_17_name">%dst_17_name%<TMPL_ELSE>%dst_17_number%</TMPL_IF>", dial (646)434-4628</a></TMPL_IF>
+				<TMPL_IF NAME="dst_18_number"><a href=%my_url%?action=dst&index=18 class=DSTLink>To talk with "<TMPL_IF NAME="dst_18_name">%dst_18_name%<TMPL_ELSE>%dst_18_number%</TMPL_IF>", dial (646)434-4629</a></TMPL_IF>
+				<TMPL_IF NAME="dst_19_number"><a href=%my_url%?action=dst&index=19 class=DSTLink>To talk with "<TMPL_IF NAME="dst_19_name">%dst_19_name%<TMPL_ELSE>%dst_19_number%</TMPL_IF>", dial (646)434-4630</a></TMPL_IF>
+				<TMPL_IF NAME="dst_20_number"><a href=%my_url%?action=dst&index=20 class=DSTLink>To talk with "<TMPL_IF NAME="dst_20_name">%dst_20_name%<TMPL_ELSE>%dst_20_number%</TMPL_IF>", dial (646)434-4631</a></TMPL_IF>
+				<TMPL_IF NAME="dst_21_number"><a href=%my_url%?action=dst&index=21 class=DSTLink>To talk with "<TMPL_IF NAME="dst_21_name">%dst_21_name%<TMPL_ELSE>%dst_21_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 21</a></TMPL_IF>
+				<TMPL_IF NAME="dst_22_number"><a href=%my_url%?action=dst&index=22 class=DSTLink>To talk with "<TMPL_IF NAME="dst_22_name">%dst_22_name%<TMPL_ELSE>%dst_22_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 22</a></TMPL_IF>
+				<TMPL_IF NAME="dst_23_number"><a href=%my_url%?action=dst&index=23 class=DSTLink>To talk with "<TMPL_IF NAME="dst_23_name">%dst_23_name%<TMPL_ELSE>%dst_23_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 23</a></TMPL_IF>
+				<TMPL_IF NAME="dst_24_number"><a href=%my_url%?action=dst&index=24 class=DSTLink>To talk with "<TMPL_IF NAME="dst_24_name">%dst_24_name%<TMPL_ELSE>%dst_24_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 24</a></TMPL_IF>
+				<TMPL_IF NAME="dst_25_number"><a href=%my_url%?action=dst&index=25 class=DSTLink>To talk with "<TMPL_IF NAME="dst_25_name">%dst_25_name%<TMPL_ELSE>%dst_25_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 25</a></TMPL_IF>
+				<TMPL_IF NAME="dst_26_number"><a href=%my_url%?action=dst&index=26 class=DSTLink>To talk with "<TMPL_IF NAME="dst_26_name">%dst_26_name%<TMPL_ELSE>%dst_26_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 26</a></TMPL_IF>
+				<TMPL_IF NAME="dst_27_number"><a href=%my_url%?action=dst&index=27 class=DSTLink>To talk with "<TMPL_IF NAME="dst_27_name">%dst_27_name%<TMPL_ELSE>%dst_27_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 27</a></TMPL_IF>
+				<TMPL_IF NAME="dst_28_number"><a href=%my_url%?action=dst&index=28 class=DSTLink>To talk with "<TMPL_IF NAME="dst_28_name">%dst_28_name%<TMPL_ELSE>%dst_28_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 28</a></TMPL_IF>
+				<TMPL_IF NAME="dst_29_number"><a href=%my_url%?action=dst&index=29 class=DSTLink>To talk with "<TMPL_IF NAME="dst_29_name">%dst_29_name%<TMPL_ELSE>%dst_29_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 29</a></TMPL_IF>
+				<TMPL_IF NAME="dst_30_number"><a href=%my_url%?action=dst&index=30 class=DSTLink>To talk with "<TMPL_IF NAME="dst_30_name">%dst_30_name%<TMPL_ELSE>%dst_30_number%</TMPL_IF>", dial <a href=/help/index.cgi?topic=58>access number</a> and press 30</a></TMPL_IF>
+				<button onclick="window.location='%my_url%?action=dst&new=1';" style="margin-top:10px;"><img src=/design/icons/user_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new contact</button><br>
+				</div>
+			</div></td></tr>
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-4.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-3.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td></tr>
+		</table>
+		<br>
+		<br>
+		<h2>Can I Dial Without Restrictions?</h2>
+		<TMPL_IF NAME="service_is_pin_locked">
+		<!-- ==== PIN LOCKED MESSAGE FOR DST NUMBERS ====-->
+Im sorry but not now. Your account is in trial mode, so you can only dial for a total of 30 minutes in 24 hours and 
+only to the numbers you add above.<br>
+When you become a fully active member, we unlock this restriction and you can call anywhere without any daily call limitations. 
+You become an active member after you do your first credit card charge.
+		<TMPL_ELSE>  
+		<!-- ==== FULL ACTIVE MESSAGE FOR DST NUMBERS ====-->
+Yes! Your are a member in good standing.  Thank you. <br>
+To Talk with your contacts, just dial the zenofon number assigned above.  <br>
+To dial any number, dial toll free <b>(866)257-5604</b> and hang up when hear a bip bip. 
+Zenofon will call you back within a few seconds (with any caller ID you choose) and ask you the number you wish to dial. 
+		</TMPL_IF>
+		<br>
+		<br>
+		<br>
+		<a name=cid></a>
+		<h2>Control Your Call-id</h2>
+		Pick the default caller-ID that shows up when you call using Zenofon. The "Automatic Call-ID" setting  will pass through your "real" caller-ID. 
+If You change the option to "manual caller-ID" you get to pick the caller-ID that shows up when you call people. <br>
+		<br>
+		<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear style="width:100%; background-image:url('/design/img/box-bg.gif');background-repeat:repeat;">
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-1.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-2.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td><tr>
+			<tr><td valign=top width=100% class=clear ><div class=clear style="padding:18px;padding-bottom:10px;padding-top:15px;">
+				<form action=service.pbx.cgi>
+					<select name=cid_mode onchange="cid_mode_change(this);" style="width:200px;">
+					<option <TMPL_IF NAME="cid_automatic">selected</TMPL_IF> value=auto>Automatic call-id</option>
+					<option <TMPL_IF NAME="cid_manual">selected</TMPL_IF> value=manual>Manual call-id</option>
+					</select><br>
+					<div class=clear id=cid_number >
+						Call-id number:<br>
+						<input type=text name="cid_number" value="%cid_number%" style="width:200px;"><br>
+					</div>
+					<button type=submit style="margin-top:10px;"><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Save</button><br>
+					<input type=hidden name="action" value="cid">
+				</form>
+			</div></td></tr>
+			<tr><td valign=top class=clear>
+			<img src=/design/img/box-edge-4.gif align=left width=8 height=8 hspace=0 vspace=0 border=0>
+			<img src=/design/img/box-edge-3.gif align=right width=8 height=8 hspace=0 vspace=0 border=0>
+			</td></tr>
+		</table>
+		<!-- CALLID SCRIPT -->
+		<script>
+		function cid_mode_change(obj){
+			if(obj.selectedIndex == 1){
+				MyDisplay('cid_number',1);
+			} else {
+				MyDisplay('cid_number',0);
+			}
+		}
+		cid_mode_change(document.forms[0].elements[0]);
+		</script>
+	</td>
+</table>
+
+<!-- Call id popup messages. At bottom of design to prevent parcial draw after popup -->
+<TMPL_IF NAME="cid_error_no_number"			><script>alert("ERROR: We need a caller-ID number to enable manual setting")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_usa_no_areacode"	><script>alert("ERROR: caller-ID number is wrong. USA numbers need areacode")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_unknown_country"	><script>alert("ERROR: caller-ID number is wrong. Unknown country ")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_wrong_number"		><script>alert("ERROR: Call-id number is wrong. Wrong number")</script></TMPL_IF>
+<TMPL_IF NAME="cid_ok"						><script>alert("caller-ID setings saved.")</script></TMPL_IF>
+
+
+
+		
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

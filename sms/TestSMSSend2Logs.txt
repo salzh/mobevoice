@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TwilioResponse><RestException><Status>400</Status><Message>A 'To' phone number is required.</Message><Code>21604</Code><MoreInfo>http://www.twilio.com/docs/errors/21604</MoreInfo></RestException></TwilioResponse>

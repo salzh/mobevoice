@@ -1,0 +1,38 @@
+<head>
+    <title>Zenofon - OWSLine NOC - %PAGE_TITLE%</title>
+    <link 	href=/noc/design/template.css 								type=text/css			rel=stylesheet media=all  title=win2k-1 />
+    <link	href="/noc/design/modalwindow/windowfiles/dhtmlwindow.css" 	type="text/css"			rel="stylesheet" />
+    <link 	href="/noc/design/modalwindow/modalfiles/modal.css" 		type="text/css"			rel="stylesheet" />
+    <script	src="/noc/design/jquery.js"									type="text/javascript"	></script>
+    <script	src="/noc/design/modalwindow/windowfiles/dhtmlwindow.js"	type="text/javascript"	></script>
+    <script src="/noc/design/modalwindow/modalfiles/modal.js" 			type="text/javascript"	></script>
+    <script src="/noc/design/template.js"								type="text/javascript"	></script>
+</head>
+
+<TMPL_INCLUDE NAME="_template.up.html">
+<TMPL_IF NAME="stations_loop_has_no_itens">
+	<font color=red>No station found by id=%id%... </font>
+<TMPL_ELSE>
+	<h2>View Station Detail</h2>
+        <table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=WindowsTable>
+        <tr><td>Station Id</td><td>%id%</td></tr>
+        <tr><td>Title</td><td>%title%</td></tr>
+        <tr><td>Short Description</td><td>%short_descr%</td></tr>
+         <tr><td>Big Description</td><td>%big_descr%</td></tr>
+         <tr><td>Did List</td><td>%did_list%</td></tr>
+         <tr><td>Logo</td><td><img src="noc/%logo%"  width=130 height=55/></td></tr>
+     
+        </table>
+</TMPL_IF>
+
+
+
+<!--
+Template_id=(%template_id%)
+Template_url=(%template_url%)
+Template_folder=(%template_folder%)
+-->
+
+
+<TMPL_INCLUDE NAME="_template.down.html">
+

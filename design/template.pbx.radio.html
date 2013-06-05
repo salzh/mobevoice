@@ -1,0 +1,81 @@
+<html ><head><title>ZenoFon - My account - Radio </title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+
+
+<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+<td valign=top width=40%>
+
+
+		<!-- how to call a Radio contact! -->
+		<h2>5 second setup! <TMPL_IF NAME="name">"%name%"<TMPL_ELSE></TMPL_IF></h2>
+		After you add your friend to the right, just dial <b>
+		<!-- Quick callback list -->
+		 <TMPL_IF NAME="index_2001_is_active">(712)432-2368</TMPL_IF>
+		<TMPL_IF NAME="index_2002_is_active">(712)432-2369</TMPL_IF>
+		<TMPL_IF NAME="index_2003_is_active">(712)432-2370</TMPL_IF>
+		<TMPL_IF NAME="index_2004_is_active">(712)432-2371</TMPL_IF>
+		<TMPL_IF NAME="index_2005_is_active">(712)432-2372</TMPL_IF>
+		<TMPL_IF NAME="index_2006_is_active">(712)432-2373</TMPL_IF>
+		<TMPL_IF NAME="index_2007_is_active">(712)432-2374</TMPL_IF>
+		<TMPL_IF NAME="index_2008_is_active">(712)432-2375</TMPL_IF>
+		<TMPL_IF NAME="index_2009_is_active">(712)432-2377</TMPL_IF>
+	 
+		</b>
+		 <ul>
+	 	<li>You can dial our public radio did ,and then input radio extension ,followed by #,then you can listen to the radio
+		</li>
+		<li>During listeing ,you can press * to change to another radio station</li>
+		<li>We will remeber the radio your listened,so next time ,when you dial again ,you don't need input radio extension again</li>
+	 	<li>besides dialing via our public radio did, you can map your favorite radio to one did ,so you don't need input extension</li>
+		
+		<br>
+		
+
+
+
+		<!-- Price -->
+		<h2>What's this gonna cost me?</h2>
+	 
+		
+
+</td>
+<td><img src=/design/img/spc.gif width=10 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=60% >
+
+		
+		
+		<a name=advanced_close></a>
+		<fieldset>
+
+				<!-- edit form -->
+				<h2>Radio Information</h2><br>
+				<p>(we current support mms radiotype and shoutcast radiotype,you must specify correct radiotype ,so we know how to play )
+		</p>
+			  %content%
+		</fieldset>
+
+</td>
+</tr>
+</table>
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

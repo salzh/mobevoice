@@ -1,0 +1,140 @@
+#!/usr/bin/perl
+#=======================================================
+# Main noc web entrance
+#=======================================================
+# we basic control log-in/out to noc sessions
+# we need move web user profile to this file also
+#=======================================================
+
+require "include.cgi";
+#=======================================================
+# main loop
+#=======================================================
+$my_url = "index.cgi";
+$action = $form{action};
+if 		($action eq "logout")			{ &do_logout(); 					} 
+elsif 	($action eq "login")			{ &do_login(); 						}
+elsif 	($action eq "imagecheck")		{ &imagecheck_get_image($form{id}); }
+else { 
+	if ($app{session_status} eq 1) { &do_index(); } else { &do_login(); } 
+}
+exit;
+#=======================================================
+
+
+
+
+#========================================================================
+# actions
+#========================================================================
+sub do_index() {
+    %t = &menu_permissions_get_as_template();
+    $t{my_url}	= $my_url;
+    $t{title}	= "Welcome";
+    $t{content}	= qq[Use left menu to navigate];
+    &template_print("template.html",%t);
+}
+sub do_login() {
+	#
+	&cgi_check_ip_flood();
+    #
+    # get form and clean
+    $error 			= 0;
+    $use_imagecheck = 0;
+    $account		= substr(trim(clean_str("\L$form{user}" ,"_-")),0,100);
+    $password		= substr(trim(clean_str("$form{password}","_-")),0,100);
+    $imagecheck 	= substr(trim(clean_str($form{imagecheck_id},"_-")),0,100);
+    $key			= substr(trim(clean_str($form{imagecheck_user_input},"_-")),0,100);
+	$account_id 	= "";
+	$key			= "";
+    # 
+    # check if user enter user or password
+    if (  ($account ne "") && ($password ne "")  ) {
+		#
+		# first check
+		if ($error eq 0) {
+			if ( ($use_imagecheck eq 1) && (($imagecheck eq "") || ($key eq "")) )	{$error = 1}
+			if ($account ne $form{user}) 											{$error = 1}
+			if ($password ne $form{password})										{$error = 1}
+		}
+		#
+		# second check
+		if ($error eq 0) {
+			%hash = database_select_as_hash("select 1,1,id,web_password from system_user where web_user='$account' ","flag,id,password");
+			if (substr($hash{1}{password},0,1) eq "_") {
+				# new md5 password
+				$password_md5 = "_".key_md5($password.$account);
+				if ( ($hash{1}{flag} eq 1) && ($hash{1}{id} ne "") && ($hash{1}{password} ne "") &&  ($hash{1}{password} eq $password_md5)  )	{
+					$account_id = $hash{1}{id};
+				} else {
+					$error = 1
+				}
+			} else {
+				# old password to dont breake people login until they change password
+				if ( ($hash{1}{flag} eq 1) && ($hash{1}{id} ne "") && ($hash{1}{password} ne "") &&  ($hash{1}{password} eq $password)  )	{
+					$account_id = $hash{1}{id};
+				} else {
+					$error = 1
+				}
+			}
+			if ($use_imagecheck eq 1) {
+				$error = (imagecheck_check($imagecheck,$key) ne 1) ? 1 : 0;
+			}
+		}
+		#
+		# if login ok, attach session
+		if ($error eq 0) {
+			&session_attach($account_id);
+			&cgi_redirect("./");
+			exit;
+		} 
+    }
+    #
+    # print page
+    $imagecheck				= ($use_imagecheck eq 1) ? &imagecheck_new() : "";
+    $imagecheck_div_style	= ($use_imagecheck eq 1) ? "" : "display:none";
+    $error_message			= ($error eq 1) ? "<br><div style=\"background-color:yellow; border:1px solid #808080; padding:10px;\"><b>Error</b><br>Incorrect account, password or security code</div>" : "";
+    %t = &menu_permissions_get_as_template();
+    $t{dic}{title}	= "";
+    $t{dic}{content} = qq[
+	<div class=clear style="padding-left:100px;padding-top:100px;">
+	<fieldset style="width:250px; background-color:#eff7fa;"	    >
+		<h2><img src=/noc/design/icons/shield.png hspace=3>NOC log-in here</h2>
+		<br>
+		<form class=clear action=/noc/$my_url method=post target=_top>
+			
+		
+		    Log-in: <br><input type=text 		name=user  value="" style="width:100%;"><br>
+		    Password:<br><input type=password 	name=password value="" style="width:100%;"><br>
+		    <div class=clear style="$imagecheck_div_style">
+			    Security code:<br>
+			    <div class=clear style="width:100%; border:1px solid #c0c0c0; background-color:#ffffff;">
+					<img src=/noc/$my_url?action=imagecheck&id=$imagecheck hspace=30 align=right vspace=5 border=0>
+					<input type=text value="" name=imagecheck_user_input style="width:100px; border:0px; height:42px;"><br clear=both>
+			    </div>
+			    <input type=hidden name=imagecheck_id value="$imagecheck" >
+			</div>
+			$error_message
+		    <br>
+		    <input type=submit name=submit   value="Log-in" style="width:80px;"><br>
+		    <input type=hidden name=action value=login >
+		</form>
+	</fieldset>
+	</div>
+	<script>
+	document.forms[0].elements[0].focus();
+	</script>
+	
+
+	];
+    &template_print("template.login.html",%t);
+}
+sub do_logout(){
+    session_detach();
+	cgi_redirect("/noc/$my_url?action=dashboard");
+    exit;
+}
+#=======================================================
+
+
+

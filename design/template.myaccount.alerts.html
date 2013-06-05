@@ -1,0 +1,124 @@
+<html ><head><title>ZenoFon - My account - Notifications</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class=clear style="width:100%;">
+		<a href=./?action=setup				title="Setup your phone service" 			class="st-item-off st-item-left"><img src=/design/img/st-1-0.png hspace=0 vspace=0 border=0><br>Setup</a>
+		<a href=./?action=profile			title="Set your name and email" 			class="st-item-off"><img src=/design/img/st-2-0.png hspace=0 vspace=0 border=0><br>Profile</a>
+		<a href=./?action=friends 			title="Invite and check your friends" 		class="st-item-off"><img src=/design/img/st-3-0.png hspace=0 vspace=0 border=0><br>Referral</a>
+		<a href=./?action=commissions 		title="See your commissions" 				class="st-item-off"><img src=/design/img/st-7-0.png hspace=0 vspace=0 border=0><br>Commissions</a>
+		<a href=./?action=calls 			title="Check your calls" 					class="st-item-off"><img src=/design/img/st-4-0.png hspace=0 vspace=0 border=0><br>Calls</a>
+		<a href=./?action=alerts 			title="Change your email notification" 		class="st-item-on"><img src=/design/img/st-5-1.png hspace=0 vspace=0 border=0><br>Notifications</a>
+		<a href=./?action=credits 			title="Your balance is $%service_credit%"	class="st-item-off"><img src=/design/img/st-6-0-%service_credits_bar%.png hspace=0 vspace=0 border=0><br>Balance</a>
+		<a href=./?action=logout	title="Log-out" 							class="st-item-off st-item-right"><img src=/design/img/st-exit.png hspace=0 vspace=0 border=0><br>Log-out</a>
+		</div>
+		<br clear=both><br><br>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- CONTENT (start)-->
+<!-- ==================================================== -->
+<br>
+<TMPL_IF NAME="saved_ok">
+	<div class=clear style="background-color:yellow; border:1px solid #c0c0c0; padding:10px; ">
+	<img src=/design/icons/accept.png hspace=0 vspace=0 border=0 align=left style="margin-right:5px;"><b><font color=green>OK</font></b> Your new settings was saved.
+	</div><br>
+<TMPL_ELSE>
+</TMPL_IF>
+<form action=%my_url% class=clear>
+<table border=0 colspan=0 cellpadding=0 cellspacing=0 ><tr>
+<td valign=top width=33%>
+    <table border=0 colspan=0 cellpadding=2 cellspacing=0 >
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_alert_each_call id=email_alert_each_call  <TMPL_IF NAME="email_alert_each_call">checked</TMPL_IF> value=1></td>
+		<td valign=top width=100%>
+		<h1><LABEL for=email_alert_each_call>Each call</LABEL></h1>
+		Do you want an email with the call information and your balance after each call is finished?
+		<br>
+		<br>
+		</td>
+		</tr>
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_alert_low_balance checked readonly disabled <TMPL_IF NAME="email_alert_low_balance"></TMPL_IF> value=1></td>
+		<td valign=top width=100% >
+		<h1 ><LABEL for=email_alert_low_balance>Auto recharge</LABEL></h1>
+		Do you want a warning email when you are low on credits and auto recharge?
+		<br>
+		</td>
+		</tr>
+	</table>
+
+</td><td><img src=/design/img/spc.gif width=20 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=33%>
+
+    <table border=0 colspan=0 cellpadding=2 cellspacing=0 >
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_alert_new_friends id=email_alert_new_friends <TMPL_IF NAME="email_alert_new_friends">checked</TMPL_IF> value=1></td>
+		<td valign=top width=100%>
+		<h1><LABEL for=email_alert_new_friends>New friends</LABEL></h1>
+		Do you want an email alert if a friend creates a new account using your invite?
+		<br>
+		<br>
+		</td>
+		</tr>
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_alert_new_friends_of_friends id=email_alert_new_friends_of_friends <TMPL_IF NAME="email_alert_new_friends_of_friends">checked</TMPL_IF> value=1></td>
+		<td valign=top width=100%>
+		<h1><LABEL for=email_alert_new_friends_of_friends>New friends of friends</LABEL></h1>
+		Do you want an email alert if some one creates an account using your friend's (and friend's of friend's') referrals?
+		<br>
+		</td>
+		</tr>
+	</table>
+
+</td><td><img src=/design/img/spc.gif width=20 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=33%>
+
+    <table border=0 colspan=0 cellpadding=2 cellspacing=0 >
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_alert_new_commission id=email_alert_new_commission <TMPL_IF NAME="email_alert_new_commission">checked</TMPL_IF> value=1></td>
+		<td valign=top width=100% >
+		<h1 ><LABEL for=email_alert_new_commission>Each new commission</LABEL></h1>
+		Do you want an email alert if you have earned commissions from Zenofon?
+		<br>
+		<br>
+		</td>
+		</tr>
+
+		<tr>
+		<td valign=top><input style="margin-top:5px;" type=checkbox name=email_news id=email_news <TMPL_IF NAME="email_news">checked</TMPL_IF> value=1></td>
+		<td valign=top width=100% >
+		<h1 ><LABEL for=email_news>ZenoFon news</LABEL></h1>
+		Do you want an email with news from Zenofon?
+		<br>
+		</td>
+		</tr>
+	</table>
+
+</td></tr>
+</table>
+
+
+<button type=submit  style="padding:3px;"><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Save</button>
+<input type=hidden name=action value=alerts>
+<input type=hidden name=save value=1>
+</form>
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

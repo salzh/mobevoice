@@ -1,0 +1,90 @@
+<html ><head><title>ZenoFon - My account - Calls</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-on">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>Royalties</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="disabled_service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+	
+
+
+
+
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- CONTENT (start)-->
+	<!-- ==================================================== -->
+
+
+	<fieldset style="padding:7px; padding-top:15px; padding-bottom:10px;">
+					<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=ZenofonTable width=100% >
+						<thead>
+							<tr>
+							<td class=ar style="border-left:0px;">Date and time</td>
+							<td class=al >Item (Click for detail)</td>
+							<td class=ar >Balance<br>before</td>
+							<td class=ar style="border-left:0px;">Duration</td>
+							<td class=ar style="border-left:0px;">Value</td>
+							<td class=ar style="border-left:0px;">Balance<br>after</td>
+							</tr>
+						</thead>
+						<tbody > 
+						%calls_table%
+						</tbody>
+
+						<tfoot>
+							<tr><td colspan=8 style=border:0px>
+							<form action=%my_url% class=clear>
+							<input type=hidden name=action value=calls>
+							<button style="float:left;" type=submit name=previous value=1><img src=/design/icons/bullet_arrow_left.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+							<select style="float:left;" name=history_page onchange="this.form.submit()">%select_page%</select>
+							<button style="float:left;" type=submit name=next value=1><img src=/design/icons/bullet_arrow_right.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+							</form>
+							</td></tr>
+						</tfoor>
+					</table>
+
+
+	</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

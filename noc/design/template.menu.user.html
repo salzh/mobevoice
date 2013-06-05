@@ -1,0 +1,58 @@
+<html>
+    <head>
+	<link rel=stylesheet type=text/css media=all href=/noc/design/template.css title=win2k-1>
+	<script type="text/javascript" src="/noc/design/template.js"></script>
+    </head>
+<style>
+.menu_group 			{margin:0px; padding:0px; border:0px; margin-bottom:20px;}
+.menu_group h1 a:hover 	{color: #ffffff;text-decoration: none; }
+.menu_group h1 a 		{color: #ffffff;text-decoration: none; }
+.menu_group div a:hover {color: #ffffff;text-decoration: none; padding-left:20px;}
+.menu_group div a 		{color: #ffffff;text-decoration: none; padding-left:20px;}
+</style>
+
+
+<TMPL_IF NAME="user_name">
+    <body style="
+		background-color:#487490;
+		xxbackground-color:#62869D;
+		background-image:none;
+		background-repeat:repeat-y;
+		color:#ffffff;
+		padding:0px;
+		padding-left:5px;
+		padding-top:5px;
+		xxborder-top:1px solid #304c62;
+		">
+		<div class=menu_group >
+		<h1><a href=#><img src=design/icons/user_suit.png hspace=0 vspace=0 border=0 width=16 height=16 style="margin-right:2px;" >%user_name%</a></h1>
+		<div class=clear id=appservices>
+		<a target=content href=index.cgi?action=profile>Your account</a><br>
+		<a onclick="return confirm('Do you really want log-out?');" target=content href=index.cgi?action=logout>Log-out</a>
+		</div>
+<TMPL_ELSE>
+    <body style="
+		background-color:#62869D;
+		background-image:none;
+		">
+</TMPL_IF>
+
+
+<!-- 
+<div style="
+	font:bold normal 36px Trebuchet, Trebuchet MS, Arial, sans-serif;
+	letter-spacing:-2px;
+	color:#ffffff;
+	margin:0;
+	padding:1;
+	line-height:80%; 
+	border:0;
+	">Network Operation Center</div><br><br>
+-->
+
+	%CONTENT%
+    </body>
+</html>
+
+
+

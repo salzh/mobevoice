@@ -1,0 +1,68 @@
+#!/usr/bin/perl
+#=======================================================
+# start this as a cgi with all we need
+#=======================================================
+use CGI;
+use HTML::Template; 
+use HTTP::Request::Common qw( POST );
+use URI::Escape qw(uri_escape);
+use HTML::Template::Expr;
+use HTTP::Request::Common qw( POST );
+%app 							= ();
+%app_session					= ();
+require "/usr/local/owsline/lib/default.include.pl";
+$app{users_table}				= "radio_data_client";
+$app{users_col_id}				= "id";
+$app{users_options_table}		= "radio_data_client_extradata";
+$app{session_table}				= "radio_data_client_websession";
+$app{session_cookie_k_name}		= "sk";
+$app{session_cookie_u_name}		= "su";
+$app{session_logout_on_timeout} = 1;
+$app{session_timeout_seconds}	= 60*60*24*7;
+$app{session_active_service_id}	= "";
+$app{session_status}			= 0;
+$app{use_imagecheck}			= 1;
+$cgi 							= new CGI;
+%form 							= (); 
+foreach $form_name ($cgi->param) {
+	@form_values = $cgi->param($form_name);
+	$form_values_count = @form_values;
+	$form{$form_name} = ($form_values_count>1) ? join(",",@form_values) : $form_values[0];
+}
+$app{session_status}			= website_session_init();
+$www_root						= "$app_root/website/www/";
+$template_folder				= "$www_root/template/default/";
+#=======================================================
+
+
+#=======================================================
+# expand functions from default.include to be website specific
+#=======================================================
+sub website_session_init(){
+	#
+	# collect client session information (facebook keys, google keys, mode, etc etc) if possible
+	# right now only do default session_init action.
+	return &session_init();
+}
+sub website_template_print(){
+	local($template_file,%template_data) = @_;
+	local($template_id);
+	#
+	# select template
+	# TODO: change template_id by cookie or login to allow multiple templates and development(not public) templates
+	$template_id 		= "default";
+	$template_folder	= "$www_root/template/$template_id/";
+	#
+	# inject template information and helpers
+	$template_data{template_id}		= "$template_id";
+	$template_data{template_url}	= "/template/$template_id/";
+	$template_data{template_folder}	= $template_folder;
+	#
+	# inject client session information
+	# TODO: get name/type, etc etc.. maybe send fb.api js_token if possible (so template can do some magic at client side)
+	#
+	# print page
+	&template_print($template_file,%template_data);
+}
+#=======================================================
+

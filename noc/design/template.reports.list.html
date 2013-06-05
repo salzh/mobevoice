@@ -1,0 +1,43 @@
+<html>
+    <head>
+		<title>Zenofon NOC - %TITLE%</title>
+		<link 	href=/noc/design/template.css 								type=text/css			rel=stylesheet media=all  title=win2k-1 />
+		<link	href="/noc/design/modalwindow/windowfiles/dhtmlwindow.css" 	type="text/css"			rel="stylesheet" />
+		<link 	href="/noc/design/modalwindow/modalfiles/modal.css" 		type="text/css"			rel="stylesheet" />
+		<script	src="/noc/design/modalwindow/windowfiles/dhtmlwindow.js"	type="text/javascript"	></script>
+		<script src="/noc/design/modalwindow/modalfiles/modal.js" 			type="text/javascript"	></script>
+		<script src="/noc/design/template.js"								type="text/javascript"	></script>
+		<script src="/noc/design/tablesort.js"								type="text/javascript"	></script>
+    </head>
+    <body >
+		<TMPL_INCLUDE NAME="template.menu.html">
+		<div id="loading_message" style="display:none;"><center><br><br><img src=/noc/design/loading.gif><br>loading...</img></center></div>
+		<div class=clear style=padding:20px;padding-top:20px;>
+
+
+
+<TMPL_LOOP NAME="groups">
+	<h2>%group_name%</h2>
+	<ul>
+		<TMPL_LOOP NAME="reports">
+			<TMPL_IF NAME="report_active">
+				<li><a title='%report_text%' href=%my_url%?action=report_view&report_id=%report_id%>%report_title%</a></li>
+			<TMPL_ELSE>
+				<li><a title='%report_text%' style="color:#c0c0c0;" href=#>%report_title%</a></li>
+			</TMPL_IF>
+		</TMPL_LOOP>
+	</ul>
+</TMPL_LOOP>
+
+
+
+
+			<br clear=both>
+		</div>
+    </body>
+</html>
+
+
+
+
+

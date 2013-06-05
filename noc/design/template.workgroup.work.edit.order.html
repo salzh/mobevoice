@@ -1,0 +1,56 @@
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+
+<TMPL_IF NAME="form_can_edit">
+	<h3>Edit "%work_title%" order</h3>
+	<div class=clear style="width:300px;">
+		<TMPL_IF NAME="form_save">
+			<br>
+			<div class=alert_box ><div class=alert_box_inside><b>Saved!</b><br>Please wait...</div></div><br>
+			<a href='%my_url%?action=work_view&work_id=%work_id%' style="color:#c0c0c0;">continue...<br></a>
+			<script>setTimeout("window.location='%my_url%?action=work_view&work_id=%work_id%';",200);</script>
+		<TMPL_ELSE>
+			<form method=post action="%my_url%">
+				Select new position:<br>
+				<select name=order style="width:100%;" >
+				<option value=''>Do not change position</option>
+				<option value=''></option>
+				<TMPL_LOOP NAME="work_list">
+					<TMPL_IF NAME="selected">
+					<option value=''>(actual position of this task)</option>
+					<TMPL_ELSE>
+						<TMPL_IF NAME="before">
+						<option value='%id%'>Move before '%title%'</option>
+						<TMPL_ELSE>
+						<option value='%id%'>Move after '%title%'</option>
+						</TMPL_IF>
+					</TMPL_IF>
+				</TMPL_LOOP>
+				</select><br>
+				
+				Enter note:<br>
+				<input name=note style="width:100%;" value="%form_note%" >
+				<br>
+				<TMPL_IF NAME="form_error">
+					<div class=alert_box ><div class=alert_box_inside><b>I cannot save</b><br>
+					<TMPL_IF NAME="form_error_order">&#187; Check position<br></TMPL_IF>
+					<TMPL_IF NAME="form_error_note">&#187; Check your note<br></TMPL_IF>
+					<TMPL_IF NAME="form_error_system">&#187; Try again<br></TMPL_IF>
+					</div></div><br>
+				</TMPL_IF>
+				<button type=button class=cancel onclick="window.location='%my_url%?action=work_view&work_id=%work_id%'">Cancel</button>
+				<button type=submit class=save onclick="modal_loadingblock()">Save</button>
+				<input type="hidden" name="work_id" value="%work_id%">
+				<input type="hidden" name="save_id" value="%save_id%">
+				<input type="hidden" name="action" value="work_edit_order">
+			</form>
+		</TMPL_IF>
+	</div>
+<TMPL_ELSE>
+	<h3>Oops! Not found!</h3>
+	Please restart.
+</TMPL_IF>
+
+%xxdebug%
+
+<TMPL_INCLUDE NAME="template.base.bot.html">

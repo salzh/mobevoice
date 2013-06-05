@@ -1,0 +1,14 @@
+
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+		<iframe src="%URL%" class=clear style="width:100%; height:2000px;" scrolling="no" frameborder="0" noresize marginwidth="0" marginheight="0" >
+		</iframe>
+
+<TMPL_INCLUDE NAME="template.base.bot.html">
+
+
+
+
+
+
+

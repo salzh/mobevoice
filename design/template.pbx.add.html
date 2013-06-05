@@ -1,0 +1,461 @@
+<html ><head><title>ZenoFon - Services - Create your account</title>
+<!-- %comment% -->
+<TMPL_INCLUDE NAME="template.include.top.menu.0.html">
+
+
+	<style>
+	.button-tour {
+		background: #5295A9 url(/design/img/alert-overlay.png) repeat-x;
+		background-color:#ff5c00;
+		display: inline-block;
+		padding: 6px 15px 6px 12px;
+		color: #fff;
+		text-decoration: none;
+		font-weight: bold;
+		line-height: 1;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+		border-bottom: 1px solid rgba(0,0,0,0.25);
+		position: relative;
+		cursor: pointer;
+		text-align:right;
+	}
+	</style>
+
+
+
+
+
+	    <TMPL_IF NAME="mode_no_invite">
+		<!-- ----------------------------- -->
+		<!-- mode: no invite-->
+		<!-- ----------------------------- -->
+			<div class=clear style="padding:20px;">
+			<h2>invite.</h2>  	
+			<div class=clear style="width:350px; ">
+				.<br>
+				<br>
+				Ask your friend for an invite or <a target=_blank href=http://search.io/search-engines/zenofon%20invite/>search the web</a> for one.
+			</div>
+			</div>
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+
+
+	    <TMPL_IF NAME="mode_loged_in">
+		<!-- ----------------------------- -->
+		<!-- mode: login client -->
+		<!-- ----------------------------- -->
+			<div class=clear style="padding:20px;">
+			<h3>You already have a ZenoFon account</h3>
+			<div class=clear style="width:350px;">
+				Login to manage your account, create more forwarding contacts or refer some more friends.<br>
+				<br>
+				<a href=%my_url%>&nbsp;&nbsp;&#187; Check your account</a><br>
+				<a href=%my_url%?action=dst&new=1>&nbsp;&nbsp;&#187; Add a new contact to call</a><br>
+				<a href=%my_url%?action=ani&new=1>&nbsp;&nbsp;&#187; Add numbers you call from</a><br>
+			</div>
+			</div>
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+					
+
+	    <TMPL_IF NAME="mode_ani_in_use">
+		<!-- ----------------------------- -->
+		<!-- mode: ani in use -->
+		<!-- ----------------------------- -->
+			<div class=clear style="padding:20px;">
+			<h3>We already have an account tied to this number</h3>
+			<div class=clear style="width:550px;">
+				If this is your number, you can login below or request your PIN if you forgot it.<br>
+				<br>
+				<a href="index.cgi?action=login&acc=%ani%">&nbsp;&nbsp;&#187; Login with this mobile and PIN</a><br>
+				<a href="index.cgi?action=login_restore&query=%ani%">&nbsp;&nbsp;&#187; Request your lost PIN</a><br>
+				<a href=%my_url%?action=add>&nbsp;&nbsp;&#187; Create a new ZenoFon account using a different mobile number</a><br>
+			</div>
+			</div>
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+
+
+
+
+	    <TMPL_IF NAME="mode_signin_step_1">
+		<!-- ----------------------------- -->
+		<!-- mode: signin step 1 -->
+		<!-- ----------------------------- -->
+			<h3>ZenoFon wants to save you money!</h3>
+			<form class=clear action=%my_url% method=post target=_top>
+			<div class=clear style="width:500px; ">
+			
+             <TMPL_IF NAME="no_invite">
+                                
+                                Welcome, probably  some one told you that ZenoFon is the most economical, easiest to use, phone service ever. Tell us your phone number , and we will set up a free trial account for you in less than 30 seconds.
+                        
+              <TMPL_ELSE>
+                    
+                                Welcome. We see you were invited by %invite_service_name%, who probably told you that ZenoFon is the most economical, easiest to use, phone service ever. Tell us your phone number, and the number of someone you call, and we will set up a free trial account for you in less than 30 seconds.
+                        
+               </TMPL_IF>
+				<br>
+				<br>
+
+
+				<TMPL_IF NAME="coupon_exists">
+					<div class=error_box style=""><div class=error_box_inside style="background-image:url(/design/img/coupon.png); background-repeat:no-repeat;">
+						<TMPL_IF NAME="coupon_in_stock">
+							<TMPL_IF NAME="coupon_is_premium">
+								<b>Congratulations!</B> We like your phone number.  You get the full coupon.
+								You can use the <b>"%coupon_title%"</b> to try your Zenofon free trial.
+							<TMPL_ELSE>
+					          All New Users get $1.00 free talk time! Call anywhere in the world, for FREE! Join today.
+							</TMPL_IF>
+						<TMPL_ELSE>
+							Im sorry, no more coupons left for <b>"%coupon_title%"</b> 
+						</TMPL_IF>
+					</div></div>
+					<br clear=both>
+				</TMPL_IF>
+
+
+
+				<fieldset style="padding:20px;">
+				<div >
+					<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<tr>
+							<td valign=top>
+							<img src=/design/img/pbx-0.png vspace=7 hspace=0 border=0 align=left width=204 height=54 /><br>
+							</td>
+							<td valign=top style=padding-left:30px;>
+								<h2>Your Number</h2>
+								<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter your phone number below, We will call you with  your PIN so you can unlock your account.<br></span>
+								<br>
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<tr><td width=50>Number:</td><td><input style="width:170px;" name=ani value="%ani%" ></td></tr>
+								<!--<tr><td width=50>Name:</td><td><input style="width:170px;" name=aniName value="%aniName%" ></td></tr>-->
+								<!--<tr><td width=50>Email:</td><td><input style="width:170px;" name=aniEmail value="%aniEmail%" ></td></tr>-->
+								</table>
+							</td>
+						</tr>
+						<tr><td colspan=2 style="padding-top:20px;padding-bottom:20px;"><hr size=1 noshade color=#c4d7dE></td></tr>
+						<tr>
+							<td valign=top>
+							<img src=/design/img/pbx-1.png vspace=7 hspace=0 border=0 align=left width=204 height=54 /><br>
+							</td>
+							<td valign=top style=padding-left:30px;>
+								<h2>Your Friend's Number</h2>
+								<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter a number you want to save money calling.  Add 011 for international numbers. ZenoFon will automatically generate a pinless dial-around USA number for you. <br></span>
+								<br>
+								<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<tr><td width=50>Number:</td><td><input style="width:170px;" name=dst value="%dst%" ></td></tr>
+								<!--<tr><td width=50>Name:</td><td><input style="width:170px;" name=dstName value="%dstName%" ></td></tr>-->
+								<!--<tr><td width=50>Email:</td><td><input style="width:170px;" name=dstEmail value="%dstEmail%" ></td></tr>-->
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</fieldset>
+				<br>
+
+				<TMPL_IF NAME="coupon_error">
+					<div class=error_box style="width:250px; float:right;"><div class=error_box_inside style="background-image:url(/design/img/coupon.png); background-repeat:no-repeat;">
+					You are restricted from complete use of  this <b>"%coupon_title%"</b> promotion.<br>
+					<ul>
+					<TMPL_IF NAME="coupon_error_ani_locked"><li>This number already signed up for a  free trial.</li></TMPL_IF>
+					<TMPL_IF NAME="coupon_error_dst_locked"><li>This destination number is not entitled to any more free calls.</li></TMPL_IF>
+					<TMPL_IF NAME="coupon_error_provider_locked"><li>Sorry but this number is not entitled to a free coupon.</li></TMPL_IF>
+					</ul>
+					<input type=checkbox  <TMPL_IF NAME="coupon_error_accepted">checked</TMPL_IF> style="border:0px; margin-right:5px;margin-bottom:55px;float:left;" name=coupon_error_accepted value=1>I don't want the "%coupon_title%" promotion.  I prefer to open this account with a landline.</a><br>
+					</div></div>
+					<br clear=both><br>
+				</TMPL_IF>
+
+				<TMPL_IF NAME="form_error">
+					<div class=error_box style="width:250px; float:right;"><div class=error_box_inside>
+					<b>Data Entry Error:</b>
+					<ul>
+					<TMPL_IF NAME="form_error_ani_empty"><li>Please enter a valid phone number</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_format"><li>Not a valid USA number</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_no_rate"><li id="no_rate">Mobile number not allow to use</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_in_use"><li>This number already registered to a ZenoFon account. </li></TMPL_IF>
+					 <TMPL_IF NAME="form_error_ani_needmobile"><li>We need your mobile number when signup,please try another number</li></TMPL_IF>
+
+					<TMPL_IF NAME="form_error_ani_locked"><li id="ani_locked">Mobile number not allow to use.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_empty"><li>Enter a number you want to call using ZenoFon</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_format"><li>Not a valid phone number</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_no_rate"><li>Invalid friend's number.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_pin"><li>We can't unlock.  Your PIN is wrong.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_coupon_error_accepted"><li>You must agree to the terms above.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_terms"><li>Please read  <a href=/about/termsofservice.html target=_blank>terms of service</a> and click accept</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_system"><li>System error. Try again in few minutes</li></TMPL_IF>
+					
+					<TMPL_IF NAME="ani_name_invalid"><li>Please check your name</li></TMPL_IF>
+					<TMPL_IF NAME="ani_email_invalid"><li>Please check your Email</li></TMPL_IF>
+					<TMPL_IF NAME="dst_email_invalid"><li>Your friends email is invalid. Please check. or leave it empty</li></TMPL_IF>
+					</ul>
+					</div></div>
+					<br clear=both><br>
+				</TMPL_IF>
+
+				<div class=clear style="width:250px;float:right;">
+				<input type=checkbox <TMPL_IF NAME="terms">checked</TMPL_IF> style="margin-right:5px;border:0px;" name=terms value=1>I accept <a href=/about/termsofservice.html target=_blank>ZenoFon's terms of service</a><br>
+				</div>
+				<br clear=both><br>
+
+				<button class=button-tour style="width:250px;float:right;" type=submit>Get your PIN to unlock &#187;</button>
+				<input type=hidden name=action value=add >
+				<input type=hidden name=re_send_pin value=1 >
+				<br clear=both><br>
+
+
+
+	
+			</div>
+			</form>
+			
+		    <br>
+		    <h1>You can also...</h1>
+		    <a href=/myaccount/>&#187; Control your ZenoFon account</a><br>
+		    <a href=/>&#187; Learn about ZenoFon services</a><br>
+			<br>
+		
+			
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+
+
+
+
+
+	    <TMPL_IF NAME="mode_signin_step_2">
+		<!-- ----------------------------- -->
+		<!-- mode: signin step 2 -->
+		<!-- ----------------------------- -->
+			<h3>Unlock your account</h3>
+			<form class=clear action=%my_url% method=post target=_top>
+			<div class=clear style="width:500px; ">
+				Zenofon is now calling  you with your confirm code.  Enter it below, so we can confirm your account. On the next page you can add more contacts that you call besides %dst%.
+				<br>
+				<br>
+
+
+
+				<TMPL_IF NAME="coupon_exists">
+					<div class=error_box style=""><div class=error_box_inside style="background-image:url(/design/img/coupon.png); background-repeat:no-repeat;">
+						<TMPL_IF NAME="coupon_in_stock">
+							<TMPL_IF NAME="coupon_error">
+								No Free trial. 
+								<TMPL_IF NAME="coupon_error_ani_locked">You have already registered this number with Zenofon. </TMPL_IF>
+								<TMPL_IF NAME="coupon_error_dst_locked">Your friend's number exceeded the free trial count. </TMPL_IF>
+								<TMPL_IF NAME="coupon_error_provider_locked">Only selected mobile providers can get free trial promotion. </TMPL_IF>
+							<TMPL_ELSE>
+								<TMPL_IF NAME="coupon_is_premium">
+									<b>Congratulations!</B> Your come from "%ani_provider_name%" and can get extra trial. 
+									Join now and get an unrestricted <b>"%coupon_title%"</b> coupon to try Zenofon
+								<TMPL_ELSE>
+									Join now and get an unrestricted <b>"%coupon_title%"</b> coupon to try Zenofon
+								</TMPL_IF>
+							</TMPL_IF>
+						<TMPL_ELSE>
+							Im sorry, no more coupons left for <b>"%coupon_title%"</b>
+						</TMPL_IF>
+					</div></div>
+					<br clear=both>
+				</TMPL_IF>
+
+
+
+
+				<fieldset style="padding:20px;">
+				<div >
+					<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<tr>
+							<td valign=top>
+							<img src=/design/img/pbx-0.png vspace=7 hspace=0 border=0 align=left width=204 height=54 /><br>
+							</td>
+							<td valign=top style=padding-left:30px;>
+								<h2>Your mobile</h2>
+								<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter your mobile phone number (the number you call from) so we can send your PIN to unlock your account.<br></span>
+								<br>
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<tr><td width=50>Number:</td><td><input readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;" value="%ani%" ><input type=hidden name=ani value="%ani%" ></td></tr>
+								<!--<tr><td width=50>Name:</td><td><input readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;" value="%aniName%" ><input type=hidden name=aniName value="%aniName%" ></td></tr>-->
+								<!--<tr><td width=50>Email:</td><td><input readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;" value="%aniEmail%" ><input type=hidden name=aniEmail value="%aniEmail%" ></td></tr>-->
+																
+								</table>
+							</td>
+						</tr>
+						<tr><td colspan=2 style="padding-top:20px;padding-bottom:20px;"><hr size=1 noshade color=#c4d7dE></td></tr>
+						<tr>
+							<td valign=top>
+							<img src=/design/img/pbx-1.png vspace=7 hspace=0 border=0 align=left width=204 height=54 /><br>
+							</td>
+							<td valign=top style=padding-left:30px;>
+								<h2>Your friend</h2>
+								<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter a number you want to call through ZenoFon. Put in 011 for international numbers. ZenoFon will automatically generate a USA number for you that will forward to them wherever they are.<br></span>
+								<br>
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<tr><td width=50>Number:</td><td><input  readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;"  value="%dst%" ><input type=hidden name=dst value="%dst%" ></td></tr>
+								<!--<tr><td width=50>Name:</td><td><input  readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;"  value="%dstName%" ><input type=hidden name=dstName value="%dstName%" ></td></tr>-->
+								<!--<tr><td width=50>Email:</td><td><input  readonly  style="width:170px; backgrbackground-color:#ffffff; color:#c0c0c0;"  value="%dstEmail%" ><input type=hidden name=dstEmail value="%dstEmail%" ></td></tr>-->
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</fieldset>
+				<br>
+
+
+				<TMPL_IF NAME="pin_send">
+					<div class=error_box style="width:250px; float:right;"><div class=error_box_inside style="background-image:url(/design/img/busy.gif); background-repeat:no-repeat;">
+					The Zenofon robot is now dialing <b>%ani%</b> to tell you your confirmation code. 
+					Type it here to unlock your account.<br> 
+					<br>
+					<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<tr><td width=200>CONFIRM CODE:</td><td><input style=width:100px; name=pin value="%pin%" ></td></tr>
+					<tr><td width=200>NAME:</td><td><input style=width:100px; name=aniName value="%aniName%" ></td></tr>
+					<tr><td width=200>EMAIL:</td><td><input style=width:100px; name=aniEmail value="%aniEmail%" ></td></tr>
+					</table>
+					<br>
+					<a href=service.pbx.cgi?action=add&ani=%ani_E164%&re_send_pin=1 style="margin-bottom:5px; font-size:11px;  color:#c0c0c0;">No confirm code yet? Click here to request that it be re-sent.</a>
+					</div></div>
+					<br clear=both><br>
+				<TMPL_ELSE>
+					<div class=error_box style="width:250px; float:right;"><div class=error_box_inside style="background-image:url(/design/img/sign-in.png); background-repeat:no-repeat;">
+					Enter your confirm code here to unlock your account.<br> 
+					<br>
+					<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<tr><td width=200>CONFIRM CODE:</td><td><input style=width:100px; name=pin value="%pin%" ></td></tr>
+					<tr><td width=200>NAME:</td><td><input style=width:100px; name=aniName value="%aniName%" ></td></tr>
+					<tr><td width=200>EMAIL:</td><td><input style=width:100px; name=aniEmail value="%aniEmail%" ></td></tr>
+					
+					</table>
+					<br>
+					<a href=service.pbx.cgi?action=add&ani=%ani_E164%&re_send_pin=1 style="margin-bottom:5px; font-size:11px; color:#c0c0c0;">No confirm code yet? Click here to request that it be re-sent.</a>
+					</div></div>
+					<br clear=both><br>
+				</TMPL_IF>
+
+				<TMPL_IF NAME="form_error">
+					<div class=error_box style="width:250px; float:right;"><div class=error_box_inside>
+					<b>I cannot save:</b><br>
+					<ul>
+					<TMPL_IF NAME="form_error_ani_empty"><li>Please enter Your mobile number</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_format"><li>Bad mobile number format</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_no_rate"><li>Mobile number not allow to use</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_in_use"><li>Mobile number is already a ZenoFon client. Choose another</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_ani_locked"><li>Mobile number not allow to use.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_empty"><li>Enter a destination number</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_format"><li>Bad friend number formar</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_dst_no_rate"><li>Friend number not allow to use</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_pin"><li>Wrong CONFIRM CODE to unlock your account</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_coupon_error_accepted"><li>You have to allow create your acocunt without free trial promotion.</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_terms"><li>Read <a href=/about/termsofservice.html target=_blank>terms of service</a> before accept</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_system"><li>System error. Try again in few minutes</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_aniName_empty"><li>Please enter your name</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_aniEmail_empty"><li>Please enter your Email</li></TMPL_IF>
+					<TMPL_IF NAME="form_error_aniEmail_format"><li>Please Check your Email address.</li></TMPL_IF>
+					</ul>
+					</div></div>
+					<br clear=both><br>
+				</TMPL_IF>
+
+				<button class=button-tour style="width:250px;float:right;" type=submit>Unlock your account &#187;</button>
+				<input type=hidden name=terms value=1 >
+				<input type=hidden name=action value=add >
+				<br clear=both>
+				<br>
+
+
+			</div>
+			</form>
+
+		    <br>
+		    <h1>You can also...</h1>
+			<a href=%my_url%?action=add>&#187; Cancel this request and create your account with another mobile number</a><br>
+		    <a href=/myaccount/>&#187; Control your Zenofon account</a><br>
+		    <a href=/>&#187; Learn about ZenoFon services</a><br>
+			<br>
+
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+
+
+
+
+	    <TMPL_IF NAME="mode_add_ok">
+		<!-- ----------------------------- -->
+		<!-- mode: add_ok -->
+		<!-- ----------------------------- -->
+			<div class=clear style="padding:20px;">
+			<h3>Welcome to ZenoFon</h3>
+			<div class=clear style="width:350px;">
+				Save this number: <b>dial (646)434-4612</b> when you call it from your phone it will ring right to %dst% with no PIN needed.
+				You can use it now, or continue adding contacts on the next page.  Make sure to save your PIN, you will need it to login in the future.
+				<br>
+				<br>
+				<fieldset style="text-align: center;">
+				<img src=/design/img/tour-03.png width=270 hspace=0 vspace=0 border=0><br>
+				<h2>Amazing: All you have to do is dial (646)434-4612</h2>
+				and it will ring to %dst%.  Why not add more overseas contacts on the next page.
+				</fieldset>
+				<br>
+				<br>
+					
+		<!--
+		<form action=index.cgi method=post onsubmit="return emailpin_try();">
+		<div class=error_box ><div class=error_box_inside style="background-image:none;padding:13px;">
+			<div class=clear id=emailpin_step1>
+				<h2>Your PIN is %signin_pin_formated%</h2>
+				Your PIN is your secret key at Zenofon. 
+				Keep it safe because you need it to access some Zenofon services. 
+				Enter your email to proceed.  We will send you your PIN that way also.<br/>
+				<div class=clear style="margin-top:10px;">
+				Your email: <input type="text" value='%aniEmail%' name=email id=emailpin_email style="background-image:url(/design/icons/email.png);background-repeat:no-repeat; background-position:3px 1px; padding-left:25px; width:170px;" ><button type="submit">Save &#187;</button>
+				</div>
+			</div>
+			<div class=clear id=emailpin_step2 style="display:none"><img src=/design/img/busy.gif> saving... </div>
+    	</div></div><br>
+		<input type=hidden name=action value=service_alert_emailquestion> 
+		</form>
+		<script>
+		function emailpin_try() {
+			if (document.getElementById('emailpin_email').value != "") {
+				document.getElementById("emailcopy").value = document.getElementById('emailpin_email').value;
+				MyDisplay('emailpin_step1',0);
+				MyDisplay('emailpin_step11',0);
+				MyDisplay('emailpin_step2',1);
+				MyDisplay('emailpin_step12',1);
+				return true;
+			}
+			alert("Please Enter Your Email to continue");
+			return false;
+		}
+		</script>
+		<br>
+		<br>
+				-->
+				
+				
+				
+				
+				
+				<div class=clear id=emailpin_step12 style="display:none"><img src=/design/img/busy.gif> saving... </div>
+				<form id="emailpin_step11" class=clear action=index.cgi method=post target=_top>
+				<button class=button-tour style="width:250px;float:right;" type=submit>Go check your account &#187;</button>
+				</form>
+				<br clear=both>
+			</div>
+			</div>
+		<!-- ----------------------------- -->
+	    </TMPL_IF>
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

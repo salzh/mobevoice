@@ -1,0 +1,409 @@
+<html ><head><title>ZenoFon - My account - Setup</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>Royalties</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+
+
+<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+
+	<td valign=top width=500>
+		<h3 >Your Home Numbers</h3>
+		 These should be private numbers that are unique to you, such as your mobile or home land line. No public numbers allowed.
+		<fieldset style="padding:20px;margin-top:5px; margin-bottom:30px;">
+			<img src=/design/img/pbx-0.png width=204 height=54 hspace=0 vspace=0 border=0 style=margin-bottom:15px;><br>
+			<TMPL_IF NAME="ani_1_number"><a href=%my_url%?action=ani&index=1 class=<TMPL_IF NAME="ani_1_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF> >%ani_1_number% <TMPL_IF NAME="ani_1_name"> - %ani_1_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_2_number"><a href=%my_url%?action=ani&index=2 class=<TMPL_IF NAME="ani_2_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_2_number% <TMPL_IF NAME="ani_2_name"> - %ani_2_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_3_number"><a href=%my_url%?action=ani&index=3 class=<TMPL_IF NAME="ani_3_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_3_number% <TMPL_IF NAME="ani_3_name"> - %ani_3_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_4_number"><a href=%my_url%?action=ani&index=4 class=<TMPL_IF NAME="ani_4_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_4_number% <TMPL_IF NAME="ani_4_name"> - %ani_4_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_5_number"><a href=%my_url%?action=ani&index=5 class=<TMPL_IF NAME="ani_5_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_5_number% <TMPL_IF NAME="ani_5_name"> - %ani_5_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_6_number"><a href=%my_url%?action=ani&index=6 class=<TMPL_IF NAME="ani_6_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_6_number% <TMPL_IF NAME="ani_6_name"> - %ani_6_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_7_number"><a href=%my_url%?action=ani&index=7 class=<TMPL_IF NAME="ani_7_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_7_number% <TMPL_IF NAME="ani_7_name"> - %ani_7_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_8_number"><a href=%my_url%?action=ani&index=8 class=<TMPL_IF NAME="ani_8_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_8_number% <TMPL_IF NAME="ani_8_name"> - %ani_8_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_9_number"><a href=%my_url%?action=ani&index=9 class=<TMPL_IF NAME="ani_9_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_9_number% <TMPL_IF NAME="ani_9_name"> - %ani_9_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_10_number"><a href=%my_url%?action=ani&index=10 class=<TMPL_IF NAME="ani_10_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_10_number% <TMPL_IF NAME="ani_10_name"> - %ani_10_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_11_number"><a href=%my_url%?action=ani&index=11 class=<TMPL_IF NAME="ani_11_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_11_number% <TMPL_IF NAME="ani_11_name"> - %ani_11_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_12_number"><a href=%my_url%?action=ani&index=12 class=<TMPL_IF NAME="ani_12_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_12_number% <TMPL_IF NAME="ani_12_name"> - %ani_12_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_13_number"><a href=%my_url%?action=ani&index=13 class=<TMPL_IF NAME="ani_13_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_13_number% <TMPL_IF NAME="ani_13_name"> - %ani_13_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_14_number"><a href=%my_url%?action=ani&index=14 class=<TMPL_IF NAME="ani_14_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_14_number% <TMPL_IF NAME="ani_14_name"> - %ani_14_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_15_number"><a href=%my_url%?action=ani&index=15 class=<TMPL_IF NAME="ani_15_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_15_number% <TMPL_IF NAME="ani_15_name"> - %ani_15_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_16_number"><a href=%my_url%?action=ani&index=16 class=<TMPL_IF NAME="ani_16_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_16_number% <TMPL_IF NAME="ani_16_name"> - %ani_16_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_17_number"><a href=%my_url%?action=ani&index=17 class=<TMPL_IF NAME="ani_17_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_17_number% <TMPL_IF NAME="ani_17_name"> - %ani_17_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_18_number"><a href=%my_url%?action=ani&index=18 class=<TMPL_IF NAME="ani_18_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_18_number% <TMPL_IF NAME="ani_18_name"> - %ani_18_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_19_number"><a href=%my_url%?action=ani&index=19 class=<TMPL_IF NAME="ani_19_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_19_number% <TMPL_IF NAME="ani_19_name"> - %ani_19_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_20_number"><a href=%my_url%?action=ani&index=20 class=<TMPL_IF NAME="ani_20_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_20_number% <TMPL_IF NAME="ani_20_name"> - %ani_20_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_21_number"><a href=%my_url%?action=ani&index=21 class=<TMPL_IF NAME="ani_21_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_21_number% <TMPL_IF NAME="ani_21_name"> - %ani_21_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_22_number"><a href=%my_url%?action=ani&index=22 class=<TMPL_IF NAME="ani_22_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_22_number% <TMPL_IF NAME="ani_22_name"> - %ani_22_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_23_number"><a href=%my_url%?action=ani&index=23 class=<TMPL_IF NAME="ani_23_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_23_number% <TMPL_IF NAME="ani_23_name"> - %ani_23_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_24_number"><a href=%my_url%?action=ani&index=24 class=<TMPL_IF NAME="ani_24_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_24_number% <TMPL_IF NAME="ani_24_name"> - %ani_24_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_25_number"><a href=%my_url%?action=ani&index=25 class=<TMPL_IF NAME="ani_25_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_25_number% <TMPL_IF NAME="ani_25_name"> - %ani_25_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_26_number"><a href=%my_url%?action=ani&index=26 class=<TMPL_IF NAME="ani_26_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_26_number% <TMPL_IF NAME="ani_26_name"> - %ani_26_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_27_number"><a href=%my_url%?action=ani&index=27 class=<TMPL_IF NAME="ani_27_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_27_number% <TMPL_IF NAME="ani_27_name"> - %ani_27_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_28_number"><a href=%my_url%?action=ani&index=28 class=<TMPL_IF NAME="ani_28_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_28_number% <TMPL_IF NAME="ani_28_name"> - %ani_28_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_29_number"><a href=%my_url%?action=ani&index=29 class=<TMPL_IF NAME="ani_29_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_29_number% <TMPL_IF NAME="ani_29_name"> - %ani_29_name%</TMPL_IF></a></TMPL_IF>
+			<TMPL_IF NAME="ani_30_number"><a href=%my_url%?action=ani&index=30 class=<TMPL_IF NAME="ani_30_error">ANILink_error<TMPL_ELSE>ANILink</TMPL_IF>>%ani_30_number% <TMPL_IF NAME="ani_30_name"> - %ani_30_name%</TMPL_IF></a></TMPL_IF>
+			<button xxclass=zeno_button onclick="window.location='%my_url%?action=ani&new=1';" style="margin-top:10px;"><xximg src=/design/icons/phone_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new number</button>
+		</fieldset>
+
+		<h3>Your Contacts</h3>
+	
+		Add your contacts below. Each contact is assigned a local, American number. This local number will forward to your international contact.<br/>
+		Just save these numbers in your cellphone, and dial directly to place the call.
+		<fieldset style="padding:20px;margin-top:5px; margin-bottom:30px;">
+			<img src=/design/img/pbx-1.png width=204 height=54 hspace=0 vspace=0 border=0 style=margin-bottom:15px;><br>
+			<TMPL_IF NAME="dst_1_number"><a href=%my_url%?action=dst&index=1 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1_name">%dst_1_name%<TMPL_ELSE>%dst_1_number%</TMPL_IF>", dial (646)434-4612</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2_number"><a href=%my_url%?action=dst&index=2 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2_name">%dst_2_name%<TMPL_ELSE>%dst_2_number%</TMPL_IF>", dial (646)434-4613</a></TMPL_IF>
+			<TMPL_IF NAME="dst_3_number"><a href=%my_url%?action=dst&index=3 class=DSTLink>To talk with "<TMPL_IF NAME="dst_3_name">%dst_3_name%<TMPL_ELSE>%dst_3_number%</TMPL_IF>", dial (646)434-4614</a></TMPL_IF>
+			<TMPL_IF NAME="dst_4_number"><a href=%my_url%?action=dst&index=4 class=DSTLink>To talk with "<TMPL_IF NAME="dst_4_name">%dst_4_name%<TMPL_ELSE>%dst_4_number%</TMPL_IF>", dial (646)434-4615</a></TMPL_IF>
+			<TMPL_IF NAME="dst_5_number"><a href=%my_url%?action=dst&index=5 class=DSTLink>To talk with "<TMPL_IF NAME="dst_5_name">%dst_5_name%<TMPL_ELSE>%dst_5_number%</TMPL_IF>", dial (646)434-4616</a></TMPL_IF>
+			<TMPL_IF NAME="dst_6_number"><a href=%my_url%?action=dst&index=6 class=DSTLink>To talk with "<TMPL_IF NAME="dst_6_name">%dst_6_name%<TMPL_ELSE>%dst_6_number%</TMPL_IF>", dial (646)434-4617</a></TMPL_IF>
+			<TMPL_IF NAME="dst_7_number"><a href=%my_url%?action=dst&index=7 class=DSTLink>To talk with "<TMPL_IF NAME="dst_7_name">%dst_7_name%<TMPL_ELSE>%dst_7_number%</TMPL_IF>", dial (646)434-4618</a></TMPL_IF>
+			<TMPL_IF NAME="dst_8_number"><a href=%my_url%?action=dst&index=8 class=DSTLink>To talk with "<TMPL_IF NAME="dst_8_name">%dst_8_name%<TMPL_ELSE>%dst_8_number%</TMPL_IF>", dial (646)434-4619</a></TMPL_IF>
+			<TMPL_IF NAME="dst_9_number"><a href=%my_url%?action=dst&index=9 class=DSTLink>To talk with "<TMPL_IF NAME="dst_9_name">%dst_9_name%<TMPL_ELSE>%dst_9_number%</TMPL_IF>", dial (646)434-4620</a></TMPL_IF>
+			<TMPL_IF NAME="dst_10_number"><a href=%my_url%?action=dst&index=10 class=DSTLink>To talk with "<TMPL_IF NAME="dst_10_name">%dst_10_name%<TMPL_ELSE>%dst_10_number%</TMPL_IF>", dial (646)434-4621</a></TMPL_IF>
+			<TMPL_IF NAME="dst_11_number"><a href=%my_url%?action=dst&index=11 class=DSTLink>To talk with "<TMPL_IF NAME="dst_11_name">%dst_11_name%<TMPL_ELSE>%dst_11_number%</TMPL_IF>", dial (646)434-4622</a></TMPL_IF>
+			<TMPL_IF NAME="dst_12_number"><a href=%my_url%?action=dst&index=12 class=DSTLink>To talk with "<TMPL_IF NAME="dst_12_name">%dst_12_name%<TMPL_ELSE>%dst_12_number%</TMPL_IF>", dial (646)434-4623</a></TMPL_IF>
+			<TMPL_IF NAME="dst_13_number"><a href=%my_url%?action=dst&index=13 class=DSTLink>To talk with "<TMPL_IF NAME="dst_13_name">%dst_13_name%<TMPL_ELSE>%dst_13_number%</TMPL_IF>", dial (646)434-4624</a></TMPL_IF>
+			<TMPL_IF NAME="dst_14_number"><a href=%my_url%?action=dst&index=14 class=DSTLink>To talk with "<TMPL_IF NAME="dst_14_name">%dst_14_name%<TMPL_ELSE>%dst_14_number%</TMPL_IF>", dial (646)434-4625</a></TMPL_IF>
+			<TMPL_IF NAME="dst_15_number"><a href=%my_url%?action=dst&index=15 class=DSTLink>To talk with "<TMPL_IF NAME="dst_15_name">%dst_15_name%<TMPL_ELSE>%dst_15_number%</TMPL_IF>", dial (646)434-4626</a></TMPL_IF>
+			<TMPL_IF NAME="dst_16_number"><a href=%my_url%?action=dst&index=16 class=DSTLink>To talk with "<TMPL_IF NAME="dst_16_name">%dst_16_name%<TMPL_ELSE>%dst_16_number%</TMPL_IF>", dial (646)434-4627</a></TMPL_IF>
+			<TMPL_IF NAME="dst_17_number"><a href=%my_url%?action=dst&index=17 class=DSTLink>To talk with "<TMPL_IF NAME="dst_17_name">%dst_17_name%<TMPL_ELSE>%dst_17_number%</TMPL_IF>", dial (646)434-4628</a></TMPL_IF>
+			<TMPL_IF NAME="dst_18_number"><a href=%my_url%?action=dst&index=18 class=DSTLink>To talk with "<TMPL_IF NAME="dst_18_name">%dst_18_name%<TMPL_ELSE>%dst_18_number%</TMPL_IF>", dial (646)434-4629</a></TMPL_IF>
+			<TMPL_IF NAME="dst_19_number"><a href=%my_url%?action=dst&index=19 class=DSTLink>To talk with "<TMPL_IF NAME="dst_19_name">%dst_19_name%<TMPL_ELSE>%dst_19_number%</TMPL_IF>", dial (646)434-4630</a></TMPL_IF>
+			<TMPL_IF NAME="dst_20_number"><a href=%my_url%?action=dst&index=20 class=DSTLink>To talk with "<TMPL_IF NAME="dst_20_name">%dst_20_name%<TMPL_ELSE>%dst_20_number%</TMPL_IF>", dial (646)434-4631</a></TMPL_IF>
+			<TMPL_IF NAME="dst_21_number"><a href=%my_url%?action=dst&index=21 class=DSTLink>To talk with "<TMPL_IF NAME="dst_21_name">%dst_21_name%<TMPL_ELSE>%dst_21_number%</TMPL_IF>", dial (917)284-9432</a></TMPL_IF>
+			<TMPL_IF NAME="dst_22_number"><a href=%my_url%?action=dst&index=22 class=DSTLink>To talk with "<TMPL_IF NAME="dst_22_name">%dst_22_name%<TMPL_ELSE>%dst_22_number%</TMPL_IF>", dial (646)873-6314</a></TMPL_IF>
+			<TMPL_IF NAME="dst_23_number"><a href=%my_url%?action=dst&index=23 class=DSTLink>To talk with "<TMPL_IF NAME="dst_23_name">%dst_23_name%<TMPL_ELSE>%dst_23_number%</TMPL_IF>", dial (646)873-6324</a></TMPL_IF>
+			<TMPL_IF NAME="dst_24_number"><a href=%my_url%?action=dst&index=24 class=DSTLink>To talk with "<TMPL_IF NAME="dst_24_name">%dst_24_name%<TMPL_ELSE>%dst_24_number%</TMPL_IF>", dial (646)873-6341</a></TMPL_IF>
+			<TMPL_IF NAME="dst_25_number"><a href=%my_url%?action=dst&index=25 class=DSTLink>To talk with "<TMPL_IF NAME="dst_25_name">%dst_25_name%<TMPL_ELSE>%dst_25_number%</TMPL_IF>", dial (413)749-4735</a></TMPL_IF>
+			<TMPL_IF NAME="dst_26_number"><a href=%my_url%?action=dst&index=26 class=DSTLink>To talk with "<TMPL_IF NAME="dst_26_name">%dst_26_name%<TMPL_ELSE>%dst_26_number%</TMPL_IF>", dial (646)873-6374</a></TMPL_IF>
+			<TMPL_IF NAME="dst_27_number"><a href=%my_url%?action=dst&index=27 class=DSTLink>To talk with "<TMPL_IF NAME="dst_27_name">%dst_27_name%<TMPL_ELSE>%dst_27_number%</TMPL_IF>", dial (646)873-6394</a></TMPL_IF>
+			<TMPL_IF NAME="dst_28_number"><a href=%my_url%?action=dst&index=28 class=DSTLink>To talk with "<TMPL_IF NAME="dst_28_name">%dst_28_name%<TMPL_ELSE>%dst_28_number%</TMPL_IF>", dial (646)873-6913</a></TMPL_IF>
+			<TMPL_IF NAME="dst_29_number"><a href=%my_url%?action=dst&index=29 class=DSTLink>To talk with "<TMPL_IF NAME="dst_29_name">%dst_29_name%<TMPL_ELSE>%dst_29_number%</TMPL_IF>", dial (646)873-6914</a></TMPL_IF>
+			<TMPL_IF NAME="dst_30_number"><a href=%my_url%?action=dst&index=30 class=DSTLink>To talk with "<TMPL_IF NAME="dst_30_name">%dst_30_name%<TMPL_ELSE>%dst_30_number%</TMPL_IF>", dial (646)873-6927</a></TMPL_IF>
+			<TMPL_IF NAME="dst_31_number"><a href=%my_url%?action=dst&index=31 class=DSTLink>To talk with "<TMPL_IF NAME="dst_31_name">%dst_31_name%<TMPL_ELSE>%dst_31_number%</TMPL_IF>", dial (646)873-6928</a></TMPL_IF>
+			<TMPL_IF NAME="dst_32_number"><a href=%my_url%?action=dst&index=32 class=DSTLink>To talk with "<TMPL_IF NAME="dst_32_name">%dst_32_name%<TMPL_ELSE>%dst_32_number%</TMPL_IF>", dial (646)873-6929</a></TMPL_IF>
+			<TMPL_IF NAME="dst_33_number"><a href=%my_url%?action=dst&index=33 class=DSTLink>To talk with "<TMPL_IF NAME="dst_33_name">%dst_33_name%<TMPL_ELSE>%dst_33_number%</TMPL_IF>", dial (646)873-6934</a></TMPL_IF>
+			<TMPL_IF NAME="dst_34_number"><a href=%my_url%?action=dst&index=34 class=DSTLink>To talk with "<TMPL_IF NAME="dst_34_name">%dst_34_name%<TMPL_ELSE>%dst_34_number%</TMPL_IF>", dial (201)204-1821</a></TMPL_IF>
+			<TMPL_IF NAME="dst_35_number"><a href=%my_url%?action=dst&index=35 class=DSTLink>To talk with "<TMPL_IF NAME="dst_35_name">%dst_35_name%<TMPL_ELSE>%dst_35_number%</TMPL_IF>", dial (201)204-1822</a></TMPL_IF>
+			<TMPL_IF NAME="dst_36_number"><a href=%my_url%?action=dst&index=36 class=DSTLink>To talk with "<TMPL_IF NAME="dst_36_name">%dst_36_name%<TMPL_ELSE>%dst_36_number%</TMPL_IF>", dial (201)204-1823</a></TMPL_IF>
+			<TMPL_IF NAME="dst_37_number"><a href=%my_url%?action=dst&index=37 class=DSTLink>To talk with "<TMPL_IF NAME="dst_37_name">%dst_37_name%<TMPL_ELSE>%dst_37_number%</TMPL_IF>", dial (201)204-1824</a></TMPL_IF>
+			<TMPL_IF NAME="dst_38_number"><a href=%my_url%?action=dst&index=38 class=DSTLink>To talk with "<TMPL_IF NAME="dst_38_name">%dst_38_name%<TMPL_ELSE>%dst_38_number%</TMPL_IF>", dial (201)204-1825</a></TMPL_IF>
+			<TMPL_IF NAME="dst_39_number"><a href=%my_url%?action=dst&index=39 class=DSTLink>To talk with "<TMPL_IF NAME="dst_39_name">%dst_39_name%<TMPL_ELSE>%dst_39_number%</TMPL_IF>", dial (201)204-1826</a></TMPL_IF>
+			<TMPL_IF NAME="dst_40_number"><a href=%my_url%?action=dst&index=40 class=DSTLink>To talk with "<TMPL_IF NAME="dst_40_name">%dst_40_name%<TMPL_ELSE>%dst_40_number%</TMPL_IF>", dial (201)204-1827</a></TMPL_IF>
+			<TMPL_IF NAME="dst_41_number"><a href=%my_url%?action=dst&index=41 class=DSTLink>To talk with "<TMPL_IF NAME="dst_41_name">%dst_41_name%<TMPL_ELSE>%dst_41_number%</TMPL_IF>", dial (201)204-1828</a></TMPL_IF>
+			<TMPL_IF NAME="dst_42_number"><a href=%my_url%?action=dst&index=42 class=DSTLink>To talk with "<TMPL_IF NAME="dst_42_name">%dst_42_name%<TMPL_ELSE>%dst_42_number%</TMPL_IF>", dial (201)204-1829</a></TMPL_IF>
+			<TMPL_IF NAME="dst_43_number"><a href=%my_url%?action=dst&index=43 class=DSTLink>To talk with "<TMPL_IF NAME="dst_43_name">%dst_43_name%<TMPL_ELSE>%dst_43_number%</TMPL_IF>", dial (201)204-1830</a></TMPL_IF>
+			<TMPL_IF NAME="dst_44_number"><a href=%my_url%?action=dst&index=44 class=DSTLink>To talk with "<TMPL_IF NAME="dst_44_name">%dst_44_name%<TMPL_ELSE>%dst_44_number%</TMPL_IF>", dial (201)204-1831</a></TMPL_IF>
+			<TMPL_IF NAME="dst_45_number"><a href=%my_url%?action=dst&index=45 class=DSTLink>To talk with "<TMPL_IF NAME="dst_45_name">%dst_45_name%<TMPL_ELSE>%dst_45_number%</TMPL_IF>", dial (201)204-1832</a></TMPL_IF>
+			<TMPL_IF NAME="dst_46_number"><a href=%my_url%?action=dst&index=46 class=DSTLink>To talk with "<TMPL_IF NAME="dst_46_name">%dst_46_name%<TMPL_ELSE>%dst_46_number%</TMPL_IF>", dial (201)204-1833</a></TMPL_IF>
+			<TMPL_IF NAME="dst_47_number"><a href=%my_url%?action=dst&index=47 class=DSTLink>To talk with "<TMPL_IF NAME="dst_47_name">%dst_47_name%<TMPL_ELSE>%dst_47_number%</TMPL_IF>", dial (201)204-1834</a></TMPL_IF>
+			<TMPL_IF NAME="dst_48_number"><a href=%my_url%?action=dst&index=48 class=DSTLink>To talk with "<TMPL_IF NAME="dst_48_name">%dst_48_name%<TMPL_ELSE>%dst_48_number%</TMPL_IF>", dial (201)204-1835</a></TMPL_IF>
+			<TMPL_IF NAME="dst_49_number"><a href=%my_url%?action=dst&index=49 class=DSTLink>To talk with "<TMPL_IF NAME="dst_49_name">%dst_49_name%<TMPL_ELSE>%dst_49_number%</TMPL_IF>", dial (201)204-1836</a></TMPL_IF>
+			<TMPL_IF NAME="dst_50_number"><a href=%my_url%?action=dst&index=50 class=DSTLink>To talk with "<TMPL_IF NAME="dst_50_name">%dst_50_name%<TMPL_ELSE>%dst_50_number%</TMPL_IF>", dial (201)204-1838</a></TMPL_IF>
+			<TMPL_IF NAME="dst_51_number"><a href=%my_url%?action=dst&index=51 class=DSTLink>To talk with "<TMPL_IF NAME="dst_51_name">%dst_51_name%<TMPL_ELSE>%dst_51_number%</TMPL_IF>", dial (201)204-1839</a></TMPL_IF>
+			<TMPL_IF NAME="dst_52_number"><a href=%my_url%?action=dst&index=52 class=DSTLink>To talk with "<TMPL_IF NAME="dst_52_name">%dst_52_name%<TMPL_ELSE>%dst_52_number%</TMPL_IF>", dial (201)204-1840</a></TMPL_IF>
+			<TMPL_IF NAME="dst_53_number"><a href=%my_url%?action=dst&index=53 class=DSTLink>To talk with "<TMPL_IF NAME="dst_53_name">%dst_53_name%<TMPL_ELSE>%dst_53_number%</TMPL_IF>", dial (201)204-1841</a></TMPL_IF>
+			<!--  add By Yassine for new DID 95   53 -> 148  -->
+   <TMPL_IF NAME="dst_54_number"><a href=%my_url%?action=dst&index=54 class=DSTLink>To talk with "<TMPL_IF NAME="dst_54_name">%dst_54_name%<TMPL_ELSE>%dst_54_number%</TMPL_IF>", dial (646)873-6342</a></TMPL_IF>
+   <TMPL_IF NAME="dst_55_number"><a href=%my_url%?action=dst&index=55 class=DSTLink>To talk with "<TMPL_IF NAME="dst_55_name">%dst_55_name%<TMPL_ELSE>%dst_55_number%</TMPL_IF>", dial (413)749-4734</a></TMPL_IF>
+   <TMPL_IF NAME="dst_56_number"><a href=%my_url%?action=dst&index=56 class=DSTLink>To talk with "<TMPL_IF NAME="dst_56_name">%dst_56_name%<TMPL_ELSE>%dst_56_number%</TMPL_IF>", dial (413)749-4733</a></TMPL_IF>
+   <TMPL_IF NAME="dst_57_number"><a href=%my_url%?action=dst&index=57 class=DSTLink>To talk with "<TMPL_IF NAME="dst_57_name">%dst_57_name%<TMPL_ELSE>%dst_57_number%</TMPL_IF>", dial (413)749-4730</a></TMPL_IF>
+   <TMPL_IF NAME="dst_58_number"><a href=%my_url%?action=dst&index=58 class=DSTLink>To talk with "<TMPL_IF NAME="dst_58_name">%dst_58_name%<TMPL_ELSE>%dst_58_number%</TMPL_IF>", dial (413)749-2684</a></TMPL_IF>
+   <TMPL_IF NAME="dst_59_number"><a href=%my_url%?action=dst&index=59 class=DSTLink>To talk with "<TMPL_IF NAME="dst_59_name">%dst_59_name%<TMPL_ELSE>%dst_59_number%</TMPL_IF>", dial (413)749-2683</a></TMPL_IF>
+   <TMPL_IF NAME="dst_60_number"><a href=%my_url%?action=dst&index=60 class=DSTLink>To talk with "<TMPL_IF NAME="dst_60_name">%dst_60_name%<TMPL_ELSE>%dst_60_number%</TMPL_IF>", dial (413)749-2682</a></TMPL_IF>
+   <TMPL_IF NAME="dst_61_number"><a href=%my_url%?action=dst&index=61 class=DSTLink>To talk with "<TMPL_IF NAME="dst_61_name">%dst_61_name%<TMPL_ELSE>%dst_61_number%</TMPL_IF>", dial (413)749-2681</a></TMPL_IF>
+   <TMPL_IF NAME="dst_62_number"><a href=%my_url%?action=dst&index=62 class=DSTLink>To talk with "<TMPL_IF NAME="dst_62_name">%dst_62_name%<TMPL_ELSE>%dst_62_number%</TMPL_IF>", dial (413)749-2679</a></TMPL_IF>
+   <TMPL_IF NAME="dst_63_number"><a href=%my_url%?action=dst&index=63 class=DSTLink>To talk with "<TMPL_IF NAME="dst_63_name">%dst_63_name%<TMPL_ELSE>%dst_63_number%</TMPL_IF>", dial (484)350-4836</a></TMPL_IF>
+   <TMPL_IF NAME="dst_64_number"><a href=%my_url%?action=dst&index=64 class=DSTLink>To talk with "<TMPL_IF NAME="dst_64_name">%dst_64_name%<TMPL_ELSE>%dst_64_number%</TMPL_IF>", dial (484)350-4835</a></TMPL_IF>
+   <TMPL_IF NAME="dst_65_number"><a href=%my_url%?action=dst&index=65 class=DSTLink>To talk with "<TMPL_IF NAME="dst_65_name">%dst_65_name%<TMPL_ELSE>%dst_65_number%</TMPL_IF>", dial (484)350-4834</a></TMPL_IF>
+   <TMPL_IF NAME="dst_66_number"><a href=%my_url%?action=dst&index=66 class=DSTLink>To talk with "<TMPL_IF NAME="dst_66_name">%dst_66_name%<TMPL_ELSE>%dst_66_number%</TMPL_IF>", dial (484)350-4833</a></TMPL_IF>
+   <TMPL_IF NAME="dst_67_number"><a href=%my_url%?action=dst&index=67 class=DSTLink>To talk with "<TMPL_IF NAME="dst_67_name">%dst_67_name%<TMPL_ELSE>%dst_67_number%</TMPL_IF>", dial (484)350-4832</a></TMPL_IF>
+   <TMPL_IF NAME="dst_68_number"><a href=%my_url%?action=dst&index=68 class=DSTLink>To talk with "<TMPL_IF NAME="dst_68_name">%dst_68_name%<TMPL_ELSE>%dst_68_number%</TMPL_IF>", dial (484)350-4831</a></TMPL_IF>
+   <TMPL_IF NAME="dst_69_number"><a href=%my_url%?action=dst&index=69 class=DSTLink>To talk with "<TMPL_IF NAME="dst_69_name">%dst_69_name%<TMPL_ELSE>%dst_69_number%</TMPL_IF>", dial (484)350-4830</a></TMPL_IF>
+   <TMPL_IF NAME="dst_70_number"><a href=%my_url%?action=dst&index=70 class=DSTLink>To talk with "<TMPL_IF NAME="dst_70_name">%dst_70_name%<TMPL_ELSE>%dst_70_number%</TMPL_IF>", dial (484)350-4829</a></TMPL_IF>
+   <TMPL_IF NAME="dst_71_number"><a href=%my_url%?action=dst&index=71 class=DSTLink>To talk with "<TMPL_IF NAME="dst_71_name">%dst_71_name%<TMPL_ELSE>%dst_71_number%</TMPL_IF>", dial (484)350-4828</a></TMPL_IF>
+   <TMPL_IF NAME="dst_72_number"><a href=%my_url%?action=dst&index=72 class=DSTLink>To talk with "<TMPL_IF NAME="dst_72_name">%dst_72_name%<TMPL_ELSE>%dst_72_number%</TMPL_IF>", dial (401)859-3905</a></TMPL_IF>
+   <TMPL_IF NAME="dst_73_number"><a href=%my_url%?action=dst&index=73 class=DSTLink>To talk with "<TMPL_IF NAME="dst_73_name">%dst_73_name%<TMPL_ELSE>%dst_73_number%</TMPL_IF>", dial (401)859-3904</a></TMPL_IF>
+   <TMPL_IF NAME="dst_74_number"><a href=%my_url%?action=dst&index=74 class=DSTLink>To talk with "<TMPL_IF NAME="dst_74_name">%dst_74_name%<TMPL_ELSE>%dst_74_number%</TMPL_IF>", dial (401)859-3902</a></TMPL_IF>
+   <TMPL_IF NAME="dst_75_number"><a href=%my_url%?action=dst&index=75 class=DSTLink>To talk with "<TMPL_IF NAME="dst_75_name">%dst_75_name%<TMPL_ELSE>%dst_75_number%</TMPL_IF>", dial (401)859-3901</a></TMPL_IF>
+   <TMPL_IF NAME="dst_76_number"><a href=%my_url%?action=dst&index=76 class=DSTLink>To talk with "<TMPL_IF NAME="dst_76_name">%dst_76_name%<TMPL_ELSE>%dst_76_number%</TMPL_IF>", dial (401)859-2901</a></TMPL_IF>
+   <TMPL_IF NAME="dst_77_number"><a href=%my_url%?action=dst&index=77 class=DSTLink>To talk with "<TMPL_IF NAME="dst_77_name">%dst_77_name%<TMPL_ELSE>%dst_77_number%</TMPL_IF>", dial (401)859-3899</a></TMPL_IF>
+   <TMPL_IF NAME="dst_78_number"><a href=%my_url%?action=dst&index=78 class=DSTLink>To talk with "<TMPL_IF NAME="dst_78_name">%dst_78_name%<TMPL_ELSE>%dst_78_number%</TMPL_IF>", dial (401)859-2899</a></TMPL_IF>
+   <TMPL_IF NAME="dst_79_number"><a href=%my_url%?action=dst&index=79 class=DSTLink>To talk with "<TMPL_IF NAME="dst_79_name">%dst_79_name%<TMPL_ELSE>%dst_79_number%</TMPL_IF>", dial (401)859-2898</a></TMPL_IF>
+   <TMPL_IF NAME="dst_80_number"><a href=%my_url%?action=dst&index=80 class=DSTLink>To talk with "<TMPL_IF NAME="dst_80_name">%dst_80_name%<TMPL_ELSE>%dst_80_number%</TMPL_IF>", dial (401)859-3897</a></TMPL_IF>
+   <TMPL_IF NAME="dst_81_number"><a href=%my_url%?action=dst&index=81 class=DSTLink>To talk with "<TMPL_IF NAME="dst_81_name">%dst_81_name%<TMPL_ELSE>%dst_81_number%</TMPL_IF>", dial (401)859-2897</a></TMPL_IF>
+   <TMPL_IF NAME="dst_82_number"><a href=%my_url%?action=dst&index=82 class=DSTLink>To talk with "<TMPL_IF NAME="dst_82_name">%dst_82_name%<TMPL_ELSE>%dst_82_number%</TMPL_IF>", dial (561)692-6931</a></TMPL_IF>
+   <TMPL_IF NAME="dst_83_number"><a href=%my_url%?action=dst&index=83 class=DSTLink>To talk with "<TMPL_IF NAME="dst_83_name">%dst_83_name%<TMPL_ELSE>%dst_83_number%</TMPL_IF>", dial (561)692-6929</a></TMPL_IF>
+   <TMPL_IF NAME="dst_84_number"><a href=%my_url%?action=dst&index=84 class=DSTLink>To talk with "<TMPL_IF NAME="dst_84_name">%dst_84_name%<TMPL_ELSE>%dst_84_number%</TMPL_IF>", dial (561)692-6928</a></TMPL_IF>
+   <TMPL_IF NAME="dst_85_number"><a href=%my_url%?action=dst&index=85 class=DSTLink>To talk with "<TMPL_IF NAME="dst_85_name">%dst_85_name%<TMPL_ELSE>%dst_85_number%</TMPL_IF>", dial (561)692-6927</a></TMPL_IF>
+   <TMPL_IF NAME="dst_86_number"><a href=%my_url%?action=dst&index=86 class=DSTLink>To talk with "<TMPL_IF NAME="dst_86_name">%dst_86_name%<TMPL_ELSE>%dst_86_number%</TMPL_IF>", dial (561)692-6926</a></TMPL_IF>
+   <TMPL_IF NAME="dst_87_number"><a href=%my_url%?action=dst&index=87 class=DSTLink>To talk with "<TMPL_IF NAME="dst_87_name">%dst_87_name%<TMPL_ELSE>%dst_87_number%</TMPL_IF>", dial (561)692-6925</a></TMPL_IF>
+   <TMPL_IF NAME="dst_88_number"><a href=%my_url%?action=dst&index=88 class=DSTLink>To talk with "<TMPL_IF NAME="dst_88_name">%dst_88_name%<TMPL_ELSE>%dst_88_number%</TMPL_IF>", dial (561)692-6924</a></TMPL_IF>
+   <TMPL_IF NAME="dst_89_number"><a href=%my_url%?action=dst&index=89 class=DSTLink>To talk with "<TMPL_IF NAME="dst_89_name">%dst_89_name%<TMPL_ELSE>%dst_89_number%</TMPL_IF>", dial (561)692-6923</a></TMPL_IF>
+   <TMPL_IF NAME="dst_90_number"><a href=%my_url%?action=dst&index=90 class=DSTLink>To talk with "<TMPL_IF NAME="dst_90_name">%dst_90_name%<TMPL_ELSE>%dst_90_number%</TMPL_IF>", dial (561)692-6922</a></TMPL_IF>
+   <TMPL_IF NAME="dst_91_number"><a href=%my_url%?action=dst&index=91 class=DSTLink>To talk with "<TMPL_IF NAME="dst_91_name">%dst_91_name%<TMPL_ELSE>%dst_91_number%</TMPL_IF>", dial (240)389-9723</a></TMPL_IF>
+   <TMPL_IF NAME="dst_92_number"><a href=%my_url%?action=dst&index=92 class=DSTLink>To talk with "<TMPL_IF NAME="dst_92_name">%dst_92_name%<TMPL_ELSE>%dst_92_number%</TMPL_IF>", dial (240)389-9722</a></TMPL_IF>
+   <TMPL_IF NAME="dst_93_number"><a href=%my_url%?action=dst&index=93 class=DSTLink>To talk with "<TMPL_IF NAME="dst_93_name">%dst_93_name%<TMPL_ELSE>%dst_93_number%</TMPL_IF>", dial (240)389-9721</a></TMPL_IF>
+   <TMPL_IF NAME="dst_94_number"><a href=%my_url%?action=dst&index=94 class=DSTLink>To talk with "<TMPL_IF NAME="dst_94_name">%dst_94_name%<TMPL_ELSE>%dst_94_number%</TMPL_IF>", dial (240)389-9718</a></TMPL_IF>
+   <TMPL_IF NAME="dst_95_number"><a href=%my_url%?action=dst&index=95 class=DSTLink>To talk with "<TMPL_IF NAME="dst_95_name">%dst_95_name%<TMPL_ELSE>%dst_95_number%</TMPL_IF>", dial (240)389-9717</a></TMPL_IF>
+   <TMPL_IF NAME="dst_96_number"><a href=%my_url%?action=dst&index=96 class=DSTLink>To talk with "<TMPL_IF NAME="dst_96_name">%dst_96_name%<TMPL_ELSE>%dst_96_number%</TMPL_IF>", dial (240)389-9716</a></TMPL_IF>
+   <TMPL_IF NAME="dst_97_number"><a href=%my_url%?action=dst&index=97 class=DSTLink>To talk with "<TMPL_IF NAME="dst_97_name">%dst_97_name%<TMPL_ELSE>%dst_97_number%</TMPL_IF>", dial (240)389-9715</a></TMPL_IF>
+   <TMPL_IF NAME="dst_98_number"><a href=%my_url%?action=dst&index=98 class=DSTLink>To talk with "<TMPL_IF NAME="dst_98_name">%dst_98_name%<TMPL_ELSE>%dst_98_number%</TMPL_IF>", dial (240)389-9714</a></TMPL_IF>
+   <TMPL_IF NAME="dst_99_number"><a href=%my_url%?action=dst&index=99 class=DSTLink>To talk with "<TMPL_IF NAME="dst_99_name">%dst_99_name%<TMPL_ELSE>%dst_99_number%</TMPL_IF>", dial (202)524-3598</a></TMPL_IF>
+   <TMPL_IF NAME="dst_100_number"><a href=%my_url%?action=dst&index=100 class=DSTLink>To talk with "<TMPL_IF NAME="dst_100_name">%dst_100_name%<TMPL_ELSE>%dst_100_number%</TMPL_IF>", dial (202)524-3596</a></TMPL_IF>
+   <TMPL_IF NAME="dst_101_number"><a href=%my_url%?action=dst&index=101 class=DSTLink>To talk with "<TMPL_IF NAME="dst_101_name">%dst_101_name%<TMPL_ELSE>%dst_101_number%</TMPL_IF>", dial (202)524-3594</a></TMPL_IF>
+   <TMPL_IF NAME="dst_102_number"><a href=%my_url%?action=dst&index=102 class=DSTLink>To talk with "<TMPL_IF NAME="dst_102_name">%dst_102_name%<TMPL_ELSE>%dst_102_number%</TMPL_IF>", dial (202)524-3587</a></TMPL_IF>
+   <TMPL_IF NAME="dst_103_number"><a href=%my_url%?action=dst&index=103 class=DSTLink>To talk with "<TMPL_IF NAME="dst_103_name">%dst_103_name%<TMPL_ELSE>%dst_103_number%</TMPL_IF>", dial (202)524-3576</a></TMPL_IF>
+   <TMPL_IF NAME="dst_104_number"><a href=%my_url%?action=dst&index=104 class=DSTLink>To talk with "<TMPL_IF NAME="dst_104_name">%dst_104_name%<TMPL_ELSE>%dst_104_number%</TMPL_IF>", dial (202)747-2417</a></TMPL_IF>
+   <TMPL_IF NAME="dst_105_number"><a href=%my_url%?action=dst&index=105 class=DSTLink>To talk with "<TMPL_IF NAME="dst_105_name">%dst_105_name%<TMPL_ELSE>%dst_105_number%</TMPL_IF>", dial (202)595-9417</a></TMPL_IF>
+   <TMPL_IF NAME="dst_106_number"><a href=%my_url%?action=dst&index=106 class=DSTLink>To talk with "<TMPL_IF NAME="dst_106_name">%dst_106_name%<TMPL_ELSE>%dst_106_number%</TMPL_IF>", dial (202)747-2416</a></TMPL_IF>
+   <TMPL_IF NAME="dst_107_number"><a href=%my_url%?action=dst&index=107 class=DSTLink>To talk with "<TMPL_IF NAME="dst_107_name">%dst_107_name%<TMPL_ELSE>%dst_107_number%</TMPL_IF>", dial (202)747-2415</a></TMPL_IF>
+   <TMPL_IF NAME="dst_108_number"><a href=%my_url%?action=dst&index=108 class=DSTLink>To talk with "<TMPL_IF NAME="dst_108_name">%dst_108_name%<TMPL_ELSE>%dst_108_number%</TMPL_IF>", dial (202)747-2414</a></TMPL_IF>
+   <TMPL_IF NAME="dst_109_number"><a href=%my_url%?action=dst&index=109 class=DSTLink>To talk with "<TMPL_IF NAME="dst_109_name">%dst_109_name%<TMPL_ELSE>%dst_109_number%</TMPL_IF>", dial (603)835-4192</a></TMPL_IF>
+   <TMPL_IF NAME="dst_110_number"><a href=%my_url%?action=dst&index=110 class=DSTLink>To talk with "<TMPL_IF NAME="dst_110_name">%dst_110_name%<TMPL_ELSE>%dst_110_number%</TMPL_IF>", dial (603)835-4191</a></TMPL_IF>
+   <TMPL_IF NAME="dst_111_number"><a href=%my_url%?action=dst&index=111 class=DSTLink>To talk with "<TMPL_IF NAME="dst_111_name">%dst_111_name%<TMPL_ELSE>%dst_111_number%</TMPL_IF>", dial (603)835-4190</a></TMPL_IF>
+   <TMPL_IF NAME="dst_112_number"><a href=%my_url%?action=dst&index=112 class=DSTLink>To talk with "<TMPL_IF NAME="dst_112_name">%dst_112_name%<TMPL_ELSE>%dst_112_number%</TMPL_IF>", dial (603)835-4189</a></TMPL_IF>
+   <TMPL_IF NAME="dst_113_number"><a href=%my_url%?action=dst&index=113 class=DSTLink>To talk with "<TMPL_IF NAME="dst_113_name">%dst_113_name%<TMPL_ELSE>%dst_113_number%</TMPL_IF>", dial (603)835-4188</a></TMPL_IF>
+   <TMPL_IF NAME="dst_114_number"><a href=%my_url%?action=dst&index=114 class=DSTLink>To talk with "<TMPL_IF NAME="dst_114_name">%dst_114_name%<TMPL_ELSE>%dst_114_number%</TMPL_IF>", dial (603)835-4187</a></TMPL_IF>
+   <TMPL_IF NAME="dst_115_number"><a href=%my_url%?action=dst&index=115 class=DSTLink>To talk with "<TMPL_IF NAME="dst_115_name">%dst_115_name%<TMPL_ELSE>%dst_115_number%</TMPL_IF>", dial (603)835-4186</a></TMPL_IF>
+   <TMPL_IF NAME="dst_116_number"><a href=%my_url%?action=dst&index=116 class=DSTLink>To talk with "<TMPL_IF NAME="dst_116_name">%dst_116_name%<TMPL_ELSE>%dst_116_number%</TMPL_IF>", dial (603)835-4185</a></TMPL_IF>
+   <TMPL_IF NAME="dst_117_number"><a href=%my_url%?action=dst&index=117 class=DSTLink>To talk with "<TMPL_IF NAME="dst_117_name">%dst_117_name%<TMPL_ELSE>%dst_117_number%</TMPL_IF>", dial (603)835-4184</a></TMPL_IF>
+   <TMPL_IF NAME="dst_118_number"><a href=%my_url%?action=dst&index=118 class=DSTLink>To talk with "<TMPL_IF NAME="dst_118_name">%dst_118_name%<TMPL_ELSE>%dst_118_number%</TMPL_IF>", dial (603)835-4183</a></TMPL_IF>
+   <TMPL_IF NAME="dst_119_number"><a href=%my_url%?action=dst&index=119 class=DSTLink>To talk with "<TMPL_IF NAME="dst_119_name">%dst_119_name%<TMPL_ELSE>%dst_119_number%</TMPL_IF>", dial (703)249-6939</a></TMPL_IF>
+   <TMPL_IF NAME="dst_120_number"><a href=%my_url%?action=dst&index=120 class=DSTLink>To talk with "<TMPL_IF NAME="dst_120_name">%dst_120_name%<TMPL_ELSE>%dst_120_number%</TMPL_IF>", dial (703)249-6938</a></TMPL_IF>
+   <TMPL_IF NAME="dst_121_number"><a href=%my_url%?action=dst&index=121 class=DSTLink>To talk with "<TMPL_IF NAME="dst_121_name">%dst_121_name%<TMPL_ELSE>%dst_121_number%</TMPL_IF>", dial (703)249-6937</a></TMPL_IF>
+   <TMPL_IF NAME="dst_122_number"><a href=%my_url%?action=dst&index=122 class=DSTLink>To talk with "<TMPL_IF NAME="dst_122_name">%dst_122_name%<TMPL_ELSE>%dst_122_number%</TMPL_IF>", dial (703)249-6936</a></TMPL_IF>
+   <TMPL_IF NAME="dst_123_number"><a href=%my_url%?action=dst&index=123 class=DSTLink>To talk with "<TMPL_IF NAME="dst_123_name">%dst_123_name%<TMPL_ELSE>%dst_123_number%</TMPL_IF>", dial (703)249-6935</a></TMPL_IF>
+   <TMPL_IF NAME="dst_124_number"><a href=%my_url%?action=dst&index=124 class=DSTLink>To talk with "<TMPL_IF NAME="dst_124_name">%dst_124_name%<TMPL_ELSE>%dst_124_number%</TMPL_IF>", dial (703)249-6934</a></TMPL_IF>
+   <TMPL_IF NAME="dst_125_number"><a href=%my_url%?action=dst&index=125 class=DSTLink>To talk with "<TMPL_IF NAME="dst_125_name">%dst_125_name%<TMPL_ELSE>%dst_125_number%</TMPL_IF>", dial (703)249-6933</a></TMPL_IF>
+   <TMPL_IF NAME="dst_126_number"><a href=%my_url%?action=dst&index=126 class=DSTLink>To talk with "<TMPL_IF NAME="dst_126_name">%dst_126_name%<TMPL_ELSE>%dst_126_number%</TMPL_IF>", dial (703)249-6932</a></TMPL_IF>
+   <TMPL_IF NAME="dst_127_number"><a href=%my_url%?action=dst&index=127 class=DSTLink>To talk with "<TMPL_IF NAME="dst_127_name">%dst_127_name%<TMPL_ELSE>%dst_127_number%</TMPL_IF>", dial (703)249-6931</a></TMPL_IF>
+   <TMPL_IF NAME="dst_128_number"><a href=%my_url%?action=dst&index=128 class=DSTLink>To talk with "<TMPL_IF NAME="dst_128_name">%dst_128_name%<TMPL_ELSE>%dst_128_number%</TMPL_IF>", dial (703)249-6930</a></TMPL_IF>
+   <TMPL_IF NAME="dst_129_number"><a href=%my_url%?action=dst&index=129 class=DSTLink>To talk with "<TMPL_IF NAME="dst_129_name">%dst_129_name%<TMPL_ELSE>%dst_129_number%</TMPL_IF>", dial (973)446-5425</a></TMPL_IF>
+   <TMPL_IF NAME="dst_130_number"><a href=%my_url%?action=dst&index=130 class=DSTLink>To talk with "<TMPL_IF NAME="dst_130_name">%dst_130_name%<TMPL_ELSE>%dst_130_number%</TMPL_IF>", dial (973)446-5424</a></TMPL_IF>
+   <TMPL_IF NAME="dst_131_number"><a href=%my_url%?action=dst&index=131 class=DSTLink>To talk with "<TMPL_IF NAME="dst_131_name">%dst_131_name%<TMPL_ELSE>%dst_131_number%</TMPL_IF>", dial (973)446-5423</a></TMPL_IF>
+   <TMPL_IF NAME="dst_132_number"><a href=%my_url%?action=dst&index=132 class=DSTLink>To talk with "<TMPL_IF NAME="dst_132_name">%dst_132_name%<TMPL_ELSE>%dst_132_number%</TMPL_IF>", dial (973)446-5422</a></TMPL_IF>
+   <TMPL_IF NAME="dst_133_number"><a href=%my_url%?action=dst&index=133 class=DSTLink>To talk with "<TMPL_IF NAME="dst_133_name">%dst_133_name%<TMPL_ELSE>%dst_133_number%</TMPL_IF>", dial (973)446-5421</a></TMPL_IF>
+   <TMPL_IF NAME="dst_134_number"><a href=%my_url%?action=dst&index=134 class=DSTLink>To talk with "<TMPL_IF NAME="dst_134_name">%dst_134_name%<TMPL_ELSE>%dst_134_number%</TMPL_IF>", dial (973)446-5420</a></TMPL_IF>
+   <TMPL_IF NAME="dst_135_number"><a href=%my_url%?action=dst&index=135 class=DSTLink>To talk with "<TMPL_IF NAME="dst_135_name">%dst_135_name%<TMPL_ELSE>%dst_135_number%</TMPL_IF>", dial (973)446-5419</a></TMPL_IF>
+   <TMPL_IF NAME="dst_136_number"><a href=%my_url%?action=dst&index=136 class=DSTLink>To talk with "<TMPL_IF NAME="dst_136_name">%dst_136_name%<TMPL_ELSE>%dst_136_number%</TMPL_IF>", dial (973)446-5418</a></TMPL_IF>
+   <TMPL_IF NAME="dst_137_number"><a href=%my_url%?action=dst&index=137 class=DSTLink>To talk with "<TMPL_IF NAME="dst_137_name">%dst_137_name%<TMPL_ELSE>%dst_137_number%</TMPL_IF>", dial (973)446-5417</a></TMPL_IF>
+   <TMPL_IF NAME="dst_138_number"><a href=%my_url%?action=dst&index=138 class=DSTLink>To talk with "<TMPL_IF NAME="dst_138_name">%dst_138_name%<TMPL_ELSE>%dst_138_number%</TMPL_IF>", dial (973)446-5416</a></TMPL_IF>
+   <TMPL_IF NAME="dst_139_number"><a href=%my_url%?action=dst&index=139 class=DSTLink>To talk with "<TMPL_IF NAME="dst_139_name">%dst_139_name%<TMPL_ELSE>%dst_139_number%</TMPL_IF>", dial (978)364-3955</a></TMPL_IF>
+   <TMPL_IF NAME="dst_140_number"><a href=%my_url%?action=dst&index=140 class=DSTLink>To talk with "<TMPL_IF NAME="dst_140_name">%dst_140_name%<TMPL_ELSE>%dst_140_number%</TMPL_IF>", dial (978)364-4787</a></TMPL_IF>
+   <TMPL_IF NAME="dst_141_number"><a href=%my_url%?action=dst&index=141 class=DSTLink>To talk with "<TMPL_IF NAME="dst_141_name">%dst_141_name%<TMPL_ELSE>%dst_141_number%</TMPL_IF>", dial (978)364-4786</a></TMPL_IF>
+   <TMPL_IF NAME="dst_142_number"><a href=%my_url%?action=dst&index=142 class=DSTLink>To talk with "<TMPL_IF NAME="dst_142_name">%dst_142_name%<TMPL_ELSE>%dst_142_number%</TMPL_IF>", dial (978)364-4654</a></TMPL_IF>
+   <TMPL_IF NAME="dst_143_number"><a href=%my_url%?action=dst&index=143 class=DSTLink>To talk with "<TMPL_IF NAME="dst_143_name">%dst_143_name%<TMPL_ELSE>%dst_143_number%</TMPL_IF>", dial (978)614-0453</a></TMPL_IF>
+   <TMPL_IF NAME="dst_144_number"><a href=%my_url%?action=dst&index=144 class=DSTLink>To talk with "<TMPL_IF NAME="dst_144_name">%dst_144_name%<TMPL_ELSE>%dst_144_number%</TMPL_IF>", dial (978)614-0452</a></TMPL_IF>
+   <TMPL_IF NAME="dst_145_number"><a href=%my_url%?action=dst&index=145 class=DSTLink>To talk with "<TMPL_IF NAME="dst_145_name">%dst_145_name%<TMPL_ELSE>%dst_145_number%</TMPL_IF>", dial (978)614-0451</a></TMPL_IF>
+   <TMPL_IF NAME="dst_146_number"><a href=%my_url%?action=dst&index=146 class=DSTLink>To talk with "<TMPL_IF NAME="dst_146_name">%dst_146_name%<TMPL_ELSE>%dst_146_number%</TMPL_IF>", dial (978)614-0450</a></TMPL_IF>
+   <TMPL_IF NAME="dst_147_number"><a href=%my_url%?action=dst&index=147 class=DSTLink>To talk with "<TMPL_IF NAME="dst_147_name">%dst_147_name%<TMPL_ELSE>%dst_147_number%</TMPL_IF>", dial (978)614-0449</a></TMPL_IF>
+   <TMPL_IF NAME="dst_148_number"><a href=%my_url%?action=dst&index=148 class=DSTLink>To talk with "<TMPL_IF NAME="dst_148_name">%dst_148_name%<TMPL_ELSE>%dst_148_number%</TMPL_IF>", dial (978)614-0448</a></TMPL_IF>
+
+			
+			<button xxclass=zeno_button onclick="window.location='%my_url%?action=dst&new=1';" style="margin-top:10px;"><xxximg src=/design/icons/user_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new phone contact</button><br>
+		</fieldset>
+<!--
+<br>
+	<a href="yahoo.php">Invite Contacts from Yahoo</a><br>
+	<a href="google.cgi">Invite Contacts from Google</a><br>
+-->
+<!--
+		<h3>Call Skype from any phone!</h3>
+		Simply add your contacts Skype ID below and Zenofon will assign a dedicated number for that Skype id. Save this unique number in your cellphone.
+		When you want to speak to your friend on Skype, simply dial that number and it will connect to their Skype ID.                                
+                                <br><b><i>The best part of ZenoSkype is that you can even call from a landline.</i></b> <a href="http://www.youtube.com/watch?v=-xFPqnvNEP4">&#187; Watch video</a>
+		<fieldset style="padding:20px;margin-top:5px;margin-bottom:30px;">
+			<img src=/design/img/pbx-1.png width=204 height=54 hspace=0 vspace=0 border=0 style=margin-bottom:15px><br>
+			<TMPL_IF NAME="dst_1001_number"><a href=%my_url%?action=dst_skype&index=1001 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1001_name">%dst_1001_name%<TMPL_ELSE>%dst_1001_number%</TMPL_IF>", dial (712)432-2351</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1002_number"><a href=%my_url%?action=dst_skype&index=1002 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1002_name">%dst_1002_name%<TMPL_ELSE>%dst_1002_number%</TMPL_IF>", dial (712)432-2352</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1003_number"><a href=%my_url%?action=dst_skype&index=1003 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1003_name">%dst_1003_name%<TMPL_ELSE>%dst_1003_number%</TMPL_IF>", dial (712)432-2353</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1004_number"><a href=%my_url%?action=dst_skype&index=1004 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1004_name">%dst_1004_name%<TMPL_ELSE>%dst_1004_number%</TMPL_IF>", dial (712)432-2354</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1005_number"><a href=%my_url%?action=dst_skype&index=1005 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1005_name">%dst_1005_name%<TMPL_ELSE>%dst_1005_number%</TMPL_IF>", dial (712)432-2355</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1006_number"><a href=%my_url%?action=dst_skype&index=1006 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1006_name">%dst_1006_name%<TMPL_ELSE>%dst_1006_number%</TMPL_IF>", dial (712)432-2356</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1007_number"><a href=%my_url%?action=dst_skype&index=1007 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1007_name">%dst_1007_name%<TMPL_ELSE>%dst_1007_number%</TMPL_IF>", dial (712)432-2357</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1008_number"><a href=%my_url%?action=dst_skype&index=1008 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1008_name">%dst_1008_name%<TMPL_ELSE>%dst_1008_number%</TMPL_IF>", dial (712)432-2358</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1009_number"><a href=%my_url%?action=dst_skype&index=1009 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1009_name">%dst_1009_name%<TMPL_ELSE>%dst_1009_number%</TMPL_IF>", dial (712)432-2359</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1010_number"><a href=%my_url%?action=dst_skype&index=1010 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1010_name">%dst_1010_name%<TMPL_ELSE>%dst_1010_number%</TMPL_IF>", dial (712)432-2360</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1011_number"><a href=%my_url%?action=dst_skype&index=1011 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1011_name">%dst_1011_name%<TMPL_ELSE>%dst_1011_number%</TMPL_IF>", dial (712)432-2361</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1012_number"><a href=%my_url%?action=dst_skype&index=1012 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1012_name">%dst_1012_name%<TMPL_ELSE>%dst_1012_number%</TMPL_IF>", dial (712)432-2362</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1013_number"><a href=%my_url%?action=dst_skype&index=1013 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1013_name">%dst_1013_name%<TMPL_ELSE>%dst_1013_number%</TMPL_IF>", dial (712)432-2363</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1014_number"><a href=%my_url%?action=dst_skype&index=1014 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1014_name">%dst_1014_name%<TMPL_ELSE>%dst_1014_number%</TMPL_IF>", dial (712)432-2364</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1015_number"><a href=%my_url%?action=dst_skype&index=1015 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1015_name">%dst_1015_name%<TMPL_ELSE>%dst_1015_number%</TMPL_IF>", dial (712)432-2365</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1016_number"><a href=%my_url%?action=dst_skype&index=1016 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1016_name">%dst_1016_name%<TMPL_ELSE>%dst_1016_number%</TMPL_IF>", dial (712)432-2366</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1017_number"><a href=%my_url%?action=dst_skype&index=1017 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1017_name">%dst_1017_name%<TMPL_ELSE>%dst_1017_number%</TMPL_IF>", dial (712)432-2367</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1018_number"><a href=%my_url%?action=dst_skype&index=1018 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1018_name">%dst_1018_name%<TMPL_ELSE>%dst_1018_number%</TMPL_IF>", dial (712)432-2368</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1019_number"><a href=%my_url%?action=dst_skype&index=1019 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1019_name">%dst_1019_name%<TMPL_ELSE>%dst_1019_number%</TMPL_IF>", dial (712)432-2369</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1020_number"><a href=%my_url%?action=dst_skype&index=1020 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1020_name">%dst_1020_name%<TMPL_ELSE>%dst_1020_number%</TMPL_IF>", dial (712)432-2371</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1021_number"><a href=%my_url%?action=dst_skype&index=1021 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1021_name">%dst_1021_name%<TMPL_ELSE>%dst_1021_number%</TMPL_IF>", dial (712)432-2372</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1022_number"><a href=%my_url%?action=dst_skype&index=1022 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1022_name">%dst_1022_name%<TMPL_ELSE>%dst_1022_number%</TMPL_IF>", dial (712)432-2372</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1023_number"><a href=%my_url%?action=dst_skype&index=1023 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1023_name">%dst_1023_name%<TMPL_ELSE>%dst_1023_number%</TMPL_IF>", dial (712)432-2373</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1024_number"><a href=%my_url%?action=dst_skype&index=1024 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1024_name">%dst_1014_name%<TMPL_ELSE>%dst_1024_number%</TMPL_IF>", dial (712)432-2374</a></TMPL_IF>
+			<TMPL_IF NAME="dst_1025_number"><a href=%my_url%?action=dst_skype&index=1025 class=DSTLink>To talk with "<TMPL_IF NAME="dst_1025_name">%dst_1025_name%<TMPL_ELSE>%dst_1025_number%</TMPL_IF>", dial (712)432-2375</a></TMPL_IF>
+			<button xxclass=zeno_button onclick="window.location='%my_url%?action=dst_skype&new=1';" style="margin-top:10px;"><xxximg src=/design/icons/user_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new skype contact</button><br>
+		</fieldset>
+
+-->
+
+
+<!-- 
+		<h3>Your Internet Radio</h3>
+	
+	 	ZenoFon is your bridge to online radio stations!
+		 Dial into ZenoFon, then input a radio extension. You can then listen to the radio!
+		<br>
+			<button xxclass=zeno_button onclick="window.location='/about/radio.cgi';" style="margin-top:10px;"><xxximg src=/design/icons/user_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">See Available Radios</button><br>
+	 		<fieldset style="padding:20px;margin-top:5px;margin-bottom:30px;">
+			<img src=/design/img/pbx-1.png width=204 height=54 hspace=0 vspace=0 border=0 style=margin-bottom:15px><br>
+			<p>by uploading your radio url ,you can get commissions if someone listened to your radio</p>
+			%html_myradiolist%
+			%html_radioadd%
+		</fieldset>
+	<fieldset style="padding:20px;margin-top:5px;margin-bottom:30px;">
+			<img src=/design/img/pbx-1.png width=204 height=54 hspace=0 vspace=0 border=0 style=margin-bottom:15px><br>
+			<TMPL_IF NAME="dst_2001_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2001 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2001_name">%dst_2001_name%<TMPL_ELSE>%dst_2001_number%</TMPL_IF>", dial (712)432-2351</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2002_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2002 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2002_name">%dst_2002_name%<TMPL_ELSE>%dst_2002_number%</TMPL_IF>", dial (712)432-2352</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2003_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2003 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2003_name">%dst_2003_name%<TMPL_ELSE>%dst_2003_number%</TMPL_IF>", dial (712)432-2353</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2004_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2004 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2004_name">%dst_2004_name%<TMPL_ELSE>%dst_2004_number%</TMPL_IF>", dial (712)432-2354</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2005_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2005 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2005_name">%dst_2005_name%<TMPL_ELSE>%dst_2005_number%</TMPL_IF>", dial (712)432-2355</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2006_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2006 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2006_name">%dst_2006_name%<TMPL_ELSE>%dst_2006_number%</TMPL_IF>", dial (712)432-2356</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2007_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2007 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2007_name">%dst_2007_name%<TMPL_ELSE>%dst_2007_number%</TMPL_IF>", dial (712)432-2357</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2008_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2008 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2008_name">%dst_2008_name%<TMPL_ELSE>%dst_2008_number%</TMPL_IF>", dial (712)432-2358</a></TMPL_IF>
+			<TMPL_IF NAME="dst_2009_number"><a href=%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;index=2009 class=DSTLink>To talk with "<TMPL_IF NAME="dst_2009_name">%dst_2009_name%<TMPL_ELSE>%dst_2009_number%</TMPL_IF>", dial (712)432-2359</a></TMPL_IF>
+			<button xxclass=zeno_button onclick="window.location='%my_url%?action=dst_radio&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;new=1';" style="margin-top:10px;"><xxximg src=/design/icons/user_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Add a new internet radio</button><br>
+		</fieldset>
+    -->
+
+
+
+
+
+
+		<img src=/design/img/spc.gif width=500 height=1 hspace=0 vspace=0 border=0>
+	</td>
+	<td><img src=/design/img/spc.gif width=30 height=1 hspace=0 vspace=0 border=0></td>
+
+	<td valign=top >
+		
+		<form method="post">
+			
+       <h1>Routing Announcement </h1>
+
+                                                <select width=100% style='width:100%' name=routeann>
+
+                                                 <option <TMPL_IF NAME="routeann_option_0_is_selected">selected</TMPL_IF>                value='0'>Don't choose route during call</option>
+                                                <option <TMPL_IF NAME="routeann_option_1_is_selected">selected</TMPL_IF>                value='1'>Allow choose route during call</option>
+
+                                                </select>
+
+		    <br><br>
+       <h1>Balance Announcement </h1>
+
+                                                <select width=100% style='width:100%' name=balanceann>
+
+                                                 <option <TMPL_IF NAME="balanceann_option_0_is_selected">selected</TMPL_IF>                value='0'>Don't play balance</option>
+                                                <option <TMPL_IF NAME="balanceann_option_1_is_selected">selected</TMPL_IF>                value='1'>Play balance</option>
+
+                                                </select>
+												<br><br>
+												
+												<button type=submit>Save Settings</button>
+		</form>
+		<br>
+		
+		
+		<a name=cid></a>
+		<h1>Control Your Caller-ID</h1>
+		<fieldset style=padding-top:15px;>
+				<form action=service.pbx.cgi>
+					<select name=cid_mode onchange="cid_mode_change(this);" style="width:100%;">
+					<option <TMPL_IF NAME="cid_automatic">selected</TMPL_IF> value=auto>Native Caller-ID</option>
+					<option <TMPL_IF NAME="cid_manual">selected</TMPL_IF> value=manual>New Caller-Id</option>
+					</select><br>
+					<div class=clear id=cid_number >
+						Caller-ID number:<br>
+						<input type=text name="cid_number" value="%cid_number%" style="width:100%;"><br>
+					</div>
+					<button type=submit style="margin-top:10px;"><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left style="margin-right:5px;">Save</button><br>
+					<input type=hidden name="action" value="cid">
+				</form>
+		</fieldset>
+		<!-- CALLID SCRIPT -->
+		<script>
+		function cid_mode_change(obj){
+			if(obj.selectedIndex == 1){
+				MyDisplay('cid_number',1);
+			} else {
+				MyDisplay('cid_number',0);
+			}
+		}
+		cid_mode_change(document.forms[0].elements[0]);
+		</script>
+<br/>
+<h1>Account Status</h1>
+		<TMPL_IF NAME="service_is_pin_locked">
+		<!-- ==== PIN LOCKED MESSAGE FOR DST NUMBERS ====-->
+		Your account is currently in trial mode. You can lift this restriction by charging money to your account via credit or debit. Until then, you are can only make 3 calls per hour, for 5 minutes at a time. Additionally, total talk time is limited to 30 minutes per day.
+<br>
+		
+		<TMPL_ELSE>  
+		<!-- ==== FULL ACTIVE MESSAGE FOR DST NUMBERS ====-->
+		Your account is fully activated.  Thank you. <br>
+		To talk with your contacts, dial their assigned ZenoFon number.  <br>
+		</TMPL_IF>
+		<br><br>
+
+	</td>
+
+</tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Call id popup messages. At bottom of design to prevent parcial draw after popup -->
+<TMPL_IF NAME="cid_error_no_number"			><script>alert("ERROR: Input a new Caller-ID number to enable this setting")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_usa_no_areacode"	><script>alert("ERROR: Caller-ID number is wrong. USA numbers need areacode")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_unknown_country"	><script>alert("ERROR: Caller-ID number is wrong. Unknown country ")</script></TMPL_IF>
+<TMPL_IF NAME="cid_error_wrong_number"		><script>alert("ERROR: Caller-ID number is wrong. Wrong number")</script></TMPL_IF>
+<TMPL_IF NAME="cid_ok"						><script>alert("caller-ID setings saved.")</script></TMPL_IF>
+
+
+
+		
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

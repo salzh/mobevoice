@@ -1,0 +1,7 @@
+Subject: New SMS From #FROM#
+
+New SMS <br>
+From: #FROM#<br>
+<br>
+Message: #BODY#<br>
+<br>

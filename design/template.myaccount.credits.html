@@ -1,0 +1,230 @@
+<html ><head><title>ZenoFon - My account - Credits</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>Royalties</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- CONTENT (active)-->
+	<!-- ==================================================== -->
+
+
+	<!-- ==================================================== -->
+	<!-- top message -->
+	<!-- ==================================================== -->
+<!--  
+	<TMPL_IF NAME="can_add_credit">
+		<TMPL_IF NAME="cim_ok">
+			<TMPL_IF NAME="DISABLED_service_message">
+				<div class=top_message><div><div>
+				%service_message%
+				</div></div></div>
+			</TMPL_IF>
+		<TMPL_ELSE>
+			<div class=top_message><div><div>
+			After you <a href=?action=profile&show_cc_profile=1> set up your profile by clicking here </a>, you have two options for adding future credits. You can manually login each time you want to charge more. Or, You can choose to auto-recharge, which will seamlessly charge money to your account when you go below a set credit threshold. <a href=?action=profile&show_cc_profile=1>(set up your profile by clicking here as well.)</a>
+			</div></div></div>
+		</TMPL_IF>
+	<TMPL_ELSE>
+		<div class=top_message><div><div>
+		Credit Card recharge is disabled for this account. <a href=/contact/>Contact customer service</a> to correct this!
+		</div></div></div>
+	</TMPL_IF>
+
+ -->
+	<!-- ==================================================== -->
+
+
+
+
+	<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100%><tr>
+
+		<td width=300 valign=top>
+
+			<h3>Your balance is $%service_credit%</h3>
+			You can recharge your phone credits by using your creditcard, paypal or by using your ZenoFon collected commissions.<br>
+			<br>
+			<TMPL_IF NAME="profile_exists">
+				<TMPL_IF NAME="profile_with_cc_errors">
+					<div class=clear id=add_credit_page_1>
+						<button class="eyecandybutton" style="width:200px;" type=button onclick="MyDisplay('add_credit_page_1',0);MyDisplay('add_credit_page_2',1);">&#187; Add credit</button><br>
+					</div>
+					<div class=clear id=add_credit_page_2 style="display:none;">
+						<div class=alert_box ><div class=alert_box_inside style="padding:7px;padding-left:30px;background-position:5 10;">
+						<h1>But first...</h1>
+						...before you add credit, we need fix some errors in your "Payment Profile".
+						Check your payment profile, and if problems persist, contact our <a href=/contact/>customer service</a>.<br>
+						<br>
+						<form class=clear action=%my_url%><input type=hidden name=action value=credits_profile>
+						<button type=submit class="eyecandybutton" style="width:250px;"  >Check your payment profile</button><br>
+						</form>
+						<br>
+						<a href=#  onclick="MyDisplay('add_credit_page_1',1);MyDisplay('add_credit_page_2',0);">Cancel</a>
+						</div></div>
+					</div>
+				<TMPL_ELSE>
+					<form class=clear action=%my_url%><input type=hidden name=action value=credits_buy_cim_manual>
+					<button class="eyecandybutton" style="width:200px;" type=submit>&#187; Add credit</button><br>
+					</form>
+				</TMPL_IF>
+			<TMPL_ELSE>
+				<div class=clear id=add_credit_page_1>
+					<button class="eyecandybutton" style="width:200px;" type=button onclick="MyDisplay('add_credit_page_1',0);MyDisplay('add_credit_page_2',1);">&#187; Add credit</button><br>
+				</div>
+				<div class=clear id=add_credit_page_2 style="display:none;">
+					<div class=alert_box ><div class=alert_box_inside style="padding:7px;padding-left:30px;background-position:5 10;">
+					<h1>But first...</h1>
+					...before you add credit, we need setup your "Payment Profile".
+					Payment profile hold your payment information, such credit card info, billing name, billing address. <br>
+					<br>
+					<form class=clear action=%my_url%><input type=hidden name=action value=credits_profile>
+					<button type=submit class="eyecandybutton" style="width:250px;"  >Setup your Payment Profile</button><br>
+					</form>
+					<br>
+					<a href=#  onclick="MyDisplay('add_credit_page_1',1);MyDisplay('add_credit_page_2',0);">Cancel</a>
+					</div></div>
+				</div>
+			</TMPL_IF>
+			<br>
+			<a href=%my_url%?action=credits_profile>&#187; Edit your payment profile</a><br>
+			<a href=%my_url%?action=credits_affiliate>&#187; Edit your affiliate profile</a><br>
+			<a href=%my_url%?action=credits_buy_cim_phone>&#187; Enable/disable recharge over phone</a><br>
+			<a href=%my_url%?action=credits_buy_commission>&#187; Recharge using your commissions</a><br>
+			<a href=%my_url%?action=credits_buy_cim_automatic>&#187; Setup auto-recharge</a><br>
+			<br>
+			<h2 style="margin-bottom:10px;">About your security</h2>
+			We understand security is a very serious concern for online payments. All of your data is protected with an encrypted Secure Socket Layer (SSL) and a high-grade encryption algorithm. <br>
+			<br>
+			Your billing information is encrypted and stored in a separate and secure billing system. 
+			Your transaction is safe and secure with authorize.net.<br>
+			<br>
+			<div class=clear style="float:right; width:90;">
+				<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> 
+				<div class="AuthorizeNetSeal"> 
+					<script type="text/javascript" language="javascript">var ANS_customer_id="3dabe415-7028-42d4-9826-7d4248c02c00";</script> 
+					<script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> 
+					<a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Online Payments</a>
+				</div> 
+			</div>
+			<img src=/design/img/cards_logo.gif width=190 height=100 hspace=0 vspace=0 border=0>
+		</td>
+
+
+		<td valign=top style=padding-right:30px;></td>
+
+		<td valign=top >
+			<fieldset style="padding:7px; padding-top:15px; padding-bottom:10px;">
+			<h1>Your past recharges</h1><br>
+			<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=ZenofonTable width=100% onclick="sortColumn(event)">
+				<thead>
+					<tr>
+					<td class=al width=100 style="border-left:0px;">Date</td>
+					<td class=al >Recharge</td>
+					<td class=ar width=40 >Value</td>
+					</tr>
+				</thead>
+				<tbody >
+					<TMPL_LOOP NAME="credit_list">
+						<tr>
+						<td class=al style="border-left:0px;">
+							<span 
+							<TMPL_IF NAME="status_NOT_READY">style="color:#c0c0c0;"</TMPL_IF>
+							<TMPL_IF NAME="status_DELETED">style="text-decoration:line-through;"</TMPL_IF>
+							>%date%</span>
+						</td>
+						<td class=al 
+							<TMPL_IF NAME="status_NOT_READY">style="color:#c0c0c0;"</TMPL_IF>
+							<TMPL_IF NAME="status_DELETED">style="text-decoration:line-through;"</TMPL_IF>
+							>
+							<TMPL_IF NAME="type_COMMISSION_CRED">Commission recharge</TMPL_IF>
+							<TMPL_IF NAME="type_AUTHORIZE_CC">Credit-card recharge</TMPL_IF>
+							<TMPL_IF NAME="type_AUTHORIZE_CIM">Credit-card recharge</TMPL_IF>
+							<TMPL_IF NAME="type_AUTHORIZE_ACIM">Auto recharge</TMPL_IF>
+							<TMPL_IF NAME="type_AUTHORIZE_PCIM">Phone recharge</TMPL_IF>
+							<TMPL_IF NAME="type_FREE">Free recharge</TMPL_IF>
+							<TMPL_IF NAME="type_CASH">Cash recharge</TMPL_IF>
+							<TMPL_IF NAME="type_UNKNOWN">Recharge</TMPL_IF>
+						</td>
+						<td class=ar 
+							<TMPL_IF NAME="status_NOT_READY">style="color:#c0c0c0;"</TMPL_IF>
+							<TMPL_IF NAME="status_DELETED">style="text-decoration:line-through;"</TMPL_IF>
+							>
+							$%credit%
+						</td>
+						</tr>
+					</TMPL_LOOP>
+					<TMPL_IF NAME="credit_list_is_empty"><tr><td colspan=8><center>nothing...</td></tr></TMPL_IF>
+				</tbody>
+			</table>
+			<!-- PAGE COUNT BLOCK -->
+			<br>
+			<table border=0 colspan=5 cellpadding=0 cellspacing=0 class=clear><tr>
+				<td>
+				<form action=%my_url%>
+				<input type=hidden name=action value=credits>
+				<input type=hidden name=page value=%pg_previous%>
+				<button <TMPL_IF NAME="pg_has_previous"><TMPL_ELSE>disabled readonly</TMPL_IF> type=submit value=1><img src=/design/icons/bullet_arrow_left.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+				</form>
+				</td>
+				<td>
+				<form action=%my_url%>
+				<input type=hidden name=action value=credits>
+				<select name=page onchange="this.form.submit();">
+				<script>
+				for (i=1;i<=%pg_max%;i++){
+					if (i == %pg_now%) {
+					document.write("<option selected value="+i+">Page: "+i+" of %pg_max%</option>");
+					} else {
+					document.write("<option value="+i+">Page: "+i+" of %pg_max%</option>");
+					}
+				}
+				</script>
+				</select>
+				</form>
+				</td>
+				<td>
+				<form action=%my_url%>
+				<input type=hidden name=action value=credits>
+				<input type=hidden name=page value=%pg_next%>
+				<button <TMPL_IF NAME="pg_has_next"><TMPL_ELSE>disabled readonly</TMPL_IF> type=submit value=1><img src=/design/icons/bullet_arrow_right.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+				</form>
+				</td>
+			</tr></table>
+			</fieldset>
+		</td>
+
+		
+	</tr></table>
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

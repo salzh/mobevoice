@@ -1,0 +1,149 @@
+<html ><head><title>ZenoFon - My account - Log-in</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+<form class=clear action=%my_url% method=post target=_top>
+<div style="padding:0px;">
+		<div   style="float:right;margin-top:100px;width:400px;" >
+		
+		
+		
+		</div>
+	<h3>Control your Zenofon account</h3>  	
+	<div   style="width:350px">
+		Manage your contacts, monitor your call usage, collect commission checks, and more.
+		<br><br>
+
+		<fieldset style="padding:20px;">
+		<div >
+			<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+				<tr>
+					<td valign=top>
+					<img src=/design/img/service.pbx.icon.lock.png vspace=5 hspace=15 border=0 align=left  /><br>
+					</td>
+					<td valign=top style=padding-left:05px;>
+
+
+						<h2>Your Number</h2>
+						<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter one of your home phone numbers or your contact email.<br></span>
+						<div class=clear style="margin-bottom:15px;margin-top:5px;">
+							<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=220>
+							<tr><td width=50 align=right>Number:&nbsp;</td><td><input type="text" name="key" id=key value="%form_key%" style="width:170;"></td></tr>
+							</table>
+						</div>
+						
+						<hr size=1 noshade color=#c4d7dE style="margin-top:20px; margin-bottom:15px;"/>
+
+					    <TMPL_IF NAME="need_full_pin">
+							<h2>Your complete PIN</h2>
+							<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter your complete ZenoFon PIN.<br></span>
+							<div class=clear style="margin-bottom:15px;margin-top:5px;">
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=220>
+								<tr><td width=50  align=right>PIN:&nbsp;</td><td><input type="password" id=pin value="" name="pin" style="width:170;"></td></tr>
+								</table>
+							</div>
+					    <TMPL_ELSE>
+							<h2>Your PIN</h2>
+							<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter the last 4 digits of your home phone number or your ZenoFon PIN.<br></span>
+							<div class=clear style="margin-bottom:15px;margin-top:5px;">
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=220>
+								<tr><td width=50 align=right>PIN:&nbsp;</td><td><input type="password" id=pin value="" name="pin" style="width:170;"></td></tr>
+								</table>
+							</div>
+ 					    </TMPL_IF>
+
+
+
+					    <TMPL_IF NAME="imagecheck_active">
+							<hr size=1 noshade color=#c4d7dE style="margin-top:20px; margin-bottom:15px;"/>
+							<h2>Security</h2>
+							<span style="font-size:11px; color:#A4B7BE; line-height:110%;">Enter security code to confirm.<br></span>
+							<div class=clear style="margin-bottom:15px;margin-top:5px;">
+								<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=220>
+								<tr><td width=50  align=right>Code:&nbsp;</td><td width=170>
+								    <div class=clear style="width:100%;">
+								    <div class=clear style="width:100%; border:1px solid #c0c0c0; background-color:#ffffff;">
+									<img src="%my_url%?action=imagecheck&id=%img_uid%" hspace=3 align=right vspace=5 border=0>
+									<input type=text value="" name="img_key" autocomplete="off" style="width:50px; float:left; border:0px; height:42px;">
+									<br clear=both>
+								    </div>
+								    </div>
+								    <input type="hidden" name="img_uid" value="%img_uid%" >
+								</td></tr>
+								</table>
+							</div>
+					    </TMPL_IF>
+
+
+
+					</td>
+				</tr>
+			</table>
+		</div>
+		</fieldset>
+		<br>
+
+  		<TMPL_IF NAME="error">
+			<div class=error_box style="width:250px; float:right;"><div class=error_box_inside>
+	    	Incorrect phone number, email, PIN or security code. 
+	    	</div></div> 
+
+			<br clear=both><br>
+	    </TMPL_IF>
+	    
+
+	    <TMPL_IF NAME="message_pin_by_email">
+			<div class=error_box style="width:250px; float:right;"><div class=error_box_inside style="background-image:url(/design/icons/email.png);">
+			We just sent your PIN by email. If you don't see it, check your spam folder. Save our email address to your trusted contacts. 
+	    	</div></div>
+			<br clear=both><br>
+	    </TMPL_IF>
+
+	    <TMPL_IF NAME="message_pin_by_dial">
+			<div class=error_box style="width:250px; float:right;"><div class=error_box_inside style="background-image:url(/design/img/busy.gif);">
+			We are now calling you to tell your PIN.  
+	    	</div></div>
+			<br clear=both><br>
+	    </TMPL_IF>
+
+		<button class=eyecandy-button style="width:250px;float:right;" type=submit>Access your account &#187;</button>
+		<input type=hidden name=action value=login >
+		<br clear=both><br>
+
+
+		<br>
+
+	    <br>
+	    <!--  <h1>You can also...</h1>  -->
+		<a href="%my_url%?action=login_restore">&#187; Can't access your account?</a><br>
+	    <a href=%my_url%?action=service_add>&#187; Create a ZenoFon account</a><br>
+	    <a href=/>&#187; Learn more about ZenoFon services</a><br>
+		<br>
+		
+
+	</div>
+	
+
+	<div class="clear" />
+</div>
+</form>
+
+
+
+<script>
+function focus_login_form(){
+	obj = document.getElementById("key");
+	if (!obj) {return false}
+	if (obj.value != "") {obj = document.getElementById("pwd");}
+	if (!obj) {return false}
+	obj.focus();
+}
+focus_login_form();
+</script>
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

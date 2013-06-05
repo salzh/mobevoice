@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8/>
+    <title>ZenoReport 2</title>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css"/>
+    <link rel="stylesheet" type="text/css" href="extra.css"/>
+    <link rel="stylesheet" href="highlighter/codemirror.css">
+    <meta name="author" content="Parth Mudgal"/>
+    <script type="text/javascript" src="extjs/bootstrap.js"></script>
+    <script type="text/javascript" src="app/checkcolumn.js"></script>
+    <script type="text/javascript" src="app/ZenoChart.js"></script>
+    <script type="text/javascript" src="app/SavedQueryFetch.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        var loads = 0;
+        google.load("visualization", "1", {packages:["corechart"]});
+    </script>
+
+</head>
+<body>
+
+</body>
+<script>
+    Ext.Ajax.on('requestexception', function (conn, response, options) {
+        if (response.status === 302) {
+            window.location = 'login.html';
+        }
+    });
+    Ext.Ajax.timeout = 90000;
+    Ext.onReady(function () {
+        var hash = document.location.hash;
+        if (hash.substr(2).length > 0) {
+            var report = document.location.hash.substr(2).split("/");
+            if (report.length == 3) {
+                Zenoreport.SavedQueryFetch.getSavedQuery(report[1], report[2], makeGrid);
+                return;
+            }
+        }
+        makeGrid();
+    });
+    function makeGrid() {
+        Ext.Ajax.request({
+            url:'database.php',
+            params:{
+                action:'getLastRequest'
+            },
+            success:function (gridResult) {
+                var text = gridResult.responseText;
+
+                try {
+                    gridResult = Ext.JSON.decode(text);
+                } catch (err) {
+                    Ext.Msg.alert(
+                            "Error",
+                            "Pivot Data not available, This SQL was not Generated using Zenoreport\nYou can Only Download CSV Data",
+                            function () {
+                                window.close();
+                            });
+                    return;
+                }
+
+
+                if (gridResult.result != "success") {
+                    Ext.Msg.alert({
+                        title:'Something failed',
+                        msg:gridResult.error,
+                        icon:Ext.Msg.ERROR,
+                        buttons:Ext.Msg.OK
+                    });
+                    console.log(gridResult);
+                    return;
+                }
+
+                var store = Ext.create("Ext.data.Store", {
+                    fields:gridResult.columnsData,
+                    data:gridResult.data
+                });
+                window.store = store;
+                window.gridData = gridResult;
+                var gridCols = [];
+                gridResult.columnsData.forEach(function (c) {
+                    gridCols.push({header:c.name, dataIndex:c.name, type:c.type});
+                });
+                var win = Ext.create("Ext.panel.Panel", {
+                    //title:'SQL ' + result.sql,
+                    renderTo:Ext.getBody(),
+                    height:400,
+                    width:gridResult.columnsData.length * 100,
+                    x:0,
+                    y:0,
+                    layout:'fit',
+                    items:{
+                        xtype:'grid',
+                        store:store,
+                        viewConfig:{
+                            stripeRows:true,
+                            enableTextSelection:true
+                        },
+                        columns:gridCols
+                    },
+                    tbar:[
+                        {xtype:'tbfill'},
+                        {
+                            xtype:'button',
+                            text:'Make Chart',
+                            handler:function () {
+                                var win = Ext.create("Zenoreport.ZenoChart");
+                                win.show();
+                                console.log("dsf");
+                            }
+                        }
+                    ]
+                });
+
+                win.show();
+                win.setSize(gridResult.columnsData.length * 100 + 20, 400);
+            }
+        });
+    }
+</script>
+</html>

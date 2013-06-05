@@ -1,0 +1,604 @@
+<html ><head><title>ZenoFon - My account - Profile</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-on">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+
+
+
+
+
+
+
+<!-- ==================================================== -->
+<!-- CONTENT (start)-->
+<!-- ==================================================== -->
+
+<style>
+.local_full_button{
+	width:200px;
+	padding:2px;
+	margin:0px;
+	text-align:left;
+}
+.local_box{
+	width:200px;
+	margin-top:10px;
+}
+</style>
+
+<table border=0 colspan=0 cellpadding=0 cellspacing=0 width=100% ><tr>
+
+
+	<td xwidth=40% valign=top>
+
+
+		<!-- ==================================================== -->
+		<!-- name profile -->
+		<!-- ==================================================== -->
+		<!-- Top block  -->
+		<h2>Your name</h2>
+		You Zenofon name is <b>"%service_name%"</b>. This is your public name, and used in all invites to your friends.  To protect your privacy, people two levels above you see only  <b>"%service_name_cut%"</b>.
+		<br>
+		<!-- ask to edit button -->
+		<div id=form_name_start class=local_box <TMPL_IF NAME="name_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+			<button onclick="MyDisplay('form_name_start',0);MyDisplay('form_name_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/user_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Change your name</button>
+		</div>
+		<!-- edit form -->
+		<div id=form_name_action class=local_box  <TMPL_IF NAME="name_error"><TMPL_ELSE>style="display:none"</TMPL_IF>  >
+			<fieldset>
+					<form action=%my_url% method=post>
+					Your new name:<br>
+					<input type=text name=name value="%form_name%" style="width:100%" oldstyle="<TMPL_IF NAME="name_error">background-color:red; color:#ffffff;</TMPL_IF>"  ><br>
+					<br>
+					<TMPL_IF NAME="name_error"><div class=error_box><div class=error_box_inside><h1>Bad name:</h1>We need a name with no pontuation.</div></div><br></TMPL_IF>
+					<button onclick="MyDisplay('form_name_start',1);MyDisplay('form_name_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=action value=profile>
+					<input type=hidden name=save value=name>
+					</form>
+			</fieldset>
+		</div>
+		<br><br>
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- email profile -->
+		<!-- ==================================================== -->
+		<!-- Show active email, ask to change and ask new email if need -->
+		<TMPL_IF NAME="email_request">
+			<h2>Your contact email</h2>
+			Your email is <b>"%service_email%"</b>. It's also your login ID, and where we send you all your Zenofon correspondence.  If you would like to change this email click below.
+			<br>
+			<div id=form_email_start class=local_box <TMPL_IF NAME="email_request_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+				<button onclick="MyDisplay('form_email_start',0);MyDisplay('form_email_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Edit your contact email</button>
+			</div>
+			<div id=form_email_action class=local_box <TMPL_IF NAME="email_request_error"><TMPL_ELSE>style="display:none"</TMPL_IF>  >
+				<fieldset>
+						<form action=%my_url% method=post>
+						Your new contact email:<br>
+						<input type=text name=email value="%form_email%"   style="width:100%" ><br>
+						<br>
+						<button onclick="MyDisplay('form_email_start',1);MyDisplay('form_email_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+						<button type=submit  style="padding:3px;"><img style="margin-left:5px;" src=/design/icons/bullet_go.png hspace=0 vspace=0 border=0 width=16 height=16 align=right>Next</button>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=email_request>
+						</form>
+						<TMPL_IF NAME="email_request_error"><div class=error_box><div class=error_box_inside><h1>Error:</h1>
+							<TMPL_IF NAME="email_request_error_msg_generic"		>Bad email. Please check.</TMPL_IF>
+							<TMPL_IF NAME="email_request_error_msg_inuse"		>Email in use. Please use another one.</TMPL_IF>
+							<TMPL_IF NAME="email_request_error_msg_sameemail"	>Same email. Nothing to do</TMPL_IF>
+						</div></div><br></TMPL_IF>
+				</fieldset>
+			</div>
+		</TMPL_IF>
+		<!-- If user ask to change, we have to ask confirmation code, re-send confirmation or cancel process -->
+		<TMPL_IF NAME="email_confirm">
+			<h2>Confirm your new email</h2>
+			Your contact email <b>still "%service_email%"</b>. Check your new contact email (<b>%new_email%</b>) inbox (maybe span folder too) and look for the message with the confirmation code to finish the process.
+			<br>
+			<fieldset class=local_box>
+					<form action=%my_url% method=post>
+						Confirmation code:<br>
+						<input type=text name=key value="%form_key%"   style="width:100%;"  ><br>
+						<br>
+						<TMPL_IF NAME="email_confirm_error"><div class=error_box><div class=error_box_inside><h1>Bad code:</h1>Check the confirmation code and try again.</div></div><br></TMPL_IF>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Confirm email change</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=email_confirm	>
+					</form>
+					<form action=%my_url% method=post>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_go.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Re-send confirmation</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=resend_email_request>
+					</form>
+					<form action=%my_url% method=post>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel email change</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=cancel_email_request>
+					</form>
+			</fieldset>
+
+		</TMPL_IF>
+
+
+
+		<!-- ==================================================== -->
+		<!-- notifications -->
+		<!-- ==================================================== -->
+		<br><br>
+		<h2>Notification Alerts</h2>
+		When do you want to be notified by Zenofon?
+		<br>
+		<div id=form_alert_start class=local_box <TMPL_IF NAME="name_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+			<button onclick="MyDisplay('form_alert_start',0);MyDisplay('form_alert_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/user_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Change notifications</button>
+		</div>
+		<div id=form_alert_action class=local_box style="<TMPL_IF NAME="name_error"><TMPL_ELSE>display:none;</TMPL_IF>"  >
+			<fieldset>
+					<form action=%my_url% method=post>
+						<table border=0 colspan=0 cellpadding=2 cellspacing=0 >
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_each_call id=email_alert_each_call  <TMPL_IF NAME="email_alert_each_call">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_each_call>with your balance after each call.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_low_balance checked readonly disabled <TMPL_IF NAME="email_alert_low_balance"></TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_alert_low_balance>after a low balance triggers an auto-recharge.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_friends id=email_alert_new_friends <TMPL_IF NAME="email_alert_new_friends">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_new_friends>after you refer a new friend.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_friends_of_friends id=email_alert_new_friends_of_friends <TMPL_IF NAME="email_alert_new_friends_of_friends">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_new_friends_of_friends>when someone you referred, refers a new friend.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_commission id=email_alert_new_commission <TMPL_IF NAME="email_alert_new_commission">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_alert_new_commission>each time you earn a commission.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_news id=email_news <TMPL_IF NAME="email_news">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_news>regarding Zenofon News and Promotions.</LABEL></td>
+						</tr>
+						</table>
+						<br>
+					<button onclick="MyDisplay('form_alert_start',1);MyDisplay('form_alert_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=action value=alerts>
+					<input type=hidden name=save value=1>
+					</form>
+			</fieldset>
+		</div>
+
+
+
+
+
+
+	</td>
+	<td width=50  valign=top><img src=/design/img/spc.gif width=50 height=1 hspace=0 vspace=0 border=0</td>
+	<td width=60% valign=top>
+
+
+		<!-- ==================================================== -->
+		<!-- billing profile overview -->
+		<!-- ==================================================== -->
+		<!-- overview block -->
+		<div class=clear id=billing_overview <TMPL_IF NAME="profile_has_errors">style="display:none;"<TMPL_ELSE></TMPL_IF>>
+			<h2>Your financial profiles</h2>
+			Please fill out your credit card profile below if you want to charge additional money to your Zenofon account.  
+			If you want the option of receiving a commission check, instead of just transferring your commissions into phone credit, you must complete the affiliate profile below. 
+			<br>
+			<br>
+			<fieldset>
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<td width=50% valign=top>
+						<TMPL_IF NAME="cc_empty">
+							<img src=/design/icons/exclamation.png width=16 height=16 hspace=0 vspace=0 border=0 align=left style=margin-right:3px;>You haven't set up your credit card profile and cannot enable automatic recharge or recharge.<br><br>
+							<button type=button onclick="MyDisplay('billing_overview',0);MyDisplay('billing_cc_box',1);MyDisplay('billing_ss_box',0);" class=local_full_button style=align:center><img style="margin-right:5px;" src=/design/icons/creditcards.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Enroll credit card profile</button><br>
+						<TMPL_ELSE>
+							<img src=/design/icons/tick-circle.png width=16 height=16 hspace=0 vspace=0 border=0 align=left style=margin-right:3px;>Your credit card profile is in order. <a href=?action=credits>You are all set up to recharge or enable auto-recharge</a>.<br><br>
+							<button type=button onclick="MyDisplay('billing_overview',0);MyDisplay('billing_cc_box',1);MyDisplay('billing_ss_box',0);" class=local_full_button style=align:center><img style="margin-right:5px;" src=/design/icons/creditcards.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Edit credit card profile</button><br>
+						</TMPL_IF>
+					</td>
+					<td width=20><img src=/design/img/spc.gif width=20 height=1 hspace=0 vspace=0 border=0></td>
+					<td width=50% valign=top>
+						<TMPL_IF NAME="ss_empty">
+						<img src=/design/icons/exclamation.png width=16 height=16 hspace=0 vspace=0 border=0 align=left style=margin-right:3px;>Set up your affiliate profile below.  Fill in the "PayPal email" field if you prefer to paid via email.<br><br>
+						<button type=button onclick="MyDisplay('billing_overview',0);MyDisplay('billing_cc_box',0);MyDisplay('billing_ss_box',1);" class=local_full_button style=align:center><img style="margin-right:5px;" src=/design/icons/calculator_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Enroll affiliate profile</button><br>
+						<TMPL_ELSE>
+						<img src=/design/icons/tick-circle.png width=16 height=16 hspace=0 vspace=0 border=0 align=left style=margin-right:3px;>Your affiliate profile is in order. <a href=?action=commissions_request_check>You are all set up to request a check</a>.<br><br>
+						<button type=button onclick="MyDisplay('billing_overview',0);MyDisplay('billing_cc_box',0);MyDisplay('billing_ss_box',1);" class=local_full_button style=align:center><img style="margin-right:5px;" src=/design/icons/calculator_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Edit affiliate profile</button><br>
+						</TMPL_IF>
+					</td>
+					</table>
+			</fieldset>
+		</div>
+
+
+		<!-- ==================================================== -->
+		<!-- billing profile social security -->
+		<!-- ==================================================== -->
+		<div class=clear id=billing_ss_box <TMPL_IF NAME="ss_status_error"><TMPL_ELSE>style="display:none;"</TMPL_IF> >
+			<h2>Affiliate profile</h2>
+			If you are ready to request a commission check, please fill out the form below.  We are extremely careful to guard your sensitive information in secure servers.
+			<br><br>
+			<fieldset>
+					<form action=%my_url% method=post>
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<td >Your affiliate profile name:<br	><input type=text name=ss_name 		value="%ss_name%" 	<TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_name_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td><td width=5><img src=/design/img/spc.gif width=5 height=1 hspace=0 vspace=0 border=0</td>
+						<td width=100>Paypal email:<br				><input type=text name=ss_paypal 	value="%ss_paypal%" <TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_paypal_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td><td width=5><img src=/design/img/spc.gif width=5 height=1 hspace=0 vspace=0 border=0</td>
+						<td width=100>Social security:<br		><input type=text name=ss_ss		value="%ss_ss%" 	<TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_ss_error"		>background-color:red; color:#ffffff;</TMPL_IF>"  ></td>
+						</table>
+						Address:<br>			<input type=text name=ss_addr1	value="%ss_addr1%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_addr1_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ><br>
+												<input type=text name=ss_addr2	value="%ss_addr2%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_addr2_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ><br>
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<td width=25%>Country:<br>
+							<select name=ss_country	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%;">
+							<option value=na>(other)</Option>
+							<option <TMPL_IF NAME="ss_country_is_Usa">selected</TMPL_IF> value=Usa>United States</Option>
+							</select></td>
+						<td width=10><img src=/design/img/spc.gif width=5 height=1 hspace=0 vspace=0 border=0</td>
+						<td width=25%>City:<br>				<input <TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> type=text name=ss_city	value="%ss_city%" 	style="width:100%; <TMPL_IF NAME="ss_city_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td>
+						<td width=10><img src=/design/img/spc.gif width=5 height=1 hspace=0 vspace=0 border=0</td>
+						<td width=25%>State:<br>
+							<select name=ss_state	value="%ss_state%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_state_error"	>background-color:red; color:#ffffff;</TMPL_IF>">
+							<option <TMPL_IF NAME="ss_state_is_na">selected</TMPL_IF> value="na">(other)</option>
+							<option <TMPL_IF NAME="ss_state_is_Alabama">selected</TMPL_IF> value="Alabama">Alabama</option>
+							<option <TMPL_IF NAME="ss_state_is_Alaska">selected</TMPL_IF> value="Alaska">Alaska</option>
+							<option <TMPL_IF NAME="ss_state_is_Arizona">selected</TMPL_IF> value="Arizona">Arizona</option>
+							<option <TMPL_IF NAME="ss_state_is_Arkansas">selected</TMPL_IF> value="Arkansas">Arkansas</option>
+							<option <TMPL_IF NAME="ss_state_is_California">selected</TMPL_IF> value="California">California</option>
+							<option <TMPL_IF NAME="ss_state_is_Colorado">selected</TMPL_IF> value="Colorado">Colorado</option>
+							<option <TMPL_IF NAME="ss_state_is_Connecticut">selected</TMPL_IF> value="Connecticut">Connecticut</option>
+							<option <TMPL_IF NAME="ss_state_is_Delaware">selected</TMPL_IF> value="Delaware">Delaware</option>
+							<option <TMPL_IF NAME="ss_state_is_Florida">selected</TMPL_IF> value="Florida">Florida</option>
+							<option <TMPL_IF NAME="ss_state_is_Georgia">selected</TMPL_IF> value="Georgia">Georgia</option>
+							<option <TMPL_IF NAME="ss_state_is_Hawaii">selected</TMPL_IF> value="Hawaii">Hawaii</option>
+							<option <TMPL_IF NAME="ss_state_is_Idaho">selected</TMPL_IF> value="Idaho">Idaho</option>
+							<option <TMPL_IF NAME="ss_state_is_Illinois">selected</TMPL_IF> value="Illinois">Illinois</option>
+							<option <TMPL_IF NAME="ss_state_is_Indiana">selected</TMPL_IF> value="Indiana">Indiana</option>
+							<option <TMPL_IF NAME="ss_state_is_Iowa">selected</TMPL_IF> value="Iowa">Iowa</option>
+							<option <TMPL_IF NAME="ss_state_is_Kansas">selected</TMPL_IF> value="Kansas">Kansas</option>
+							<option <TMPL_IF NAME="ss_state_is_Kentucky">selected</TMPL_IF> value="Kentucky">Kentucky</option>
+							<option <TMPL_IF NAME="ss_state_is_Louisiana">selected</TMPL_IF> value="Louisiana">Louisiana</option>
+							<option <TMPL_IF NAME="ss_state_is_Maine">selected</TMPL_IF> value="Maine">Maine</option>
+							<option <TMPL_IF NAME="ss_state_is_Maryland">selected</TMPL_IF> value="Maryland">Maryland</option>
+							<option <TMPL_IF NAME="ss_state_is_Massachusetts">selected</TMPL_IF> value="Massachusetts">Massachusetts</option>
+							<option <TMPL_IF NAME="ss_state_is_Michigan">selected</TMPL_IF> value="Michigan">Michigan</option>
+							<option <TMPL_IF NAME="ss_state_is_Minnesota">selected</TMPL_IF> value="Minnesota">Minnesota</option>
+							<option <TMPL_IF NAME="ss_state_is_Mississippi">selected</TMPL_IF> value="Mississippi">Mississippi</option>
+							<option <TMPL_IF NAME="ss_state_is_Missouri">selected</TMPL_IF> value="Missouri">Missouri</option>
+							<option <TMPL_IF NAME="ss_state_is_Montana">selected</TMPL_IF> value="Montana">Montana</option>
+							<option <TMPL_IF NAME="ss_state_is_Nebraska">selected</TMPL_IF> value="Nebraska">Nebraska</option>
+							<option <TMPL_IF NAME="ss_state_is_Nevada">selected</TMPL_IF> value="Nevada">Nevada</option>
+							<option <TMPL_IF NAME="ss_state_is_NewHampshire">selected</TMPL_IF> value="New Hampshire">New Hampshire</option>
+							<option <TMPL_IF NAME="ss_state_is_NewJersey">selected</TMPL_IF> value="New Jersey">New Jersey</option>
+							<option <TMPL_IF NAME="ss_state_is_NewMexico">selected</TMPL_IF> value="New Mexico">New Mexico</option>
+							<option <TMPL_IF NAME="ss_state_is_NewYork">selected</TMPL_IF> value="New York">New York</option>
+							<option <TMPL_IF NAME="ss_state_is_NorthCarolina">selected</TMPL_IF> value="North Carolina">North Carolina</option>
+							<option <TMPL_IF NAME="ss_state_is_NorthDakota">selected</TMPL_IF> value="North Dakota">North Dakota</option>
+							<option <TMPL_IF NAME="ss_state_is_Ohio">selected</TMPL_IF> value="Ohio">Ohio</option>
+							<option <TMPL_IF NAME="ss_state_is_Oklahoma">selected</TMPL_IF> value="Oklahoma">Oklahoma</option>
+							<option <TMPL_IF NAME="ss_state_is_Oregon">selected</TMPL_IF> value="Oregon">Oregon</option>
+							<option <TMPL_IF NAME="ss_state_is_Pennsylvania">selected</TMPL_IF> value="Pennsylvania">Pennsylvania</option>
+							<option <TMPL_IF NAME="ss_state_is_RhodeIsland">selected</TMPL_IF> value="Rhode Island">Rhode Island</option>
+							<option <TMPL_IF NAME="ss_state_is_SouthCarolina">selected</TMPL_IF> value="South Carolina">South Carolina</option>
+							<option <TMPL_IF NAME="ss_state_is_SouthDakota">selected</TMPL_IF> value="South Dakota">South Dakota</option>
+							<option <TMPL_IF NAME="ss_state_is_Tennessee">selected</TMPL_IF> value="Tennessee">Tennessee</option>
+							<option <TMPL_IF NAME="ss_state_is_Texas">selected</TMPL_IF> value="Texas">Texas</option>
+							<option <TMPL_IF NAME="ss_state_is_Utah">selected</TMPL_IF> value="Utah">Utah</option>
+							<option <TMPL_IF NAME="ss_state_is_Vermont">selected</TMPL_IF> value="Vermont">Vermont</option>
+							<option <TMPL_IF NAME="ss_state_is_Virginia">selected</TMPL_IF> value="Virginia">Virginia</option>
+							<option <TMPL_IF NAME="ss_state_is_Washington">selected</TMPL_IF> value="Washington">Washington</option>
+							<option <TMPL_IF NAME="ss_state_is_WestVirginia">selected</TMPL_IF> value="West Virginia">West Virginia</option>
+							<option <TMPL_IF NAME="ss_state_is_Wisconsin">selected</TMPL_IF> value="Wisconsin">Wisconsin</option>
+							<option <TMPL_IF NAME="ss_state_is_Wyoming">selected</TMPL_IF> value="Wyoming">Wyoming</option>
+							</select>
+							</td>
+						<td width=10><img src=/design/img/spc.gif width=5 height=1 hspace=0 vspace=0 border=0</td>
+						<td width=25%>Zip code:<br>			<input type=text name=ss_zip	value="%ss_zip%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_zip_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td>
+						</table>
+						<br>
+	
+						<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>
+							<div class=alert_box>
+							<div class=alert_box_inside>
+							You have <a href=%my_url%?action=commissions>commission checks</a> wait to aprove and cannot edit this profile. 
+							</div>
+							</div>
+							<br>
+						</TMPL_IF>
+
+						<TMPL_IF NAME="ss_status_error">
+							<div class=error_box>
+							<div class=error_box_inside>
+							<h1>I cannot save:</h1>
+							<TMPL_IF NAME="ss_status_error_type_user">Please check and fix red fields.</TMPL_IF>
+							<TMPL_IF NAME="ss_status_error_type_system">we got a comunication error with secure server. Try again in few minutes.</TMPL_IF>
+							</div>
+							</div>
+							<br>
+						</TMPL_IF>
+
+						<div id=billing_ss_form_loading style="Display:none; "><img hspace=10 src=/design/img/loading.gif align=left> Please wait!<br clear=both><br></div>
+
+						<button onclick="MyDisplay('billing_overview',1);MyDisplay('billing_cc_box',0);MyDisplay('billing_ss_box',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+						<TMPL_IF NAME="ss_flag_delete"><button type=button onclick="if (confirm('Can i erase?')) {window.location='%my_url%?action=profile&save=ss_del';}" style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/bin.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Erase affiliate profile</button></TMPL_IF>
+						<TMPL_IF NAME="ss_flag_edit_data"><button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button></TMPL_IF> 
+
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=ss_edit>
+					</form>
+			</fieldset>
+		</div>
+
+
+
+		<!-- ==================================================== -->
+		<!-- billing profile credit card -->
+		<!-- ==================================================== -->
+		<SCRIPT>
+		function billing_cc_form_enable(){
+			var myform = document.getElementById('billing_cc_form');
+			myform.elements[17].readonly = false;
+			myform.elements[17].disabled = false;
+			MyDisplay('billing_cc_form_loading',0);
+		}
+		function billing_cc_form_disable(){
+			var myform = document.getElementById('billing_cc_form');
+			myform.elements[17].readonly = true;
+			myform.elements[17].disabled = true;
+			MyDisplay('billing_cc_form_loading',1);
+		}
+		function billing_cc_form_check(){
+			billing_cc_form_disable();
+			return true;
+		}
+		function billing_cc_answer(id){
+			var myform = document.getElementById('billing_cc_form');
+			if (id == 10) {MyDisplay("ask_ani_confirmation_code",1)}
+			if (id == 11) {MyDisplay("ask_ani_confirmation_code",1)}
+			if (id == 12) {MyDisplay("ask_ani_confirmation_code",1)}
+			message = "Unknown answer code="+id
+			if (id == 1) {message = "Profile saved"}
+			if (id == 10) {message = "Please wait 10-15 seconds for the call to come from the Zenofon robot."}
+			if (id == 11) {message = "Please check your confirmation code. Remember for each contact number you need a new confirmation code. Ask your confirmation code again to make sure."}
+			if (id == 12) {message = "Are you ready for the robot to verify you?"}
+			if (id == 11) {message = "You entered the secret code wrong.  Try confirming again please."}
+			if (id == 20) {message = "Profile deleted"}
+			if (id == 21) {message = "I cannot delete. Try again in few minutes"}
+			if (id == 101) {message = "Empty card type"}
+			if (id == 102) {message = "Empty card number"}
+			if (id == 103) {message = "Empty card date"}
+			if (id == 104) {message = "Empty verification number"}
+			if (id == 105) {message = "Empty first name"}
+			if (id == 106) {message = "Empty last name"}
+			if (id == 107) {message = "Empty address"}
+			if (id == 108) {message = "Empty city"}
+			if (id == 109) {message = "Empty state"}
+			if (id == 110) {message = "Empty zip"}
+			if (id == 111) {message = "Empty contact number"}
+			if (id == 1111) {message = "USA contact number must be 10 digits"}
+			if (id == 1112) {message = "Unknown country in contact number"}
+			if (id == 1113) {message = "Unknown contact number"}
+			if (id == 1114) {message = "Contact number not allowed"}
+			if (id == 112) {message = "Empty confirmation code"}
+			if (id == 113) {message = "Empty country"}
+			if (id == 200) {message = "We got system internal error. Try again in few minutes."}
+			if (id == 201) {message = "Verification error.  Please double check that your card number, address and billing information is correct"}
+			if (message != "") {alert(message)};
+			if (id == 1) {window.location="index.cgi?action=profile"}
+			if (id == 20) {window.location="index.cgi?action=profile"}
+			billing_cc_form_enable();
+		}
+		</SCRIPT>
+		<div class=clear id=billing_cc_box  style=display:none;>
+			<h2>Credit Card Profile</h2>
+			Please enter your credit card billing information below.  After you complete and save your profile, you can add credit by going back to the "balances and recharge" page.
+			<br><br>
+			<fieldset>
+					<form onsubmit="return billing_cc_form_check();"  action=%my_url% method=post target=billing_cc_io id=billing_cc_form "return billing_cc_form_check();">
+						<input type=hidden name=form_action value=save>
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+							<tr>
+							<td width=20% valign=top style="padding-right:6px;" >Card<br>Type:	<br>
+								<select onchange=change_card_type() name=cc_type style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>>
+								<option value=''> </option>
+								<option %cc_type_select_amex% 		value='amex'>Amex</option>
+								<option %cc_type_select_discovery% 	value='discovery'>Discovery</option>
+								<option %cc_type_select_master% 	value='master'>Master Card</option>
+								<option %cc_type_select_visa% 		value='visa'>Visa</option>
+								</select></td>
+							<td width=35% valign=top style="padding-right:6px;" >Card<br>Number:<br><input type=text value="%cc_number%" name=cc_number 	autocomplete=off style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=20% valign=top style="padding-right:6px;" >Card<br>date:<br>
+								<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+								<td width=50%>
+									<select name=cc_date_1 style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>>
+									<option value=''> </option>
+									<option %cc_date_1_select_01%	value='01'>01</option>
+									<option %cc_date_1_select_02%	value='02'>02</option>
+									<option %cc_date_1_select_03%	value='03'>03</option>
+									<option %cc_date_1_select_04%	value='04'>04</option>
+									<option %cc_date_1_select_05%	value='05'>05</option>
+									<option %cc_date_1_select_06%	value='06'>06</option>
+									<option %cc_date_1_select_07%	value='07'>07</option>
+									<option %cc_date_1_select_08%	value='08'>08</option>
+									<option %cc_date_1_select_09%	value='09'>09</option>
+									<option %cc_date_1_select_10%	value='10'>10</option>
+									<option %cc_date_1_select_11%	value='11'>11</option>
+									<option %cc_date_1_select_12%	value='12'>12</option>
+									</select></td>
+								<td width=50%>
+									<select name=cc_date_2 style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>>
+									<option value=''> </option>
+									<option %cc_date_2_select_09%	value='09'>09</option>
+									<option %cc_date_2_select_10%	value='10'>10</option>
+									<option %cc_date_2_select_11%	value='11'>11</option>
+									<option %cc_date_2_select_12%	value='12'>12</option>
+									<option %cc_date_2_select_13%	value='13'>13</option>
+									<option %cc_date_2_select_14%	value='14'>14</option>
+									<option %cc_date_2_select_15%	value='15'>15</option>
+									<option %cc_date_2_select_16%	value='16'>16</option>
+									<option %cc_date_2_select_17%	value='17'>17</option>
+									<option %cc_date_2_select_18%	value='18'>18</option>
+									<option %cc_date_2_select_19%	value='19'>19</option>
+									<option %cc_date_2_select_20%	value='20'>20</option>
+									<option %cc_date_2_select_21%	value='21'>21</option>
+									<option %cc_date_2_select_22%	value='22'>22</option>
+									<option %cc_date_2_select_23%	value='23'>23</option>
+									<option %cc_date_2_select_24%	value='24'>24</option>
+									<option %cc_date_2_select_25%	value='25'>25</option>
+									<option %cc_date_2_select_26%	value='26'>26</option>
+									<option %cc_date_2_select_27%	value='27'>27</option>
+									<option %cc_date_2_select_28%	value='28'>28</option>
+									<option %cc_date_2_select_29%	value='29'>29</option>
+									<option %cc_date_2_select_30%	value='30'>30</option>
+									<option %cc_date_2_select_31%	value='31'>31</option>
+									<option %cc_date_2_select_32%	value='32'>32</option>
+									<option %cc_date_2_select_33%	value='33'>33</option>
+									<option %cc_date_2_select_34%	value='34'>34</option>
+									<option %cc_date_2_select_35%	value='35'>35</option>
+									<option %cc_date_2_select_36%	value='36'>36</option>
+									<option %cc_date_2_select_37%	value='37'>37</option>
+									<option %cc_date_2_select_38%	value='38'>38</option>
+									<option %cc_date_2_select_39%	value='39'>39</option>
+									</select></td>
+								</table>
+							</td>
+							<td width=25% valign=top style="padding-right:0px;" >Verification<br>number<br><input type=text value="%cc_code%" name=cc_code 		autocomplete=off style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>></td>
+							</tr>
+						</table>
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+							<td width=33% style="padding-right:6px;">Card First Name:		<br><input type=text value="%cc_first_name%" 	name=cc_first_name autocomplete=off style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=33% style="padding-right:6px;">Card Last Name:		<br><input type=text value="%cc_last_name%" 	name=cc_last_name autocomplete=off style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=33% 							>Contact number:	<br><input type=text value="%cc_contact_number%" 	name=cc_contact_number 		autocomplete=off style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>></td>
+						</tr></table>
+						Address:<br><input type=text value="%cc_address%" name=cc_address autocomplete=on style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>  ><br>
+						<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+							<td width=30% style="padding-right:6px;">Country:	<br><input type=text value="%cc_country%" 	name=cc_country 	autocomplete=on style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=30% style="padding-right:6px;">City:		<br><input type=text value="%cc_city%"  	name=cc_city 		autocomplete=on style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=20% style="padding-right:6px;">State:		<br><input type=text value="%cc_state%" 	name=cc_state 		autocomplete=on style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+							<td width=20%							>Zip:		<br><input type=text value="%cc_zip%" 		name=cc_zip			autocomplete=on style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ></td>
+						</tr></table>
+					<br>
+
+
+
+					<div class=clear id=ask_ani_confirmation_code style=display:none;>
+					<div class=alert_box >
+					<div class=clear style=padding:10px;>
+					<div class=alert_box_inside>
+					<h2>Is this your number?</h2>
+					For verification purposes the Zenofon robot will call you and recite a 4 digit security code.  Please type in the number below to confirm your phone number. <br>
+					<br>
+						<h1>1 - Click the button below</h1>
+						<div class=clear style=padding-left:20px;>
+							The Zenofon robot will call you and tell you a secret code.<br>
+							<button type=submit name=button_dial onclick="this.form.elements[0].value='dial'" xxstyle='width:100%;font-size:9px;' <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF> ><img style="margin-right:5px;" src=/design/icons/phone_sound.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Allow zenofon dial to you</button><br>
+						</div>
+						<br>
+					
+						<h1>2 - Tell the computer the code</h1>
+						<div class=clear style=padding-left:20px;>
+							Type in the code the Robot recites<br>
+							into the empty field below, and finish <br>
+							by clicking "Enroll your credit card profile".<br>
+							<input type=text value="" name=cc_confirmation_code	autocomplete=off <TMPL_IF NAME="cc_flag_can_add"><TMPL_ELSE>readonly disabled</TMPL_IF>><br>
+						</div>
+					</div>
+					</div>
+					</div>
+					<br>
+					</div>
+
+
+					<TMPL_IF NAME="cc_flag_can_add">
+					<TMPL_ELSE>
+						<TMPL_IF NAME="cc_flag_can_delete">
+						<TMPL_ELSE>
+							<div class=alert_box>
+							<div class=alert_box_inside>
+							Turn-off <a href=%my_url%?action=credits_buy_cim_automatic>auto recharge</a> to edit profile
+							</div>
+							</div>
+							<br>
+						</TMPL_IF>
+					</TMPL_IF>
+
+
+					<div id=billing_cc_form_loading style="Display:none;">
+						<img hspace=10 src=/design/img/loading.gif align=left> Please wait!<br clear=both><br>
+					</div>
+
+
+					<button onclick="MyDisplay('billing_overview',1);MyDisplay('billing_cc_box',0);MyDisplay('billing_ss_box',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<TMPL_IF NAME="cc_flag_can_delete"><button type=submit name=button_delete  onclick="if (confirm('Can i erase?')) {this.form.elements[0].value='delete';return true} else {return false}" style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/bin.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Erase credit card profile</button></TMPL_IF>
+					<TMPL_IF NAME="cc_flag_can_add"><button type=submit name=button_save onclick="this.form.elements[0].value='save'" style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Enroll your credit card profile</button></TMPL_IF>
+					<input type=hidden name=action value=profile_cc>
+						
+
+					</form>
+
+			</fieldset>
+			<iframe style=display:none; src=blank.html id=billing_cc_io name=billing_cc_io></iframe>
+
+		</div>
+
+
+	</td>
+</tr></table>
+
+
+<script>
+if (document.URL.indexOf('show_cc_profile') > 1) {
+	MyDisplay('billing_overview',0);
+	MyDisplay('billing_cc_box',1);
+	MyDisplay('billing_ss_box',0);	
+}
+if (document.URL.indexOf('show_ss_profile') > 1) {
+	MyDisplay('billing_overview',0);
+	MyDisplay('billing_cc_box',0);
+	MyDisplay('billing_ss_box',1);	
+}
+</script>
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

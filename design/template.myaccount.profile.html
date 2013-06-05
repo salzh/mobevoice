@@ -1,0 +1,201 @@
+<html ><head><title>ZenoFon - My account - Profile</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+    
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-on">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>Royalties</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="idisabled_service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+
+
+
+
+
+
+
+<!-- ==================================================== -->
+<!-- CONTENT (start)-->
+<!-- ==================================================== -->
+
+<style>
+.local_full_button{
+	width:200px;
+	padding:2px;
+	margin:0px;
+	text-align:left;
+}
+.local_box{
+	width:200px;
+	margin-top:10px;
+}
+</style>
+
+<table border=0 colspan=0 cellpadding=0 cellspacing=0 width=100% ><tr>
+
+	<td width=33% valign=top>
+		<h2>Your name</h2>
+		You Zenofon name is <b>"%service_name%"</b>. This is your public name, and used in all invites to your friends.
+		<br>
+		<!-- ask to edit button -->
+		<div id=form_name_start class=local_box <TMPL_IF NAME="name_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+			<button onclick="MyDisplay('form_name_start',0);MyDisplay('form_name_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/user_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Change your name</button>
+		</div>
+		<!-- edit form -->
+		<div id=form_name_action class=local_box  <TMPL_IF NAME="name_error"><TMPL_ELSE>style="display:none"</TMPL_IF>  >
+			<fieldset>
+					<form action=%my_url% method=post>
+					Your new name:<br>
+					<input type=text name=name value="%form_name%" style="width:100%" oldstyle="<TMPL_IF NAME="name_error">background-color:red; color:#ffffff;</TMPL_IF>"  ><br>
+					<br>
+					<TMPL_IF NAME="name_error"><div class=error_box><div class=error_box_inside><h1>Bad name:</h1>We need a name with no pontuation.</div></div><br></TMPL_IF>
+					<button onclick="MyDisplay('form_name_start',1);MyDisplay('form_name_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=action value=profile>
+					<input type=hidden name=save value=name>
+					</form>
+			</fieldset>
+		</div>
+		<br><br>
+	</td>
+
+	<td width=50  valign=top><img src=/design/img/spc.gif width=50 height=1 hspace=0 vspace=0 border=0</td>
+
+	<td width=33% valign=top>
+		<TMPL_IF NAME="email_request">
+			<h2>Your contact email</h2>
+			Your email is <b>"%service_email%"</b>. It's also your login ID, and where we send you all your Zenofon correspondence. 
+			<br>
+			<div id=form_email_start class=local_box <TMPL_IF NAME="email_request_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+				<button onclick="MyDisplay('form_email_start',0);MyDisplay('form_email_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Edit your contact email</button>
+			</div>
+			<div id=form_email_action class=local_box <TMPL_IF NAME="email_request_error"><TMPL_ELSE>style="display:none"</TMPL_IF>  >
+				<fieldset>
+						<form action=%my_url% method=post>
+						Your new contact email:<br>
+						<input type=text name=email value="%form_email%"   style="width:100%" ><br>
+						<br>
+						<button onclick="MyDisplay('form_email_start',1);MyDisplay('form_email_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+						<button type=submit  style="padding:3px;"><img style="margin-left:5px;" src=/design/icons/bullet_go.png hspace=0 vspace=0 border=0 width=16 height=16 align=right>Next</button>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=email_request>
+						</form>
+						<TMPL_IF NAME="email_request_error"><div class=error_box><div class=error_box_inside><h1>Error:</h1>
+							<TMPL_IF NAME="email_request_error_msg_generic"		>Bad email. Please check.</TMPL_IF>
+							<TMPL_IF NAME="email_request_error_msg_inuse"		>Email in use. Please use another one.</TMPL_IF>
+							<TMPL_IF NAME="email_request_error_msg_sameemail"	>Same email. Nothing to do</TMPL_IF>
+						</div></div><br></TMPL_IF>
+				</fieldset>
+			</div>
+		</TMPL_IF>
+		<!-- If user ask to change, we have to ask confirmation code, re-send confirmation or cancel process -->
+		<TMPL_IF NAME="email_confirm">
+			<h2>Confirm your new email</h2>
+			Your contact email <b>still "%service_email%"</b>. Check your new contact email (<b>%new_email%</b>) inbox (maybe span folder too) and look for the message with the confirmation code to finish the process.
+			<br>
+			<fieldset class=local_box>
+					<form action=%my_url% method=post>
+						Confirmation code:<br>
+						<input type=text name=key value="%form_key%"   style="width:100%;"  ><br>
+						<br>
+						<TMPL_IF NAME="email_confirm_error"><div class=error_box><div class=error_box_inside><h1>Bad code:</h1>Check the confirmation code and try again.</div></div><br></TMPL_IF>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_add.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Confirm email change</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=email_confirm	>
+					</form>
+					<form action=%my_url% method=post>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_go.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Re-send confirmation</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=resend_email_request>
+					</form>
+					<form action=%my_url% method=post>
+						<button type=submit  class=local_full_button><img style="margin-right:5px;" src=/design/icons/email_delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel email change</button><br>
+						<input type=hidden name=action value=profile>
+						<input type=hidden name=save value=cancel_email_request>
+					</form>
+			</fieldset>
+		</TMPL_IF>
+	</td>
+
+	<td width=50  valign=top><img src=/design/img/spc.gif width=50 height=1 hspace=0 vspace=0 border=0</td>
+
+	<td width=33% valign=top>
+		<h2>Notification Alerts</h2>
+		When do you want to be notified by Zenofon?
+		<br>
+		<div id=form_alert_start class=local_box <TMPL_IF NAME="name_error">style="display:none"<TMPL_ELSE></TMPL_IF>  >
+			<button onclick="MyDisplay('form_alert_start',0);MyDisplay('form_alert_action',1);" type=button class=local_full_button><img style="margin-right:5px;" src=/design/icons/user_edit.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Change notifications</button>
+		</div>
+		<div id=form_alert_action class=local_box style="<TMPL_IF NAME="name_error"><TMPL_ELSE>display:none;</TMPL_IF>"  >
+			<fieldset>
+					<form action=%my_url% method=post>
+						<table border=0 colspan=0 cellpadding=2 cellspacing=0 >
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_each_call id=email_alert_each_call  <TMPL_IF NAME="email_alert_each_call">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_each_call>with your balance after each call.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_low_balance checked readonly disabled <TMPL_IF NAME="email_alert_low_balance"></TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_alert_low_balance>after a low balance triggers an auto-recharge.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_friends id=email_alert_new_friends <TMPL_IF NAME="email_alert_new_friends">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_new_friends>after you refer a new friend.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_friends_of_friends id=email_alert_new_friends_of_friends <TMPL_IF NAME="email_alert_new_friends_of_friends">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100%><LABEL for=email_alert_new_friends_of_friends>when someone you referred, refers a new friend.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_alert_new_commission id=email_alert_new_commission <TMPL_IF NAME="email_alert_new_commission">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_alert_new_commission>each time you earn a commission.</LABEL></td>
+						</tr>
+						<tr>
+						<td valign=top><input style="margin-top:2px;" type=checkbox name=email_news id=email_news <TMPL_IF NAME="email_news">checked</TMPL_IF> value=1></td>
+						<td valign=top width=100% ><LABEL for=email_news>regarding Zenofon News and Promotions.</LABEL></td>
+						</tr>
+						</table>
+						<br>
+					<button onclick="MyDisplay('form_alert_start',1);MyDisplay('form_alert_action',0);" type=button style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=action value=alerts>
+					<input type=hidden name=save value=1>
+					</form>
+			</fieldset>
+		</div>
+	</td>
+
+</tr></table>
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

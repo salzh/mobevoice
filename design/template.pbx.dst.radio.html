@@ -1,0 +1,190 @@
+<html ><head><title>ZenoFon - My account - Edit contact</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-on st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+
+
+<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+<td valign=top width=40%>
+
+
+		<!-- how to call a Radio contact! -->
+		<h2>5 second setup! <TMPL_IF NAME="name">"%name%"<TMPL_ELSE></TMPL_IF></h2>
+		After you add your friend to the right, just dial <b>
+		<!-- Quick callback list -->
+		<TMPL_IF NAME="index_2001_is_active">(712)432-2351</TMPL_IF>
+		<TMPL_IF NAME="index_2002_is_active">(712)432-2352</TMPL_IF>
+		<TMPL_IF NAME="index_2003_is_active">(712)432-2353</TMPL_IF>
+		<TMPL_IF NAME="index_2004_is_active">(712)432-2354</TMPL_IF>
+		<TMPL_IF NAME="index_2005_is_active">(712)432-2355</TMPL_IF>
+		<TMPL_IF NAME="index_2006_is_active">(712)432-2356</TMPL_IF>
+		<TMPL_IF NAME="index_2007_is_active">(712)432-2357</TMPL_IF>
+		<TMPL_IF NAME="index_2008_is_active">(712)432-2358</TMPL_IF>
+		<TMPL_IF NAME="index_2009_is_active">(712)432-2359</TMPL_IF>
+		.</b>
+		
+		If you stay on the line after the bip bip, ZenoFon will connect you to <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>your contact</TMPL_IF>.<br>
+		
+		If you want to ZenoFon to call you back, hang up as soon as you hear the first bip bip. 
+		 ZenoFon will call you back (with any caller ID you choose) and  connect you to <TMPL_IF NAME="name">"%name%"<TMPL_ELSE>your contact</TMPL_IF>.<br>
+Make sure your Skype contact adds www.zenofon.com as a friend. <br>
+		<br>
+		
+
+
+
+		<!-- Price -->
+		<h2>What's this gonna cost me?</h2>
+		<TMPL_IF NAME="billing_number_ok">
+		We have set Skype calling to the lowest possible rate our system will allow.  1/1000th of a cent/minute, basically nothing.  We need to make some database changes to set it to 0, but until then if you need more credit just email us and we will give you more credit.
+So officially, until we make the necessary changes, 
+			<TMPL_IF NAME="billing_rate_found">
+				 Your destination is  '%billing_rate_name%' 
+				and our rate is <b>$%billing_rate_per_minute% per minute.</b> 
+				You can speak for %billing_duration_per_1_dollar% for each $1,00 
+				and the cost to speak for one hour is  $%billing_value_per_hour% 
+		
+			<TMPL_ELSE>
+				 <b>but your call will be rejected because we have no rate to this location</b>.
+			</TMPL_IF>
+		<TMPL_ELSE>
+			Please enter a Skype contact in the far right box.  Thats the first step.
+		</TMPL_IF>
+		
+
+</td>
+<td><img src=/design/img/spc.gif width=10 height=1 hspace=0 vspace=0 border=0></td>
+<td valign=top width=60% >
+
+		
+		
+		<a name=advanced_close></a>
+		<fieldset>
+
+				<!-- edit form -->
+				<h2>Edit this contact</h2><br>
+				<form action=%my_url% method=post class=clear >
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<td width=50% valign=top >
+						<h1>Radio name</h1>
+						Enter your radio's name below. This field is for your eyes only and does not affect how the call gets dialed.<br>
+						<input width=100% style='width:100%' name=name	value='%name%'>
+					</td>
+					<td><img src=/design/img/spc.gif width=15 height=1 hspace=0 vspace=0 border=0></td>
+					<td width=50% valign=top>
+						<h1>Radio Url</h1>
+						<select name="select_radio" onchange=select_radio_change(this)>
+						<option value=""  >Choose from existing radio stations</option>
+						%list_radios%
+						<option value="-1"  >Not in this list </option>
+						</select>
+						<div id="input_number" style="display:none">
+						or input a new radio station <br>
+						
+						<input width=100% style='width:100%' name=number  	value='%number%' ><br>
+						the format is http://ip:port ,or mms://url.contact our support if you don't know<br>
+						</div>
+					</td>
+					</table>
+					<br>
+
+		<!--  SCRIPT to toggle display or the input box -->
+		<script>
+		function select_radio_change(obj){
+		 
+			if(obj.value  == '-1'){
+				MyDisplay('input_number',1);
+			} else {
+				MyDisplay('input_number',0);
+			}
+		}
+		 
+		</script>
+					
+
+
+					<script>
+					function advanced_open() {MyDisplay('advanced_div_close',0);MyDisplay('advanced_div_open',1)}
+					function advanced_close(){MyDisplay('advanced_div_close',1);MyDisplay('advanced_div_open',0)}
+					</script>
+					<div class=clear id=advanced_div_close>
+					<b><a href="javascript:advanced_open();"><img src=/design/icons/bullet_arrow_right.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Advanced</a></b><br>
+					<br>
+					</div>
+					<div class=clear id=advanced_div_open style="display:none">
+					<b><a href="javascript:advanced_close();"><img src=/design/icons/bullet_arrow_down.png border=0 hspace=0 vspace=0 width=16 height=16 align=left>Close advanced</a></b><br>
+					<div class=clear style="width:220px; ">
+					<div class=clear style="margin-left:5px; border-left:5px solid #c0c0c0;">
+					<div class=clear style="padding-left:6px; padding-top:5px;padding-bottom:5px;">
+						<h1>Access number</h1>
+						Change ZenoFon access number to reach this contact.
+						<br><select width=100% style='width:100%' name=index_new>
+						<option value=''>...do not change...</option>
+						<option value=''> </option>
+						<TMPL_IF NAME="index_2001_is_free"><option value='2001'>Change to (712)432-2351</option></TMPL_IF>
+						<TMPL_IF NAME="index_2002_is_free"><option value='2002'>Change to (712)432-2352</option></TMPL_IF>
+						<TMPL_IF NAME="index_2003_is_free"><option value='2003'>Change to (712)432-2353</option></TMPL_IF>
+						<TMPL_IF NAME="index_2004_is_free"><option value='2004'>Change to (712)432-2354</option></TMPL_IF>
+						<TMPL_IF NAME="index_2005_is_free"><option value='2005'>Change to (712)432-2355</option></TMPL_IF>
+						<TMPL_IF NAME="index_2006_is_free"><option value='2006'>Change to (712)432-2356</option></TMPL_IF>
+						<TMPL_IF NAME="index_2007_is_free"><option value='2007'>Change to (712)432-2357</option></TMPL_IF>
+						<TMPL_IF NAME="index_2008_is_free"><option value='2008'>Change to (712)432-2358</option></TMPL_IF>
+						<TMPL_IF NAME="index_2009_is_free"><option value='2009'>Change to (712)432-2359</option></TMPL_IF>
+						</select>
+					</div>	
+					</div>	
+					</div>	
+					<br>
+					</div>
+		
+		
+					<TMPL_IF NAME="error">
+						<div class=error_box>
+						<div class=error_box_inside>
+						<h1>Error:</h1>
+						<TMPL_IF NAME="error_number_format"				>I dont understand your friend number. Enter 10 digits USA number or 011 world number of your friend<br></TMPL_IF>
+						<TMPL_IF NAME="error_number_e164_format"		>This is not a correct phone number. Enter 10 digits USA number or 011 world number of your friend<br></TMPL_IF>
+						<TMPL_IF NAME="error_number_skype_format"		>This is not a correct skype name. Enter 10 digits USA number or 011 world number of your friend<br></TMPL_IF>
+						<TMPL_IF NAME="error_number_unknown_country"	>This is not a correct world number. Enter 10 digits USA number or 011 world number of your friend<br></TMPL_IF>
+						<TMPL_IF NAME="error_number_no_rate"			>No rate/destination for this phone number. Enter 10 digits USA number or 011 world number of your friend<br></TMPL_IF>
+							<!--  add By Yassine for new DID 95   53 -> 148  -->
+						<TMPL_IF NAME="error_no_more_index"				>Oops! ZenoFon has space for only 148 friends. You have to delete to free space<br></TMPL_IF>
+						<TMPL_IF NAME="error_bad_index"					>Oops! ZenoFon has space for only 148 friends. You have to delete to free space<br></TMPL_IF>
+						</div>	
+						</div>
+						<br>
+					</TMPL_IF>
+
+
+					<button style="padding:3px;" type=button onclick="window.location='%my_url%';"><img style="margin-right:5px;" src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Cancel</button>
+					<button style="padding:3px;" type=button onclick="if (confirm('Delete?')) {window.location='%my_url%?action=dst_radio&delete=1&index=%index%'};"><img style="margin-right:5px;" src=/design/icons/bin.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Delete this contact</button>
+					<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button>
+					<input type=hidden name=save 	value='1'>
+					<input type=hidden name=index	value='%index%'>
+					<input type=hidden name=action	value='dst_radio'>
+				</form>
+		</fieldset>
+
+</td>
+</tr>
+</table>
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

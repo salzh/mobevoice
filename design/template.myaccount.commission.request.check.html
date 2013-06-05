@@ -1,0 +1,252 @@
+<html ><head><title>ZenoFon - My account - Request check</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+		<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100%><tr>
+
+		<td valign=top>
+
+
+
+			<h2>Request check with commissions</h2>
+			<TMPL_IF NAME="has_commissions">
+				<TMPL_IF NAME="has_minimum_value_commissions">
+					<!-- ------------------------------ -->
+					<!-- ok -->
+					<!-- ------------------------------ -->
+					You have $%commissions_ok_value% in commissions ready to request a check. 
+					Select how much in commissions you want withdraw and send by check and click "Request check with commissions".
+				<TMPL_ELSE>
+					<!-- ------------------------------ -->
+					<!-- has commissions, but not a minimum -->
+					<!-- ------------------------------ -->
+					Im sorry but not now. We know you have $%commissions_ok_value% in commissions ready to request a check, 
+					but minimum value to request one check is $75. 
+					Come back later.
+				</TMPL_IF>
+			<TMPL_ELSE>
+				<!-- ------------------------------ -->
+				<!-- has no commissions -->
+				<!-- ------------------------------ -->
+				Im sorry but not now. We know you have $%commissions_all_value% in commissions,
+				but none of then are ready to request a check.
+				Usualy, commissions take 30 to 90 days to be ready for that. 
+				Come back later.
+			</TMPL_IF>
+			<br>
+			<br>
+			<form action="index.cgi"  method=post>
+				<!-- ------------------------------ -->
+				<!-- select value -->
+				<!-- ------------------------------ -->
+				<select
+					name=slice 
+					style="width:400px; <TMPL_IF NAME="error_bad_slicexx">background-color:red; color:#ffffff;</TMPL_IF>"
+					<TMPL_IF NAME="is_ok_to_request"><TMPL_ELSE>disabled readonly</TMPL_IF>
+					<TMPL_IF NAME="can_request_check"><TMPL_ELSE>disabled readonly</TMPL_IF>
+					>
+					<option value=''>select value</option>
+					<option value=''> </option>
+					<TMPL_IF NAME="slice_1_flag"><option value='1'>Withdrawn $%slice_1_value% from my commissions and send by check</option></TMPL_IF>
+					<TMPL_IF NAME="slice_2_flag"><option value='2'>Withdrawn $%slice_2_value% from my commissions and send by check</option></TMPL_IF>
+					<TMPL_IF NAME="slice_3_flag"><option value='3'>Withdrawn $%slice_3_value% from my commissions and send by check</option></TMPL_IF>
+					<TMPL_IF NAME="slice_4_flag"><option value='4'>Withdrawn $%slice_4_value% from my commissions and send by check</option></TMPL_IF>
+					<option value=''> </option>
+					<TMPL_IF NAME="slice_all_flag"><option value='all'>Withdrawn all my $%slice_all_value% commissions and send by check</option></TMPL_IF>
+					<option value=''> </option>
+				</select><br>
+				<br>
+				<TMPL_IF NAME="is_ok_to_request">
+					<!-- ------------------------------ -->
+					<!-- affiliate profile lock warning -->
+					<!-- ------------------------------ -->
+					<TMPL_IF NAME="affiliate_unlocked">
+						<div class=clear style="
+							color:#808080;
+							background-color:#f0f0f0;
+							<TMPL_IF NAME="error_no_accept_headxxx">background-color:red; color:#ffffff;</TMPL_IF>
+							width:400px;
+							border:1px solid #c0c0c0;
+							">
+						<div class=clear style="padding:10px;">
+							<table width=100%>
+							<td valign=top><input type=checkbox name=i_agree_head value=1></td>
+							<td valign=top>
+							I agree that my name (%affiliate_name%) and social security number (%affiliate_ss%) are correct 
+							and I accept to link and lock this information with my zenofon account 
+							</td></table>
+						</div>
+						</div>
+						<br>
+					</TMPL_IF>
+					<!-- ------------------------------ -->
+					<!-- check address question -->
+					<!-- ------------------------------ -->
+					<TMPL_IF NAME="affiliate_empty">
+					<TMPL_ELSE>
+						<div class=clear style="
+							color:#808080;
+							background-color:#f0f0f0;
+							<TMPL_IF NAME="error_no_accept_dataxxx">background-color:red; color:#ffffff;</TMPL_IF>
+							width:400px;
+							border:1px solid #c0c0c0;
+							">
+						<div class=clear style="padding:10px;">
+							<table width=100%>
+							<td valign=top><input type=checkbox name=i_agree_data value=1></td>
+							<td valign=top>
+							I agree to withdraw the selected amount from my commissions and 
+							send by check to "%affiliate_name%" (SSN %affiliate_ss%) in the address:<br>
+							<br>
+							%affiliate_addr1%<TMPL_IF NAME="affiliate_addr2"><br></TMPL_IF>
+							%affiliate_addr2%<br>
+							%affiliate_city% - %affiliate_state%<br>
+							ZIP %affiliate_zip%
+							</td></table>
+						</div>
+						</div>
+						<br>
+					</TMPL_IF>
+				</TMPL_IF>
+
+
+
+				<!-- ------------------------------ -->
+				<!-- error messages -->
+				<!-- ------------------------------ -->
+				<TMPL_IF NAME="error">
+					<div class=alert_box ><div class=alert_box_inside>
+					<font color=red><b>I cannot save:</b></font> 
+					<TMPL_IF NAME="error_bad_slice">You need select one amount to your check.<br></TMPL_IF>
+					<TMPL_IF NAME="error_no_accept_head">I cannot request check without profile confirmation.<br></TMPL_IF>
+					<TMPL_IF NAME="error_no_accept_data">I cannot request check without address confirmation.<br></TMPL_IF>
+					</div>
+					</div>
+					<br>
+				</TMPL_IF>
+
+
+
+				<!-- ------------------------------ -->
+				<!-- send to commissions if OK      -->
+				<!-- ok/accept message              -->	
+				<!-- ------------------------------ -->
+				<TMPL_IF NAME="ok">
+					<div class=alert_box ><div class=alert_box_inside>
+					<font color=green><b>Save OK:</b></font> Message dismiss in 5 seconds
+					</div></div>
+					<br>
+					<script>setTimeout("window.location='./?action=credits';", 3000); </script>
+				</TMPL_IF>
+
+
+				<!-- ------------------------------ -->
+				<!-- warning messages at the top -->
+				<!-- ------------------------------ -->
+				<TMPL_IF NAME="can_request_check">
+					<TMPL_IF NAME="affiliate_empty">
+						<div class=alert_box ><div class=alert_box_inside>
+						You haven't set up your affiliate profile and cannot request a check
+						<a href=?action=credits_affiliate>(click to enroll your affiliate profile)</a>
+						</div></div><br>
+					</TMPL_IF>
+				<TMPL_ELSE>
+					<div class=alert_box ><div class=alert_box_inside>
+					Request check its not enabled for this account . <a href=/contact/>Contact customer service</a> to fix 
+					</div></div><br>
+				</TMPL_IF>
+
+
+
+
+				<div id=loading_form style="Display:none; ">
+					<div class=alert_box ><div class=alert_box_inside style="background-image:url(/design/img/loading.gif);background-repeat:no-repeat;">
+					Please wait...
+					</div></div>
+					<br>
+				</div>
+
+
+				<!-- ------------------------------ -->
+				<!-- buttons  -->
+				<!-- ------------------------------ -->
+				<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear ><tr>
+					<td>
+					<button style="padding:3px;" type=button onclick="window.location='?action=friends'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+					<button style="padding:3px;" type=submit <TMPL_IF NAME="can_request_check"><TMPL_ELSE>disabled readonly</TMPL_IF> <TMPL_IF NAME="is_ok_to_request"><TMPL_ELSE>disabled readonly</TMPL_IF>  <TMPL_IF NAME="affiliate_empty">disabled readonly</TMPL_IF>  ><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Request check with commissions</button>
+					</td>
+				</tr></table>
+				<input type=hidden name=action value=commissions_request_check>
+				<input type=hidden name=save value=1>
+			</form>
+
+
+
+		</td>
+
+		<td valign=top style=padding-right:50px;></td>
+
+		<td valign=top width=340>
+			<fieldset style="padding:20px;">
+				<h2 style="padding-left:20px; background-image:url(/design/icons/02-35.png); background-repeat:no-repeat; background-position:0 7; margin-bottom:10px;">About your security</h2>
+				We understand security is a very serious concern for online payments and that is why all data is protected with an encrypted Secure Socket Layer (SSL) and a high-grade encryption algorithm. <br>
+				<br>
+				Your billing information is encrypted and stored in a separate and secure billing system. 
+				Your transaction is safe and secure with authorize.net.<br>
+				<br>
+				<div class=clear style="float:right;">
+				<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="3dabe415-7028-42d4-9826-7d4248c02c00";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Online Payments</a> </div> 
+				</div>
+				<img src=/design/img/cards_logo.gif width=190 height=100 hspace=0 vspace=0 border=0>
+			</fieldset>
+		</td>
+
+	</tr></table>
+
+
+
+
+
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

@@ -1,0 +1,58 @@
+</div>
+	</div>
+
+
+	<!-- ==================================================== -->
+	<!-- PAGE END (stop)-->
+	<!-- ==================================================== -->
+	<div class=page-content-bot>
+	<div class=page-content-bot-internal>
+
+	    Copyright 2008. ZenoFon LLC ©   <br>
+		<a href=/about/>About</a> | 
+		<a href=/about/termsofservice.html>Terms of service</a> | 
+		<a href=/about/privacypolicy.html>Privacy policy</a> | 
+		<a href=/help/>Help</a> | 
+		<a href=/contact/>Contact Us</a>
+
+	</div>
+	</div>
+
+	</div>
+	</div>
+
+<script>
+// ====================================================================
+//
+// TOP MESSAGES
+//
+// Quotation_seconds is how many seconds each message will be active
+// We play messages in order, first one is random selected.
+// Use <br> to break line. Do not use more than 3 lines
+// We can have how many messages we want. Just create new lines
+// for new messages. Start index with 0 dont leave holes in count
+//
+// ====================================================================
+var Quotation_messages=new Array();
+Quotation_seconds = 7;
+Quotation_messages[0] = "Need help? Have questions?<br>Call Customer Service at<br>(917) 284-9450 or (718) 717-2145<br>Hours: Everyday, 8 AM to 4 PM EST";
+Quotation_messages[1] = "Call Zenofon's new<br>Kenya Radio news line<br>dial (712) 432-2370<br> extensions 1-9 ";
+Quotation_messages[2] = "Try Zenofon's new<br>Ghana Radio news line<br>dial (712) 432-2380<br> extensions 1-15 ";
+Quotation_messages[3] = "Listen to Zenofon's new<br>Cameroon Radio news line<br>dial (712) 432-2353<br> extensions 1-9 ";
+Quotation_messages[4] = "Check out Zenofon's new<br>Bangladesh Radio news line<br>dial (712) 432-2368<br> extensions 1-9 ";
+
+// ====================================================================
+//
+// dont edit bellow
+//
+// ====================================================================
+Quotation_timer  = setTimeout("Update_Quotation()",1000);
+Quotation_length = Quotation_messages.length;
+Quotation_index  = Math.round(Math.random()*(Quotation_length-1));
+function Update_Quotation(){
+	MyHTML('page-content-top-info',Quotation_messages[Quotation_index]);
+	Quotation_index++;
+	if (Quotation_index>=Quotation_length) {Quotation_index=0}
+	Quotation_timer = setTimeout("Update_Quotation()",(Quotation_seconds*1000));
+}
+</script>

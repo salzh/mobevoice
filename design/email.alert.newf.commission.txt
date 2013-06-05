@@ -1,0 +1,17 @@
+Subject:ZenoFon: #COMMISSION_TITLE#
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>#COMMISSION_TITLE#</font><br>
+	<br>
+	You just earned a $#COMMISSION_VALUE# registration commission #FROM# from someone who who joined Zenofon using your your direct referral link.
+	<br>
+When this new Zenophyte makes their first call using Zenofon we will generate another commission for you, and if they continue to buy services from Zenofon, 
+you will earn recurring commissions and credits from all their purchases forever.  
+	<br>
+Also, If they refer other people, you will get commissions from these new people and everyone who joins below them infinitely.  Lets see what this new person can do!
+<br>
+	To stop these alerts, go to your ZenoFon account page (<a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>) and change your 'Notifications'
+    </body>
+</html>

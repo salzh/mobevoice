@@ -1,0 +1,23 @@
+Subject:Your ZenoFon account
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+<body>
+    <font size=4>Your ZenoFon account!</font><br>
+    <br>
+    You didn't remember your  PIN for your ZenoFon account, so we sent it to you again.<br>
+    <br>
+    <br>
+    <br>
+    Your multiple log-in's, so we sent a list of all.<br>
+    <br>
+    #PIN_LIST#
+	<br>
+    <br>
+    <br>
+    To visit your account go to: <b><a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a></b><br>
+    <br>
+    For help, FAQ or customer service go to: <b><a href=http://www.zenofon.com/help/>http://www.zenofon.com/help</a></b><br>
+
+</body>
+</html>

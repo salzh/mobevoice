@@ -1,0 +1,190 @@
+<html ><head><title>ZenoFon - My account - Profile</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+    
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+<script>
+function form_check(){
+	MyDisplay('loading_form',1);
+	//document.forms[0].elements[6].disabled = true;
+	//document.forms[0].elements[6].readonly = true;
+	return true;
+}
+</script>
+
+
+
+<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100%><tr>
+
+	<td valign=top>
+		<h2>Affiliate profile</h2>
+		Affiliate profile hold information we need to send you commission checks.
+		If you are ready to request a commission check, please fill out the form below.  
+		<br>
+		<br>
+		<form action="index.cgi"  method=post onsubmit="return form_check();">
+			<div class=clear style="margin-left:20px; margin-bottom:10px;">
+				<table WIDTH=350 border=0 colspan=0 cellpadding=5 cellspacing=0 class=clear>
+				<tr><td width=100	>name: 				</td><td width=200	><input type=text name=ss_name 		value="%ss_name%" 	<TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_name_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>Paypal email:		</td><td 			><input type=text name=ss_paypal	value="%ss_paypal%" <TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_paypal_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>Social security:	</td><td 			><input type=text name=ss_ss		value="%ss_ss%" 	<TMPL_IF NAME="ss_flag_edit_head"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_ss_error"		>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>Address:			</td><td 			><input type=text name=ss_addr1		value="%ss_addr1%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_addr1_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>					</td><td 			><input type=text name=ss_addr2		value="%ss_addr2%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_addr2_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>Country:			</td><td 			><select name=ss_country	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%;">
+						<option value=na>(other)</Option>
+						<option <TMPL_IF NAME="ss_country_is_Usa">selected</TMPL_IF> value=Usa>United States</Option>
+						</select></td></tr>
+				<tr><td 			>City:				</td><td 			><input type=text name=ss_city		value="%ss_city%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_city_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				<tr><td 			>State:				</td><td 			><select 		  name=ss_state		value="%ss_state%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_state_error"	>background-color:red; color:#ffffff;</TMPL_IF>">
+						<option <TMPL_IF NAME="ss_state_is_na">selected</TMPL_IF> value="na">(other)</option>
+						<option <TMPL_IF NAME="ss_state_is_Alabama">selected</TMPL_IF> value="Alabama">Alabama</option>
+						<option <TMPL_IF NAME="ss_state_is_Alaska">selected</TMPL_IF> value="Alaska">Alaska</option>
+						<option <TMPL_IF NAME="ss_state_is_Arizona">selected</TMPL_IF> value="Arizona">Arizona</option>
+						<option <TMPL_IF NAME="ss_state_is_Arkansas">selected</TMPL_IF> value="Arkansas">Arkansas</option>
+						<option <TMPL_IF NAME="ss_state_is_California">selected</TMPL_IF> value="California">California</option>
+						<option <TMPL_IF NAME="ss_state_is_Colorado">selected</TMPL_IF> value="Colorado">Colorado</option>
+						<option <TMPL_IF NAME="ss_state_is_Connecticut">selected</TMPL_IF> value="Connecticut">Connecticut</option>
+						<option <TMPL_IF NAME="ss_state_is_Delaware">selected</TMPL_IF> value="Delaware">Delaware</option>
+						<option <TMPL_IF NAME="ss_state_is_Florida">selected</TMPL_IF> value="Florida">Florida</option>
+						<option <TMPL_IF NAME="ss_state_is_Georgia">selected</TMPL_IF> value="Georgia">Georgia</option>
+						<option <TMPL_IF NAME="ss_state_is_Hawaii">selected</TMPL_IF> value="Hawaii">Hawaii</option>
+						<option <TMPL_IF NAME="ss_state_is_Idaho">selected</TMPL_IF> value="Idaho">Idaho</option>
+						<option <TMPL_IF NAME="ss_state_is_Illinois">selected</TMPL_IF> value="Illinois">Illinois</option>
+						<option <TMPL_IF NAME="ss_state_is_Indiana">selected</TMPL_IF> value="Indiana">Indiana</option>
+						<option <TMPL_IF NAME="ss_state_is_Iowa">selected</TMPL_IF> value="Iowa">Iowa</option>
+						<option <TMPL_IF NAME="ss_state_is_Kansas">selected</TMPL_IF> value="Kansas">Kansas</option>
+						<option <TMPL_IF NAME="ss_state_is_Kentucky">selected</TMPL_IF> value="Kentucky">Kentucky</option>
+						<option <TMPL_IF NAME="ss_state_is_Louisiana">selected</TMPL_IF> value="Louisiana">Louisiana</option>
+						<option <TMPL_IF NAME="ss_state_is_Maine">selected</TMPL_IF> value="Maine">Maine</option>
+						<option <TMPL_IF NAME="ss_state_is_Maryland">selected</TMPL_IF> value="Maryland">Maryland</option>
+						<option <TMPL_IF NAME="ss_state_is_Massachusetts">selected</TMPL_IF> value="Massachusetts">Massachusetts</option>
+						<option <TMPL_IF NAME="ss_state_is_Michigan">selected</TMPL_IF> value="Michigan">Michigan</option>
+						<option <TMPL_IF NAME="ss_state_is_Minnesota">selected</TMPL_IF> value="Minnesota">Minnesota</option>
+						<option <TMPL_IF NAME="ss_state_is_Mississippi">selected</TMPL_IF> value="Mississippi">Mississippi</option>
+						<option <TMPL_IF NAME="ss_state_is_Missouri">selected</TMPL_IF> value="Missouri">Missouri</option>
+						<option <TMPL_IF NAME="ss_state_is_Montana">selected</TMPL_IF> value="Montana">Montana</option>
+						<option <TMPL_IF NAME="ss_state_is_Nebraska">selected</TMPL_IF> value="Nebraska">Nebraska</option>
+						<option <TMPL_IF NAME="ss_state_is_Nevada">selected</TMPL_IF> value="Nevada">Nevada</option>
+						<option <TMPL_IF NAME="ss_state_is_NewHampshire">selected</TMPL_IF> value="New Hampshire">New Hampshire</option>
+						<option <TMPL_IF NAME="ss_state_is_NewJersey">selected</TMPL_IF> value="New Jersey">New Jersey</option>
+						<option <TMPL_IF NAME="ss_state_is_NewMexico">selected</TMPL_IF> value="New Mexico">New Mexico</option>
+						<option <TMPL_IF NAME="ss_state_is_NewYork">selected</TMPL_IF> value="New York">New York</option>
+						<option <TMPL_IF NAME="ss_state_is_NorthCarolina">selected</TMPL_IF> value="North Carolina">North Carolina</option>
+						<option <TMPL_IF NAME="ss_state_is_NorthDakota">selected</TMPL_IF> value="North Dakota">North Dakota</option>
+						<option <TMPL_IF NAME="ss_state_is_Ohio">selected</TMPL_IF> value="Ohio">Ohio</option>
+						<option <TMPL_IF NAME="ss_state_is_Oklahoma">selected</TMPL_IF> value="Oklahoma">Oklahoma</option>
+						<option <TMPL_IF NAME="ss_state_is_Oregon">selected</TMPL_IF> value="Oregon">Oregon</option>
+						<option <TMPL_IF NAME="ss_state_is_Pennsylvania">selected</TMPL_IF> value="Pennsylvania">Pennsylvania</option>
+						<option <TMPL_IF NAME="ss_state_is_RhodeIsland">selected</TMPL_IF> value="Rhode Island">Rhode Island</option>
+						<option <TMPL_IF NAME="ss_state_is_SouthCarolina">selected</TMPL_IF> value="South Carolina">South Carolina</option>
+						<option <TMPL_IF NAME="ss_state_is_SouthDakota">selected</TMPL_IF> value="South Dakota">South Dakota</option>
+						<option <TMPL_IF NAME="ss_state_is_Tennessee">selected</TMPL_IF> value="Tennessee">Tennessee</option>
+						<option <TMPL_IF NAME="ss_state_is_Texas">selected</TMPL_IF> value="Texas">Texas</option>
+						<option <TMPL_IF NAME="ss_state_is_Utah">selected</TMPL_IF> value="Utah">Utah</option>
+						<option <TMPL_IF NAME="ss_state_is_Vermont">selected</TMPL_IF> value="Vermont">Vermont</option>
+						<option <TMPL_IF NAME="ss_state_is_Virginia">selected</TMPL_IF> value="Virginia">Virginia</option>
+						<option <TMPL_IF NAME="ss_state_is_Washington">selected</TMPL_IF> value="Washington">Washington</option>
+						<option <TMPL_IF NAME="ss_state_is_WestVirginia">selected</TMPL_IF> value="West Virginia">West Virginia</option>
+						<option <TMPL_IF NAME="ss_state_is_Wisconsin">selected</TMPL_IF> value="Wisconsin">Wisconsin</option>
+						<option <TMPL_IF NAME="ss_state_is_Wyoming">selected</TMPL_IF> value="Wyoming">Wyoming</option>
+						</select></td></tr>
+				<tr><td 			>Zip code:			</td><td 			><input type=text name=ss_zip	value="%ss_zip%" 	<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>readonly disabled</TMPL_IF> style="width:100%; <TMPL_IF NAME="ss_zip_error"	>background-color:red; color:#ffffff;</TMPL_IF>"  ></td></tr>
+				</table>
+			</div>
+
+			<TMPL_IF NAME="ss_status_error">
+				<div class=alert_box ><div class=alert_box_inside>
+				<font color=red><b>I cannot save:</b></font> 
+				<TMPL_IF NAME="ss_status_error_type_user">Please check and fix red fields.</TMPL_IF>
+				<TMPL_IF NAME="ss_status_error_type_system">we got a comunication error with secure server. Try again in few minutes.</TMPL_IF>
+				</div></div>
+			</TMPL_IF>
+
+			<TMPL_IF NAME="ss_flag_edit_data"><TMPL_ELSE>
+				<div class=alert_box ><div class=alert_box_inside>
+				You have <a href=%my_url%?action=commissions>commission checks</a> wait to aprove and cannot edit this profile. 
+				</div></div>
+			</TMPL_IF>
+
+			<TMPL_IF NAME="ss_status_ok">
+				<div class=alert_box ><div class=alert_box_inside>
+				<font color=green><b>Save OK:</b></font> Message dismiss in 5 seconds
+				</div></div>
+				<script>setTimeout("window.location='./?action=credits';", 3000); </script>
+			</TMPL_IF>
+
+			<div id=loading_form style="Display:none; ">
+				<div class=alert_box ><div class=alert_box_inside style="background-image:url(/design/img/loading.gif);background-repeat:no-repeat;">
+				Please wait...
+				</div></div>
+			</div>
+
+
+			<br>
+			<button style="padding:3px;" type=button onclick="window.location='?action=credits'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+			<TMPL_IF NAME="ss_flag_delete">		<button type=button onclick="if (confirm('Can i erase?')) {window.location='%my_url%?action=credits_affiliate&save=ss_del';}" style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/bin.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Erase</button></TMPL_IF>
+			<TMPL_IF NAME="ss_flag_edit_data">	<button type=submit  style="padding:3px;"><img style="margin-right:5px;" src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save</button></TMPL_IF> 
+			<input type=hidden name=save value=ss_edit>
+			<input type=hidden name=click_check value=%click_check%>
+			<input type=hidden name=action value=credits_affiliate>
+
+		</form>
+	</td>
+
+
+	<td valign=top style=padding-right:50px;></td>
+
+	<td valign=top width=340>
+		<fieldset style="padding:20px;">
+			<h2 style="padding-left:20px; background-image:url(/design/icons/02-35.png); background-repeat:no-repeat; background-position:0 7; margin-bottom:10px;">About your security</h2>
+			We understand security is a very serious concern for online payments and that is why all data is protected with an encrypted Secure Socket Layer (SSL) and a high-grade encryption algorithm. <br>
+			<br>
+			Your billing information is encrypted and stored in a separate and secure billing system. 
+			Your transaction is safe and secure with authorize.net.<br>
+			<br>
+			<div class=clear style="float:right;">
+			<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="3dabe415-7028-42d4-9826-7d4248c02c00";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Online Payments</a> </div> 
+			</div>
+			<img src=/design/img/cards_logo.gif width=190 height=100 hspace=0 vspace=0 border=0>
+		</fieldset>
+	</td>
+
+
+</tr></table>
+	
+	
+<TMPL_IF NAME="profile_ok">
+	<TMPL_IF NAME="can_add_credit">
+		<script>form_update_enable();</script>
+	</TMPL_IF>	
+</TMPL_IF>
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

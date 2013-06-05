@@ -1,0 +1,13 @@
+Subject:Zenofon auto recharge alert
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>ZenoFon auto recharge alert</font><br>
+	<br>
+	Your balance ($#BALANCE#) has gone below your auto recharge threshold settings , so as per your wishes, for your convenience, we have debited your card $#AUTORECHARGE_VALUE#<br>
+	<br>
+	<br>
+	To check you ZenoFon account, or change your settings go to <a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>
+    </body>
+</html>

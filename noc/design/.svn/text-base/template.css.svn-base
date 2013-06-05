@@ -1,0 +1,933 @@
+body 	{
+    font-size: 14px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	color:#5d788c;
+	line-height:150%; 
+	background-color:#ffffff;
+    background-image:url(/noc/design/barra-azul.gif);
+    background-repeat:repeat-y;
+    margin:0;
+	padding:0;
+	border:0;
+	width:100%;
+	height:100%;
+}
+html 	{
+	height:100%;
+	width:100%;
+}
+a:hover {
+	color: #ff5c00;
+	text-decoration: none;
+}
+a 	{
+	color: #b00;
+	text-decoration: none;
+}
+td 	{
+	font-size: 14px; 
+	line-height:150%;
+}
+input,select,button,textarea	{
+	margin:1px; 
+	padding: 1px 5px 2px 5px;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size:13px;
+}
+button:hover{
+    color:#ff5c00;
+}
+button[class=save]{
+	padding: 3px 12px 4px 12px;
+	font-size:13px;
+	font-weight:bold;
+}
+button[class=cancel]{
+	padding: 3px 12px 4px 12px;
+	font-size:13px;
+}
+form 	{margin:0px; padding:0px; border:0px; }
+.clear	{margin:0px; padding:0px; border:0px; }
+h1		{ font:normal normal 18px Trebuchet, Trebuchet MS, Arial, sans-serif; letter-spacing:-1px; margin:0; padding:1; border:0; 	}
+h2		{ font:normal normal 24px Trebuchet, Trebuchet MS, Arial, sans-serif; letter-spacing:-1px; margin:0; padding:1; border:0; 	}
+h3		{ font:normal normal 30px Trebuchet, Trebuchet MS, Arial, sans-serif; letter-spacing:-1px; margin:0; padding:1; border:0; 	}
+.cch2	{margin:0; padding:1; border:0; font-size:20px; line-height:120%; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:Bold; }
+.cch3	{margin:0; padding:1; border:0; font-size:30px; line-height:120%; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:Bold; }
+h1 a 	{text-decoration: none;}
+h2 a 	{text-decoration: none;}
+h3 a 	{text-decoration: none;}
+.al 	{text-align:left;}
+.ar 	{text-align:right;}
+.ac 	{text-align:center;}
+hr {
+	color: #D0D0D0;
+	background-color:#D0D0D0;
+	height: 1px;
+	border: 0;
+}
+
+
+
+
+
+#navigation_tab {
+	margin:0px;
+	padding:3px;
+	border:0px;
+	width:100%;
+	border-radius:4px;
+	background-color:#eff7fa;
+	border:1px solid #d3ddde;
+	margin-bottom:30px;
+	height:30px;
+}
+#navigation_tab a, #navigation_tab a:visited,  #navigation_tab a:active{
+	display:block;
+	float:left;
+	margin:1px; 
+	padding: 1px 15px 2px 15px;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size:14px;
+	border-radius:4px;
+	color:#b00;
+	background-color:#eff7fa;
+	border:1px solid #eff7fa;
+	xxxwidth:120px;
+	border:0px;
+	text-align:center;
+}
+#navigation_tab a:hover {
+	color:#ff6600;
+}
+#navigation_tab a[class=selected]{
+	color:#5d788c;
+	background-color:#ffffff;
+	border:1px solid #d3ddde;
+}
+
+
+.dataitemform {
+	width:100%;
+}
+.dataitemform table {
+	width:100%;
+}
+.dataitemform table input {
+	width:100%;
+}
+.dataitemform table select {
+	width:100%;
+}
+.dataitemform button[class=save]{
+	padding: 3px 12px 4px 12px;
+	font-size:12px;
+	font-weight:bold;
+}
+.dataitemform button[class=cancel]{
+	padding: 3px 12px 4px 12px;
+	font-size:12px;
+}
+.dataitemform button[class=delete]{
+	padding: 3px 12px 4px 12px;
+	font-size:12px;
+}
+
+
+
+
+	.toptab_outside {
+		width:200px;
+		height:95px;
+		margin:0;
+		padding:0px;
+		border:0px;
+		float:right;
+		margin-left:10px;
+		background-color:#a5adb6;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		}
+	.toptab_inside {
+		margin:0;
+		padding:10px;
+		border:0px;
+		font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;
+		font-size:12px;
+		line-height:115%;
+		color:#000000;
+		}
+	.toptab_title {font-size:16px;margin-bottom:3px; font-weight:bold;}
+	.toptab_inside a {color: #b00; text-decoration: none;}
+	.toptab_selected {background-color:#ffffff;}
+
+
+
+
+
+
+.breadcrumb {
+	color:#5d788c; 
+	width:100%; 
+	font-size:14px; 
+	line-height:100%;
+}
+.breadcrumb {
+}
+.breadcrumb a {
+	color:#5d788c; 
+}
+
+.footer {
+	border:0px;
+	margin:0px;
+	padding:0px;
+	margin-top:30px;
+	padding:3px;
+	border:1px solid #d0d0d0;
+	color:#a0a0a0;
+	background-color:#e0e0e0;
+}
+.footer a{
+	color:#a0a0a0;
+}
+.wiki{
+	width:800px;
+}
+.wikitable {
+	margin:0; 
+	padding:0; 
+	border:1px solid #a0a0a0;
+	background-color: #ffffff;
+	xx-moz-border-radius: 2px;
+	xx-webkit-border-radius: 2px;
+	xxborder-radius: 2px;
+}
+.wikitable tbody{
+	background-color: #fffff;
+	background-image:url(/noc/design/box_bg.png);
+	background-repeat:repeat-x;
+	border:1px solid #000000;
+	margn:10px;
+	padding:10px;
+}
+.wikitable thead td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size: 12px;
+	white-space:nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:4px;
+	padding-bottom:4px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-left:1px solid #f0f0f0; 
+	border-right:1px solid #c0c0c0; 
+	border-bottom:1px solid #c0c0c0;
+}
+.wikitable thead .arrow		{
+	font-family: webdings; color: black; padding: 0; font-size: 10px;
+	height: 11px; width: 10px; overflow: hidden;
+	margin-bottom: 2; margin-top: -3; padding: 0; padding-top: 0; padding-bottom: 2;
+}
+.wikitable thead td h1 {color:#000000;}
+.wikitable thead td h2 {color:#000000;}
+.wikitable thead td h3 {color:#000000;}
+.wikitable tbody tr {background-color: #fffff;}
+.wikitable tbody tr:hover {background-color: #f0f0ff;}
+.wikitable tbody td {
+	margin:0; 
+	padding:3; 
+	padding-left:5; 
+	padding-right:5; 
+	border:0;
+	border-bottom:1px solid #f0f0f0;
+	border-left:1px solid #f0f0f0;
+	font-size: 11px;
+}
+.wikitable tfoot td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size: 12px;
+	white-space: nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-bottom:1px solid #c0c0c0;
+}
+.wikitable tfoot td input{
+	height:20;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font: normal 8pt arial;
+	white-space: nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-left:1px solid #f0f0f0; 
+	border-right:1px solid #c0c0c0; 
+	border-bottom:1px solid #c0c0c0;
+}
+
+
+
+
+
+
+
+
+.top_title {
+	margin:0px; padding:0px; border:0px;
+	width:100%; 
+	background-color:#5F828F;
+}
+.top_title div {
+	margin:0px; padding:0px; border:0px;
+	padding:15px; 
+	padding-top:5px; 
+	padding-left:10px; 
+	font:bold normal 40px Trebuchet, Trebuchet MS, Arial, sans-serif; 
+	letter-spacing:-3px; 
+	line-height:90%;
+	color:#ffffff;
+}
+.top_title div a {
+	text-decoration: none;
+	color:#ffffff;
+}
+.top_title div a:hover {
+	color: #D6ECF4;
+}
+
+
+
+.selectoption  {
+	border:1px solid #D0D0D0;
+	padding:20px;
+	background-color:#ffffff;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+#selectbox legend	{
+	font:normal normal 24px Trebuchet, Trebuchet MS, Arial, sans-serif;
+	letter-spacing:-1px;
+	margin:0;
+	padding:0;
+	border:0;
+	}
+
+
+
+
+fieldset {
+	border:1px solid #D0D0D0;
+	padding:20px;
+	padding-top:15px;
+	xxxbackground-color:#ffffff;
+    xxbackground-image:url(/noc/design/box_bg.png);
+    xxbackground-repeat:repeat-x;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+legend	{
+	font:normal normal 24px Trebuchet, Trebuchet MS, Arial, sans-serif;
+	letter-spacing:-1px;
+	margin:0;
+	padding:0;
+	border:0;
+	}
+.legend_with_tabs {
+	margin:0px;
+	border:0px;
+	padding:3px;
+	padding-left:7px;
+	padding-right:7px;
+	margin-left:2px;
+	margin-right:2px;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:16px;
+	color:#5d788c;
+	font-weight:bold;
+	line-height:120%; 
+	background-repeat:no-repeat;
+	background-position:5 4;
+	xxpadding-left:22px;
+}
+.legend_with_tabs:hover 			{ background-color:#5d788c; color:#ffffff; 	}
+.legend_with_tabs_selected 		{ background-color:#5d788c; color:#ffffff; }
+.legend_with_tabs_selected:hover { background-color:#5d788c; color:#ffffff; }
+
+
+
+.dataset_text {
+	margin:0px;
+	padding:0px;
+	border:1px solid #808080;
+	background-color:#F4F1EE;
+	font-family:Tahoma, Arial, Verdana, sans-serif;
+	font-size:11px;
+	font-weight:none;
+	text-decoration:none;
+	line-height:130%;
+	xxcolor:#565656;
+	width:100%;
+	height:22px;
+	overflow:hidden;
+	margin-bottom:5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.dataset_text div {
+	padding:4px;
+	padding-left:7px;
+}
+.dataset_text a{
+	margin:0px;
+	padding:4px;
+	float:right;
+	width:auto;
+	height:100%;
+	min-width:2px;
+	border-left:1px solid #808080; 
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:11px;
+	font-weight:none;
+	text-decoration:none;
+	line-height:100%;
+	color:#565656;
+	cursor:pointer;
+	overflow:visible;
+	padding-left:15px;
+	padding-right:1px;
+	background-image:url(/design/icons/pencil-small.png);
+	background-repeat:no-repeat;
+	background-position:1 2;
+}
+
+.dataset_textarea {
+	margin:0px;
+	padding:0px;
+	border:1px solid #808080;
+	background-color:#F4F1EE;
+	font-family:Tahoma, Arial, Verdana, sans-serif;
+	font-size:11px;
+	font-weight:none;
+	text-decoration:none;
+	line-height:130%;
+	width:100%;
+	height:70px;
+	overflow:hidden;
+	margin-bottom:5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.dataset_textarea div {
+	padding:5px;
+	height:100%;
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:auto;				
+}
+.dataset_textarea div a {
+	background:none;
+	width: auto;
+	height: auto;
+	border:0px;
+	margin:0px;
+	margin:0px;
+	float:none;
+	display:inline;
+}
+.dataset_textarea a{
+	margin:0px;
+	padding:4px;
+	float:right;
+	width:auto;
+	height:100%;
+	min-width:2px;
+	border-left:1px solid #808080; 
+	font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	font-size:11px;
+	font-weight:none;
+	text-decoration:none;
+	line-height:100%;
+	color:#565656;
+	cursor:pointer;
+	overflow:visible;
+	padding-left:15px;
+	padding-right:1px;
+	background-image:url(/design/icons/pencil-small.png);
+	background-repeat:no-repeat;
+	background-position:1 2;
+}
+.floating_box {
+	margin:0px;
+	padding:0px;
+	border:0px;
+	width:300px;
+	margin-right:20px;
+	margin-bottom:20px;
+	float:left;
+}
+.floating_box fieldset{
+	padding-right:0px;
+}
+.floating_box fieldset div{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	height:180px;
+	overflow:scroll;
+	padding-right:10px;
+	overflow-x:hidden;
+	overflow-y:scroll;				
+}
+.floating_box fieldset div input{
+	width:100%;
+}
+.floating_box fieldset div select{
+	width:100%;
+}
+.floating_box fieldset div textarea{
+	width:100%;
+}
+.floating_box fieldset div ul{
+	margin:0px;
+	border:0px;
+	padding:0px;
+	xxtext-indent:0px;
+	xxlist-style: none;
+	xxmargin-left: 0;
+	xxpadding-left: 1em;
+	xxtext-indent: -1em;
+}
+.floating_box fieldset div ul li:before {
+	xxcontent: "\00BB \0020";
+}
+.floating_box fieldset div ul li{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	xxborder-left:5px solid #5d788c;
+	border-left:5px solid #9db8cc;
+	padding-left:5px;
+	font-size:12px;
+	line-height:150%; 
+	margin-bottom:25px;
+}
+.floating_box fieldset div ul li span{
+	font-weight:bold;
+	font-size:16px;
+	font-family:Trebuchet, Trebuchet MS, Arial, sans-serif;
+	letter-spacing:-1px; 	
+}
+.floating_box fieldset div ul li input{
+	margin-top:2px;
+	float:left;
+	width:50px;
+}
+
+
+
+
+
+
+
+.WindowsTable {
+	margin:0; 
+	padding:0; 
+	border:1px solid #a0a0a0;
+	background-color: #ffffff;
+	xx-moz-border-radius: 2px;
+	xx-webkit-border-radius: 2px;
+	xxborder-radius: 2px;
+}
+.WindowsTable tbody{
+	background-color: #fffff;
+	background-image:url(/noc/design/box_bg.png);
+	background-repeat:repeat-x;
+	border:1px solid #000000;
+	margn:10px;
+	padding:10px;
+}
+.WindowsTable thead td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size: 14px;
+	white-space:nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:4px;
+	padding-bottom:4px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-left:1px solid #f0f0f0; 
+	border-right:1px solid #c0c0c0; 
+	border-bottom:1px solid #c0c0c0;
+}
+.WindowsTable thead .arrow		{
+	font-family: webdings; color: black; padding: 0; font-size: 10px;
+	height: 11px; width: 10px; overflow: hidden;
+	margin-bottom: 2; margin-top: -3; padding: 0; padding-top: 0; padding-bottom: 2;
+}
+.WindowsTable thead td h1 {color:#000000;}
+.WindowsTable thead td h2 {color:#000000;}
+.WindowsTable thead td h3 {color:#000000;}
+.WindowsTable tbody tr {background-color: #fffff;}
+.WindowsTable tbody tr:hover {background-color: #f0f0ff;}
+.WindowsTable tbody td {
+	margin:0; 
+	padding:3; 
+	padding-left:5; 
+	padding-right:5; 
+	border:0;
+	border-bottom:1px solid #f0f0f0;
+	border-left:1px solid #f0f0f0;
+	font-size: 14px;
+}
+.WindowsTable tfoot td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-family:Verdana, Arial, Sans-Serif; 
+	font-size: 12px;
+	white-space: nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-bottom:1px solid #c0c0c0;
+}
+.XXXWindowsTable tfoot {
+	background-color: #ebeadb;
+	font: normal 8pt arial;
+	white-space: nowrap; 
+	color:#000000;
+}
+.WindowsTable tfoot td input{
+	height:20;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font: normal 8pt arial;
+	white-space: nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-left:1px solid #f0f0f0; 
+	border-right:1px solid #c0c0c0; 
+	border-bottom:1px solid #c0c0c0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.FieldsTable {
+	width:100%;
+	margin:0; 
+	padding:0; 
+	border:1px solid #000000;
+	background-color: #ffffff;
+}
+.FieldsTable tbody{
+	background-color: #fffff;
+}
+.FieldsTable thead td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-size: 11px;
+	xxwhite-space:nowrap; 
+	padding-left:7px;
+	padding-right:7px;
+	padding-top:5px;
+	padding-bottom:5px;
+	line-height:130%;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-left:1px solid #f0f0f0; 
+	border-right:1px solid #c0c0c0; 
+	border-bottom:1px solid #c0c0c0;
+}
+.FieldsTable thead .arrow		{
+	font-family: webdings; color: black; padding: 0; font-size: 10px;
+	height: 11px; width: 10px; overflow: hidden;
+	margin-bottom: 2; margin-top: -3; padding: 0; padding-top: 0; padding-bottom: 2;
+}
+.FieldsTable tbody tr {background-color: #fffff;}
+.FieldsTable tbody tr:hover {background-color: #f0f0ff;}
+.FieldsTable tbody td {
+	height:20;  
+	margin:0; 
+	padding:0; 
+	border:0;
+	border-bottom:0px solid #f0f0f0;
+	border-left:1px solid #f0f0f0;
+	font-size: 11px;
+	color:#606060;
+}
+.FieldsTable tbody td input{
+	width:100%;
+	font-size: 11px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	padding:2px;
+	margin:0px;
+	border:0px;
+	background-color:transparent;
+}
+.FieldsTable tbody td select{
+	width:100%;
+	font-size: 11px;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	background-color:transparent;
+}
+.FieldsTable tbody td select option{
+	padding:2px;
+}
+.FieldsTable tfoot td {
+	height:25;  
+	background-color: #ebeadb;
+	margin:0; 
+	padding:0; 
+	border:0;
+	font-size: 11px;
+	white-space: nowrap; 
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	color:#000000;
+	border-top:1px solid #f0f0f0; 
+	border-bottom:1px solid #c0c0c0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tree_line{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	padding-bottom:2px;
+	background-image:url(/design/img/tree-line.gif);
+	background-repeat:repeat-y;
+	display:block;
+}
+.tree_line_end{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	padding-bottom:2px;
+	background-image:url(/design/img/tree-line-end.gif);
+	background-repeat:no-repeat;
+	display:block;
+}
+.tree_plus{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	padding-bottom:2px;
+	background-image:url(/design/img/tree-plus.gif);
+	background-repeat:repeat-y;
+	display:block;
+}
+.tree_plus_end{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	padding-bottom:2px;
+	background-image:url(/design/img/tree-plus-end.gif);
+	background-repeat:no-repeat;
+	display:block;
+}
+.tree_minus{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	background-image:url(/design/img/tree-minus.gif);
+	background-repeat:repeat-y;
+	display:block;
+}
+.tree_minus_end{
+	margin:0px;
+	padding:0px;
+	border:0px;
+	padding-left:20px;
+	padding-bottom:2px;
+	background-image:url(/design/img/tree-minus-end.gif);
+	background-repeat:no-repeat;
+	display:block;
+}
+.tree_box{
+	margin:px;
+	padding:0px;
+	border:0px;
+	display:block;
+}
+.tree_iframe{
+	margin:px;
+	padding:0px;
+	border:0px;
+	display:none;
+}
+
+
+
+
+.alert_box{
+	padding:0px;
+	margin:0px;
+	border:1px solid #f8d322;
+	background-color:#fff18e;
+    background-image:url(/design/img/alert_box_bg.png);
+    background-repeat:repeat-x;
+}
+.alert_box div, .alert_box_inside{
+	padding:0px;
+	border:0px;
+	margin-top:7px;
+	margin-left:10px;
+	margin-right:5px;
+	margin-bottom:7px;
+	xxpadding-left:22px;
+	xxpadding-top:0px;
+	xxcolor:#331100;
+    xxbackground-image:url(/noc/design/icons/02-35.png);
+    background-repeat:no-repeat;
+	background-position:0 3;
+}
+.alert_box_inside a {
+	xxcolor:#331100;
+}
+.alert_box div h1 {
+	font-size:15px;
+}
+.alert_box div ul {
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+	padding-left:20px;
+}
+.alert_box div ul li {
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+
+
+
+
+
+.config_select_list {
+}
+.config_select_list ul li a {
+	list-style:disc inside;
+}
+.config_select_list ul li a:hover {
+	list-style:circle inside;
+}
+.config_select_list ul {
+	list-style:circle inside;
+	padding:0px;
+}
+.config_select_list ul hr{
+	padding:0px;
+	border:0px;
+	margin:0px;
+	border-top:1px solid #f0f0f0;
+	margin-top:9px;
+	margin-bottom:5px;
+}
+
+
+
+
+.config_group {
+	padding-bottom:0px;
+	margin-bottom:20px;
+}
+.config_group div {
+	margin:0px;
+	padding:0px;
+	border:0px;
+	border-left:5px solid #9db8cc;
+	padding-left:5px;
+	margin-bottom:20px;
+	margin-right:20px;
+	width:200px;
+	height:100px;
+	float:left;
+}
+.config_group div h1 {
+	font-size:16px;
+	font-weight:bold;
+	xxline-height:150%; 
+}
+

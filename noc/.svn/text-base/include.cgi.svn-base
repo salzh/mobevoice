@@ -1,0 +1,113 @@
+#!/usr/bin/perl
+#=======================================================
+# Include for all NOC cgi files
+#=======================================================
+# here we store some common code for all NOC cgi files
+# we need some CGI only variables and also NOC session login settings
+# We have some sub not in use to delete in this file
+#=======================================================
+use CGI;
+use HTML::Template; 
+use HTTP::Request::Common qw( POST );
+use URI::Escape qw(uri_escape);
+use HTML::Template::Expr;
+use HTTP::Request::Common qw( POST );
+use CGI::Carp qw(fatalsToBrowser);
+use Carp; $SIG{ __DIE__ } = sub { Carp::confess( @_ ) };
+%app = ();
+%app_session=();
+require "/usr/local/owsline/lib/default.include.pl";
+$www_root						= "$app_root/website/www/noc/";
+$template_folder				= "$app_root/website/www/noc/design/";
+$app{users_table}				= "system_user";
+$app{users_col_id}				= "id";
+$app{users_options_table}		= "system_user_data";
+$app{session_table}				= "system_user_session";
+$app{session_cookie_k_name}		= "admk";
+$app{session_cookie_u_name}		= "admu";
+$app{session_logout_on_timeout} = 1;
+$app{session_timeout_seconds}	= 60*30*99;
+$app{session_active_service_id}	= "";
+$app{session_status}			= 0;
+$app{use_imagecheck}			= 1;
+$cgi 							= new CGI;
+%today 							= &get_today();
+%form = (); 
+foreach $form_name ($cgi->param) {
+	@form_values = $cgi->param($form_name);
+	$form_values_count = @form_values;
+	$form{$form_name} = ($form_values_count>1) ? join(",",@form_values) : $form_values[0];
+}
+%cookie							= &cookie_read(); 
+$app{session_status}			= &session_init();
+#
+# check web access permission for loged-in people
+if ($app{session_status} eq 1) {
+	unless (&active_user_permission_check("user.webaccess") eq 1) {
+		unless ($ENV{REQUEST_URI} eq "/noc/index.cgi?action=logout") {
+			&adm_error("no permission"); exit;
+		}
+	}
+}
+#
+return 1;
+#=======================================================
+
+
+sub menu_permissions_get_as_template(){
+	local(%out,$tmp,$tmp1,$tmp2);
+	$out{permission_radio_manager}		= &active_user_permission_check("radio.manager");
+	$out{permission_system_manager}		= &active_user_permission_check("system.manager");
+	$out{permission_user_manager}		= &active_user_permission_check("user.manager");
+	$out{permission_user_group_manager}	= &active_user_permission_check("user.group.manager");
+	$out{permission_user_profile}		= &active_user_permission_check("user.profile");
+	return %out;
+}
+sub adm_error(){
+	($msg) = @_;
+    %t = &menu_permissions_get_as_template();
+    $t{dic}{title}		= "Error";
+    $t{dic}{content}	= $msg."<br><br>";
+    #foreach(sort keys %ENV){ $t{dic}{content} .= "$_=$ENV{$_}<br>"; }
+    &template_print("template.html",%t);
+    exit;
+}
+
+sub radio_data_station_stream_update_radio_data_provider_id(){
+	local(%providers,%streams,$id,$url,$tmp,$sql);
+    %providers	= &database_select_as_hash("SELECT url,radio_data_provider_id FROM radio_data_provider_url");
+    %streams	= &database_select_as_hash("SELECT id,stream_url FROM radio_data_station_channel"); 
+	foreach $id (keys %streams) {
+		$url = $streams{$id};
+		$tmp = "null";
+		if (exists($providers{$url})) {
+			if ($providers{$url} ne "") {
+				$tmp = "'$providers{$url}'";
+			}
+		}
+		$sql = "update radio_data_station_channel set radio_data_provider_id=$tmp where id='$id' ";
+		&database_do($sql);
+	}
+}
+
+
+sub recalcule_past_calls_to_active_providers(){
+	local(%streams,%calls,$cid,$sid,$tmp,$sql);
+    %streams	= &database_select_as_hash("SELECT id,radio_data_provider_id FROM radio_data_station_channel");
+    %calls		= &database_select_as_hash("SELECT id,radio_data_station_channel_id  FROM radio_log_session where datetime_stop>date_sub(now(),interval 60000 day)");
+	foreach $cid (keys %calls) {
+		$sid = $calls{$cid};
+		if ($sid eq "") {next}
+		$tmp = "null";
+		if (exists($streams{$sid})) {
+			if ($streams{$sid} ne "") {
+				$tmp = "'$streams{$sid}'";
+			}
+		}
+		$sql = "update radio_log_session set radio_data_provider_id=$tmp where id='$cid' ";
+		&database_do($sql);
+	}
+    
+}
+
+

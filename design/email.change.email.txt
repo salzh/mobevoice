@@ -1,0 +1,14 @@
+Subject:ZenoFon e-mail confirmation
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+    Below find the confirmation that you need to confirm your email change.<br>
+    <br>
+    <br>
+    Confirmation code: <b>#CODE#</b><br>
+    <br>
+    <br>
+    Login to Zenofon, and then use this code on the  profile page to confirm and finalize the change.
+    </body>
+</html>

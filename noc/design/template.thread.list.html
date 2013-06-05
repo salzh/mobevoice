@@ -1,0 +1,45 @@
+<!-- 
+found = %thread_found%<br>
+id = %thread_id%<br>
+-->
+
+<img src=/design/img/thread_tip.png hspace=10 vspace=0 border=0 width=9 height=5><br>
+<div class=clear style="background-color:#EDEFF4; margin:2px; margin-top:0px; padding:4px; font-size:11px; font-family:'lucida grande',tahoma,verdana,arial,sans-serif">
+
+	<div class=clear style="float:right">
+		<button <TMPL_IF NAME="page_previous">onclick="thread_messages_get('%thread_id%','%page_previous%')"<TMPL_ELSE>Disabled readonly</TMPL_IF> >&#171;</button>
+		<select onchange="thread_messages_get('%thread_id%',this.options[this.selectedIndex].value)" >
+		<TMPL_LOOP NAME="pages">
+			<option value=%page% <TMPL_IF NAME="selected">selected</TMPL_IF>  >Page %page% of %page_max%</option>
+		</TMPL_LOOP>
+		</select>
+		<button <TMPL_IF NAME="page_next">onclick="thread_messages_get('%thread_id%','%page_next%')"<TMPL_ELSE>Disabled readonly</TMPL_IF> >&#187;</button>
+	</div>
+	
+	<button onclick="MyDisplay('thread_%thread_id%_form');">Comment</button>
+<!-- 
+ 	<a href="javascript:MyDisplay('thread_%thread_id%_form')">Comment</a><br><br>
+ -->
+ 
+	<form     		id='thread_%thread_id%_form'         style='display:none' action='#' method='post' onsubmit='return false;'>
+		<textarea	id='thread_%thread_id%_form_message' style='width:100%;height:60px;' WRAP=VIRTUAL ></textarea>
+		<input   	id='thread_%thread_id%_form_submit'  style='float:right;' type='button' value='Send message' onclick="thread_message_add('%thread_id%',document.getElementById('thread_%thread_id%_form_message').value)" />
+		<br><br>
+	</form>
+
+</div>
+
+
+<TMPL_LOOP NAME="messages">
+	<div class=clear style="line-height:120%; min-height:40px; background-color:#EDEFF4; margin:2px; padding:4px; font-size:11px; font-family:'lucida grande',tahoma,verdana,arial,sans-serif">
+		<div class=clear style="width:40px;float:left;">
+			<TMPL_IF NAME="message_user_gravatar"><img src=%message_user_gravatar% hspace=0 width=40 height=40 vspace=0 border=0 align=left style=margin-right:7px; /></TMPL_IF>
+		</div>
+		<div class=clear style="margin-left:43px;">
+			<b>%message_user_name%:</b> %message_text%<br>
+			<TMPL_IF NAME="message_can_delete"><a href="javascript:thread_messages_del('%message_id%');">[DELETE]</a></TMPL_IF>
+		</div>
+		
+	</div>
+</TMPL_LOOP>
+

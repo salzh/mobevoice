@@ -1,0 +1,214 @@
+<html ><head><title>ZenoFon - My account - Recharge by credit card</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class=clear style="width:100%;">
+		<a href=./?action=setup				title="Setup your phone service" 			class="st-item-off st-item-left"><img src=/design/img/st-1-0.png hspace=0 vspace=0 border=0><br>Setup</a>
+		<a href=./?action=profile			title="Set your name and email" 			class="st-item-off"><img src=/design/img/st-2-0.png hspace=0 vspace=0 border=0><br>Profile</a>
+		<a href=./?action=friends 			title="Invite and check your friends" 		class="st-item-off"><img src=/design/img/st-3-0.png hspace=0 vspace=0 border=0><br>Referral</a>
+		<a href=./?action=commissions 		title="See your commissions" 				class="st-item-off"><img src=/design/img/st-7-0.png hspace=0 vspace=0 border=0><br>Commissions</a>
+		<a href=./?action=calls 			title="Check your calls" 					class="st-item-off"><img src=/design/img/st-4-0.png hspace=0 vspace=0 border=0><br>Calls</a>
+		<a href=./?action=alerts 			title="Change your email notification" 		class="st-item-off"><img src=/design/img/st-5-0.png hspace=0 vspace=0 border=0><br>Notifications</a>
+		<a href=./?action=credits 			title="Your balance is $%service_credit%"	class="st-item-on"><img src=/design/img/st-6-1-%service_credits_bar%.png hspace=0 vspace=0 border=0><br>Balance</a>
+		<a href=./?action=logout	title="Log-out" 							class="st-item-off st-item-right"><img src=/design/img/st-exit.png hspace=0 vspace=0 border=0><br>Log-out</a>
+		</div>
+		<br clear=both><br><br>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- CONTENT (active)-->
+	<!-- ==================================================== -->
+	<script>
+		function cc_check_form(){
+			myform = document.forms[0]
+			if (myform.elements[0].selectedIndex < 1) 	{alert ("Please select card type"); 			myform.elements[0].focus(); return false}
+			if (myform.elements[1].value == "") 		{alert ("Please fill Card Number");				myform.elements[1].focus(); return false}
+			if (myform.elements[2].selectedIndex < 1) 	{alert ("Please select expiration month"); 		myform.elements[2].focus(); return false}
+			if (myform.elements[3].selectedIndex < 1) 	{alert ("Please select expiration year"); 		myform.elements[3].focus(); return false}
+			if (myform.elements[4].value == "") 		{alert ("Please fill Verification number");		myform.elements[4].focus(); return false}
+			if (myform.elements[5].value == "") 		{alert ("Please fill First Name");				myform.elements[5].focus(); return false}
+			if (myform.elements[6].value == "") 		{alert ("Please fill Last Name"); 				myform.elements[6].focus(); return false}
+			if (myform.elements[7].value == "") 		{alert ("Please fill Address");					myform.elements[7].focus(); return false}
+			if (myform.elements[8].value == "") 		{alert ("Please fill City"); 					myform.elements[8].focus(); return false}
+			if (myform.elements[9].selectedIndex < 1) 	{alert ("Please select State"); 				myform.elements[9].focus(); return false}
+			if (myform.elements[10].value == "") 		{alert ("Please fill ZIP"); 					myform.elements[10].focus(); return false}
+			if (myform.elements[11].selectedIndex < 2) 	{alert ("Please select value"); 				myform.elements[11].focus(); return false}
+			myform.elements[12].readonly = true;
+			myform.elements[12].disabled = true;
+			myform.elements[13].readonly = true;
+			myform.elements[13].disabled = true;
+			MyDisplay("loading_form",1);
+			return true;
+		}
+		function change_card_type(){
+			myform = document.forms[0]
+			if (myform.elements[0].selectedIndex < 1) {
+				for(i=1; i<12; i++) {
+					myform.elements[i].readonly = true;
+					myform.elements[i].disabled = true;
+				}
+			} else {
+				for(i=1; i<12; i++) {
+					myform.elements[i].readonly = false;
+					myform.elements[i].disabled = false;
+				}
+			}
+		}
+	</script>
+	<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=800><tr>
+
+		<td valign=top style="padding-right:10px;">
+			<h2>Recharge by Credit Card</h2>
+
+			<TMPL_IF NAME="recharge_disabled">
+				<br>
+				<div class=clear style="background-color:yellow; border:1px solid #c0c0c0; width:200px">
+				<div class=clear style="padding:10px">
+				<img src=/design/icons/exclamation.png width=16 height=16 align=left border=0 hspace=0 vspace=0 style=margin-top:2px;margin-right:8px;margin-bottom:40px;> Recharge is disabled for this account. <a href=/contact/>Contact customer service</a> to fix 
+				</div>
+				</div>
+			<TMPL_ELSE>
+				Enter your Credit Card information and choose the recharge value you want to purchase . For your security, ZenoFon does not store your credit card information.<br>
+			</TMPL_IF>
+
+			<br>
+		</td>
+	
+		<td valign=top width=500>
+				<form action="index.cgi" style="width:90%;" method=post onsubmit="return cc_check_form();">
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<tr>
+						<td width=30% valign=top style="padding-right:6px;" >Card Type:	<br><select onchange=change_card_type() name=cc_type style='width:100%; margin-bottom:5px;' <TMPL_IF NAME="recharge_disabled">disabled readonly</TMPL_IF> >
+							<option value=''> </option>
+							<option value=''>Amex</option>
+							<option value=''>Discovery</option>
+							<option value=''>Master Card</option>
+							<option value=''>Visa</option>
+						</select></td>
+						<td width=30% valign=top >Card Number:<br><input type=text value="" name=cc_number 	autocomplete=off style='width:100%; margin-bottom:5px;' ></td>
+						<td width=40% rowspan=3 valign=top><img src=/design/img/credit-add.png style="margin-top:18px; margin-left:13px;" hspace=0 vspace=0 border=0></td>
+						</tr>
+						<tr>
+						<td width=30% style="padding-right:6px;">Expiration date:	<br>
+							<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+							<td width=50%><select name=cc_date_1 style='width:100%; margin-bottom:5px;'><option value=''> </option><option value='01'>01</option><option value='02'>02</option><option value='03'>03</option><option value='04'>04</option><option value='05'>05</option><option value='06'>06</option><option value='07'>07</option><option value='08'>08</option><option value='09'>09</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option></select></td>
+							<td width=50%><select name=cc_date_2 style='width:100%; margin-bottom:5px;'><option value=''> </option><option value='09'>09</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option><option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option><option value='32'>32</option><option value='33'>33</option><option value='34'>34</option><option value='35'>35</option><option value='36'>36</option><option value='37'>37</option><option value='38'>38</option><option value='39'>39</option> </select></td>
+							</table>
+						</td>
+						<td width=30% >Verification number<br><input type=text value="" name=cc_code 		autocomplete=off style='width:100%; margin-bottom:5px;' ></td>
+						</tr>
+					</table>
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+						<td width=50% style="padding-right:6px;">Card First Name:		<br><input type=text value="" name=cc_fname autocomplete=off style='width:100%; margin-bottom:5px;' ></td>
+						<td width=50% 							>Card Last Name:		<br><input type=text value="" name=cc_lname autocomplete=off style='width:100%; margin-bottom:5px;' ></td>
+					</tr></table>
+					Address:<br><input type=text value="" name=address autocomplete=on style='width:100%; margin-bottom:5px;' ><br>
+					<table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+						<td width=35% style="padding-right:6px;">City:	<br><input type=text value="" name=city 	autocomplete=on style='width:100%; margin-bottom:5px;' ></td>
+						<td width=35% style="padding-right:6px;">State:	<br><select name=state style='width:100%; margin-bottom:5px;'>
+							<option value=""></option>
+							<option value="Alabama">Alabama</option>
+							<option value="Alaska">Alaska</option>
+							<option value="Arizona">Arizona</option>
+							<option value="Arkansas">Arkansas</option>
+							<option value="California">California</option>
+							<option value="Colorado">Colorado</option>
+							<option value="Connecticut">Connecticut</option>
+							<option value="Delaware">Delaware</option>
+							<option value="Florida">Florida</option>
+							<option value="Georgia">Georgia</option>
+							<option value="Hawaii">Hawaii</option>
+							<option value="Idaho">Idaho</option>
+							<option value="Illinois">Illinois</option>
+							<option value="Indiana">Indiana</option>
+							<option value="Iowa">Iowa</option>
+							<option value="Kansas">Kansas</option>
+							<option value="Kentucky">Kentucky</option>
+							<option value="Louisiana">Louisiana</option>
+							<option value="Maine">Maine</option>
+							<option value="Maryland">Maryland</option>
+							<option value="Massachusetts">Massachusetts</option>
+							<option value="Michigan">Michigan</option>
+							<option value="Minnesota">Minnesota</option>
+							<option value="Mississippi">Mississippi</option>
+							<option value="Missouri">Missouri</option>
+							<option value="Montana">Montana</option>
+							<option value="Nebraska">Nebraska</option>
+							<option value="Nevada">Nevada</option>
+							<option value="New Hampshire">New Hampshire</option>
+							<option value="New Jersey">New Jersey</option>
+							<option value="New Mexico">New Mexico</option>
+							<option value="New York">New York</option>
+							<option value="North Carolina">North Carolina</option>
+							<option value="North Dakota">North Dakota</option>
+							<option value="Ohio">Ohio</option>
+							<option value="Oklahoma">Oklahoma</option>
+							<option value="Oregon">Oregon</option>
+							<option value="Pennsylvania">Pennsylvania</option>
+							<option value="Rhode Island">Rhode Island</option>
+							<option value="South Carolina">South Carolina</option>
+							<option value="South Dakota">South Dakota</option>
+							<option value="Tennessee">Tennessee</option>
+							<option value="Texas">Texas</option>
+							<option value="Utah">Utah</option>
+							<option value="Vermont">Vermont</option>
+							<option value="Virginia">Virginia</option>
+							<option value="Washington">Washington</option>
+							<option value="West Virginia">West Virginia</option>
+							<option value="Wisconsin">Wisconsin</option>
+							<option value="Wyoming">Wyoming</option>
+						</select></td>
+						<td width=30%							>Zip:	<br><input type=text value="" name=zip		autocomplete=on style='width:100%; margin-bottom:5px;' ></td>
+					</tr></table>
+					Value:<br>
+					<select style="width:100%" name=value>
+					<option value="" >Select recharge value to buy</option>
+					<option value="" > </option>
+					<TMPL_IF NAME="enable_5_dollars"><option value=5>$5 dollars </option></TMPL_IF>
+					<TMPL_IF NAME="enable_10_dollars"><option value=10 >$10 dollars </option></TMPL_IF>
+					<TMPL_IF NAME="enable_20_dollars"><option value=20 >$20 dollars </option></TMPL_IF>
+					</select><br>
+				<br>
+
+				<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear ><tr>
+					<td>
+					<button style="padding:3px;" type=button onclick="window.location='?action=credits'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+					<button style="padding:3px;" type=submit <TMPL_IF NAME="recharge_disabled">disabled readonly</TMPL_IF>><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Recharge using my credit card</button>
+					</td>
+					<td>
+					<div id=loading_form style="Display:none; "><img hspace=10 src=/design/img/loading.gif align=left> Please wait!</div>
+					</td>
+				</tr></table>
+				<input type=hidden name=action value=credits_buy_cc>
+				<input type=hidden name=save value=1>
+				</form>
+		</td>
+		<script>change_card_type();</script>
+
+	</tr></table>
+	
+	
+	
+	
+	<TMPL_IF NAME="answer_message"><script>alert ("%answer_message%");</script></TMPL_IF>
+	<TMPL_IF NAME="answer_ok"><script>window.location="./?action=credits";</script></TMPL_IF>
+	
+	
+	
+	
+	
+	
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

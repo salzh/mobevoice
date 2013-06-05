@@ -1,0 +1,13 @@
+Subject:ZenoFon low balance alert
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>ZenoFon low balance alert</font><br>
+	<br>
+	Your new balance is $#NEW_BALANCE# and is too low.<br>
+	<br>
+	<br>
+	To stop this alerts, go your ZenoFon account page (<a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>) and change credits alerts
+    </body>
+</html>

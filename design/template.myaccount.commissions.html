@@ -1,0 +1,202 @@
+<html ><head><title>ZenoFon - My account - Calls</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-on">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-off">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+<!-- ==================================================== -->
+<!-- top message -->
+<!-- ==================================================== -->
+<TMPL_IF NAME="disabled_service_message">
+<div class=top_message><div><div>%service_message%</div></div></div>
+</TMPL_IF>
+<!-- ==================================================== -->
+	
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- CONTENT (start)-->
+	<!-- ==================================================== -->
+	<form action=%my_url% class=clear>
+	<input type=hidden name=action value=commissions>
+	<fieldset style="padding:7px; padding-top:15px; padding-bottom:10px;">
+		<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=ZenofonTable style="width:800px;" >
+		</table>
+
+		<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=ZenofonTable style="width:800px;" >
+			<thead>
+				<tr>
+				<td class=al colspan=3><h1>$%total_value% in %total_qtd% commissions</h1>
+					<select style="width:420px;" name=filter onchange="this.form.submit()">
+						<option value="">&#187; Show all commission history</option>
+						<option value="">&nbsp;</option>
+						<option value=7 <TMPL_IF NAME="form_filter_select_7">selected</TMPL_IF> >&#187; All available (not used) commissions.</option>
+						<option value=0 <TMPL_IF NAME="form_filter_select_0">selected</TMPL_IF> >&nbsp;&nbsp;&#187; Available commissions not ready yet</option>
+						<option value=1 <TMPL_IF NAME="form_filter_select_1">selected</TMPL_IF> >&nbsp;&nbsp;&#187; Available commissions transferable for phone credit</option>
+						<option value=2 <TMPL_IF NAME="form_filter_select_2">selected</TMPL_IF> >&nbsp;&nbsp;&#187; Available commissions that can be exchanged for cash</option>
+						<option value=3 <TMPL_IF NAME="form_filter_select_3">selected</TMPL_IF> >&nbsp;&nbsp;&#187; Available commissions that can be exchanged for cash or phone credit</option>
+						<option value="">&nbsp;</option>
+						<option value=6 <TMPL_IF NAME="form_filter_select_6">selected</TMPL_IF> >&#187; All past used (invoiced) commissions</option>
+						<TMPL_LOOP NAME="invoices">
+							<TMPL_IF NAME="type_is_CHECK">
+								<option value=i%id% <TMPL_IF NAME="is_form_selected">selected</TMPL_IF> >&nbsp;&nbsp;&#187;  
+ 								<TMPL_IF NAME="status_is_UNKNOWN"	>$%value% withdraw at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_OK"		>$%value% withdraw at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_REQUESTED"	>$%value% withdraw requested at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_REJECTED"	><span style=text-decoration:line-through;>$%value% withdraw REJECTED at %date%</span></TMPL_IF>
+								<TMPL_IF NAME="status_is_FAIL"		><span style=text-decoration:line-through;>$%value% withdraw FAIL at %date%</span></TMPL_IF>
+								</option>
+							</TMPL_IF>
+							<TMPL_IF NAME="type_is_CREDIT">
+								<option value=i%id% <TMPL_IF NAME="is_form_selected">selected</TMPL_IF> >&nbsp;&nbsp;&#187;  
+								<TMPL_IF NAME="status_is_UNKNOWN"	>$%value% Phone credit at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_OK"		>$%value% Phone credit at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_REQUESTED"	>$%value% Phone credit requested at %date%</TMPL_IF>
+								<TMPL_IF NAME="status_is_REJECTED"	><span style=text-decoration:line-through;>$%value% Phone credit REJECTED at %date%</span></TMPL_IF>
+								<TMPL_IF NAME="status_is_FAIL"		><span style=text-decoration:line-through;>$%value% phone credit FAIL at %date%</span></TMPL_IF>
+								</option>
+							</TMPL_IF>
+						</TMPL_LOOP>
+						<option value="">&nbsp;</option>
+					</select><br>
+					<select style="width:420px;" name=engine onchange="this.form.submit()">
+						<option value="">&#187; All commissions type</option>
+						<option value=REFERRAL_SIGNIN 		<TMPL_IF NAME="form_engine_select_REFERRAL_SIGNIN"		>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Referral sign-in"</option>
+						<option value=REFERRAL_FIRST_CALL	<TMPL_IF NAME="form_engine_select_REFERRAL_FIRST_CALL"	>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Referral first call"</option>
+						<option value=REFERRAL_RECHARGE		<TMPL_IF NAME="form_engine_select_REFERRAL_RECHARGE"	>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Referral recharge"</option>
+						<option value=REFERRAL_DIALOUT		<TMPL_IF NAME="form_engine_select_REFERRAL_DIALOUT"		>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Referral call"</option>
+						<option value=SERVICE_DIALOUT		<TMPL_IF NAME="form_engine_select_SERVICE_DIALOUT"		>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Call bonus"</option>
+						<option value=RADIO					<TMPL_IF NAME="form_engine_select_RADIO"				>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Zenofon Radio"</option>
+						<option value=MANUAL				<TMPL_IF NAME="form_engine_select_MANUAL"				>selected</TMPL_IF> >&nbsp;&nbsp;&#187; Commissions type "Manual / others"</option>
+						<option value="">&nbsp;</option>
+					</select>
+				</td>
+				<td class=al colspan=2><h1>From</h1></td>
+				<td class=al rowspan=2 style="width:90px;"><h1>Can be exchanged for</h1></td>
+				</tr>
+				<tr>
+				<td class=al width=80  >Date</td>
+				<td class=al style="border-left:0px;">Type</td>
+				<td class=al width=50  style="border-left:0px;">Value</td>
+				<td class=al width=120 >Name</td>
+				<td class=al width=70  style="border-left:0px;">Distance</td>
+				</tr>
+			</thead> 
+			<tbody > 
+				<TMPL_LOOP NAME="commissions">
+					<tr>
+					<td width=80 ><div style='height:15px; overflow:hidden;'>%date%</div></td>
+					<td ><div style='height:15px; overflow:hidden;'>
+						<TMPL_IF NAME="type_is_UNKNOWN"					>Manual commission</TMPL_IF>
+						<TMPL_IF NAME="type_is_REFERRAL_SIGNIN"			>Referral sign-in</TMPL_IF>
+						<TMPL_IF NAME="type_is_REFERRAL_FIRST_CALL"		>Referral first call</TMPL_IF>
+						<TMPL_IF NAME="type_is_REFERRAL_RECHARGE"		>Referral recharge</TMPL_IF>
+						<TMPL_IF NAME="type_is_REFERRAL_DIALOUT_DID"	>Referral call by destination</TMPL_IF>
+						<TMPL_IF NAME="type_is_REFERRAL_DIALOUT_DST"	>Referral call by origination</TMPL_IF>
+						<TMPL_IF NAME="type_is_SERVICE_DIALOUT_DID"		>Call bonus by destination</TMPL_IF>
+						<TMPL_IF NAME="type_is_SERVICE_DIALOUT_DST"		>Call bonus by origination</TMPL_IF>
+						<TMPL_IF NAME="type_is_RADIO_LISTEN"			>Listen radio</TMPL_IF>
+						<TMPL_IF NAME="type_is_RADIO_OWNER"				>Own a radio</TMPL_IF>
+						<TMPL_IF NAME="type_is_MANUAL"					>Manual commission</TMPL_IF>
+					</div></td>
+					<td width=50 class=ar>$%value%</td>
+					<td width=120 ><div style='height:15px; overflow:hidden;'>
+						<TMPL_IF NAME="from_service_found">
+							<a title='%from_service_name%'>%from_service_name%</a>
+						<TMPL_ELSE>
+							&nbsp;
+						</TMPL_IF>
+					</div></td>
+					<td width=70 ><div style='height:15px; overflow:hidden;'>
+						<TMPL_IF NAME="from_service_found">
+							<TMPL_IF NAME="deep_is_0">
+							You
+							<TMPL_ELSE>
+								<TMPL_IF NAME="deep_is_1">
+								Friend
+								<TMPL_ELSE>
+									<TMPL_IF NAME="deep_is_2">
+									Friend of friend
+									<TMPL_ELSE>
+									%deep% people away
+									</TMPL_IF>
+								</TMPL_IF>
+							</TMPL_IF>
+						<TMPL_ELSE>
+							&nbsp;
+						</TMPL_IF>
+					</div></td>
+					<td width=90 ><div style='height:15px; overflow:hidden;'>
+						<TMPL_IF NAME="is_invoiced">
+							Used
+						<TMPL_ELSE>
+							<TMPL_IF NAME="date_1_is_ok">
+								<TMPL_IF NAME="date_2_is_ok">
+								Cash or credit
+								<TMPL_ELSE>
+								Phone credit
+								</TMPL_IF>
+							<TMPL_ELSE>
+								<TMPL_IF NAME="date_2_is_ok">
+								Cash
+								<TMPL_ELSE>
+								None
+								</TMPL_IF>
+							</TMPL_IF>
+						</TMPL_IF>
+					</div></td>
+					</tr>
+				</TMPL_LOOP>
+			</tbody>
+			<tfoot>
+				<tr><td colspan=8 style=border:0px><h1>
+				<button style="float:left;" type=submit name=previous value=1><img src=/design/icons/bullet_arrow_left.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+				<select style="float:left;" name=page onchange="this.form.submit()">
+					<TMPL_LOOP NAME="pages_count">
+					<option <TMPL_IF NAME="selected">selected</TMPL_IF> value=%page% >Page: %page% of %pages_max%</option>";
+					</TMPL_LOOP>
+				</select>
+				<button style="float:left;" type=submit name=next value=1><img src=/design/icons/bullet_arrow_right.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+				&nbsp;&nbsp;
+				</h1></td></tr>
+			</tfoor>
+		</table>
+		</form>
+
+
+	</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

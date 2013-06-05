@@ -1,0 +1,13 @@
+Subject:ZenoFon no auto recharge alert
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>ZenoFon no auto recharge alert</font><br>
+	<br>
+	Your balance ($#BALANCE#) is low enough that your auto recharge settings have been triggered, but we cannot initate an auto-recharge,  because you have configured your auto-recharge below a  limit that would permit us to charge more money to your account.
+	<br>
+	<br>
+	To check you ZenoFon account, go to <a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>
+    </body>
+</html>

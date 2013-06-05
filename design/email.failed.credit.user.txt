@@ -1,0 +1,11 @@
+Subject:Credit Card Authentication Failed [Change Zenofon Pin]
+Content-Type: Text/HTML; charset=US-ASCII
+
+
+<body>
+Dear #FIRST_NAME# ,<br> <br>	
+
+	You have made an attempt to change your pin number, but failed to authenticate your credit card number.
+	<br> <br>
+	Please contact a Customer Care Executive at 917-284-9450 for help.
+</body>

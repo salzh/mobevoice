@@ -1,0 +1,303 @@
+<html ><head><title>ZenoFon - Radio </title>
+<script	src="/design/template.js"	type="text/javascript" ></script>
+<link 	href="/design/template.css"	type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20169120-1']);
+  _gaq.push(['_setDomainName', '.zenofon.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+
+
+
+<!--  ============================================= -->
+<!--  TOP PAGE START -->
+<!--  ============================================= -->
+	<style>
+	.tour-text{
+		margin:0;
+		padding:0;
+		border:0;
+		font-size:18px;
+		line-height:120%;
+		letter-spacing:-1px; 
+	}
+	.tour-text h3{
+		font-weight:Bold;
+		letter-spacing:-2px;
+		padding-bottom:5px;
+		padding-top:5px;
+		font-size:36px;
+		line-height:90%;
+	}
+	</style>
+	<script>
+	function search_radio(){
+		value = prompt("Enter the radio you want listen on the phone.");
+		document.forms[0].elements[1].value = value;
+		document.forms[0].submit();
+	}
+	function display_radio_info(extension,title){
+		MyDisplay('slide_1',0);
+		MyDisplay('slide_2',1);
+		MyHTML('slide_2_text',"Dial <b>(712)432-2380</b> now and enter extension <b>"+extension+"</b> to listen <b>"+title+"</b>");
+	}
+	</script>
+
+<body>
+	<div class=page>
+	<div class=page-content>
+
+	<div class=clear style="width:100%; height:127px; overflow:hidden; background-image:url(/design/img/page-top.png); background-repeat:no-repeat; text-align:left;">
+		<a href=http://www.zenofon.com/ Title=ZenoFon><img src=/design/img/spc.gif width=270 height=120 hspace=0 vspace=0 border=0 align=left></a>
+		<div class=clear style="float:right; width:570px; ">
+			<div class=clear style=" height:70px; overflow:hidden; padding-right:20px; text-align:right; line-height:120%;  " id=page-content-top-info>
+			</div>
+			<div class=clear style=" height:80px; overflow:hidden; padding-right:20px;" >
+			<div class="topmenu-item topmenu-item-help"			><a href=/help/ 		>Help</a></div>
+			<div class="topmenu-item topmenu-item-myaccount"	><a href=/myaccount/	>My account</a></div>
+			<div class="topmenu-item-on topmenu-item-radio-on"	><a href=/radio/ 		>Radio</a></div>
+			<div class="topmenu-item topmenu-item-phone"		><a href=/services/ 	>Phone</a></div>
+			</div>
+		</div>
+	</div>
+
+	<a name=slides_list></a>
+	<div class=clear style="width:856px; height:250px; background-image:url(/design/img/page-mid.png); background-repeat:repeat-y; overflow:hidden; background-color: #f0f0f0;">
+	<div class=clear style="margin-left:3px; margin-right:3px; height:250px; background-image:url(/design/img/tour-bkg.png);background-repeat:repeat; background-color: #DBE6E8;">
+	<div class=clear style="padding-left:20px; padding-top:10px;">
+			<div id=slide_1 class=clear style="width:800px; height:220px; overflow:hidden;">
+			<div class=clear style="padding:20px;padding-top:10;padding-bottom:0px">
+					<img src=/design/img/radio-splash.gif align=right width=255 height=203 hspace=0 vspace=0 border=0 style=margin-right:40px;>
+					<div class=tour-text style="width:400px;">
+						<h3>Listen to any Radio or Podcast from your phone</h3>
+						<div class=clear style="margin-top:10px;margin-bottom:15px;">
+						Its easy and simple. Find radio you want and get the code.
+						Dial <b>(712)432-2380</b> and enter the code to listen.<br>
+						</div>
+						<center>
+						<button type=button onclick="search_radio();" class="eyecandybutton">&#187; Find a radio to listen</button>
+						</center>
+					</div>
+			</div>
+			</div>
+	</div>
+	</div>
+	</div>
+	<div class=page-content-mid >
+	<div class=page-content-mid-internal >
+<!--  ============================================= -->
+<!--  TOP PAGE STOP -->
+<!--  ============================================= -->
+
+
+
+
+
+
+
+
+<style>
+.rate_table thead td {
+	font-size:10px;
+	line-height: 13px;
+	border-bottom:1px solid #c0c0c0;
+} 
+.rate_table tbody td {
+	font-size:10px;
+	line-height: 13px;
+	padding-bottom: 4px;
+} 
+.rate_table tbody tr:hover {background-color: #f0f0ff;}
+.search_input {
+	height:25px;
+	border-color: #5d788c; 
+	background-image:url(/design/icons/magnifier-medium.png); 
+	background-repeat:no-repeat; 
+	background-position:2 4; 
+	padding-left:20px;
+	border-right:0px;
+	float:left;
+	margin:0px;
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-radius: 5px 0px 0px 5px;
+}
+.search_submit {
+	background-color: #5d788c;
+	border-color: #5d788c;
+	border-left:0px;
+	height:25px; 
+	float:left;
+	margin:0px;
+	color:#ffffff;
+	font:normal normal 12px Trebuchet, Trebuchet MS, Arial, sans-serif; 
+	line-height:100%;
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+	-moz-border-radius: 0px 5px 5px 0px;
+	-webkit-border-radius: 0px 5px 5px 0px;
+}
+.radio_info_close{
+	height:18px; 
+	overflow:hidden; 
+	display:block;
+}
+.xxxradio_info_open{
+	height:45px; 
+	overflow:hidden; 
+	display:block;
+	padding:10px;
+	background-color:#DBE6E8;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-weight:Bold;
+	font-size:16px;
+}
+.radio_info_open{
+	font-size:14px;
+		background-color: #ff5c00;
+		display: block;
+		padding: 13px 18px 13px 18px;
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: bold;
+		line-height: 1;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		xxtext-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+		border-bottom: 1px solid rgba(0,0,0,0.25);
+		position: relative;
+		cursor: pointer;
+		margin-top:5px;
+		margin-bottom:5px;
+}
+.radio_info_open:hover{
+		color: #ffffff;
+}
+.radio_info_details{
+	font-weight:normal;
+	font-size:12px;
+	margin-left:19px;
+	margin-top:5px;
+}
+.radio_info_title{
+	xxheight:16px; 
+	xxoverflow:hidden;
+}
+</style>
+
+
+
+<form action=%my_url%#radio_list class=clear>
+
+
+<div class=clear style="width:300px; float:left">
+	<fieldset>
+		<h1><b>Find your radio</b></h1>
+		Browse or search for your radio.
+		Click in the radio to learn how to listen
+		<br><br>
+		<input name=query value="%search_query%" id=query class=search_input /><input type=submit value=search class=search_submit /> <br clear=both>
+		<br>
+		<TMPL_IF NAME="search_is_active">
+			<TMPL_IF NAME="search_not_found">
+			<div class=error_box><div class=error_box_inside>
+			No radio found for '%search_query%'.<br>Check if you type correct and try again.<br/>
+			</div></div><br>
+			</TMPL_IF>
+			<TMPL_IF NAME="search_list_overflow">
+			<div class=error_box><div class=error_box_inside>
+			Too much radios found.<br>Try add more words to narrow search
+			</div></div><br>
+			</TMPL_IF>
+		</TMPL_IF>
+		<a href=./>&#187; List all and TOP radios</a><br>
+	</fieldset>
+</div>
+
+<a name=radio_list></a>
+<div class=clear style="margin-left:330px; ">
+ 
+	<h2>Listen your radio</h2>
+	Get the code of your radio, enter the code and listen. Get the code of your radio, dial to (712)432-2380, enter the code and listen<br>
+	<br>
+
+
+	<TMPL_IF NAME="search_found">
+		<div class=clear id=radio_search>
+			<h1>Found %search_list_count% radios</h1>
+			<TMPL_LOOP NAME="search_list">
+				<a	class="radio_info_close" 
+					onclick="if (this.className == 'radio_info_open') {this.className='radio_info_close'} else {this.className='radio_info_open'}" 
+					title="Dial (712)432-2380 and enter code %extension%" 
+					href=javascript:void(); ><div class=radio_info_title>&#187; <TMPL_VAR ESCAPE=HTML NAME="title"></div>
+					<div class=radio_info_details>Dial <b>(712)432-2380</b> and enter code <b>%extension%</b></div>
+					</a>
+			</TMPL_LOOP>
+			<br>
+		</div>
+
+	<TMPL_ELSE>
+
+
+		<TMPL_IF NAME="top_radios_list_found">
+			<h1>Top radios</h1>
+			<TMPL_LOOP NAME="top_radios_list">
+				<a	class="radio_info_close" 
+					onclick="if (this.className == 'radio_info_open') {this.className='radio_info_close'} else {this.className='radio_info_open'}" 
+					title="Dial (712)432-2380 and enter code %extension%" 
+					href=javascript:void(); ><div class=radio_info_title>&#187; <TMPL_VAR ESCAPE=HTML NAME="title"></div>
+					<div class=radio_info_details>Dial <b>(712)432-2380</b> and enter code <b>%extension%</b></div>
+					</a>
+			</TMPL_LOOP>
+			<br>
+		</TMPL_IF>
+	
+	
+		<TMPL_IF NAME="radios_list_found">
+			<h1>List all radios</h1>
+			<TMPL_LOOP NAME="radios_list">
+				<a	class="radio_info_close" 
+					onclick="if (this.className == 'radio_info_open') {this.className='radio_info_close'} else {this.className='radio_info_open'}" 
+					title="Dial (712)432-2380 and enter code %extension%" 
+					href=javascript:void(); ><div class=radio_info_title>&#187; <TMPL_VAR ESCAPE=HTML NAME="title"></div>
+					<div class=radio_info_details>Dial <b>(712)432-2380</b> and enter code <b>%extension%</b></div>
+					</a>
+			</TMPL_LOOP>
+			<button style="float:left;" type=submit name=previous value=1><img src=/design/icons/bullet_arrow_left.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+			<select style="float:left;" name=page onchange="this.form.submit()">
+				<TMPL_LOOP NAME="radios_list_pages_count">
+				<option <TMPL_IF NAME="selected">selected</TMPL_IF> value=%page% >Page: %page% of %pages_max%</option>";
+				</TMPL_LOOP>
+			</select>
+			<button style="float:left;" type=submit name=next value=1><img src=/design/icons/bullet_arrow_right.png hspace=0 vspace=0 border=0 width=16 height=16></button>
+		</TMPL_IF>
+
+	</TMPL_IF>
+	
+</div>
+</form>
+<br clear=both>&nbsp;
+
+
+		
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

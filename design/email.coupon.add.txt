@@ -1,0 +1,11 @@
+Subject:You Received a FREE $1.00 Coupon From ZenoFon For Verifying A Cellphone!
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+<strong>You just received a FREE $#AMOUNT# coupon for Verifying your cellphone.</strong><br/>
+You read it right…ZenoFon will give you a FREE $1.00 Coupon just for verifying a cell phone!<br/>
+
+
+    </body>
+</html>

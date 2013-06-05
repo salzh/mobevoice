@@ -1,0 +1,16 @@
+Subject:Zenofon low balance alert - Make  your life easy with auto recharge.
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>ZenoFon low balance alert</font><br>
+	<br>
+	Your balance is only ($#BALANCE#). Soon you will use up your time.  Hopefully, you aren't in the middle of an important conversation at the time or without access to the internet.
+For your convenience, we recommend Zenofon's auto recharge plan.  With it Zenofon automatically tops up your account when you go below a certain level. 
+That way you never have to login in to Zenofon to add more credit.  Our system does it for you automatically.  You can turn it off at any time, and Zenofon charges no monthly or annual fee.
+
+
+	<br>
+	To check your Zenofon account, go to <a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a>
+    </body>
+</html>

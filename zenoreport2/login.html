@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zenoreport Login</title>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="extjs/bootstrap.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    Ext.onReady(function () {
+        var win = Ext.create("Ext.window.Window", {
+            title:'Login',
+            layout:'anchor',
+            items:[
+                {
+                    xtype:'textfield',
+                    fieldLabel:'Username',
+                    emptyText:'abc@xyz.com',
+                    id:'username'
+                },
+                {
+                    xtype:'textfield',
+                    inputType:'password',
+                    fieldLabel:'Password',
+                    id:'password'
+                }
+            ],
+            bbar:[
+                {
+                    xtype:'button',
+                    text:'Register',
+                    icon:'shared/icons/fam/add.gif',
+                    handler:function () {
+                        console.log("register")
+                    }
+                },
+                {
+                    xtype:'tbfill'
+                },
+                {
+                    xtype:'button',
+                    text:'Login',
+                    icon:'shared/icons/fam/accept.png',
+                    handler:function () {
+                        console.log("Login");
+                        Ext.getBody().mask();
+                        this.up("window").mask();
+                        var username = Ext.getCmp("username").getValue();
+                        var password = Ext.getCmp("password").getValue();
+                        Ext.Ajax.request({
+                            url:'database.php',
+                            params:{
+                                action:'login',
+                                username:username,
+                                password:password
+                            },
+                            success:function (data) {
+                                Ext.getBody().unmask();
+                                Ext.getCmp("password").up("window").unmask();
+                                data = Ext.JSON.decode(data.responseText);
+                                if (data.result == "error") {
+                                    Ext.Msg.alert("Error", "Could not Login, Please check Username And Password");
+                                } else {
+                                    Ext.Msg.alert("Success", "Logged in, Redirecting");
+                                    top.location = data.redirect;
+                                }
+                            }
+                        })
+                    }
+                }
+            ]
+        });
+        win.show();
+    });
+</script>
+</html>

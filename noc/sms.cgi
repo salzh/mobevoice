@@ -1,0 +1,169 @@
+#!/usr/bin/perl -w
+require "include.cgi";
+
+use WWW::Twilio::API;
+
+my $twilio = WWW::Twilio::API->new(AccountSid => 'ACc0d95bda6c7bed59a113a9bd5c9ce956', AuthToken  => '474e7c48ead04865d19d0be32165f2c0');
+my $from='+16466994803';
+
+#database_connect();
+my $cgi = new CGI;
+my $this_url = $cgi->url(); 
+my $tablename = "twilio_sms";
+my $tablename1 = "twilio_sms_log";
+
+if($form{'SmsSid'})				{ 	&new_sms();	exit; 	}	#receive the sms
+
+#=======================================================
+# logout if no session
+#=======================================================
+if ($app{session_status} ne 1) {cgi_redirect("index.cgi");exit;}
+if (&active_user_permission_check("noc:can_send_email") ne 1) {adm_error("no permission"); exit;}
+#=======================================================
+
+%t = ();
+if($form{'to'})		{	&send_sms();	}	#send sms on form submit
+
+&sms_form();								#display form to input number and message
+&display_sms();								#display list of received sms
+&template_print("template.html",%t);		#print the form and table in right <div>
+
+sub display_sms()
+{
+	$html=qq(<html>
+		<title>	Receive SMS  </title>
+		<style type="text/css">
+			.tab1{
+				font:17px arial,sans-serif;
+				background-color:#d0d0d0;
+				color:#0066CC;
+				width:150;
+				height:30;
+				text-align:center;		
+			}
+			.tab2:hover{
+				color:#ff0000;
+				cursor:pointer;
+				background-color:#e0e0e0; 
+			}
+			.tab2{
+				font:17px arial,sans-serif;
+				background-color:#f0f0f0;
+				color:#505050;
+				width:150;
+				height:25;
+				text-align:center;
+			}
+		</style>
+		<table  border="0" style="padding-top:20" >
+			<tr>
+				<!-- <td class="tab1"> 	SmsSid  	</td> -->
+				<!-- <td class="tab1"> 	AccountSid  </td> -->
+				<td class="tab1"> 	From 	</td>
+				<td class="tab1"> 	To 	</td>
+				<td class="tab1"> 	Message	</td>
+				<td class="tab1"> 	Date </td>
+			</tr>
+	);
+	
+	$query 			= qq(SELECT CONCAT(`date`,`from`),`from`,`to`,`body`,`date` FROM $tablename1 order by `date` DESC LIMIT 0 , 500);
+	#$query 			= qq(SELECT `date`,`from`,`to`,`body` FROM $tablename1 order by `date` DESC LIMIT 0 , 100);
+	
+	%hash = database_select_as_hash($query, "from,to,body,date");
+	
+	#for $id(sort {$hash{$b}{date} ne $hash{$a}{date}} keys %hash){
+	for $id(sort {$hash{$b}{date} cmp $hash{$a}{date} } keys %hash){
+		$html .="<tr class='tab2'><td>"
+				#.$id."</td><td>"
+				#.$id."</td><td>"
+				.$hash{$id}{from}."</td><td>"
+				.$hash{$id}{to}."</td><td>"
+				.$hash{$id}{body}."</td><td>"
+				.$hash{$id}{date}."</td></tr>";
+	}
+	$html.="</table>";
+	$t{dic}{content} .= $html;
+}
+sub send_sms()
+{
+	#@timeData = localtime(time);
+    #my $date = join(' ', @timeData);
+	my $date1 = localtime;
+    
+	my $msg="";
+ 	@people= split(/,/,$form{'to'});
+	foreach $person (@people) {
+		$person =~ s/^\s+//;
+		$person =~ s/\s+$//;
+		$msg .= "$person,";
+        my $response = $twilio->POST( 'SMS/Messages',
+									To   => $person,
+									From => $from,
+									Body => $form{'body'}
+                                    );
+    	
+		$query =  qq(INSERT INTO $tablename1 (`From`,`To`,`Body`,`sent_received`) VALUES ("$from","$person","$form{'body'}","sent"));
+		database_do_insert($query);
+	}
+	$t{dic}{content} .=qq(<script>alert("SMS Sent to $msg");</script>);
+}
+sub new_sms()
+{
+	#@timeData = localtime(time);
+    #my $date = join(' ', @timeData);
+    $date1 = localtime;
+	if($form{'To'} eq "+16464390667"){
+		%email = ();
+		$email{to} = "djebbar\@zenofon.com";
+		if($form{'debug'} eq "true"){
+			$email{to} = "parth\@zenofon.com";
+		}
+		$email{from} = "smsToEmail\@zenofon.com";
+		$email{template} = "sms.to.email";
+		$email{dic}{body} = $form{Body};
+		$email{dic}{from} = $form{From};
+		$email{dic}{to} = $form{To};		
+		&multilevel_send_email(%email);
+	}
+	$query =  qq(INSERT INTO $tablename (`SmsSid`,`AccountSid`,`From`,`To`,`Body`,`date`) VALUES ("$form{'SmsSid'}","$form{'AccountSid'}","$form{'From'}","$form{'To'}","$form{'Body'}"),"$date1");
+	database_do_insert($query);
+	
+	$query =  qq(INSERT INTO $tablename1 (`From`,`To`,`Body`,`sent_received`) VALUES ("$form{'From'}","$form{'To'}","$form{'Body'}","received"));
+    database_do_insert($query);
+}
+sub sms_form()
+{
+	$t{dic}{content} .= qq[
+	<style type="text/css">
+		.div1{	font-size:35; 
+				padding:20";
+				text-align:center;
+		}
+		.font1{
+			font-family:arial,sans-serif;
+			color:#0066CC;
+		}
+		.btn{	font:15px arial,sans-serif;	font-size:17px; width:100;
+				height:35;	color:#fff;	border-radius:4;	 background-color:#0080ff;  
+				box-shadow: 5px 5px 10px #aaa;	border:none;  zoom:80%;
+		}
+	</style>
+	<body bgcolor="#eef">
+		<div class="div1 font1">Send Free text SMS</div>
+		<hr width="50%"/>
+		<form method="post" action="$this_url" >
+				<table>
+						<tr>
+							<td><div class="font1" style="float:left">Send to:<br/>eg: +16466994803,+164...</div></td>
+							<td><textarea type="text" name="to" height="100"></textarea></td>
+						</tr>
+						<tr>	
+							<td><div class="font1" style="float:left">Message:</div></td>
+							<td><textarea type="text" name="body"></textarea></td>
+						</tr>
+				</table>
+				<input class="btn" type="submit" name="submit" value="send"/>
+		</form>
+	</body>
+	];
+}

@@ -1,0 +1,10 @@
+Subject: Call Refund Response
+Content-Type: Text/HTML; charset=US-ASCII
+
+
+<body>
+Dear #FIRST_NAME# ,<br> <br>	
+
+	#BODY#
+
+</body> 

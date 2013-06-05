@@ -1,0 +1,9 @@
+Subject:ZenoFon call alert
+
+	ZenoFon call record
+	
+	Your Zenofon account was used to dial to #DST# for #DURATION#<br>
+
+	The new account balance is $#NEW_BALANCE#<br>
+
+	To stop these alerts, login to your  Zenofon account page and change your notifications profile.

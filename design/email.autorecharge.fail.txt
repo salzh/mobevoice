@@ -1,0 +1,12 @@
+Subject:CC Auto Recharge Error
+Content-Type: Text/HTML; charset=US-ASCII
+
+
+<body>	
+A CC Recharge Failed, service id is : #SERVICE_ID#<br>
+Name:#NAME# <br>
+ANI:#ANI#<br>
+Email:#EMAIl#
+
+Balance:#BALANCE#
+</body>

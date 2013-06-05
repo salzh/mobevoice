@@ -1,0 +1,25 @@
+Subject:Welcome to Zenofon.  Here is your PIN.
+Content-Type: Text/HTML; charset=US-ASCII
+
+<html>
+    <body>
+	<font size=4>Congratulations on your new Zenofon Account!</font><br>
+	<br>
+	You have just created a new account on  Zenofon.com<br>
+Zenofon allows you to dial anywhere in the world easily and cheaply by giving you USA numbers that you can use to call forward to your international contacts, 
+so you no longer have to dial a PIN and the far end number.
+We have credited your account with a trial coupon that you can use without sharing your credit card info.  
+See the further information after you login and set up your account.
+<br>
+	<br>
+	Your can login with your e-mail and after you add it, your phone number.<br>
+	<br>
+	Your Personal Identification Number (PIN), which you need to login  is: <b>#PIN#</b><br>.  You can also login with just the last 4 digits of the PIN as well.
+	<br>
+	<br>
+	To visit your account go to: <b><a href=http://www.zenofon.com/myaccount/>http://www.zenofon.com/myaccount</a></b><br>
+	<br>
+
+	For help, FAQ or customer service go to: <b><a href=http://www.zenofon.com/help/>http://www.zenofon.com/help</a></b><br>
+    </body>
+</html>

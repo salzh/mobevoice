@@ -1,0 +1,100 @@
+.TextArea    {
+		width:505px;
+		height:65px;
+                margin-left:-1px;
+	     }
+
+.MenuTextArea{
+		width:505px;
+		height:150px;
+                margin-left:-1px;
+	     }
+
+.LangTextArea{
+		width:505px;
+		height:100px;
+                margin-left:-1px;
+	     }
+	
+.errorDiv
+	{
+	  border:0px red solid;
+	  width:500px;
+	  height:30px;
+	  padding-left:5px;
+	  padding-right:8px;
+	}
+	
+.errorText
+	{
+	     float:left;
+	     border:0px red solid;
+	}
+	
+.btnspan
+	{
+	     float:right;
+	     border:0px red solid;
+	}
+	
+.error { color:red; }	
+	
+.success { color:green; }
+	
+#header ul     {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+               }
+    
+#header li     {
+		float: left;
+		/* border: 1px solid #bbb;
+		border-bottom-width: 0; */
+		margin: 10px 2px 0 0;
+               }
+#header li a   {
+	        display:block;
+	        text-align: center;
+	        padding: 4px 8px;
+	        background:#777;
+	        color: #fff;
+	        border-radius: 5px 5px 0 0;
+	        cursor: pointer;
+                }
+#header span   {
+		text-decoration: none;
+		display: block;
+		background: #eee;
+		padding: 0.24em 1em;
+		color: #00c;
+		width: 3em;
+		text-align: center;
+                }
+	
+#content        {
+		padding: 0 1em;
+	        }
+	
+#header a:hover {
+		color: #FF5C00;
+	        background: #333333;
+	        }
+#header li a.activetab
+                { color: #FF5C00;
+	        background: #333333;
+	        }
+
+	
+#header #selected {
+		border-color: black;
+	        }
+	
+#header #selected a 
+               {
+		position: relative;
+		top: 1px;
+		background: white;
+		color: black;
+		font-weight: bold;
+	       }

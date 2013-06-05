@@ -1,0 +1,16 @@
+Subject:Error to Add New CC 
+Content-Type: Text/HTML; charset=US-ASCII
+
+
+<body>	
+A customer failed to add a new CC, service id is : #SERVICE_ID#<br>
+First Name:#FIRST_NAME# <br>
+Last Name:#LAST_NAME#<br>
+Address:#ADDRESS#<br>
+Country:#COUNTRY#<br>
+City:#CITY#<br>
+State:#STATE#<br>
+Zip:#ZIP#<br>
+Phone:#PHONE#<br>
+Refer:#REFER#
+</body>

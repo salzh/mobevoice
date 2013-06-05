@@ -1,0 +1,205 @@
+<TMPL_UNLESS NAME="search_exists">
+<!DOCTYPE html>
+<html ><head><title>ZenoFon - Help - Topic</title>
+<!--autocomplete javascript file-->
+<link href="/design/flags.css"	type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/design/jquery/jquery-ui.min.css">
+<script src="/design/jquery/jquery-1.9.1.min.js"></script>
+<script src="/design/jquery/jquery-ui.min.js"></script>
+<script src="/design/tvs_auto_complete.js"></script>
+<!--autocomplete javascript files end-->
+<TMPL_INCLUDE NAME="template.include.top.menu.0.html">
+
+
+<style>
+.rate_table thead td {
+	font-size:10px;
+	line-height: 13px;
+	border-bottom:1px solid #c0c0c0;
+} 
+.rate_table tbody td {
+	font-size:10px;
+	line-height: 13px;
+	padding-bottom: 4px;
+} 
+.rate_table tbody tr:hover {background-color: #f0f0ff;}
+.button-tour {
+	background: #ff5c00 url(/design/img/alert-overlay.png) repeat-x;
+	display: inline-block;
+	padding: 6px 15px 6px 12px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	text-align:left;
+}
+.search_input {
+	height:25px;
+	width: 300px;
+	border-color: #5d788c; 
+	background-image:url(/design/icons/magnifier-medium.png); 
+	background-repeat:no-repeat; 
+	background-position:left center; 
+	padding-left:20px;
+	float:left;
+	margin:0px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+}
+.search_submit {
+	background-color: #5d788c;
+	border-color: #5d788c;
+	border-left:0px;
+	height:25px; 
+	float:left;
+	margin:0px;
+	color:#ffffff;
+	font:normal normal 12px Trebuchet, Trebuchet MS, Arial, sans-serif; 
+	line-height:100%;
+	padding:0px;
+	padding-left:5px;
+	padding-right:5px;
+	-moz-border-radius: 0px 5px 5px 0px;
+	-webkit-border-radius: 0px 5px 5px 0px;
+}
+</style>
+
+
+
+<h3 style="font-size:48px;">Zenofon rate</h3>
+
+<div class=clear style="width:500px; float:right; margin-left:20px;">
+
+	<fieldset>
+		<h2 style="margin-bottom:5px;">Search</h2>
+	  Enter your friends number to see what we charge for each route. You can search per countries names.<br>
+		<br>
+		<form action=rate.cgi>
+        <input name=number id="number" placeholder="Search Country or Country Code" value="%number%" class=search_input /><!--<input type=submit value=search class=search_submit />-->
+		</form>
+	</fieldset>
+	<br>
+	<div id="search_result_div">
+</TMPL_UNLESS>
+
+    
+<TMPL_IF NAME="search_error">
+    <fieldset>
+        <br clear=both>
+        <div class=error_box><div class=error_box_inside>
+        No rate found for this number. Check if number is correct and try again.  try adding a "1" first if call is in USA.<br/>
+        </div></div>
+    </fieldset>
+    <br>
+</TMPL_IF>
+
+    
+    <TMPL_IF NAME="search_ok">
+    
+			<fieldset>
+				<table class=rate_table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+					<thead>
+					<tr>
+					<td ><h1 style="background-image:url(/design/icons/flags/16x11/%search_unique_country_iso%.gif); background-repeat:no-repeat; background-position:0 6; padding-left:20px;"> %number%</h1><br clear=both></td>
+					<td align=right width=70>Rate per<br>minute</td>
+					<td align=right width=70>Talk time<br>per $1</td>
+					</tr>
+					</thead>
+					<tbody>
+					<TMPL_LOOP NAME="search_rates">
+						<tr>
+						<td align=left>Route %route% (%country_iso% - %area_name%) </td>
+						<td align=right>$%rate_per_minute%</td>
+						<td align=right>%time_per_dollar%</td>
+						</tr>
+					</TMPL_LOOP>
+					</tbody>
+				</table>		</fieldset>
+			<br>
+			<!--<a href=rate.cgi>&#187; Show rate for all country</a>-->
+	<br>
+			
+	<TMPL_ELSE>
+			
+			<TMPL_LOOP NAME="country_loop">
+				<fieldset>
+					<table class=rate_table width=100% border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear>
+						<thead>
+						<tr>
+						<td ><h1 style="background-image:url(/design/icons/flags/16x11/%country_iso%.gif); background-repeat:no-repeat; background-position:0 6; padding-left:20px;"> %country_name% (%country_codes%)</h1><br clear=both></td>
+						<td align=right width=70>Rate per<br>minute</td>
+						<td align=right width=70>Talk time<br>per $1</td>
+						</tr>
+						</thead>
+						<tbody>
+						<TMPL_LOOP NAME="areacode_loop">
+							<tr>
+							<td align=left>%area_name%</td>
+							<td align=right>$%rate_per_minute%</td>
+							<td align=right>%time_per_dollar%</td>
+							</tr>
+						</TMPL_LOOP>
+						</tbody>
+					</table>
+				</fieldset>
+				<br>
+			</TMPL_LOOP>
+	
+	</TMPL_IF>
+<TMPL_UNLESS NAME="search_exists">
+    </div>
+</div>
+
+&#187; No connection fees.<br>
+&#187; No monthly fees.<br>
+&#187; 3 different rate choices.<br>
+&#187; Change rates easily and quickly.<br>
+&#187; Always get through.<br>
+&#187; Choose lower costs or highest quality.<br>
+<br>
+<form action=/>
+<button type=submit class="button-tour">Back to first page.</button>
+</form>
+<br clear=both>
+
+
+<script>document.forms[0].elements[0].focus();</script>
+
+<!--  
+number_user_input = %number_user_input%<br>
+number_status = %number_status%<br>
+number_e164 = %number_e164%<br>
+number_country = %number_country%<br>
+number = %number%<br>
+search_exists = %search_exists%<br>
+search_ok = %search_ok%<br>
+search_error = %search_error%<br>
+search_error_no_rate_found = %search_error_no_rate_found%<br>
+search_error_bad_format = %search_error_bad_format%<br>
+search_unique_country_code = %search_unique_country_code%<br>
+search_unique_country_iso = %search_unique_country_iso%<br>
+search_unique_country_name = %search_unique_country_name%<br>
+<TMPL_LOOP NAME="search_rates">
+	<hr>
+	route: %route%/%route_name%<br>
+	rate: /%rate_id%/%rate_name%<br>
+	country: %country_code%/%country_iso%/%country_name%<br>
+	area: %area_code%/%area_name%<br>
+	rate: %rate_per_minute%/%time_per_dollar%<br>
+</TMPL_LOOP>
+</fieldset><br>
+ -->
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>
+</TMPL_UNLESS>

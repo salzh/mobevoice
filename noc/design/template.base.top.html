@@ -1,0 +1,153 @@
+<html>
+    <head>
+		<title>Zenofon NOC - %PAGE_TITLE%</title>
+		<link 	href=/noc/design/template.css 								type=text/css			rel=stylesheet media=all  title=win2k-1 />
+		<link	href="/noc/design/modalwindow/windowfiles/dhtmlwindow.css" 	type="text/css"			rel="stylesheet" />
+		<link 	href="/noc/design/modalwindow/modalfiles/modal.css" 		type="text/css"			rel="stylesheet" />
+		<link 	href="/noc/design/sms_syntax.css" 		                    type="text/css"			rel="stylesheet" />
+        <script	src="/noc/design/jquery.js"									type="text/javascript"	></script>
+		<script	src="/noc/design/modalwindow/windowfiles/dhtmlwindow.js"	type="text/javascript"	></script>
+		<script src="/noc/design/modalwindow/modalfiles/modal.js" 			type="text/javascript"	></script>
+		<script src="/noc/design/template.js"								type="text/javascript"	></script>
+		<script src="/noc/design/tablesort.js"								type="text/javascript"	></script>
+        <script	src="/noc/design/sms_services.js"						    type="text/javascript"	></script>
+		<script	src="/noc/design/sms_refund_ajax.js"						type="text/javascript"></script>
+		<script	src="/noc/design/messages.js"						        type="text/javascript"></script>
+		
+		<!--For Tinymce-->
+		<script	src="/noc/design/tinymce/jscripts/tiny_mce/tiny_mce.js"     type="text/javascript"></script>
+		<script	src="/noc/design/tinymce/sms_help.js"                       type="text/javascript"></script>
+		
+		<!--For JQGRID-->
+		<link rel="stylesheet" href="design/css/ui.jqgrid.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="design/css/jquery-ui-1.8.2.custom.css" type="text/css" media="all" />
+
+		<script src="design/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+		<script src="design/js/grid.locale-en.js" type="text/javascript"></script>
+		<script src="design/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+		<script src="design/js/jquery.layout.js" type="text/javascript"></script>
+		
+		<script>
+			modal_id = null;
+			function modal_open(title,url,x,y)	{ modal_id = dhtmlmodal.open(title, "iframe", url, title, 'width='+x+'px,height='+y+'px,center=1,resize=0,scrolling=0');	}
+			function modal_close()				{ modal_id.hide();		}
+			function modal_parent_reload()		{ location.reload();	}
+		</script>
+		%SCRIPTS%
+    </head>
+    <body style="text-align:center;">
+	<div id="loading_message" style="display:none;"><center><br><br><img src=/noc/design/loading.gif><br>loading...</img></center></div>
+
+
+	<style>
+	.zenofon_top_menu{width:100%; height:47px; margin:0; padding:0px; border:0px; text-align:left; background-color:#222222; color:#ffffff; }
+	.zenofon_top_menu_title {float:left; margin-top:5px; margin-left:10px; margin-right:30px; font:normal bold 28px Trebuchet, Trebuchet MS, Arial, sans-serif; letter-spacing:-1px; color:#bbbbbb; }
+	.zenofon_top_menu_item { background-color: #333333; border: 1px solid #393939; border-radius: 2px 2px 2px 2px; color: #bbbbbb; display: block; float: left; font: 12px Arial,sans-serif; margin: 10px 10px 0 0; padding: 5px; padding-left: 15px; padding-right: 15px; width: auto; }
+	.zenofon_top_menu_item a:hover { color: #bbbbbb; text-decoration: none; }
+	.zenofon_top_menu_item a {color: #393939;text-decoration: none;}
+	.zenofon_top_menu_item_selected {background-color: #ffffff; border-color: #393939; color:#333333;}
+	</style>
+	<div class=zenofon_top_menu >
+		<div class=zenofon_top_menu_title>ZenoFon panel</div>
+                <a target=_top class="zenofon_top_menu_item" href=https://work.zenofon.com/>Work</a>
+                <a target=_top class="zenofon_top_menu_item" href=https://wiki.zenofon.com/>Wiki</a>
+		<a target=_top class="zenofon_top_menu_item" href=https://www.zenoradio.com/noc/>Radio service</a> 
+		<a target=_top class="zenofon_top_menu_item zenofon_top_menu_item_selected" href=https://www.zenofon.com/noc/>Call service</a> 
+                <a target=_top class="zenofon_top_menu_item" href=https://tools.zenofon.com/>Other tools</a>
+	</div>
+
+
+	<div style="width:200px; float:left; text-align:left;">
+	<div style="padding-left:10px; padding-top:20px;">
+		<h1 style="background-image:url(/noc/design/icons/phone.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">Services</h1>
+		<div style="padding-left:10px;">
+			<a target=_top href="/noc/services.cgi"				>&#187; Search services</a><br>
+			<a target=_top href="/noc/services.cgi?remember=1"	>&#187; Remember last search</a><br>
+		</div>
+		<br>
+		<h1 style="background-image:url(/noc/design/icons/wrench--exclamation.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">Settings</h1>
+		<div style="padding-left:10px;">
+			<a target=_top href="config.cgi?action=service_status_matrix"	>&#187; Status and permissions</a><br>
+			<a target=_top href="config.cgi?action=agestatus_list"			>&#187; Services age status</a><br>
+			<a target=_top href="rate.cgi"									>&#187; Calls rates and routes</a><br>
+			<a target=_top href="config.cgi?action=commissions"				>&#187; Commissions type</a> <a target=_top href="config.cgi?action=commissions_OLD">(old)</a><br>
+			<a target=_top href="commission.checks.cgi"						>&#187; Commissions checks</a><br>
+			<a target=_top href="config.cgi?action=coupons_list"			>&#187; Promotions and coupons</a><br>
+			<a target=_top href="config.cgi?action=tmp_dst_block"			>&#187; Temporary DST block</a><br>
+			<a target=_top href="config.cgi?action=suspicious_ips"			>&#187; Suspicious ips</a><br>
+			<a target=_top onclick="alert('Under construction')" href=# 	>&#187; Banned credit cards</a><br>
+ 			<a target=_top href="email.aliases.cgi"							>&#187; ZenoFon email map</a><br>
+ 			<a target=_top href="email.edit.cgi"							>&#187; Automatic email messages</a><br>
+			<a target=_top href="email.send.cgi"							>&#187; Send mass email</a><br>
+			<a target=_top href="website.help.cgi"							>&#187; Website help</a><br>
+			<a target=_top href="website.pages.cgi"							>&#187; Website pages</a><br>
+			<a target=_top href="rateemail.send.cgi"                        >&#187; Mass Mail New Rates</a><br>
+			<a target=_top href="ani.add.cgi"                               >&#187; Bulk ANI Registration</a><br>
+			<a target=_top href="call_refund.cgi"                           >&#187; Call Refund - WEB</a><br>
+			<a target=_top href="email.test.cgi"                            >&#187; Test Email</a><br>
+			<a target=_top href="sms.cgi"                        			>&#187; Test SMS</a><br>
+			<a target=_top href="http://news.zenofon.com/wp-login.php"	    >&#187; Zenofon News</a><br>
+		</div> 
+		<br>
+		<h1 style="background-image:url(/noc/design/icons/table-sheet.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">Reports</h1>
+		<div style="padding-left:10px;">
+			<a target=_top href="reports.cgi?action=calls_now"					>&#187; Calls sessions now</a><br>
+			<a target=_top href="reports.cgi?action=calls_overview"				>&#187; Calls overview</a><br>
+			<a target=_top href="reports.cgi?action=calls_error"				>&#187; Calls error</a><br>
+			<a target=_top href="reports.cgi?action=calls_country"				>&#187; Calls per country</a><br>
+			<a target=_top href="reports.cgi?action=calls_route"                >&#187; Calls per route</a><br>			
+			<a target=_top href="reports.cgi?action=calls_cdr"					>&#187; Calls CDR</a><br>
+			<a target=_top href="reports.cgi?action=history_log&display=list"	>&#187; Actions now</a><br>
+			<a target=_top href="reports.cgi?action=history_log"				>&#187; Actions overview</a><br>
+			<a target=_top href="reports.cgi?action=services_overview"			>&#187; Services recharges</a><br>
+			<a target=_top href="reports.cgi?action=commission_contest"			>&#187; Commission contest</a><br>
+		</div>
+		<br>
+		<h1 style="background-image:url(/noc/design/icons/user.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">SMS Services</h1>
+		<div style="padding-left:10px;">
+		<a target=_top href="/noc/sms_services.cgi?action=sms_refund"	    >&#187; Call refund</a><br>
+		<a target=_top href="/noc/sms_services.cgi?action=sms_log"			>&#187; SMS Log</a><br>
+		<a target=_top href="/noc/sms_help.cgi?action=sms_help"             >&#187; SMS Help Page</a><br>
+		</div>
+		<br>
+		<h1 style="background-image:url(/noc/design/icons/user.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">SMS-Change Syntax</h1>
+		<div style="padding-left:10px;">
+		<a target=_top href="/noc/sms_services.cgi?action=add_new"			>&#187; Change SMS Syntax </a><br>
+		<a target=_top href="/noc/messages.cgi?action=menu"			        >&#187; Menu</a><br>
+		<a target=_top href="/noc/messages.cgi?action=mute_unmute"			>&#187; Mute Unmute</a><br>
+		<a target=_top href="/noc/messages.cgi?action=reroute"			    >&#187; Reroute</a><br>
+		<a target=_top href="/noc/messages.cgi?action=add_contact"			>&#187; Add New Contact</a><br>
+		<a target=_top href="/noc/messages.cgi?action=refer"			    >&#187; Refer Friend</a><br>
+		<a target=_top href="/noc/messages.cgi?action=automated_msg"	    >&nbsp&nbsp&nbsp&#187; Automated Message</a><br>
+		<a target=_top href="/noc/messages.cgi?action=help"			        >&#187; Help</a><br>
+		<a target=_top href="/noc/messages.cgi?action=language"			    >&#187; Select Language</a><br>
+		<a target=_top href="/noc/messages.cgi?action=reroute_last_call"	>&#187; Reroute Last Call</a><br>
+		<a target=_top href="/noc/messages.cgi?action=last_call"	        >&#187; Last Call</a><br>
+		<a target=_top href="/noc/messages.cgi?action=call_history"	        >&#187; Call History</a><br>
+		<a target=_top href="/noc/messages.cgi?action=add_ani"			    >&#187; Add Ani</a><br>
+		<a target=_top href="/noc/messages.cgi?action=pin_info"			    >&#187; PIN Information</a><br>
+		<a target=_top href="/noc/messages.cgi?action=refund"			    >&#187; Refund</a><br>
+		<a target=_top href="/noc/messages.cgi?action=search"			    >&#187; Search</a><br>
+		<a target=_top href="/noc/messages.cgi?action=delete"			    >&#187; Delete</a><br>
+		<a target=_top href="/noc/messages.cgi?action=forward"			    >&#187; Forward</a><br>
+		<a target=_top href="/noc/messages.cgi?action=general_message"	    >&#187; General Message</a><br>
+		</div>
+		<br>
+		<h1 style="background-image:url(/noc/design/icons/user.png); background-repeat:no-repeat; padding-left:20px; background-position:0 3;">Your account</h1>
+		<div style="padding-left:10px;">
+			<a target=_top href="index.cgi?action=profile"			>&#187; Profile</a><br>
+			<a target=_top href="login.cgi"			>&#187; Login Management</a><br>
+			<a target=_top href="login.cgi?action=perm_matrix"			>&#187; Login Permissions</a><br>
+			<a target=_top href=index.cgi?action=logout onclick="return confirm('Do you really want log-out?');"	>&#187; Log-out</a><br>
+		</div>
+	</div>
+	</div>
+
+
+
+
+
+	
+
+
+	

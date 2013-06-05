@@ -1,0 +1,135 @@
+<html ><head><title>ZenoFon - My account - Coupons</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+<!-- ==================================================== -->
+<!-- MENU TAB (start)-->
+<!-- ==================================================== -->
+<div class="st-box" >
+<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>Royalties</a>
+<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+<br clear=both>
+</div>
+<!-- ==================================================== -->
+<!-- MENU TAB (stop)-->
+<!-- ==================================================== -->
+
+
+<!-- ==================================================== -->
+
+<!-- top message -->
+
+<!-- ==================================================== -->
+
+<TMPL_IF NAME="coupon_to_assign_was_assigned">
+
+<div class=top_message><div><div><b>Congratulations!</b> You are eligible for $10 FREE</div></div></div>
+
+</TMPL_IF>
+
+<!-- ==================================================== -->
+
+
+
+
+
+
+<table width=100%>
+	<td valign=top width=55%>
+		<h2>Zenofon Promotions</h2>
+		Zenofon often runs promotions to show our customer appreciation and to get people to try Zenofon.
+		Below find a list of our promotions your account has utilized:
+		<br>
+		<br>
+		<fieldset style="padding:7px;">
+			<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=ZenofonTable width=100% >
+			<thead>
+			<tr>
+			<td class=al style="border-left:0px;">Date and time</td>
+			<td class=al >Promotion</td>
+			<td class=al >Status</td>
+			</tr>
+			</thead>
+			<tbody > 
+			%coupons_list%
+			</tbody>
+			</table>
+		</fieldset>
+	</td>
+	<td >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td valign=top width=45%>
+		<TMPL_IF NAME="coupon_to_assign_found">
+			<h2>Free Promotion</h2>
+			You are eligible for a free coupon! Follow the instructions below to enroll:
+			<br>
+			<br>
+
+			<fieldset style="padding:10px;padding-top:5px;">
+				<table>
+				<td valign=top><img src=/design/icons/coupon.png align=left hspace=2 vspace=8 border=0></td>
+				<td valign=top>
+				%coupon_to_assign_msg_in_stock%
+				</td>
+				</table>
+			</fieldset>
+			<br>
+			
+			<style>
+			.local_item {
+				padding:0px;
+				margin:0px;
+				border:0px;
+				background-image:url(/design/icons/bullet-green.png);
+				background-repeat:no-repeat;
+				background-position:0 8;
+				padding-left:18px;
+				padding-bottom:5px;
+				padding-top:5px;
+			}
+			.local_item h1 {
+				font-size:16px;
+			}
+			</style>
+			<div class=clear style="width:300px;margin-top:5px;margin-bottom:10px;padding-left:20px;">
+				<h1>There are two steps to redeem this promotion:</h1><br>
+				<TMPL_IF NAME="coupon_to_assign_pre_requisite_1"><TMPL_ELSE>
+				<div class=local_item style="background-image:url(/design/icons/cross.png);"><h1>Limited time promotion</h1>This promotion is time sensitive. Make sure to complete all items below.</div>
+				</TMPL_IF>
+				<TMPL_IF NAME="coupon_to_assign_pre_requisite_2"><TMPL_ELSE>
+				<div class=local_item style="background-image:url(/design/icons/cross.png);"><h1>Only for new clients</h1>As a new Zenofon client you are eligible for this promotion.</div>
+				</TMPL_IF>
+				<div class=local_item style="background-image:url(/design/icons/<TMPL_IF NAME="coupon_to_assign_pre_requisite_3">tick.png<TMPL_ELSE>cross.png</TMPL_IF>);"><h1>Create a Credit Card Profile </h1> Store your credit card with us by clicking here. <a href=/myaccount/?action=profile&show_cc_profile=1>(enroll now)</a></div>
+				<div class=local_item style="background-image:url(/design/icons/<TMPL_IF NAME="coupon_to_assign_pre_requisite_5">tick.png<TMPL_ELSE>cross.png</TMPL_IF>);"><h1>Enable auto-recharge</h1>You must enable auto-recharge to redeem this promotion. <a href=/myaccount/?action=credits_buy_cim_automatic>(enable auto-recharge now)</a></div>
+		                <div class=local_item style="background-image:url(/design/icons/<TMPL_IF NAME="coupon_to_assign_pre_requisite_4">tick.png<TMPL_ELSE>cross.png</TMPL_IF>);"><h1>One Coupon per Account</h1>Zenofon limits this promotion to one per credit card and/or account.  Other restrictions may apply.</div>
+<br>	
+				<TMPL_IF NAME="coupon_to_assign_ok_to_assign">
+					<form action=%my_url%>
+					<button style="padding:3px;" type=button onclick="window.location='?action=credits'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+					<button style="padding:3px;"><img src=/design/icons/coupon.png align=left style=margin-right:2px;>Get this promotion</button>
+					<input type=hidden name=action value=coupons>
+					<input type=hidden name=assign value=1>
+					</form>
+				<TMPL_ELSE>
+					<form action=%my_url%>
+					<button style="padding:3px;" type=button onclick="window.location='?action=credits'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+					<button readonly disabled style=padding:3px;><img src=/design/icons/coupon.png align=left style=margin-right:2px;>Get this promotion</button>
+					<input type=hidden name=action value=coupons>
+					<input type=hidden name=assign value=1>
+					</form>
+				</TMPL_IF>
+
+			</div>
+		</TMPL_IF>
+	</td>
+</table>
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

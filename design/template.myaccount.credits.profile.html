@@ -1,0 +1,261 @@
+<html ><head><title>ZenoFon - My account - Payment profile</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+
+	<style>
+	.local_error {
+		border:2px solid red;
+	}
+	</style>
+	<script>
+	function action_form_check(){
+		MyDisplay('form_load',1);
+		MyDisplay('form_error',0);
+		MyDisplay('form_ok',0);
+		MyDisplay('form_alert',0);
+		button = document.getElementById("button_cancel");	if (button) {button.readOnly = true; button.disabled = true; }
+		button = document.getElementById("button_del");		if (button) {button.readOnly = true; button.disabled = true; }
+		button = document.getElementById("button_save");	if (button) {button.readOnly = true; button.disabled = true; }
+		return true;
+	}
+	</script>
+
+
+
+	<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100%><tr>
+		<td valign=top>
+			<h3>Payment profile</h3>
+			Payment profile hold your payment information, such credit card info, billing name, billing address. 
+			Each billing function in your account use this information.
+			<br> 
+			<br>
+			
+			<form action="index.cgi" id=payment_form method=post onsubmit="return action_form_check();">
+
+				<div class=clear style="margin-left:30px;">
+				<div class=clear style="width:390px;">
+						<table border=0 colspan=0 cellpadding=5 cellspacing=0 class=clear>
+							<tr>
+							<td width=100>Payment Type:</td>
+							<td width=200><select style="width:100%; height:32px; padding:5px;" <TMPL_IF NAME="status_code_is_101">class=local_error</TMPL_IF> id=profile_type 	name=profile_type>
+									<option value=''>... Select payment type ...</option>
+									<option value=''> </option>
+									<option %profile_type_select_amex% 		value='amex'		>Credit card - Amex </option>
+									<option %profile_type_select_discovery% value='discovery'	>Credit card - Discovery </option>
+									<option %profile_type_select_master% 	value='master'		>Credit card - Master Card </option>
+									<option %profile_type_select_visa% 		value='visa'		>Credit card - Visa</option>
+									<option value=''> </option>
+								</select>
+							</td>
+							</tr>
+						</table>
+
+						<div id=info_cc >
+							<hr color=#e0e0e0 size=1 noshade width=350 align=left>
+							<table border=0 colspan=0 cellpadding=5 cellspacing=0 class=clear>
+								<tr><td width=100	>Card number:	</td><td width=200	><input style='width:200px;' <TMPL_IF NAME="status_code_is_102">class=local_error</TMPL_IF> type=text value="%cc_number%" id=cc_number name=cc_number autocomplete=off ></td></tr>
+								<tr>
+								<td >Card Date:</td>
+								<td >
+									<table  border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear><tr>
+									<td width=50  style="padding-right:5px;"	><select <TMPL_IF NAME="status_code_is_103">class=local_error</TMPL_IF> id=cc_date_1 name=cc_date_1 style='width:100%;'><option value=''> </option><option %cc_date_1_select_01%	value='01'>01</option><option %cc_date_1_select_02%	value='02'>02</option><option %cc_date_1_select_03%	value='03'>03</option><option %cc_date_1_select_04%	value='04'>04</option><option %cc_date_1_select_05%	value='05'>05</option><option %cc_date_1_select_06%	value='06'>06</option><option %cc_date_1_select_07%	value='07'>07</option><option %cc_date_1_select_08%	value='08'>08</option><option %cc_date_1_select_09%	value='09'>09</option><option %cc_date_1_select_10%	value='10'>10</option><option %cc_date_1_select_11%	value='11'>11</option><option %cc_date_1_select_12%	value='12'>12</option></select></td>
+									<td width=70 								><select <TMPL_IF NAME="status_code_is_103">class=local_error</TMPL_IF> id=cc_date_2 name=cc_date_2 style='width:100%;'><option value=''> </option><option %cc_date_2_select_09%	value='09'>2009</option><option %cc_date_2_select_10%	value='10'>2010</option><option %cc_date_2_select_11%	value='11'>2011</option><option %cc_date_2_select_12%	value='12'>2012</option><option %cc_date_2_select_13%	value='13'>2013</option><option %cc_date_2_select_14%	value='14'>2014</option><option %cc_date_2_select_15%	value='15'>2015</option><option %cc_date_2_select_16%	value='16'>2016</option><option %cc_date_2_select_17%	value='17'>2017</option><option %cc_date_2_select_18%	value='18'>2018</option><option %cc_date_2_select_19%	value='19'>2019</option><option %cc_date_2_select_20%	value='20'>2020</option><option %cc_date_2_select_21%	value='21'>2021</option><option %cc_date_2_select_22%	value='22'>2022</option><option %cc_date_2_select_23%	value='23'>2023</option><option %cc_date_2_select_24%	value='24'>2024</option><option %cc_date_2_select_25%	value='25'>2025</option><option %cc_date_2_select_26%	value='26'>2026</option><option %cc_date_2_select_27%	value='27'>2027</option><option %cc_date_2_select_28%	value='28'>2028</option><option %cc_date_2_select_29%	value='29'>2029</option><option %cc_date_2_select_30%	value='30'>2030</option><option %cc_date_2_select_31%	value='31'>2031</option><option %cc_date_2_select_32%	value='32'>2032</option><option %cc_date_2_select_33%	value='33'>2033</option><option %cc_date_2_select_34%	value='34'>2034</option><option %cc_date_2_select_35%	value='35'>2035</option><option %cc_date_2_select_36%	value='36'>2036</option><option %cc_date_2_select_37%	value='37'>2037</option><option %cc_date_2_select_38%	value='38'>2038</option><option %cc_date_2_select_39%	value='39'>2039</option></select></td>
+									</tr></table>
+								</td>
+								</tr>
+								<tr><td 			>Card security:	</td><td 			><input <TMPL_IF NAME="status_code_is_104">class=local_error</TMPL_IF> 		style='width:50px;'  type=text value="%cc_code%" 			id=cc_code			name=cc_code 			autocomplete=off >
+									<span style="background-image:url(/design/img/card-ccv.gif); background-repeat:no-repeat; color:#c0c0c0; padding-left:32px; font-size:11px; margin-left:5px; background-position:0px 0px; letter-spacing:-1px; xxpadding-bottom:20px;">3 or 4 digits</span></td></tr>
+								<tr><td 			>First name:	</td><td 			><input <TMPL_IF NAME="status_code_is_105">class=local_error</TMPL_IF>	style='width:200px;' type=text value="%cc_first_name%" 		id=cc_first_name	name=cc_first_name 		autocomplete=off ></td></tr>
+								<tr><td 			>Last name:		</td><td 			><input <TMPL_IF NAME="status_code_is_106">class=local_error</TMPL_IF>	style='width:200px;' type=text value="%cc_last_name%" 		id=cc_last_name		name=cc_last_name		autocomplete=off ></td></tr>
+							</table>
+						</div>
+
+
+						<div id=info_contact >
+							<hr color=#e0e0e0 size=1 noshade width=350 align=left>
+							<table border=0 colspan=0 cellpadding=5 cellspacing=0 class=clear>
+								<tr>
+									<td width=100	valign=top >
+										Phone number:
+									</td>
+									<td width=200	>
+										<input style='width:100px;' 
+											<TMPL_IF NAME="status_code_is_111">class=local_error</TMPL_IF> 
+											<TMPL_IF NAME="status_code_is_1111">class=local_error</TMPL_IF> 
+											<TMPL_IF NAME="status_code_is_1112">class=local_error</TMPL_IF> 
+											<TMPL_IF NAME="status_code_is_1113">class=local_error</TMPL_IF> 
+											<TMPL_IF NAME="status_code_is_1114">class=local_error</TMPL_IF> 
+											type=text 
+											value="%contact_number%" 	
+											id=contact_number	
+											name=contact_number 	
+											autocomplete=off 
+											>
+												<div class=clear id=ani_confirmation_box style=display:none;>
+													<div class=alert_box style="margin:0px; margin-top:5px; width:230px;">
+													<div class=alert_box_inside style="background:none; padding:3px; font-size:10px; line-height:110%;">
+													<span style="font-weight:bold;font-size:12; line-height:150%;">Is this your number?</span><br>
+													For verification purposes the Zenofon robot will call you and recite a 4 digit confirmation code to confirm. 
+													Please follow 2 steps instructions bellow.<br>
+													<br>
+
+													<b>1 &#187;</b> <a href="javascript:void();" onclick="document.getElementById('contact_number_action').value='code_create'; document.forms[0].submit();">Click here</a> then The Zenofon robot will call you and tell you a secret code.<br>
+													<br>
+													<b>2 &#187;</b> Wait for the call, answer the phone, type the confirmation code the Robot recites into the empty field below, and finish by clicking "Enroll your payment profile".<br>
+													<br>
+													<input type=text value="" 	<TMPL_IF NAME="status_code_is_112">class=local_error</TMPL_IF> <TMPL_IF NAME="status_code_is_11">class=local_error</TMPL_IF> id=contact_number_code		name=contact_number_code	autocomplete=off style='width:100px;' ><br>
+													<input type=hidden value="" id=contact_number_action	name=contact_number_action	>
+													<input type=hidden value="" id=contact_number_button	name=contact_number_button	> <!-- Dummy! just to do not breake javascript numbers -->
+													</div>
+													</div>
+													<br>
+												</div>
+									</td>
+								</tr>
+								<tr><td 			>Address:		</td><td 			><input <TMPL_IF NAME="status_code_is_107"	>class=local_error</TMPL_IF> style='width:200px;' type=text value="%contact_address%" 	id=contact_address	name=contact_address	autocomplete=off ></td></tr>
+								<tr><td 			>Country:		</td><td 			><input <TMPL_IF NAME="status_code_is_113"	>class=local_error</TMPL_IF> style='width:100px;' type=text value="%contact_country%" 	id=contact_country	name=contact_country	autocomplete=off ></td></tr>
+								<tr><td 			>City:			</td><td 			><input <TMPL_IF NAME="status_code_is_108"	>class=local_error</TMPL_IF> style='width:100px;' type=text value="%contact_city%" 		id=contact_city		name=contact_city		autocomplete=off ></td></tr>
+								<tr><td		 		>State:			</td><td 			><input <TMPL_IF NAME="status_code_is_109"	>class=local_error</TMPL_IF> style='width:100px;' type=text value="%contact_state%" 	id=contact_state	name=contact_state		autocomplete=off ></td></tr>
+								<tr><td 			>Zip:			</td><td 			><input <TMPL_IF NAME="status_code_is_110"	>class=local_error</TMPL_IF> style='width:100px;' type=text value="%contact_zip%" 		id=contact_zip		name=contact_zip		autocomplete=off ></td></tr>
+							</table>
+						</div>
+
+				</div>
+				</div>
+				<br>
+
+
+				<TMPL_IF NAME="status_is_error">
+					<div id=form_error>
+						<div class=error_box ><div class=error_box_inside>
+						<font color=red><b>I cannot save:</b></font> 
+						<TMPL_IF NAME="status_code_is_11"	>Please check your confirmation code. Remember for each new phone number you enter, you need a new confirmation code. Ask your confirmation code again to make sure.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_21"	>I cannot delete. Try again in few minutes</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_22"	>I cannot delete because auto recharge is enabled for your payment profile. Please disable <a href=./?action=credits_buy_cim_automatic>auto recharge</a> before delete your payment profile</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_99"	>You cannot erase your payment profile. Try again later.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_100"	>You cannot edit payment profile. Try delete payment profile and re-enroll</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_101"	>Incorrect payment type</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_102"	>Empty card number</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_103"	>Empty card date</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_104"	>Empty card security</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_105"	>Empty first name</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_106"	>Empty last name</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_107"	>Empty address</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_108"	>Empty city</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_109"	>Empty state</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_110"	>Empty zip</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_111"	>Empty phone number</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_1111"	>USA phone number must be 10 digits</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_1112"	>Unknown country in phone number</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_1113"	>Unknown phone number</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_1114"	>Phone number not allowed</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_112"	>Empty confirmation code</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_113"	>Empty country</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_114"	>Invalid paypal ID</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_115"	>Invalid paypal name</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_200"	>We got system internal error. Try again in few minutes.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_201"	>Verification error.  Please double check that your card number, address and billing information are correct</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_404"	>You triggered website surge protection by doing too many requests in a short time. Please make a short break, slow down and try again.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_401"	>Please try again.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_402"	>Please try again.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_403"	>Please try again.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_405"	>Please try again.</TMPL_IF>
+						<font style="color:#c0c0c0; font-size:9px;">(code:%status_code%)</font>
+						</div></div>
+						<br>
+					</div>
+				</TMPL_IF>
+
+				<TMPL_IF NAME="status_is_alert">
+					<div id=form_alert>
+						<div class=error_box ><div class=error_box_inside>
+						<TMPL_IF NAME="status_code_is_10"	>Please wait 10-15 seconds for the call to come from the Zenofon robot.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_12"	>Are you ready for the robot to verify you?.</TMPL_IF>
+						<TMPL_IF NAME="status_code_is_500"	>We detect errors in your "payment Profile". Try to erase and re-create your "payment Profile" or contact our <a href=/contact/>customer service</a> to fix</TMPL_IF>
+						<font style="color:#c0c0c0; font-size:9px;">(code:%status_code%)</font>
+						</div></div>
+						<br>
+					</div>
+				</TMPL_IF>
+
+				<TMPL_IF NAME="status_is_ok">
+					<div id=form_ok >
+						<div class=ok_box ><div class=ok_box_inside>
+						<font color=green><b>OK:</b></font> (Message dismiss in 5 seconds)
+						</div></div>
+						<br>
+					</div>
+					<script>
+					button = document.getElementById("button_cancel");	if (button) {button.readOnly = true; button.disabled = true; }
+					button = document.getElementById("button_del");		if (button) {button.readOnly = true; button.disabled = true; }
+					button = document.getElementById("button_save");	if (button) {button.readOnly = true; button.disabled = true; }
+					</script>
+					<meta http-equiv="refresh" content="2;url=./?action=credits" >
+				</TMPL_IF>
+
+				<div id=form_load style="Display:none; ">
+					<div class=load_box ><div class=load_box_inside >
+					Please wait...
+					</div></div>
+					<br>
+				</div>
+
+
+														<button style="float:left; padding:3px;" 	id=button_cancel	name=button_cancel 	type=button onclick="window.location='?action=credits'"																	><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+				<TMPL_IF NAME="user_action_allow_del">	<button style="float:left; padding:3px;" 	id=button_del		name=button_del 	type=submit onclick="if(confirm('Do you really want erase your payment profile?')){return true} else {return false}"	><img src=/design/icons/cancel.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Erase your payment profile</button>	<input type=hidden name=delete_profile value=1> </TMPL_IF>
+				<TMPL_IF NAME="user_action_allow_add">	<button style="float:left; padding:3px;" 	id=button_save		name=button_save 	type=submit 																											><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Enroll your payment profile</button>	</TMPL_IF>
+
+				<input type=hidden name=action value=credits_profile>
+				<input type=hidden name=click_id id=click_id value=%click_id%>
+
+			</form>
+			<br clear=both>
+			<xxxiframe name=io_iframe id=io_iframe style="display:none; width:400px; height:400px; border:1px solid green;"></iframe>
+
+		</td>
+
+		<td valign=top style=padding-right:30px;></td>
+
+		<td valign=top width=340>
+			<fieldset style="padding:20px;">
+				<h2 style="padding-left:20px; background-image:url(/design/icons/02-35.png); background-repeat:no-repeat; background-position:0 7; margin-bottom:10px;">About your security</h2>
+				We understand security is a very serious concern for online payments and that is why all data is protected with an encrypted Secure Socket Layer (SSL) and a high-grade encryption algorithm. <br>
+				<br>
+				Your billing information is encrypted and stored in a separate and secure billing system. 
+				Your transaction is safe and secure with authorize.net.<br>
+				<br>
+				<div class=clear style="float:right; ">
+				<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="3dabe415-7028-42d4-9826-7d4248c02c00";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Online Payments</a> </div> 
+				</div>
+				<img src=/design/img/cards_logo.gif width=190 height=100 hspace=0 vspace=0 border=0>
+			</fieldset>
+
+		</td>
+
+	</tr></table>
+
+
+
+
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

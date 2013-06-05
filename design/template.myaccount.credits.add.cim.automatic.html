@@ -1,0 +1,206 @@
+<html ><head><title>ZenoFon - My account - Recharge by credit card</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.3.html">
+
+
+
+
+
+
+
+
+
+		<!-- ==================================================== -->
+		<!-- MENU TAB (start)-->
+		<!-- ==================================================== -->
+		<div class="st-box" >
+		<a href=./?action=setup			title="Setup your phone service" 			class="st-item st-item-1-off st-item-left">Your phone<br>settings</a>
+		<a href=./?action=calls 		title="Check your calls" 					class="st-item st-item-4-off">Your calls and <br>balance usage</a>
+		<a href=./?action=profile		title="Set your name and email" 			class="st-item st-item-2-off">Your profile <br>settings</a>
+		<a href=./?action=friends 		title="Invite and check your friends" 		class="st-item st-item-3-off">Referral and <br>commissions</a>
+		<a href=./?action=credits 		title="Your balance is $%service_credit%"	class="st-item st-item-6-on">Balance and <br>recharges</a>
+		<div class=login_box><div class=login_box_inside><div class=login_box_name>%service_name%</div><div class=login_box_balance>$%service_credit%</div><div class=login_box_logout><a href=./?action=logout title="Log-out" >Log-out</a></div></div></div>
+		<br clear=both>
+		</div>
+		<!-- ==================================================== -->
+		<!-- MENU TAB (stop)-->
+		<!-- ==================================================== -->
+
+
+
+
+
+
+	<!-- ==================================================== -->
+	<!-- CONTENT (active)-->
+	<!-- ==================================================== -->
+
+
+	<!-- ------------------------------ -->
+	<!-- warning messages at the top -->
+	<!-- ------------------------------ -->
+
+	
+	
+	
+		<table border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear width=100%><tr>
+
+		<td valign=top>
+			<h2>Auto recharge</h2>
+			Zenofon's auto recharge feature is a convenient option that automatically charges more credits to your account via your credit card profile.  
+			If you choose to activate it, choose below the threshold levels that you find most appealing:
+			<br>
+			<br>
+
+			<script>
+			function form_check(){
+				MyDisplay('loading_form',1);
+				document.forms[0].elements[6].disabled = true;
+				document.forms[0].elements[6].readonly = true;
+				return true;
+			}
+			function form_enable(){
+				for (i=1;i<=4;i++){
+					document.forms[0].elements[i].disabled = false;
+					document.forms[0].elements[i].readonly = false;
+				}
+			}
+			function form_disable(){
+				for (i=1;i<=4;i++){
+					document.forms[0].elements[i].disabled = true;
+					document.forms[0].elements[i].readonly = true;
+				}
+			}
+			function form_update_enable(){
+				if(document.forms[0].elements[0].checked){
+					form_enable();
+				} else {
+					form_disable();
+				}
+			}
+			</script>
+
+
+			<form action="index.cgi"  method=post onsubmit="return form_check();">
+
+		
+				<div class=clear style="margin-left:20px; margin-bottom:10px;">
+				<table width=350 border=0 colspan=0 cellpadding=0 cellspacing=0 class=clear ><tr>
+				<td valign=top>
+					<input onchange="form_update_enable();" type=checkbox name=enabled id=enabled value=1  <TMPL_IF NAME="form_enabled">Checked</TMPL_IF> <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF> <TMPL_IF NAME="can_auto_recharge"><TMPL_ELSE>disabled readonly</TMPL_IF> style="margin-top:5px;border:0px;">
+				</td>
+				<td valign=top>
+					<h1 style="margin-bottom:5px;"><LABEL for=enabled>Enable auto recharge</label></h1>
+					When my Zenofon account reaches:<br>
+						<select name=threshold style="width:100%; height:32px; padding:5px; margin-bottom:10px;" <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF>  <TMPL_IF NAME="can_add_credit"><TMPL_ELSE>disabled readonly</TMPL_IF>>
+						<option %form_select_threshold_balance_5% value='balance_5'>a $5  balance </option>
+						<option %form_select_threshold_balance_2% value='balance_2'>a $2 balance</option>
+						</select><br>
+					Auto recharge:<br>
+						<select name=value style="width:100%; height:32px; padding:5px; margin-bottom:10px;" <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF>  <TMPL_IF NAME="can_add_credit"><TMPL_ELSE>disabled readonly</TMPL_IF>>
+						<TMPL_IF NAME="enable_5_dollars"><option  %form_select_value_5%  value='5'> add $5 in credits</option></TMPL_IF>
+						<TMPL_IF NAME="enable_10_dollars"><option %form_select_value_10% value='10'>add  $10 in credit</option></TMPL_IF>
+						<TMPL_IF NAME="enable_20_dollars"><option %form_select_value_20% value='20'>add $20 in credit</option></TMPL_IF>
+						</select><br>
+					From:<br>
+						<select name=from style="width:100%; height:32px; padding:5px; margin-bottom:10px;" <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF>  <TMPL_IF NAME="can_add_credit"><TMPL_ELSE>disabled readonly</TMPL_IF>>
+						<option value=''>from my credit card saved in my "Credit card profile"</option>
+						</select><br>
+					But:<br>
+						<select name=but style="width:100%; height:32px; padding:5px;" <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF>  <TMPL_IF NAME="can_add_credit"><TMPL_ELSE>disabled readonly</TMPL_IF>>
+						<option %form_select_but_30days_40% value='30days_30'>but limit my auto recharges to $30 per 30 days</option>
+						<option %form_select_but_30days_60% value='30days_60'>but limit my auto recharges to $60 in 30 days</option>
+						<option %form_select_but_30days_90% value='30days_90'>but limit my auto recharges to $90 in 30 days</option>
+						</select><br>
+					<br>
+				</td>
+				</tr></table>
+				</div>
+
+					
+				<TMPL_IF NAME="status_error">
+					<div class=alert_box ><div class=alert_box_inside>
+					<font color=red><b>I cannot save:</b></font> 
+					<TMPL_IF NAME="error_message_no_click_check">Internal error. Try again.<br></TMPL_IF>
+					<TMPL_IF NAME="error_message_not_aproved">I cannot approve your auto recharge right now. Please try again in few minutes.<br></TMPL_IF>
+					</font>
+					<br>
+				</TMPL_IF>
+
+
+				<TMPL_IF NAME="status_save_ok">
+					<div class=alert_box ><div class=alert_box_inside>
+					<font color=green><b>Save OK:</b></font> Message dismiss in 5 seconds
+					</div></div>
+					<br>
+					<script>setTimeout("window.location='./?action=credits';", 3000); </script>
+				</TMPL_IF>
+
+
+				<div id=loading_form style="Display:none; ">
+					<div class=alert_box ><div class=alert_box_inside style="background-image:url(/design/img/loading.gif);background-repeat:no-repeat;">
+					Please wait...
+					</div></div>
+					<br>
+				</div>
+
+
+				<TMPL_IF NAME="can_auto_recharge">
+					<TMPL_IF NAME="profile_ok">
+					<TMPL_ELSE>
+					<div class=alert_box ><div class=alert_box_inside>
+						This tool is disabled. 
+						<TMPL_IF NAME="profile_exists"><TMPL_ELSE> You need first fill your <a href=%my_url%?action=credits_profile>"payment Profile"</a>.</TMPL_IF>
+						<TMPL_IF NAME="profile_with_cc_errors"> We detect errors in your <a href=%my_url%?action=credits_profile>"payment Profile"</a>. Try to fix or contact our <a href=/contact/>customer service</a> to fix</TMPL_IF>
+						</div></div>
+						<br>
+					</TMPL_IF>
+				<TMPL_ELSE>
+					<div class=alert_box ><div class=alert_box_inside>
+					Sorry, but recharge is disabled for this account. Contact <a href=/contact/>customer service</a> to fix-it.
+					</div></div>
+					<br>
+				</TMPL_IF>
+
+
+				<button style="padding:3px;" type=button onclick="window.location='?action=credits'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 width=16 height=16 align=left> Cancel</button>
+				<button style="padding:3px;" type=submit <TMPL_IF NAME="profile_ok"><TMPL_ELSE>disabled readonly</TMPL_IF> <TMPL_IF NAME="can_auto_recharge"><TMPL_ELSE>disabled readonly</TMPL_IF> ><img src=/design/icons/accept.png hspace=0 vspace=0 border=0 width=16 height=16 align=left>Save auto recharge settings</button>
+				<input type=hidden name=action value=credits_buy_cim_automatic>
+				<input type=hidden name=save value=1>
+				<input type=hidden name=click_check value=%click_check%>
+			</form>
+		</td>
+
+
+
+
+
+		<td valign=top style=padding-right:50px;></td>
+
+		<td valign=top width=340>
+			<fieldset style="padding:20px;">
+				<h2 style="padding-left:20px; background-image:url(/design/icons/02-35.png); background-repeat:no-repeat; background-position:0 7; margin-bottom:10px;">About your security</h2>
+				We understand security is a very serious concern for online payments and that is why all data is protected with an encrypted Secure Socket Layer (SSL) and a high-grade encryption algorithm. <br>
+				<br>
+				Your billing information is encrypted and stored in a separate and secure billing system. 
+				Your transaction is safe and secure with authorize.net.<br>
+				<br>
+				<div class=clear style="float:right;">
+				<!-- (c) 2005, 2010. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="3dabe415-7028-42d4-9826-7d4248c02c00";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net/anetseal/seal.js" ></script> <a href="http://www.authorize.net/" id="AuthorizeNetText" target="_blank">Online Payments</a> </div> 
+				</div>
+				<img src=/design/img/cards_logo.gif width=190 height=100 hspace=0 vspace=0 border=0>
+			</fieldset>
+		</td>
+
+	</tr></table>
+	
+	
+	<TMPL_IF NAME="profile_ok">
+		<TMPL_IF NAME="can_add_credit">
+			<script>form_update_enable();</script>
+		</TMPL_IF>	
+	</TMPL_IF>
+
+	
+	
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

@@ -1,0 +1,106 @@
+<TMPL_INCLUDE NAME="template.base.top.html">
+
+
+<div style="margin-left:220px; margin-top:20px;">
+	<div style="width:1000px; text-align:left; ">
+
+
+<form>
+
+<table id="list2"></table>
+<div  id="pager2"></div>
+
+<input type="hidden" name="csvBuffer">
+	<input type="hidden" name="csvHeading">
+		<input type="hidden" name="row">
+	<input type="hidden" name="title" value="%EXPORT_TITLE%">
+	
+<p><script language="javascript">
+
+jQuery("#list2").jqGrid({
+	
+		url:'%MY_URL%?action=%action%&sub_action=load_data', 
+		datatype: "json", 
+		colNames:%COL_NAMES%, 
+		colModel:%COL_MODEL%, 
+		rowNum:10, 
+		rowList:[10,20,30,100], 
+		pager: '#pager2', 
+		sortname: 'id',
+		viewrecords: true, 
+		sortorder: "desc",
+		rownumbers:true,
+		rowWidth:40,
+		height:"auto",
+		caption:"%TITLE%" });
+		
+    jQuery("#list2").jqGrid('navGrid','#pager2',{edit:false,add:false,del:false});
+	
+	jQuery("#list2").jqGrid('navButtonAdd','#pager2',{
+       caption:"Export To Excel", 
+       onClickButton : function () {
+				exportExcel();
+           //jQuery("#list2").jqGrid('excelExport',{"onClickButton":function(){"exportExcel();"}});
+       } 
+});
+	
+function exportExcel(){
+	
+	var mya=new Array();
+	
+	mya=$("#list2").getDataIDs();  // Get All IDs
+
+            var data=$("#list2").getRowData(mya[0]);     // Get First row to get the labels
+
+            var colNames=new Array(); 
+
+            var ii=0;
+			 var heading =new Array();
+			 $k=0;
+            for (var i in data){
+				
+					colNames[ii++]=i;
+					heading[$k++]=i;
+					
+			}    // capture col names
+			
+			
+			var outerArray=new Array();
+			var rowlength=mya.length;
+			for(i=0;i<mya.length;i++)
+
+            {
+               data=$("#list2").getRowData(mya[i]); // get each row
+				
+				var innerArray=new Array();
+				
+                for(j=0;j<colNames.length;j++)
+
+                    {
+						data[colNames[j]] = data[colNames[j]].replace(/<\/?[^>]+(>|$)/g, "");
+						innerArray.push(data[colNames[j]]);
+                    }
+					outerArray.push(innerArray);
+			}
+			var obj={};
+			obj={"Data":outerArray};
+			
+			
+			
+			var JSONArr=JSON.stringify(obj);
+			
+			document.forms[0].csvBuffer.value=JSONArr;
+			document.forms[0].csvHeading.value=heading;
+			document.forms[0].row.value=rowlength;
+			document.forms[0].method='POST';			
+            document.forms[0].action="refund_ExcelExport.cgi";// send it to server which will open this contents in excel file
+         	document.forms[0].target='_blank';
+			document.forms[0].submit();
+}	
+
+</script>
+</form>
+	</div>
+</div>
+
+<TMPL_INCLUDE NAME="template.base.bot.html">

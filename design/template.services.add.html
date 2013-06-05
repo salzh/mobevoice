@@ -1,0 +1,367 @@
+<html ><head><title>ZenoFon - Services - Create new account</title>
+<TMPL_INCLUDE NAME="template.include.top.menu.0.html">
+
+
+
+
+
+
+		<!-- ----------------------------- -->
+		<!-- mode: no invite-->
+		<!-- ----------------------------- -->
+	    <TMPL_IF NAME="mode_no_invite">
+			<div class=clear style="padding:30px;">
+			<div class=clear style="width:350px; background-image:url(/design/img/invite.error.png); background-repeat:no-repeat;">
+			<div class=clear style="padding-left:75px;padding-top:5px;">
+			<h2>Im sorry, you have no invite</h2>  	
+			We restrict all new members by  referral only.
+			We do this to make sure we can give credit to the people who help us out with word of mouth referrals.
+			<br>
+			Ask your friends for an invite or <a target=_blank href=http://search.io/search-engines/zenofon%20invite/>search the web</a> for one.
+			</div>
+			</div>
+			</div>
+	    </TMPL_IF>
+
+
+
+
+		<!-- ----------------------------- -->
+		<!-- mode: public invite request   -->
+		<!-- ----------------------------- -->
+	    <TMPL_IF NAME="mode_public_invite_request">
+
+			<h2>You have been invited by "%invite_name%"</h2>
+			Lets get this done! To start, enter below, an email where we can send <br>
+			you a confirmation code that you will need to enter on the next page.<br>
+			<br>
+
+			<div class=clear style=width:400px;>
+			<TMPL_IF NAME="coupon_exists">
+				<TMPL_IF NAME="coupon_in_stock">
+					<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/coupon.box.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+					%coupon_msg_in_stock%<br>
+					<br>
+				<TMPL_ELSE>			
+					<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/invite.box.phone.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+				</TMPL_IF>			
+			<TMPL_ELSE>			
+				<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/invite.box.phone.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+			</TMPL_IF>			
+
+			<form class=clear action=%my_url% method=post target=_top>
+			Your email<br>
+			<input name=email value="%form_email%" style="<TMPL_IF NAME=error_bad_email>background-color:red; color:#ffffff;</TMPL_IF>" ><br>
+			<br>
+			<TMPL_IF NAME="error">
+				<div class=error_box><div class=error_box_inside>
+				<h1>I cannot send!</h1>
+				<TMPL_IF NAME="error_bad_email">Your email is bad<br></TMPL_IF>
+				</div></div>
+				<br>
+			</TMPL_IF>
+			<TMPL_IF NAME="warning">
+				<TMPL_IF NAME="warning_existent_email">
+					<div class=alert_box><div class=alert_box_inside>
+					<h1>Email in Use!</h1>
+					You already have a Zenofon account with this email.
+					We limit one account per email.<br>
+					<br>
+					<button type=button onclick="window.location='%my_url%?action=login&acc=%form_email%'"><img src=/design/icons/key.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Go to Your account</button><br>
+					<br>
+					If you need a new ZenoFon account, use another email.  If you forgot your PIN we can send it to you via Email.
+					</div>
+					</div>
+					<br>
+				</TMPL_IF>
+			</TMPL_IF>
+			<button id=submitbutton type=submit><img src=/design/icons/arrow.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Get confirmation code</button>
+			<input type=hidden name=action value=service_add>
+			<input type=hidden name=mode   value=public_invite_request>
+			<input type=hidden name=save   value=1>
+			</form>
+
+			</div></fieldset></div>
+
+			
+	    </TMPL_IF>
+
+
+
+
+		<!-- ----------------------------- -->
+		<!-- mode: public invite confirm   -->
+		<!-- ----------------------------- -->
+	    <TMPL_IF NAME="mode_public_invite_confirm">
+		<form class=clear action=%my_url% method=post target=_top>
+		<div class=clear style="width:450px;">
+
+			<h2>Confirmation Code Please!</h2>
+			Enter your email and the confirmation code that we just sent you. 
+			If you don't see the email from us, it might be in your spam folder. 
+			Click cancel and enter your email again if you didn't receive your invite yet.<br>
+			<br>
+
+			<TMPL_IF NAME="coupon_exists">
+				<TMPL_IF NAME="coupon_in_stock">
+					<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/coupon.box.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+					%coupon_msg_in_stock%<br>
+					<br>
+				<TMPL_ELSE>			
+					<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/invite.box.phone.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+				</TMPL_IF>			
+			<TMPL_ELSE>			
+				<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/invite.box.phone.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+			</TMPL_IF>			
+
+
+			Your first name<br>
+			<input name=name value="%form_name%" style="<TMPL_IF NAME=error_bad_name>background-color:red; color:#ffffff;</TMPL_IF>" ><br>
+			Your email<br>
+			<input name=email value="%form_email%" style="<TMPL_IF NAME=error_bad_email>background-color:red; color:#ffffff;</TMPL_IF>" ><br>
+			The confirmation code<br>
+			<input name=key value="%form_key%" style="<TMPL_IF NAME=error_bad_key>background-color:red; color:#ffffff;</TMPL_IF>" ><br>
+			Terms<br>
+			<div class=clear style="height:150px; width:100%; background:#ffffff; overflow-x:hidden; overflow-y:scroll; margin:1px; padding:0px; border:1px solid #c0c0c0; font-family:Verdana, Arial, Sans-Serif; font-size:11px; line-height:120%;">
+			<div class=clear style="padding:10px;">
+					<center><h1>Terms of Service</h1></center>
+					<br>
+					<br>
+					These Terms and Conditions of Service constitute the agreement ("Agreement") between ZENOFON LLC  (" ZENOFON  "we", "us"), and the user ("Customer" "you", or "user") of ZENOFON calling services and any related products or services ("Service").
+					<br>
+					<br>
+					The following terms must be agreed to before obtaining an account. 
+					<br>
+					<br>
+					<b>1 -</b> By activating or using the ZenoFon service, Customer represents he/she is of legal age to enter into this agreement (usually 18) where you live and that you have used your own funds to do so
+					<br>
+					<br>
+					<b>2 -</b>As ZenoFon uses Ani Recognition to recognize the authorized user's caller ID and to bill their account, ZenoFon wil not be held liable for any failure of the Ani Recognition due to equipment failure.
+					<br>
+					<br>
+					<b>3 -</b>User hereby understands and agrees that they will have to dial its password to make additional calls.
+					<br>
+					<br>
+					<b>4 -</b>Customer hereby agrees to maintain and update his/her current contact information and address its in the ZenoFon database by logging in to www.zenofon.com.
+					<br>
+					<br>
+					<b>5 -</b>Customer agrees to maintain his/her telephone/cell phone service to deliver ZenoFon service. ZenoFon will not be liable for any malfunction in customer's phone service.
+					<br>
+					<br>
+					<b>6 -</b>ZenoFon service is currently available to make outgoing calls from within United States. Customer hereby agrees not to use this service as a third party business or as a reseller, and only to place calls for its own account.
+					<br>
+					<br>
+					<b>7 -</b>ZenoFon does not support 911 service or any other emergency service and Customer hereby understands ZenoFon cannot be relied to obtain emergency help. Local landline service must be used for emergency service.
+					<br>
+					<br>
+					<b>8 -</b>ZenoFon is not the same as landline telecommunications service. The service is subject to different regulatory treatments compared to pure telecommunications service. This treatment may limit or otherwise affect your rights before regulatory agencies.
+					<br>
+					<br>
+					<b>9 -</b>ZenoFon service is a pre-paid phone service exclusively. Customer hereby agrees that ZenoFon service that he/she will maintain a credit balance in his/her account. Customer is expected to replenish his/her credit balance by using a credit/debit card. Customers may opt to have its account set to "automatic replenish", at no change, to avoid repeated manual recharge. Customers accounts may be replenished either online in Customer's "My Account" page on www.zenofon.com or by calling ZenoFon customer service at 1 (619) 212-7761  from the United States.
+					<br>
+					<br>
+					<b>10 -</b>For billing purposes, fractional calls to the USA  will be rounded up to the next 6 seconds.  For international calls it will be rounded to the next minute  For example, a 6.4 minute call will be billed as a 7 minute call, as will a 6.5 minute call.<br>
+					<br>
+					<b>11 -</b>There is no cancellation charge as of this writing. In the future ZenoFon may impose a cancellation charge with 7  days notice to all Customers by email.
+					<br>
+					<br>
+					<b>12 -</b>Customer hereby agrees that rate changes may occur without prior notice, due to maket conditions beyond the control of ZenoFon. Customer is advised to check the current rates on the www.zenofon.com website before placing calls.
+					<br>
+					<br>
+					<b>13 -</b>Rates include all taxes, surcharges and any other fees.   
+					<br>
+					<br>
+					<b>14 -</b>In the event of a dropped call, Customer hereby agrees to notify ZenoFon and ZenoFon will refund the charge at ZenoFon's sole discretion. All claims must be made within 1 day of the call..
+					<br>
+					<br>
+					<b>15 -</b>At this time, ZenoFon has local access numbers in the U.S. only. ZenoFon is considering adding foreign access numbers at a later date.
+					<br>
+					<br>
+					<b>16 -</b>There is no extra payphone access charge for non-toll free calls.
+					<br>
+					<br>
+					<b>17 -</b>ZenoFon is based on Voice Over Internet Protocol (VOIP), and as such, certain anomalies may occur beyond the control of ZenoFon. The quality of VOIP is not guaranteed by ZenoFon.
+					<br>
+					<br>
+					<b>18 -</b>ZenoFon believes that its affiliate commission plan is legal in the State of New York. However, in the event of any illegality by any competent jurisdiction, Customer hereby forgoes and absolves ZenoFon of any ommission.
+					<br>
+					<br>
+					<b>19 -</b>In the event of any legal action by ZenoFon to recover unbilled minutes, Customer hereby agrees to indemnify ZenoFon for any and all costs, including but limited to reasonable legal fees.
+					<br>
+					<br>
+					<b>20 -</b>ZenoFon is not responsible for any unauthorized third-party use of Customer's account.
+					<br>
+					<br>
+					<b>21 -</b>ZenoFon is not responsible for any charges from Customer's regular phone service provider in the event that Customer's regular phone service provider bills Customer for incoming calls in the course his/her using ZenoFon service.
+					<br>
+					<br>
+					<b>22 -</b>Customer acknowledges that if he/she breaches the Terms of Service, ZenoFon unconditionally reserves the right to close his/her account.
+					<br>
+					<br>
+					<b>23 -</b>Although ZenoFon is not paying commission for customer referrals at the time of the writing of these Terms, ZenFon will nevertheless begin paying commission for customer referrals when we start charging for our service.
+					<br>
+					<br>
+					<b>24 -</b>Customer acknowledges that free credits for service may be revoked for any reason if ZenoFon sees fit to do so.
+					<br>
+					<br>
+					<b>25 -</b>Customer agrees not to use ZenoFon service for any illegal purpose, including but not limited to prank phone calls and fraud. 
+					<br>
+					<br>
+					<b>26 -</b>Customer acknowledges that ZenoFon will release his/her record of service to any public law enforcement agency upon request.
+					<br>
+					<br>
+					<b>27 -</b>Customer acknowledges that in the event that his regular phone service provider does not bill him/her for any call, he/she alone is responsible for alerting his/her regular phone service provider to this omission.
+					<br>
+					<br>
+					<b>28 -</b>Customer acknowledges that all credit card charges to his/her ZenoFon account are non-refundable, and can only be made towards ZenoFon service credit.
+					<br>
+					<br>
+					<b>29 -</b>Customer acknowledges that all ZenoFon service credit expires 6 months after it was first charged to his/her account.
+					<br>
+					<br>
+					<b>30 -</b>Customer acknowledges that ZenoFon has the right to cancel service at any time.
+					<br>
+					<br>
+					<b>31 -</b>ZenoFon service is normally granted by referral only, Customer may only sign up once for a free account.
+					<br>
+					<br>
+					<b>32 -</b>Customer acknowledges if he/she is discovered to have signed up more than one free account, ZenoFon reserves the right to block Customer's service, charge Customer retroactively, and cancel Customer's account.
+					<br>
+					<br>
+					<b>33 -</b>Customer acknowledges that all listed rates are subject to change at any time. ZenoFon will attempt to contact Customer if rates to his/her destination change.
+					<br>
+					<br>
+					<b>34 -</b>All ZenoFon rates are listed both with and without taxes.
+					<br>
+					<br>
+					<b>35 -</b>Customer acknowledges that there are separate rates for calls that originate via Triggered Callback or by dialing into an access number.
+					<br>
+					<br>
+					<b>36 -</b>Customer may charge more service credit to his/her account when ZenoFon starts charging for our service. He/she may request more service credit before that time.  Zenofon at its sole discretion will add or deduct more credits for customer's account
+					<br>
+					<br>
+					<b>37 -</b>At the time of writing these Terms, a new Customer gets $1 free when he/she first signs up. In the future, ZenoFon may change the amount of this offer at our sole discretion.
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<center><h1>Privacy Policy</h1></center>
+					<br>
+					<br>
+					 Zenofon LLC knows that you care how information about you is used and shared, and we appreciate your trust that we will do so carefully and sensibly. We take your privacy seriously. You can learn more about our Privacy Policy below. By visiting Zenofon LLC.com or using our services, you are accepting the practices described in this Privacy Policy.<br>
+					<br>
+					<b>1. What Does This Privacy Policy Cover?</b><br>
+					This policy covers how Zenofon LLC treats personal information that Zenofon LLC collects and receives. This includes information related to your past use of Zenofon LLC products and services and information about you that is personally identifiable-such as your name, address, email address, or phone number.<br>
+					This Privacy Policy, however, does not apply to the practices of companies that are not affiliated with Zenofon LLC. <br>
+					<br>
+					<b>2. What Information Do We Collect and How Do We Use It? </b><br>
+					Zenofon LLC collects personal information when you register for Zenofon LLC services or use Zenofon LLC features and products. When you register, we ask for personal information, including but not limited to your name, email address, and zip code. Once you register with Zenofon LLC and sign into our services, you are not anonymous to us. Zenofon LLC also collects information about your transactions with us, including information about your use of our services. We automatically receive and record information on our server logs from your browser, including your IP address and Zenofon LLC cookie information. Zenofon LLC uses the information for the following purposes, among others: to fulfill your requests for products and services, to improve our services, and to contact you.<br>
+					<br>
+					<b>Sharing And/Or Disclosing Information</b><br>
+					Information about our customers is an important part of our business. We share customer information only as described below. <br>
+					Zenofon LLC may disclose customers' personal information in the following situations: <br>
+					We may respond to subpoenas, court orders, or other legal requirements, or seek to establish or exercise our legal rights or defend against legal claims.<br>
+					We believe it is necessary to disclose such information in order to investigate, prevent, or take action regarding illegal activities, suspected fraud, situations involving potential threats to physical safety of any person, or violations of Zenofon LLC's Terms of Service.<br>
+					In the event Zenofon LLC is acquired by or merged with another company, the terms of this Privacy Policy shall continue to apply. In this event, Zenofon LLC will notify you before information about you is transferred and becomes subject to a different privacy policy.<br>
+					Other than as set out above, you will receive notice when information about you might go to third parties, and you will have an opportunity to choose not to share the information. Zenofon LLC also reserves the right to display targeted advertisements based on personal information. <br>
+					<br>
+					<b>Zenofon LLC Cookies</b><br>
+					Zenofon LLC may set and access Zenofon LLC cookies on your computer. We also let other companies that show advertisements on some of our pages set and access their cookies on your computer. Those cookies are independent of Zenofon LLC and are subject to the privacy policies of the company placing the cookie, not to this policy.<br>
+					<br>
+					<b>Your Right To Edit And Delete Your Information</b><br>
+					You can contact Zenofon LLC to edit or delete your Zenofon LLC personal information at anytime if you have terminated your business relationship with us.<br>
+					<br>
+					<b>Children</b><br>
+					Zenofon LLC does not sell products for purchase by children. We sell products for purchase by adults, although they may be used by children. If you are under 18, you may use the Zenofon LLC website only with the involvement of a parent or guardian. <br>
+					<br>
+					<b>Confidentiality And Security</b><br>
+					Zenofon LLC limits internal access to your personal information to employees who we reasonably believe require this information in order to do their jobs or to provide products and services to you.<br><br>
+					<br>
+					<b>Conclusion</b><br>
+					Zenofon LLC may update this policy at any time. We will notify you about any substantive changes in the way we treat your personal information by sending a notice to the primary email address you specified in your Zenofon LLC account application or by placing a notice in a prominent place on our web site. If you have further questions or suggestions regarding Zenofon LLC's Privacy Policy, you can contact us at Support@Zenofon LLC <br>
+					<br>
+			</div></div><input type=checkbox <TMPL_IF NAME="form_accept">checked</TMPL_IF> style=margin-right:5px; name=accept value=1>I read and accept<br>
+			<br>
+
+				
+			<br>
+			<TMPL_IF NAME="error">
+				<div class=error_box><div class=error_box_inside>
+				<h1>You are not confirmed!</h1>
+				<TMPL_IF NAME="error_bad_name">Your name is bad<br></TMPL_IF>
+				<TMPL_IF NAME="error_bad_email">Error in email Format<br></TMPL_IF>
+				<TMPL_IF NAME="error_bad_key">Incorrect confirmation code<br></TMPL_IF>
+				<TMPL_IF NAME="error_bad_accept">Click to accept our "Terms of Service" and "Privacy Policy"<br></TMPL_IF>
+				<TMPL_IF NAME="error_unknown_request">We can't match  this confirmation code to this email.<br></TMPL_IF>
+				<TMPL_IF NAME="error_wrong_request">Bad confirmation code or email. Try again.<br></TMPL_IF>
+				</div></div>
+				<br>
+			</TMPL_IF>
+			<TMPL_IF NAME="warning">
+				<TMPL_IF NAME="warning_existent_email">
+					<div class=alert_box><div class=alert_box_inside>
+					<h1>Email in Use!</h1>
+					You already have a Zenofon account with this email.
+					You can login with this email and your PIN into your Zenofon account.<br>
+					<br>
+					<button type=button onclick="window.location='%my_url%?action=login&acc=%form_email%'"><img src=/design/icons/key.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Go to Your account</button><br>
+					<br>
+					If you need a new Zenofon account, use another email.  If you lost your PIN you can request that we resend you your PIN
+					</div>
+					</div>
+					<br>
+				</TMPL_IF>
+			</TMPL_IF>
+			<div class=clear id=submitbutton>
+				<button type=button onclick="window.location='%my_url%?action=service_add&mode=public_invite_cancel'"><img src=/design/icons/delete.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Cancel</button>
+				<button type=submit><img src=/design/icons/tick.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Join zenofon</button>
+			</div>
+			<input type=hidden name=action value=service_add>
+			<input type=hidden name=mode   value=public_invite_confirm>
+			<input type=hidden name=save   value=1>
+			</div></fieldset>
+
+		</form></div>
+		</TMPL_IF>
+
+
+
+		<!-- ----------------------------- -->
+		<!-- mode: public invite confirm   -->
+		<!-- ----------------------------- -->
+	    <TMPL_IF NAME="mode_service_add_ok">
+
+
+			<h2>Welcome to Zenofon!</h2>
+			You will need your PIN to login in the future.  It was just emailed to you,<br>
+			as well as listed below: Click continue to finish setting up your account.<br>
+			<br>
+	
+			<div class=clear style=width:500px;>
+			<TMPL_IF NAME="coupon_exists">
+				<TMPL_IF NAME="coupon_assigned"> 
+					<fieldset style="padding:0px;padding-bottom:10px;background-image:url(/design/img/coupon.box.ok.png); background-position:10 0;background-repeat:no-repeat;"><div class=clear style="padding-left:90px;padding-top:20px; padding-bottom:15px;padding-right:10px;">
+					%coupon_msg_assigned%<br>
+					<br>
+				<TMPL_ELSE>			
+					<fieldset><div class=clear>
+				</TMPL_IF>			
+			<TMPL_ELSE>			
+				<fieldset><div class=clear>
+			</TMPL_IF>			
+			Your contact name is: <b>%service_name%</b><br>
+			Your contact email is: <b>%service_email%</b><br>
+			Your Personal Identification Number is: <b>%service_pin%</b><br>
+			You were invited by: <b>%invite_name%</b><br>
+			<br>
+			<form action="/myaccount/" method=post>
+			<button type=submit><img src=/design/icons/arrow-000-medium.png hspace=0 vspace=0 border=0 style="padding-right:5px;">Continue...</button>
+			</form>
+			</div></fieldset>
+
+		</TMPL_IF>
+
+
+<TMPL_INCLUDE NAME="template.include.bot.html">
+</body></html>

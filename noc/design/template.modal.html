@@ -1,0 +1,74 @@
+<html>
+    <head>
+	<title>%TITLE%</title>
+<link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/jquery.dataTables.min.js"></script>
+
+	<link 	href=/noc/design/template.css 								type=text/css			rel=stylesheet media=all  title=win2k-1 />
+	<script src="/noc/design/template.js"								type="text/javascript"	></script>
+	<style>
+	body 	{
+		color:#5d788c;
+	    background-color:#e0e0e0;
+	}
+	
+	.last_changes {
+		color:#a0a0a0;
+		line-height:120%;
+		padding:5px;
+		border:1px solid #e1cf85;
+		background-color:#fcfcc6;	
+	}
+	.last_changes h1 {
+		font-size:14px;
+	}
+	.last_changes ul {
+		font-size:10px;
+		margin:0px;
+		padding:0px;
+		padding-left:20px;
+	}
+	.last_changes ul li {
+		margin-bottom:5px;
+		margin-top:5px;
+	}
+	input, select {
+		width:100%; 
+	}
+	fieldset {
+		border:1px solid #c0c0c0;
+		padding:10px;
+		padding-top:5px;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+	}
+	legend	{
+		font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+		font-size:14px;
+		font-weight:bold;
+		letter-spacing:0px;
+		margin:0;
+		padding:0;
+		border:0;
+	}
+	</style>
+    </head>
+    <body >
+    
+	%CONTENT%
+    
+    </body>
+	<script>
+	$(document).ready(function(){
+  $('#debugtable').dataTable();
+});
+	</script>
+	
+</html>
+
+
+
+
+
